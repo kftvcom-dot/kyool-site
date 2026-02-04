@@ -16,8 +16,8 @@
   --radius:22px;
   --radius2:16px;
 
-  --max:1520px;
-  --pad:22px;
+  --max:1760px;
+  --pad:12px;
 
   --topbarH:72px;
 }
@@ -232,3 +232,36 @@ section{padding: 46px 0 56px;}
   .tablet,.square{transform:none;}
   nav{justify-content:flex-start}
 }
+/* LEFT column becomes a vertical layout so we can push blocks down */
+.left-col{
+  min-height: calc(100vh - var(--topbarH) - 70px);
+  display:flex;
+  flex-direction:column;
+}
+
+/* push the two blocks lower (but not fully stuck to bottom) */
+.below-text{
+  margin-top:auto;           /* pushes it down */
+  padding-bottom:78px;       /* keep space for bottom bar */
+}
+
+/* bottom bar like topbar */
+.bottombar{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:60;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.58);
+  border-top:1px solid var(--border);
+}
+.bottombar-inner{
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  color: rgba(255,255,255,.68);
+  font-size:13px;
+  flex-wrap:wrap;
+}
+
