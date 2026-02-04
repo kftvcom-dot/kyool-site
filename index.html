@@ -4,67 +4,86 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>KYOOL — Site vitrine</title>
+
   <style>
     :root{
       --kyool-blue:#24C7EB;
       --kyool-orange:#F39800;
       --kyool-green:#25CE62;
+
       --bg-top:#000000;
-      --bg-bottom:#081a33; /* bleu nuit */
+      --bg-bottom:#081a33;
+
       --text:#ffffff;
       --muted:rgba(255,255,255,.78);
+
       --card:rgba(255,255,255,.06);
       --border:rgba(255,255,255,.12);
       --shadow:0 18px 50px rgba(0,0,0,.45);
+
       --radius:22px;
       --radius2:14px;
+
       --max:1160px;
+      --topbarH:74px;
     }
 
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  color:var(--text);
-  min-height:100vh;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
 
-  /* Fond KYOOL : noir → bleu nuit + halo bleu */
-  background:
-    radial-gradient(900px 520px at 78% 10%, rgba(36,199,235,.25), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
-}
+      background:
+        radial-gradient(900px 520px at 78% 10%, rgba(36,199,235,.22), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+    }
+
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+
+    /* Topbar */
     .topbar{
-      position:sticky; top:0; z-index:9;
+      position:sticky; top:0; z-index:20;
       backdrop-filter: blur(10px);
       background: rgba(0,0,0,.55);
       border-bottom:1px solid var(--border);
     }
     .topbar-inner{
+      height: var(--topbarH);
       display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
       gap:16px;
     }
+
     .brand{
-      display:flex; flex-direction:column; line-height:1.05;
-      gap:6px;
+      display:flex; align-items:center; gap:12px;
+      min-width: 210px;
     }
-    .logo{
+    .brand img{
+      height:34px;
+      width:auto;
+      display:block;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+    }
+    .brand-text{display:flex; flex-direction:column; line-height:1.05; gap:6px;}
+    .logo-fallback{
       font-weight:900; letter-spacing:.4px;
-      font-size:22px;
+      font-size:20px;
     }
-    .slogan{
-      font-size:12.5px;
-      color:var(--muted);
-    }
-    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .slogan{font-size:12.5px; color:var(--muted);}
+
+    nav{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
     nav a{
       padding:9px 12px;
       border-radius:999px;
       border:1px solid transparent;
       color:var(--muted);
       transition:.18s ease;
+      font-size:14px;
+      white-space:nowrap;
     }
     nav a:hover{
       color:#000;
@@ -72,12 +91,35 @@
       border-color:rgba(255,255,255,.15);
     }
 
-    .hero{padding:46px 0 26px;}
+    /* “Pages” */
+    section{
+      min-height: 100vh;
+      padding: calc(var(--topbarH) + 26px) 0 46px;
+      scroll-margin-top: calc(var(--topbarH) + 12px);
+      display:flex;
+      align-items:flex-start;
+    }
+    .section-inner{width:100%;}
+    .section-title{
+      font-size:28px;
+      margin:0 0 14px;
+      letter-spacing:-.4px;
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+    }
+
+    /* HERO */
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.05fr .95fr;
       gap:22px;
-      align-items:center;
+      align-items:start;
     }
     .title{
       font-size: clamp(34px, 4vw, 56px);
@@ -91,107 +133,163 @@
       color:var(--muted);
       font-size:16.5px;
       line-height:1.45;
-      max-width:54ch;
+      max-width:56ch;
     }
+
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
     .btn{
-      display:inline-flex; align-items:center; gap:10px;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:12px 14px;
       border-radius:999px;
       background:#fff;
       color:#000;
-      font-weight:700;
+      font-weight:800;
       border:1px solid rgba(255,255,255,.08);
       box-shadow: var(--shadow);
       transition:.18s ease;
+      min-width: 190px;
     }
     .btn:hover{background:var(--kyool-blue); color:#000}
     .btn.secondary{
       background:transparent; color:#fff;
       border:1px solid var(--border);
       box-shadow:none;
+      min-width: 180px;
     }
     .btn.secondary:hover{background:rgba(36,199,235,.18); color:#fff; border-color:rgba(36,199,235,.45)}
 
+    /* Device card */
     .device-card{
       border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border-radius:var(--radius);
       padding:16px;
       box-shadow: var(--shadow);
+      overflow:hidden;
     }
-    .devices{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-    }
-    .device-row{
+
+    .device-showcase{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:12px;
-      align-items:stretch;
+      gap:14px;
+      align-items:start;
     }
-    .phone, .tablet{
-      border-radius: var(--radius2);
+
+    /* Téléphone (taille verrouillée, sinon ça gonfle) */
+    .phone{
+      width: clamp(240px, 34vw, 360px);
+      aspect-ratio: 9/16;
+      border-radius: 22px;
       border: 1px solid rgba(36,199,235,.55);
       box-shadow: 0 0 0 1px rgba(36,199,235,.18), 0 14px 40px rgba(0,0,0,.55);
       background: rgba(0,0,0,.45);
       overflow:hidden;
       position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:240px;
+      transform: rotate(-4deg);
+      transform-origin: 50% 60%;
+      margin-left: 10px;
+      will-change: transform;
     }
-    .phone{aspect-ratio: 9/16;}
-    .tablet{aspect-ratio: 16/10;}
-    .frame-label{
-      position:absolute;
-      top:10px; left:10px;
-      font-size:12px;
-      color:rgba(255,255,255,.75);
-      background:rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.14);
-      padding:6px 8px;
+    .phone:hover{
+      transform: rotate(-2deg) translateY(-4px);
+    }
+
+    /* Colonne droite (tablette + carrousel home) */
+    .side-stack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .tablet{
+      width: 100%;
+      max-width: 520px;
+      aspect-ratio: 16/10;
+      border-radius: 18px;
+      border: 1px solid rgba(36,199,235,.45);
+      box-shadow: 0 0 0 1px rgba(36,199,235,.16), 0 12px 36px rgba(0,0,0,.5);
+      background: rgba(0,0,0,.45);
+      overflow:hidden;
+      position:relative;
+    }
+
+    video{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      background:#000;
+    }
+    /* Tablette : afficher vidéo entière */
+    .tablet video{object-fit:contain;}
+
+    /* Carrousels */
+    .carousel{
+      border:1px solid rgba(36,199,235,.22);
+      background: rgba(0,0,0,.14);
+      border-radius:18px;
+      padding:12px;
+    }
+    .carousel-title{
+      font-weight:900;
+      font-size:13.5px;
+      color: rgba(255,255,255,.92);
+      margin-bottom:10px;
+      letter-spacing:.2px;
+    }
+    .track{
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-padding-left: 10px;
+      padding-bottom:6px;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+    }
+    .track::-webkit-scrollbar{height:8px}
+    .track::-webkit-scrollbar-thumb{
+      background: rgba(36,199,235,.35);
       border-radius:999px;
     }
- video{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* Tablette : ne pas couper la vidéo (afficher en entier) */
-.tablet video{
-  object-fit: contain;
-  background: #000;
-}
-    .placeholder{
-      text-align:center;
-      padding:20px;
-      color:rgba(255,255,255,.78);
-      font-size:14px;
-      line-height:1.35;
+    /* Home posters (paysage) */
+    .poster{
+      flex: 0 0 auto;
+      width: 210px;
+      aspect-ratio: 7/5;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(36,199,235,.28);
+      scroll-snap-align:start;
+      background: rgba(255,255,255,.06);
+      transition:.18s ease;
     }
+    .poster:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.75);}
+    .poster img{width:100%; height:100%; object-fit:cover; display:block}
 
-   .qr-area{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:14px;
-
-  /* Cadre bleu KYOOL + bloc plus lisible */
-  border:1px solid rgba(36,199,235,.35);
-  border-radius:18px;
-  padding:14px;
-  background: rgba(0,0,0,.18);
-}
+    /* QR block */
+    .qr-area{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      border:1px solid rgba(36,199,235,.28);
+      border-radius:18px;
+      padding:14px;
+      background: rgba(0,0,0,.18);
+    }
     .qr-left{display:flex; flex-direction:column; gap:6px}
     .qr-left .small{color:var(--muted); font-size:13px}
-    .qr-boxes{display:flex; gap:10px; flex-wrap:wrap}
+    .coming-soon{
+      font-size:12.5px;
+      color: rgba(255,255,255,.85);
+    }
+    .coming-soon strong{color: var(--kyool-blue)}
+    .qr-boxes{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .qr{
       width:110px; height:110px;
       border-radius:14px;
@@ -202,6 +300,7 @@
     }
     .qr img{width:100%; height:100%; object-fit:cover; display:block}
 
+    /* Mascotte */
     .mascot{
       display:flex;
       gap:12px;
@@ -237,70 +336,81 @@
     }
     .mascot .avatar img{width:100%; height:100%; object-fit:cover; display:block}
 
-    section{padding:28px 0}
-    .section-title{
-      font-size:22px;
-      margin:0 0 12px;
-    }
-    .card{
-      border:1px solid var(--border);
-      background: var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-    }
+    /* Histoire */
     .story{
       color:rgba(255,255,255,.86);
-      line-height:1.6;
-      font-size:15.5px;
+      line-height:1.7;
+      font-size:16px;
+      max-width: 82ch;
     }
+    .story p{margin:0 0 12px}
 
-    /* Program grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:12px;
+    /* Programmes (9:16) */
+    .prog-carousel{
+      border:1px solid rgba(36,199,235,.18);
+      background: rgba(0,0,0,.14);
+      border-radius:18px;
+      padding:14px;
     }
-    .prog{
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.28);
+    .prog-card{
+      flex: 0 0 auto;
+      width: 180px;
+      aspect-ratio: 9/16;
       border-radius:18px;
       overflow:hidden;
-      transition:.18s ease;
-    }
-    .prog:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.5)}
-    .prog .img{
-      aspect-ratio: 9/16;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(255,255,255,.7);
-      font-size:12px;
+      scroll-snap-align:start;
+      transition:.18s ease;
+      position:relative;
     }
-    .prog img{width:100%; height:100%; object-fit:cover; display:block}
-    .prog .name{
-      padding:10px 10px 12px;
-      font-weight:700;
-      font-size:13.5px;
-      color:rgba(255,255,255,.92);
+    .prog-card:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.6);}
+    .prog-card img{width:100%; height:100%; object-fit:cover; display:block}
+    .prog-name{
+      position:absolute;
+      left:10px; right:10px; bottom:10px;
+      padding:8px 10px;
+      border-radius:14px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:800;
+      font-size:12.5px;
+      color: rgba(255,255,255,.92);
+      backdrop-filter: blur(6px);
     }
 
-    /* Partners */
-    .partners{
+    /* Partenaires */
+    .partners-card{
+      border:1px solid rgba(36,199,235,.16);
+      background: rgba(0,0,0,.14);
+      border-radius:18px;
+      padding:14px;
+    }
+    .partners-grid{
       display:grid;
       grid-template-columns: repeat(5, 1fr);
       gap:10px;
     }
-    .partner{
+    .partner-logo{
+      aspect-ratio: 1/1;
+      border-radius:16px;
+      overflow:hidden;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
-      border-radius:14px;
-      padding:10px;
-      text-align:center;
-      color:rgba(255,255,255,.85);
-      font-size:13px;
+      background: rgba(255,255,255,.06);
+      display:flex; align-items:center; justify-content:center;
+      transition:.18s ease;
     }
+    .partner-logo:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.55)}
+    .partner-logo img{width:100%; height:100%; object-fit:cover; display:block}
 
     /* Contact */
-    form{display:grid; gap:10px; max-width:640px}
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+      align-items:start;
+    }
+    form{display:grid; gap:10px;}
     input, textarea{
       width:100%;
       padding:12px 12px;
@@ -311,25 +421,59 @@
       outline:none;
       font-size:14.5px;
     }
-    textarea{min-height:120px; resize:vertical}
+    textarea{min-height:160px; resize:vertical}
+
+    .info-stack{display:grid; gap:12px;}
+    .info-card{
+      border:1px solid rgba(36,199,235,.18);
+      background: rgba(0,0,0,.14);
+      border-radius:18px;
+      padding:14px;
+    }
+    .info-title{font-weight:900; margin:0 0 8px;}
+    .addr{
+      margin:0 0 10px;
+      color: rgba(255,255,255,.85);
+      line-height:1.45;
+      font-size:14px;
+    }
+    .map{
+      width:100%;
+      aspect-ratio: 16/10;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      overflow:hidden;
+      background: rgba(255,255,255,.06);
+    }
+    .map iframe{width:100%; height:100%; border:0; display:block;}
+
     .foot{
-      padding:22px 0 40px;
+      padding:18px 0 40px;
       color:rgba(255,255,255,.65);
       font-size:13px;
       border-top:1px solid rgba(255,255,255,.10);
       margin-top:22px;
     }
 
+    /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr; }
-      .device-row{grid-template-columns: 1fr}
-      .grid{grid-template-columns: repeat(2, 1fr)}
-      .partners{grid-template-columns: repeat(3, 1fr)}
+      .hero-grid{grid-template-columns: 1fr;}
+      .device-showcase{grid-template-columns: 1fr;}
+      .phone{
+        transform:none;
+        margin-left:0;
+        width: min(360px, 100%);
+      }
+      .tablet{max-width: 100%;}
+      .partners-grid{grid-template-columns: repeat(3, 1fr);}
+      .contact-grid{grid-template-columns: 1fr;}
     }
     @media (max-width: 520px){
       nav{justify-content:flex-start}
-      .grid{grid-template-columns: 1fr}
-      .partners{grid-template-columns: repeat(2, 1fr)}
+      .poster{width: 190px;}
+      .prog-card{width: 155px;}
+      .partners-grid{grid-template-columns: repeat(2, 1fr);}
+      .btn{min-width: 170px;}
     }
   </style>
 </head>
@@ -338,9 +482,15 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand">
-        <div class="logo">Kyool</div>
-        <div class="slogan">If it's Kyool, it's cool !</div>
+        <!-- Ton logo original -->
+        <img src="media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
       </div>
+
       <nav>
         <a href="#home">Home</a>
         <a href="#histoire">Histoire</a>
@@ -354,48 +504,67 @@
   <main class="wrap">
 
     <!-- HOME -->
-    <section id="home" class="hero">
-      <div class="hero-grid">
-        <div>
-          <h1 class="title">
-            <span class="kyool">Kyool</span> <span class="coree">votre Corée</span>
-          </h1>
-          <p class="subtitle">
-            Plongez au cœur de la Hallyu. Explorez le meilleur des Short Dramas, Films, TV Shows, Web Dramas et contenus exclusifs coréens.
-          </p>
+    <section id="home">
+      <div class="section-inner">
+        <div class="hero-grid">
+          <div>
+            <h1 class="title">
+              <span class="kyool">Kyool</span> <span class="coree">votre Corée</span>
+            </h1>
+            <p class="subtitle">
+              Plongez au cœur de la Hallyu. Explorez le meilleur des Short Dramas, Films, TV Shows, Web Dramas et contenus exclusifs coréens.
+            </p>
 
-          <div class="cta-row">
-            <a class="btn" href="#programmes">Découvrir les programmes</a>
-            <a class="btn secondary" href="#contact">Devenir partenaire</a>
+            <div class="cta-row">
+              <a class="btn" href="#programmes">Découvrir les programmes</a>
+              <a class="btn secondary" href="#contact">Devenir partenaire</a>
+            </div>
           </div>
-        </div>
 
-        <div class="device-card">
-          <div class="devices">
-            <div class="device-row">
-              <div class="phone">
-                <div class="frame-label">Téléphone (vidéo modifiable)</div>
-                <!-- Remplace la source par ta vidéo (ex: media/kyool-ad.mp4) -->
+          <div class="device-card">
+            <div class="device-showcase">
+              <!-- Téléphone -->
+              <div class="phone" aria-label="Téléphone (aperçu app)">
                 <video autoplay muted loop playsinline>
                   <source src="media/kyool-ad.mp4" type="video/mp4" />
-                  <!-- Si pas de vidéo, tu verras ce texte -->
                   Votre navigateur ne supporte pas la vidéo.
                 </video>
               </div>
 
-              <div class="tablet">
-  <div class="frame-label">Tablette (paysage)</div>
-  <video autoplay muted loop playsinline>
-    <source src="media/kyool-tablet.mp4" type="video/mp4" />
-    Votre navigateur ne supporte pas la vidéo.
-  </video>
-</div>
+              <!-- Colonne droite -->
+              <div class="side-stack">
+                <div class="tablet" aria-label="Tablette (aperçu)">
+                  <video autoplay muted loop playsinline>
+                    <source src="media/kyool-tablet.mp4" type="video/mp4" />
+                    Votre navigateur ne supporte pas la vidéo.
+                  </video>
+                </div>
+
+                <!-- Carrousel HOME (10 posters) -->
+                <div class="carousel">
+                  <div class="carousel-title">À l’affiche sur KYOOL</div>
+                  <div class="track">
+                    <div class="poster"><img src="media/poster-01.jpg" alt="Poster 01" /></div>
+                    <div class="poster"><img src="media/poster-02.jpg" alt="Poster 02" /></div>
+                    <div class="poster"><img src="media/poster-03.jpg" alt="Poster 03" /></div>
+                    <div class="poster"><img src="media/poster-04.jpg" alt="Poster 04" /></div>
+                    <div class="poster"><img src="media/poster-05.jpg" alt="Poster 05" /></div>
+                    <div class="poster"><img src="media/poster-06.jpg" alt="Poster 06" /></div>
+                    <div class="poster"><img src="media/poster-07.jpg" alt="Poster 07" /></div>
+                    <div class="poster"><img src="media/poster-08.jpg" alt="Poster 08" /></div>
+                    <div class="poster"><img src="media/poster-09.jpg" alt="Poster 09" /></div>
+                    <div class="poster"><img src="media/poster-10.jpg" alt="Poster 10" /></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <!-- QR -->
             <div class="qr-area">
               <div class="qr-left">
-                <div style="font-weight:800">Disponible sur iOS et Android</div>
+                <div style="font-weight:900">Disponible sur iOS et Android</div>
                 <div class="small">Remplace les QR codes par tes images (PNG/JPG).</div>
+                <div class="coming-soon">⭐ <strong>Disponible bientôt</strong> sur l’App Store & Google Play (lancement en cours).</div>
               </div>
 
               <div class="qr-boxes">
@@ -408,12 +577,14 @@
               </div>
             </div>
 
+            <!-- Mascotte -->
             <div class="mascot">
               <div class="avatar" title="Mascotte KYOOL">
                 <img src="media/kyool-mascot.png" alt="Mascotte KYOOL" />
               </div>
               <div class="bubble">Bonjour, je m’appelle <strong>KYOOL</strong>.</div>
             </div>
+
           </div>
         </div>
       </div>
@@ -421,88 +592,178 @@
 
     <!-- HISTOIRE -->
     <section id="histoire">
-      <h2 class="section-title">Histoire</h2>
-      <div class="card story">
-        <p><strong>KYOOL</strong> n’était au départ qu’une petite mandarine de Jeju — tranquille, ensoleillée, et franchement pas pressée de devenir une star.</p>
-        <p>Un soir d’orage, un éclair fend le ciel. L’arbre tremble, le monde bascule. La mandarine tombe, roule, et finit dans l’océan. L’eau, l’électricité… et quelque chose d’inexplicable : elle se réveille <strong>bleue</strong>.</p>
-        <p>Bleue comme une énergie neuve. Bleue comme une promesse. KYOOL comprend alors une chose : il veut relier les gens par l’émotion, la culture, les histoires. Faire voyager sans avion. Faire vibrer sans barrière.</p>
-        <p>C’est comme ça que naît l’idée d’une plateforme : <strong>Kyool</strong>. Une porte d’entrée vers la Corée — ses Short Dramas, ses films, ses shows, ses créateurs. Un endroit moderne, simple, vivant. Et surtout… fait pour ceux qui aiment la Corée “pour de vrai”.</p>
-        <p style="opacity:.85"><em>(Tu peux modifier ce texte facilement : c’est un simple paragraphe.)</em></p>
+      <div class="section-inner">
+        <h2 class="section-title">Histoire</h2>
+        <div class="card story">
+          <p><strong>KYOOL</strong> n’était au départ qu’une petite mandarine de Jeju — tranquille, ensoleillée, et franchement pas pressée de devenir une star.</p>
+          <p>Un soir d’orage, un éclair fend le ciel. L’arbre tremble, le monde bascule. La mandarine tombe, roule, et finit dans l’océan. L’eau, l’électricité… et quelque chose d’inexplicable : elle se réveille <strong>bleue</strong>.</p>
+          <p>Bleue comme une énergie neuve. Bleue comme une promesse. KYOOL comprend alors une chose : relier les gens par l’émotion, la culture, les histoires.</p>
+          <p>C’est comme ça que naît <strong>Kyool</strong> : une porte d’entrée vers la Corée — ses Short Dramas, ses films, ses shows, ses créateurs. Moderne, simple, vivant.</p>
+          <p style="opacity:.85"><em>(Tu peux rallonger ce texte si tu veux une histoire plus “page pleine”.)</em></p>
+        </div>
       </div>
     </section>
 
     <!-- PROGRAMMES -->
     <section id="programmes">
-      <h2 class="section-title">Programmes</h2>
-      <div class="card">
-        <div class="grid">
-          <!-- Duplique ces blocs pour ajouter des programmes -->
-          <div class="prog">
-            <div class="img"><span>Visuel programme (9:16)</span></div>
-            <div class="name">Nom du programme</div>
+      <div class="section-inner">
+        <h2 class="section-title">Programmes</h2>
+
+        <div class="prog-carousel">
+          <div class="carousel-title">Short Dramas & contenus (format 9:16)</div>
+
+          <div class="track" aria-label="Carrousel Programmes">
+            <div class="prog-card"><img src="media/programmes-01.jpg" alt="Programme 01" /><div class="prog-name">Programme 01</div></div>
+            <div class="prog-card"><img src="media/programmes-02.jpg" alt="Programme 02" /><div class="prog-name">Programme 02</div></div>
+            <div class="prog-card"><img src="media/programmes-03.jpg" alt="Programme 03" /><div class="prog-name">Programme 03</div></div>
+            <div class="prog-card"><img src="media/programmes-04.jpg" alt="Programme 04" /><div class="prog-name">Programme 04</div></div>
+            <div class="prog-card"><img src="media/programmes-05.jpg" alt="Programme 05" /><div class="prog-name">Programme 05</div></div>
+            <div class="prog-card"><img src="media/programmes-06.jpg" alt="Programme 06" /><div class="prog-name">Programme 06</div></div>
+            <div class="prog-card"><img src="media/programmes-07.jpg" alt="Programme 07" /><div class="prog-name">Programme 07</div></div>
+            <div class="prog-card"><img src="media/programmes-08.jpg" alt="Programme 08" /><div class="prog-name">Programme 08</div></div>
+            <div class="prog-card"><img src="media/programmes-09.jpg" alt="Programme 09" /><div class="prog-name">Programme 09</div></div>
+            <div class="prog-card"><img src="media/programmes-10.jpg" alt="Programme 10" /><div class="prog-name">Programme 10</div></div>
+            <div class="prog-card"><img src="media/programmes-11.jpg" alt="Programme 11" /><div class="prog-name">Programme 11</div></div>
+            <div class="prog-card"><img src="media/programmes-12.jpg" alt="Programme 12" /><div class="prog-name">Programme 12</div></div>
+            <div class="prog-card"><img src="media/programmes-13.jpg" alt="Programme 13" /><div class="prog-name">Programme 13</div></div>
+            <div class="prog-card"><img src="media/programmes-14.jpg" alt="Programme 14" /><div class="prog-name">Programme 14</div></div>
+            <div class="prog-card"><img src="media/programmes-15.jpg" alt="Programme 15" /><div class="prog-name">Programme 15</div></div>
+            <div class="prog-card"><img src="media/programmes-16.jpg" alt="Programme 16" /><div class="prog-name">Programme 16</div></div>
+            <div class="prog-card"><img src="media/programmes-17.jpg" alt="Programme 17" /><div class="prog-name">Programme 17</div></div>
+            <div class="prog-card"><img src="media/programmes-18.jpg" alt="Programme 18" /><div class="prog-name">Programme 18</div></div>
+            <div class="prog-card"><img src="media/programmes-19.jpg" alt="Programme 19" /><div class="prog-name">Programme 19</div></div>
+            <div class="prog-card"><img src="media/programmes-20.jpg" alt="Programme 20" /><div class="prog-name">Programme 20</div></div>
           </div>
-          <div class="prog">
-            <div class="img"><span>Visuel programme (9:16)</span></div>
-            <div class="name">Nom du programme</div>
-          </div>
-          <div class="prog">
-            <div class="img"><span>Visuel programme (9:16)</span></div>
-            <div class="name">Nom du programme</div>
-          </div>
-          <div class="prog">
-            <div class="img"><span>Visuel programme (9:16)</span></div>
-            <div class="name">Nom du programme</div>
-          </div>
+
+          <p style="margin:12px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
+            Mets tes 20 images en 1080×1920 dans <strong>media/</strong> : programmes-01.jpg → programmes-20.jpg
+          </p>
         </div>
-        <p style="margin:14px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
-          Astuce : quand tu auras tes visuels, remplace chaque “Visuel programme” par une image.
-        </p>
       </div>
     </section>
 
     <!-- PARTENAIRES -->
     <section id="partenaires">
-      <h2 class="section-title">Partenaires</h2>
-      <div class="card">
-        <div class="partners">
-          <div class="partner">Nom partenaire</div>
-          <div class="partner">Nom partenaire</div>
-          <div class="partner">Nom partenaire</div>
-          <div class="partner">Nom partenaire</div>
-          <div class="partner">Nom partenaire</div>
+      <div class="section-inner">
+        <h2 class="section-title">Partenaires</h2>
+
+        <div class="partners-card">
+          <div class="carousel-title">Ils avancent avec nous</div>
+
+          <div class="partners-grid" aria-label="Grille partenaires (30 logos)">
+            <div class="partner-logo"><img src="media/partner-01.jpg" alt="Partenaire 01" /></div>
+            <div class="partner-logo"><img src="media/partner-02.jpg" alt="Partenaire 02" /></div>
+            <div class="partner-logo"><img src="media/partner-03.jpg" alt="Partenaire 03" /></div>
+            <div class="partner-logo"><img src="media/partner-04.jpg" alt="Partenaire 04" /></div>
+            <div class="partner-logo"><img src="media/partner-05.jpg" alt="Partenaire 05" /></div>
+
+            <div class="partner-logo"><img src="media/partner-06.jpg" alt="Partenaire 06" /></div>
+            <div class="partner-logo"><img src="media/partner-07.jpg" alt="Partenaire 07" /></div>
+            <div class="partner-logo"><img src="media/partner-08.jpg" alt="Partenaire 08" /></div>
+            <div class="partner-logo"><img src="media/partner-09.jpg" alt="Partenaire 09" /></div>
+            <div class="partner-logo"><img src="media/partner-10.jpg" alt="Partenaire 10" /></div>
+
+            <div class="partner-logo"><img src="media/partner-11.jpg" alt="Partenaire 11" /></div>
+            <div class="partner-logo"><img src="media/partner-12.jpg" alt="Partenaire 12" /></div>
+            <div class="partner-logo"><img src="media/partner-13.jpg" alt="Partenaire 13" /></div>
+            <div class="partner-logo"><img src="media/partner-14.jpg" alt="Partenaire 14" /></div>
+            <div class="partner-logo"><img src="media/partner-15.jpg" alt="Partenaire 15" /></div>
+
+            <div class="partner-logo"><img src="media/partner-16.jpg" alt="Partenaire 16" /></div>
+            <div class="partner-logo"><img src="media/partner-17.jpg" alt="Partenaire 17" /></div>
+            <div class="partner-logo"><img src="media/partner-18.jpg" alt="Partenaire 18" /></div>
+            <div class="partner-logo"><img src="media/partner-19.jpg" alt="Partenaire 19" /></div>
+            <div class="partner-logo"><img src="media/partner-20.jpg" alt="Partenaire 20" /></div>
+
+            <div class="partner-logo"><img src="media/partner-21.jpg" alt="Partenaire 21" /></div>
+            <div class="partner-logo"><img src="media/partner-22.jpg" alt="Partenaire 22" /></div>
+            <div class="partner-logo"><img src="media/partner-23.jpg" alt="Partenaire 23" /></div>
+            <div class="partner-logo"><img src="media/partner-24.jpg" alt="Partenaire 24" /></div>
+            <div class="partner-logo"><img src="media/partner-25.jpg" alt="Partenaire 25" /></div>
+
+            <div class="partner-logo"><img src="media/partner-26.jpg" alt="Partenaire 26" /></div>
+            <div class="partner-logo"><img src="media/partner-27.jpg" alt="Partenaire 27" /></div>
+            <div class="partner-logo"><img src="media/partner-28.jpg" alt="Partenaire 28" /></div>
+            <div class="partner-logo"><img src="media/partner-29.jpg" alt="Partenaire 29" /></div>
+            <div class="partner-logo"><img src="media/partner-30.jpg" alt="Partenaire 30" /></div>
+          </div>
+
+          <p style="margin:12px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
+            Logos carrés : partner-01.jpg → partner-30.jpg
+          </p>
         </div>
-        <p style="margin:14px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
-          Tu peux remplacer les noms par des logos (images), ou garder en texte.
-        </p>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
-      <h2 class="section-title">Nous contacter</h2>
-      <div class="card">
-        <p style="margin-top:0; color:rgba(255,255,255,.82);">
-          Une question, un partenariat, une collab ? Écris-nous — KYOOL répond (entre deux épisodes, promis).
-        </p>
+      <div class="section-inner">
+        <h2 class="section-title">Nous contacter</h2>
 
-        <form id="contactForm">
-          <input id="name" type="text" placeholder="Nom" required />
-          <input id="email" type="email" placeholder="Email" required />
-          <input id="subject" type="text" placeholder="Sujet" required />
-          <textarea id="message" placeholder="Message" required></textarea>
-          <button class="btn" type="submit">Envoyer</button>
-        </form>
+        <div class="card">
+          <div class="contact-grid">
+            <!-- Form à gauche -->
+            <div>
+              <p style="margin-top:0; color:rgba(255,255,255,.82);">
+                Une question, un partenariat, une collab ? Écris-nous — KYOOL répond (entre deux épisodes, promis).
+              </p>
 
-        <p style="margin-bottom:0; color:rgba(255,255,255,.68); font-size:13px;">
-          Envoi vers : <strong>contact@kyool.eu</strong>
-        </p>
+              <form id="contactForm">
+                <input id="name" type="text" placeholder="Nom" required />
+                <input id="email" type="email" placeholder="Email" required />
+                <input id="subject" type="text" placeholder="Sujet" required />
+                <textarea id="message" placeholder="Message" required></textarea>
+                <button class="btn" type="submit">Envoyer</button>
+              </form>
+
+              <p style="margin-bottom:0; color:rgba(255,255,255,.68); font-size:13px;">
+                Envoi vers : <strong>contact@kyool.eu</strong>
+              </p>
+            </div>
+
+            <!-- Infos + maps à droite -->
+            <div class="info-stack">
+              <div class="info-card">
+                <p class="info-title">Indépendance Prod / KYOOL — France</p>
+                <p class="addr">
+                  4 rue Ampère<br/>
+                  91430 Igny — France
+                </p>
+                <div class="map" aria-label="Carte Igny France">
+                  <iframe
+                    title="Carte Igny"
+                    loading="lazy"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=2.221%2C48.741%2C2.258%2C48.759&layer=mapnik&marker=48.750%2C2.239">
+                  </iframe>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <p class="info-title">KYOOL — Pangyo (KR)</p>
+                <p class="addr">
+                  Gyeonggi-do, Seongnam-si, Bundang-gu<br/>
+                  Daewangpangyo-ro 645beon-gil, 12 1F KR<br/>
+                  5F 경기창조경제혁신센터
+                </p>
+                <div class="map" aria-label="Carte Pangyo KR">
+                  <iframe
+                    title="Carte Pangyo"
+                    loading="lazy"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=127.097%2C37.394%2C127.118%2C37.405&layer=mapnik&marker=37.3995%2C127.1075">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="foot">
+          <div><strong>Kyool</strong> • #24C7EB • #F39800 • #25CE62</div>
+          <div style="margin-top:6px; opacity:.85;">© KYOOL — Tous droits réservés.</div>
+        </div>
       </div>
     </section>
-
-    <div class="foot">
-      <div><strong>Kyool</strong> • #24C7EB • #F39800 • #25CE62</div>
-      <div style="margin-top:6px; opacity:.85;">© KYOOL — Tous droits réservés.</div>
-    </div>
 
   </main>
 
