@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KYOOL — Site vitrine</title>
+  <title>KYOOL — Home</title>
+  <meta name="description" content="Kyool — votre Corée. Short dramas, films, shows et contenus exclusifs." />
 
   <style>
     :root{
@@ -11,43 +12,46 @@
       --kyool-orange:#F39800;
       --kyool-green:#25CE62;
 
-      --bg-top:#000000;
-      --bg-bottom:#081a33;
+      --bg0:#000000;
+      --bg1:#071628;
 
       --text:#ffffff;
       --muted:rgba(255,255,255,.78);
 
       --card:rgba(255,255,255,.06);
       --border:rgba(255,255,255,.12);
-      --shadow:0 18px 50px rgba(0,0,0,.45);
 
       --radius:22px;
-      --radius2:14px;
+      --radius2:16px;
 
-      /* plus large = moins de vide à gauche/droite */
-      --max: 1380px;
+      /* Plus large, moins de “vide” */
+      --max:1440px;
 
       --topbarH:72px;
+
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --glow: 0 0 0 1px rgba(36,199,235,.20), 0 14px 50px rgba(0,0,0,.55);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       min-height:100vh;
       background:
-        radial-gradient(900px 520px at 78% 10%, rgba(36,199,235,.25), rgba(0,0,0,0) 60%),
-        linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
+        radial-gradient(900px 520px at 75% 18%, rgba(36,199,235,.22), rgba(0,0,0,0) 60%),
+        radial-gradient(650px 420px at 18% 70%, rgba(37,206,98,.10), rgba(0,0,0,0) 62%),
+        linear-gradient(180deg,var(--bg0),var(--bg1));
     }
 
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px;}
 
     /* Topbar */
     .topbar{
-      position:sticky; top:0; z-index:9;
+      position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
       background: rgba(0,0,0,.55);
       border-bottom:1px solid var(--border);
@@ -57,25 +61,26 @@
       display:flex; align-items:center; justify-content:space-between;
       gap:16px;
     }
-
     .brand{
       display:flex; align-items:center; gap:12px;
-      min-width: 220px;
+      min-width: 200px;
     }
-    .brand img{
-      height:34px;
-      width:auto;
-      display:block;
-      filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+    .brand-badge{
+      width:36px; height:36px;
+      border-radius:12px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 8px 25px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      letter-spacing:.2px;
+      color:#fff;
     }
     .brand-text{display:flex; flex-direction:column; line-height:1.05; gap:6px;}
-    .logo-fallback{
-      font-weight:900; letter-spacing:.4px;
-      font-size:20px;
-    }
+    .brand-name{font-weight:900; font-size:18px;}
     .slogan{font-size:12.5px; color:var(--muted);}
 
-    nav{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
     nav a{
       padding:9px 12px;
       border-radius:999px;
@@ -90,46 +95,40 @@
       border-color:rgba(255,255,255,.15);
     }
 
-    /* Sections */
-    section{
-      padding: 46px 0 56px;
-      scroll-margin-top: calc(var(--topbarH) + 16px);
-    }
-    .section-title{
-      font-size:28px;
-      margin:0 0 14px;
-      letter-spacing:-.4px;
+    /* HOME */
+    main{padding: 34px 0 50px;}
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap:22px;
+      align-items:center;
+      margin-top: 8px;
     }
 
-    /* Hero text */
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.0fr 1.05fr;
-      gap:26px;
-      align-items:center;
-    }
     .title{
-      font-size: clamp(34px, 4vw, 56px);
+      font-size: clamp(36px, 4.2vw, 62px);
       margin:0 0 10px;
-      letter-spacing:-.8px;
+      letter-spacing:-.9px;
+      line-height:1.02;
     }
+    .title .kyool{color:#fff}
     .title .coree{color:var(--kyool-blue)}
     .subtitle{
       margin:0 0 20px;
       color:var(--muted);
       font-size:16.5px;
-      line-height:1.45;
-      max-width:56ch;
+      line-height:1.5;
+      max-width: 56ch;
     }
 
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px;
+      padding:12px 16px;
       border-radius:999px;
       background:#fff;
       color:#000;
-      font-weight:800;
+      font-weight:900;
       border:1px solid rgba(255,255,255,.08);
       box-shadow: var(--shadow);
       transition:.18s ease;
@@ -142,152 +141,215 @@
       box-shadow:none;
       min-width: 190px;
     }
-    .btn.secondary:hover{background:rgba(36,199,235,.18); color:#fff; border-color:rgba(36,199,235,.45)}
+    .btn.secondary:hover{background:rgba(36,199,235,.16); border-color:rgba(36,199,235,.45)}
 
-    /* HOME stage (look V1 + mieux organisé) */
+    /* “App Store” card zone */
     .stage{
-      position:relative;
       border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border-radius: var(--radius);
-      padding:18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      padding:16px;
       box-shadow: var(--shadow);
+      position:relative;
       overflow:hidden;
-      min-height: 610px;
     }
 
-    /* rectangles derrière (effet profondeur V1) */
-    .ghost{
+    /* Faux rectangles “derrière” (effet version 1) */
+    .stage:before, .stage:after{
+      content:"";
       position:absolute;
-      border-radius: 26px;
-      border: 1px solid rgba(36,199,235,.22);
-      box-shadow: 0 0 0 1px rgba(36,199,235,.10), 0 18px 60px rgba(0,0,0,.35);
-      background: rgba(0,0,0,.22);
+      border-radius: 28px;
+      border:1px solid rgba(36,199,235,.20);
+      background: rgba(255,255,255,.02);
+      filter: blur(.0px);
       pointer-events:none;
-      opacity:.55;
     }
-    .ghost.g1{ width: 62%; height: 78%; right: 10%; top: 6%; transform: rotate(-4deg); }
-    .ghost.g2{ width: 58%; height: 72%; right: 16%; top: 10%; transform: rotate(-7deg); opacity:.35; }
-    .ghost.g3{ width: 55%; height: 68%; right: 22%; top: 14%; transform: rotate(-10deg); opacity:.20; }
+    .stage:before{
+      width: 86%;
+      height: 76%;
+      right: -18%;
+      top: 6%;
+      transform: rotate(4deg);
+      box-shadow: 0 0 0 1px rgba(36,199,235,.08);
+      opacity:.65;
+    }
+    .stage:after{
+      width: 68%;
+      height: 62%;
+      right: -10%;
+      top: 16%;
+      transform: rotate(-3deg);
+      opacity:.40;
+    }
 
-    .stage-card{
-      position:absolute;
+    /* Layout de la scène */
+    .stage-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .9fr;
+      gap:14px;
+      align-items:stretch;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Phone = gros, un peu incliné MAIS contrôlé */
+    .phone{
       border-radius: 22px;
-      border:1px solid rgba(36,199,235,.40);
-      box-shadow: 0 0 0 1px rgba(36,199,235,.12), 0 18px 60px rgba(0,0,0,.45);
+      border:1px solid rgba(36,199,235,.45);
       background: rgba(0,0,0,.35);
+      box-shadow: var(--glow);
+      aspect-ratio: 9 / 16;
+      min-height: 560px;
+      position:relative;
       overflow:hidden;
+      transform: rotate(-2.5deg) translateY(-6px);
+      transform-origin: 50% 60%;
+      transition: transform .2s ease;
     }
-    .stage-card img, .stage-card video{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
+    .phone:hover{ transform: rotate(-1.2deg) translateY(-10px); }
+
+    /* “Écran” placeholder (pas d’image requise) */
+    .screen{
+      position:absolute; inset:10px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(380px 240px at 25% 25%, rgba(36,199,235,.18), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .screen:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(120deg, rgba(255,255,255,.10), rgba(255,255,255,0) 40%);
+      opacity:.22;
     }
 
-    /* Téléphone grand (héros) */
-    .phone-hero{
-      width: 44%;
-      aspect-ratio: 9/16;
-      right: 5%;
-      top: 9%;
-      transform: rotate(2.4deg);
-      z-index: 4;
-      border-color: rgba(36,199,235,.55);
-    }
-
-    /* Tablette plus petite, en bas, visible */
-    .tablet-mini{
-      width: 56%;
-      aspect-ratio: 16/10;
-      left: 32%;
-      bottom: 11%;
-      transform: rotate(-1.1deg);
-      z-index: 2;
-      border-color: rgba(36,199,235,.45);
-    }
-    /* pour la tablette, mieux: contain */
-    .tablet-mini video{object-fit:contain; background:#000;}
-
-    /* Affiche large (haut centre) */
-    .poster-wide{
-      width: 55%;
-      aspect-ratio: 16/9;
-      left: 26%;
-      top: 7%;
-      transform: rotate(-2deg);
-      z-index: 1;
-      border-color: rgba(255,255,255,.14);
-    }
-
-    /* Bloc mascotte + QR (plus petit) */
-    .stage-info{
-      position:absolute;
-      left: 6%;
-      bottom: 12%;
-      width: 24%;
+    /* Colonne droite : tablette + affiche + mini cartes */
+    .right{
       display:flex;
       flex-direction:column;
-      gap:10px;
-      z-index: 5;
+      gap:12px;
+      justify-content:space-between;
     }
-    .mini-bubble{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
-      border-radius: 18px;
-      padding:10px;
-    }
-    .mini-avatar{
-      width:54px; height:54px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.06);
-      flex: 0 0 auto;
-    }
-    .mini-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
-    .mini-text{font-size:13px;color:rgba(255,255,255,.88);line-height:1.25;}
-    .mini-text strong{color:#fff;}
 
-    .mini-qr{
-      border:1px solid rgba(36,199,235,.25);
-      background: rgba(0,0,0,.18);
+    .tablet{
       border-radius: 18px;
-      padding:10px;
+      border:1px solid rgba(36,199,235,.35);
+      background: rgba(0,0,0,.30);
+      box-shadow: 0 0 0 1px rgba(36,199,235,.14), 0 14px 40px rgba(0,0,0,.50);
+      aspect-ratio: 16 / 10;
+      min-height: 210px; /* tablette plus petite */
+      position:relative;
+      overflow:hidden;
     }
-    .mini-qr .t{font-weight:900;font-size:12.5px;margin:0 0 8px;}
-    .mini-qr .qrs{display:flex; gap:8px;}
-    .mini-qr .q{
-      width:76px; height:76px;
+    .tablet .screen{inset:10px; border-radius:14px;}
+
+    .posterBig{
+      border-radius: 22px;
+      border:1px solid rgba(36,199,235,.28);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 16px 60px rgba(0,0,0,.55);
+      aspect-ratio: 9 / 12;
+      min-height: 330px;
+      position:relative;
+      overflow:hidden;
+    }
+    .posterBig:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(420px 300px at 70% 30%, rgba(243,152,0,.14), rgba(0,0,0,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      opacity:.9;
+    }
+    .posterBig .label{
+      position:absolute; left:14px; bottom:14px; right:14px;
+      padding:10px 12px;
+      border-radius:16px;
+      background: rgba(0,0,0,.45);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+      font-weight:900;
+      font-size:13px;
+      color: rgba(255,255,255,.92);
+    }
+
+    /* Bloc bas : mascotte + QR (petits) + carrousel */
+    .bottom{
+      display:grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap:14px;
+      margin-top:14px;
+      position:relative;
+      z-index:2;
+    }
+
+    .miniCard{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding:14px;
+    }
+
+    .mascotRow{
+      display:flex; gap:12px; align-items:center;
+    }
+    .avatar{
+      width:62px; height:62px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(50px 50px at 30% 30%, rgba(36,199,235,.22), rgba(0,0,0,0) 70%),
+        rgba(255,255,255,.05);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900;
+      color: rgba(255,255,255,.92);
+    }
+    .bubble{
+      flex:1;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      padding:10px 12px;
+      color: rgba(255,255,255,.92);
+      font-size:13.5px;
+      line-height:1.35;
+    }
+
+    .qrTitle{font-weight:900; margin:10px 0 8px;}
+    .qrRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .qr{
+      width:92px; height:92px; /* plus petit */
       border-radius:14px;
       border:1px dashed rgba(255,255,255,.22);
       background: rgba(255,255,255,.05);
-      overflow:hidden;
-    }
-    .mini-qr .q img{width:100%;height:100%;object-fit:cover;display:block;}
-    .mini-qr .small{
-      margin-top:8px;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(255,255,255,.70);
       font-size:12px;
-      color: rgba(255,255,255,.72);
+      text-align:center;
+      padding:8px;
     }
+    .soon{
+      margin-top:8px;
+      font-size:12.5px;
+      color: rgba(255,255,255,.78);
+    }
+    .soon strong{color: var(--kyool-blue);}
 
-    /* Carrousel HOME (toujours visible) */
-    .home-carousel{
-      margin-top:16px;
-      border:1px solid rgba(36,199,235,.22);
-      background: rgba(0,0,0,.16);
-      border-radius:18px;
+    /* Carrousel Home (10 “posters”) */
+    .carousel{
+      border:1px solid rgba(36,199,235,.20);
+      background: rgba(0,0,0,.14);
+      border-radius: 18px;
       padding:12px;
     }
     .carousel-title{
       font-weight:900;
       font-size:13.5px;
-      color: rgba(255,255,255,.92);
       margin-bottom:10px;
-      letter-spacing:.2px;
+      color: rgba(255,255,255,.92);
     }
     .track{
       display:flex;
@@ -297,191 +359,69 @@
       padding-bottom:6px;
       -webkit-overflow-scrolling: touch;
       overscroll-behavior-x: contain;
-      scroll-padding-left: 10px;
     }
     .track::-webkit-scrollbar{height:8px}
     .track::-webkit-scrollbar-thumb{
       background: rgba(36,199,235,.35);
       border-radius:999px;
     }
+
     .poster{
-      flex: 0 0 auto;
+      flex:0 0 auto;
       width: 220px;
       aspect-ratio: 7/5;
       border-radius:16px;
       overflow:hidden;
-      border:1px solid rgba(36,199,235,.35);
+      border:1px solid rgba(36,199,235,.30);
+      background:
+        radial-gradient(220px 150px at 30% 30%, rgba(36,199,235,.16), rgba(0,0,0,0) 65%),
+        rgba(255,255,255,.04);
       scroll-snap-align:start;
-      background: rgba(255,255,255,.06);
-      transition: .18s ease;
-    }
-    .poster:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.75);}
-    .poster img{width:100%;height:100%;object-fit:cover;display:block;}
-
-    /* Cards génériques */
-    .card{
-      border:1px solid var(--border);
-      background: var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.25);
-    }
-    .story{
-      color:rgba(255,255,255,.86);
-      line-height:1.7;
-      font-size:16px;
-      max-width: 92ch;
-    }
-    .story p{margin:0 0 12px}
-
-    /* PROGRAMMES : 2 lignes de 10 (grid) */
-    .prog-wrap{
-      border:1px solid rgba(36,199,235,.22);
-      background: rgba(0,0,0,.16);
-      border-radius:18px;
-      padding:14px;
-    }
-    .prog-grid{
-      display:grid;
-      grid-template-columns: repeat(10, minmax(0, 1fr));
-      gap:10px;
-    }
-    .prog-item{
-      aspect-ratio: 9/16;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
       position:relative;
-      transition:.18s ease;
+      transition: transform .16s ease, border-color .16s ease;
     }
-    .prog-item:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.6);}
-    .prog-item img{width:100%;height:100%;object-fit:cover;display:block;}
-    .prog-name{
-      position:absolute;
-      left:8px; right:8px; bottom:8px;
-      padding:7px 8px;
-      border-radius:14px;
-      background: rgba(0,0,0,.45);
-      border:1px solid rgba(255,255,255,.12);
-      font-weight:800;
-      font-size:12px;
+    .poster:hover{
+      transform: translateY(-2px);
+      border-color: rgba(36,199,235,.70);
+    }
+    .poster span{
+      position:absolute; left:10px; top:10px;
+      font-weight:900;
+      font-size:12.5px;
       color: rgba(255,255,255,.92);
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.12);
+      padding:6px 8px;
+      border-radius: 12px;
       backdrop-filter: blur(6px);
-      text-align:center;
     }
 
-    /* PARTENAIRES : 4 rangées de 5 = 20 */
-    .partners-card{
-      border:1px solid rgba(36,199,235,.18);
-      background: rgba(0,0,0,.16);
-      border-radius:18px;
-      padding:14px;
-    }
-    .partners-grid{
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap:10px;
-    }
-    .partner-logo{
-      aspect-ratio: 1/1;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      display:flex; align-items:center; justify-content:center;
-      transition:.18s ease;
-    }
-    .partner-logo:hover{transform: translateY(-2px); border-color: rgba(36,199,235,.55)}
-    .partner-logo img{width:100%; height:100%; object-fit:cover; display:block}
-
-    /* CONTACT */
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:14px;
-      align-items:start;
-    }
-    form{display:grid; gap:10px;}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.25);
-      color:#fff;
-      outline:none;
-      font-size:14.5px;
-    }
-    textarea{min-height:140px; resize:vertical}
-
-    .info-stack{display:grid; gap:12px;}
-    .info-card{
-      border:1px solid rgba(36,199,235,.22);
-      background: rgba(0,0,0,.16);
-      border-radius:18px;
-      padding:14px;
-    }
-    .info-title{font-weight:900;margin:0 0 8px;}
-    .addr{margin:0 0 10px;color: rgba(255,255,255,.85);line-height:1.45;font-size:14px;}
-    .map{
-      width:100%;
-      aspect-ratio: 16/10;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:14px;
-      overflow:hidden;
-      background: rgba(255,255,255,.06);
-    }
-    .map iframe{width:100%;height:100%;border:0;display:block;}
-
-    .community-note{
-      margin-top:12px;
-      color: rgba(255,255,255,.80);
-      line-height:1.65;
-      font-size:14.5px;
-      padding:14px 14px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-    }
-    .community-note strong{color:#fff}
-    .community-note em{color:rgba(255,255,255,.88)}
-
+    /* Footer mini */
     .foot{
-      padding:18px 0 40px;
-      color:rgba(255,255,255,.65);
+      margin-top: 18px;
+      color: rgba(255,255,255,.60);
       font-size:13px;
-      border-top:1px solid rgba(255,255,255,.10);
-      margin-top:22px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top: 14px;
     }
 
     /* Responsive */
-    @media (max-width: 1200px){
-      .prog-grid{grid-template-columns: repeat(5, 1fr);} /* 2 lignes de 5 sur écran moyen */
-    }
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr;}
-      .stage{min-height: 640px;}
-      .stage-info{position: see; left: 5%; width: 90%; bottom: 6%; flex-direction:row;}
-      .mini-qr{flex:1;}
-      .mini-bubble{flex:1;}
-      .poster-wide{left: 6%; width: 74%; top: 6%;}
-      .tablet-mini{left: 6%; width: 88%; bottom: 22%;}
-      .phone-hero{right: 6%; width: 42%; top: 16%;}
-      .contact-grid{grid-template-columns: 1fr;}
-      .partners-grid{grid-template-columns: repeat(4, 1fr);}
+    @media (max-width: 1100px){
+      .hero{grid-template-columns: 1fr;}
+      .phone{min-height:520px; transform:none;}
+      .phone:hover{transform:none;}
+      .stage-grid{grid-template-columns: 1fr;}
+      .bottom{grid-template-columns: 1fr;}
+      .posterBig{min-height: 260px;}
     }
     @media (max-width: 520px){
       nav{justify-content:flex-start}
-      .stage{min-height: 700px;}
-      .poster-wide{width: 92%; left: 4%;}
-      .tablet-mini{width: 92%; left: 4%;}
-      .phone-hero{width: 64%; right: 4%; top: 18%;}
-      .stage-info{flex-direction:column;}
-      .partners-grid{grid-template-columns: repeat(2, 1fr);}
-      .poster{width: 200px;}
       .btn{min-width: 170px;}
-      .prog-grid{grid-template-columns: repeat(2, 1fr);} /* mobile */
+      .poster{width: 200px;}
     }
   </style>
 </head>
@@ -490,297 +430,103 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand">
-        <!-- Mets ton logo original ici -->
-        <img src="media/kyool-logo.png" alt="KYOOL"
-             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-badge">K</div>
         <div class="brand-text">
-          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="brand-name">Kyool</div>
           <div class="slogan">If it's Kyool, it's cool !</div>
         </div>
       </div>
 
       <nav>
-        <a href="#home">Home</a>
-        <a href="#histoire">Histoire</a>
-        <a href="#programmes">Programmes</a>
-        <a href="#partenaires">Partenaires</a>
-        <a href="#contact">Nous contacter</a>
+        <a href="index.html">Home</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="partenaires.html">Partenaires</a>
+        <a href="contact.html">Nous contacter</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-
-    <!-- HOME -->
-    <section id="home">
-      <div class="hero-grid">
-
-        <!-- Texte -->
-        <div>
-          <h1 class="title">Kyool <span class="coree">votre Corée</span></h1>
-          <p class="subtitle">
-            Plongez au cœur de la Hallyu. Explorez le meilleur des Short Dramas, Films, TV Shows, Web Dramas et contenus exclusifs coréens.
-          </p>
-          <div class="cta-row">
-            <a class="btn" href="#programmes">Découvrir les programmes</a>
-            <a class="btn secondary" href="#contact">Devenir partenaire</a>
-          </div>
-        </div>
-
-        <!-- Visuels -->
-        <div>
-          <div class="stage">
-            <div class="ghost g1"></div>
-            <div class="ghost g2"></div>
-            <div class="ghost g3"></div>
-
-            <!-- Affiche large (image) -->
-            <div class="stage-card poster-wide">
-              <img src="media/poster-wide.jpg" alt="Affiche large" />
-            </div>
-
-            <!-- Téléphone grand (vidéo) -->
-            <div class="stage-card phone-hero">
-              <video autoplay muted loop playsinline>
-                <source src="media/kyool-ad.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <!-- Tablette petite (vidéo) -->
-            <div class="stage-card tablet-mini">
-              <video autoplay muted loop playsinline>
-                <source src="media/kyool-tablet.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <!-- Mascotte + QR compact -->
-            <div class="stage-info">
-              <div class="mini-bubble">
-                <div class="mini-avatar">
-                  <img src="media/kyool-mascot.png" alt="Mascotte KYOOL" />
-                </div>
-                <div class="mini-text">
-                  Bonjour, je m’appelle <strong>KYOOL</strong>.<br/>
-                  <span style="color:rgba(255,255,255,.70)">If it’s Kyool, it’s cool.</span>
-                </div>
-              </div>
-
-              <div class="mini-qr">
-                <p class="t">Disponible bientôt</p>
-                <div class="qrs">
-                  <div class="q"><img src="media/qr-ios.png" alt="QR iOS" /></div>
-                  <div class="q"><img src="media/qr-android.png" alt="QR Android" /></div>
-                </div>
-                <div class="small">App Store & Google Play (lancement en cours)</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Carrousel Home -->
-          <div class="home-carousel">
-            <div class="carousel-title">À l’affiche sur KYOOL</div>
-            <div class="track">
-              <div class="poster"><img src="media/poster-01.jpg" alt="Poster 01" /></div>
-              <div class="poster"><img src="media/poster-02.jpg" alt="Poster 02" /></div>
-              <div class="poster"><img src="media/poster-03.jpg" alt="Poster 03" /></div>
-              <div class="poster"><img src="media/poster-04.jpg" alt="Poster 04" /></div>
-              <div class="poster"><img src="media/poster-05.jpg" alt="Poster 05" /></div>
-              <div class="poster"><img src="media/poster-06.jpg" alt="Poster 06" /></div>
-              <div class="poster"><img src="media/poster-07.jpg" alt="Poster 07" /></div>
-              <div class="poster"><img src="media/poster-08.jpg" alt="Poster 08" /></div>
-              <div class="poster"><img src="media/poster-09.jpg" alt="Poster 09" /></div>
-              <div class="poster"><img src="media/poster-10.jpg" alt="Poster 10" /></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- HISTOIRE -->
-    <section id="histoire">
-      <h2 class="section-title">Histoire</h2>
-      <div class="card story">
-        <p><strong>KYOOL</strong> n’était au départ qu’une petite mandarine de Jeju — tranquille, ensoleillée, et franchement pas pressée de devenir une star.</p>
-        <p>Un soir d’orage, un éclair fend le ciel. L’arbre tremble, le monde bascule. La mandarine tombe, roule, et finit dans l’océan. L’eau, l’électricité… et quelque chose d’inexplicable : elle se réveille <strong>bleue</strong>.</p>
-        <p>Bleue comme une énergie neuve. Bleue comme une promesse. KYOOL comprend alors une chose : relier les gens par l’émotion, la culture, les histoires. Faire voyager sans avion. Faire vibrer sans barrière.</p>
-        <p>C’est comme ça que naît <strong>Kyool</strong> : une porte d’entrée vers la Corée — ses Short Dramas, ses films, ses shows, ses créateurs. Un endroit moderne, simple, vivant. Et surtout… fait pour ceux qui aiment la Corée “pour de vrai”.</p>
-      </div>
-    </section>
-
-    <!-- PROGRAMMES -->
-    <section id="programmes">
-      <h2 class="section-title">Programmes</h2>
-      <div class="prog-wrap">
-        <div class="carousel-title">20 contenus (2 lignes de 10)</div>
-
-        <div class="prog-grid">
-          <!-- 1 à 20 -->
-          <div class="prog-item"><img src="media/programmes-01.jpg" alt="Programme 01"><div class="prog-name">Programme 01</div></div>
-          <div class="prog-item"><img src="media/programmes-02.jpg" alt="Programme 02"><div class="prog-name">Programme 02</div></div>
-          <div class="prog-item"><img src="media/programmes-03.jpg" alt="Programme 03"><div class="prog-name">Programme 03</div></div>
-          <div class="prog-item"><img src="media/programmes-04.jpg" alt="Programme 04"><div class="prog-name">Programme 04</div></div>
-          <div class="prog-item"><img src="media/programmes-05.jpg" alt="Programme 05"><div class="prog-name">Programme 05</div></div>
-          <div class="prog-item"><img src="media/programmes-06.jpg" alt="Programme 06"><div class="prog-name">Programme 06</div></div>
-          <div class="prog-item"><img src="media/programmes-07.jpg" alt="Programme 07"><div class="prog-name">Programme 07</div></div>
-          <div class="prog-item"><img src="media/programmes-08.jpg" alt="Programme 08"><div class="prog-name">Programme 08</div></div>
-          <div class="prog-item"><img src="media/programmes-09.jpg" alt="Programme 09"><div class="prog-name">Programme 09</div></div>
-          <div class="prog-item"><img src="media/programmes-10.jpg" alt="Programme 10"><div class="prog-name">Programme 10</div></div>
-
-          <div class="prog-item"><img src="media/programmes-11.jpg" alt="Programme 11"><div class="prog-name">Programme 11</div></div>
-          <div class="prog-item"><img src="media/programmes-12.jpg" alt="Programme 12"><div class="prog-name">Programme 12</div></div>
-          <div class="prog-item"><img src="media/programmes-13.jpg" alt="Programme 13"><div class="prog-name">Programme 13</div></div>
-          <div class="prog-item"><img src="media/programmes-14.jpg" alt="Programme 14"><div class="prog-name">Programme 14</div></div>
-          <div class="prog-item"><img src="media/programmes-15.jpg" alt="Programme 15"><div class="prog-name">Programme 15</div></div>
-          <div class="prog-item"><img src="media/programmes-16.jpg" alt="Programme 16"><div class="prog-name">Programme 16</div></div>
-          <div class="prog-item"><img src="media/programmes-17.jpg" alt="Programme 17"><div class="prog-name">Programme 17</div></div>
-          <div class="prog-item"><img src="media/programmes-18.jpg" alt="Programme 18"><div class="prog-name">Programme 18</div></div>
-          <div class="prog-item"><img src="media/programmes-19.jpg" alt="Programme 19"><div class="prog-name">Programme 19</div></div>
-          <div class="prog-item"><img src="media/programmes-20.jpg" alt="Programme 20"><div class="prog-name">Programme 20</div></div>
-        </div>
-
-        <p style="margin:12px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
-          Remplace les images dans <strong>media/</strong> : programmes-01.jpg → programmes-20.jpg
+    <section class="hero">
+      <!-- Texte -->
+      <div>
+        <h1 class="title">
+          <span class="kyool">Kyool</span> <span class="coree">votre Corée</span>
+        </h1>
+        <p class="subtitle">
+          Plongez au cœur de la Hallyu. Explorez le meilleur des Short Dramas, Films, TV Shows, Web Dramas et contenus exclusifs coréens.
         </p>
-      </div>
-    </section>
 
-    <!-- PARTENAIRES -->
-    <section id="partenaires">
-      <h2 class="section-title">Partenaires</h2>
-      <div class="partners-card">
-        <div class="carousel-title">Ils avancent avec nous (20)</div>
-
-        <div class="partners-grid">
-          <div class="partner-logo"><img src="media/partner-01.jpg" alt="Partenaire 01"></div>
-          <div class="partner-logo"><img src="media/partner-02.jpg" alt="Partenaire 02"></div>
-          <div class="partner-logo"><img src="media/partner-03.jpg" alt="Partenaire 03"></div>
-          <div class="partner-logo"><img src="media/partner-04.jpg" alt="Partenaire 04"></div>
-          <div class="partner-logo"><img src="media/partner-05.jpg" alt="Partenaire 05"></div>
-
-          <div class="partner-logo"><img src="media/partner-06.jpg" alt="Partenaire 06"></div>
-          <div class="partner-logo"><img src="media/partner-07.jpg" alt="Partenaire 07"></div>
-          <div class="partner-logo"><img src="media/partner-08.jpg" alt="Partenaire 08"></div>
-          <div class="partner-logo"><img src="media/partner-09.jpg" alt="Partenaire 09"></div>
-          <div class="partner-logo"><img src="media/partner-10.jpg" alt="Partenaire 10"></div>
-
-          <div class="partner-logo"><img src="media/partner-11.jpg" alt="Partenaire 11"></div>
-          <div class="partner-logo"><img src="media/partner-12.jpg" alt="Partenaire 12"></div>
-          <div class="partner-logo"><img src="media/partner-13.jpg" alt="Partenaire 13"></div>
-          <div class="partner-logo"><img src="media/partner-14.jpg" alt="Partenaire 14"></div>
-          <div class="partner-logo"><img src="media/partner-15.jpg" alt="Partenaire 15"></div>
-
-          <div class="partner-logo"><img src="media/partner-16.jpg" alt="Partenaire 16"></div>
-          <div class="partner-logo"><img src="media/partner-17.jpg" alt="Partenaire 17"></div>
-          <div class="partner-logo"><img src="media/partner-18.jpg" alt="Partenaire 18"></div>
-          <div class="partner-logo"><img src="media/partner-19.jpg" alt="Partenaire 19"></div>
-          <div class="partner-logo"><img src="media/partner-20.jpg" alt="Partenaire 20"></div>
-        </div>
-
-        <p style="margin:12px 0 0; color:rgba(255,255,255,.75); font-size:13.5px;">
-          Remplace les logos : partner-01.jpg → partner-20.jpg (idéalement carrés).
-        </p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2 class="section-title">Nous contacter</h2>
-
-      <div class="card">
-        <div class="contact-grid">
-          <!-- Form -->
-          <div>
-            <p style="margin-top:0; color:rgba(255,255,255,.82);">
-              Une question, un partenariat, une collab ? Écris-nous — KYOOL répond (entre deux épisodes, promis).
-            </p>
-
-            <form id="contactForm">
-              <input id="name" type="text" placeholder="Nom" required />
-              <input id="email" type="email" placeholder="Email" required />
-              <input id="subject" type="text" placeholder="Sujet" required />
-              <textarea id="message" placeholder="Message" required></textarea>
-              <button class="btn" type="submit">Envoyer</button>
-            </form>
-
-            <p style="margin-bottom:0; color:rgba(255,255,255,.68); font-size:13px;">
-              Envoi vers : <strong>contact@kyool.eu</strong>
-            </p>
-
-            <div class="community-note">
-              <strong>Kyool, c’est plus qu’une plateforme.</strong><br/>
-              C’est une <em>communauté</em> qui grandit avec celles et ceux qui aiment la Corée “pour de vrai”.
-              On vit entre la France et la Corée, on construit ce projet au quotidien, et on veut que Kyool reste
-              <strong>professionnel</strong>, <strong>humain</strong> et <strong>vivant</strong>.<br/>
-              Si tu veux rejoindre l’aventure — en tant que partenaire, créateur, distributeur ou simple fan —
-              tu es au bon endroit.
-            </div>
-          </div>
-
-          <!-- Infos -->
-          <div class="info-stack">
-            <div class="info-card">
-              <p class="info-title">Indépendance Prod / KYOOL — France</p>
-              <p class="addr">
-                4 rue Ampère<br/>
-                91430 Igny — France
-              </p>
-              <div class="map" aria-label="Carte Igny France">
-                <iframe
-                  title="Carte Igny"
-                  loading="lazy"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=2.221%2C48.741%2C2.258%2C48.759&layer=mapnik&marker=48.750%2C2.239">
-                </iframe>
-              </div>
-            </div>
-
-            <div class="info-card">
-              <p class="info-title">KYOOL — Pangyo (KR)</p>
-              <p class="addr">
-                Gyeonggi-do, Seongnam-si, Bundang-gu<br/>
-                Daewangpangyo-ro 645beon-gil, 12 1F KR<br/>
-                5F 경기창조경제혁신센터
-              </p>
-              <div class="map" aria-label="Carte Pangyo KR">
-                <iframe
-                  title="Carte Pangyo"
-                  loading="lazy"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=127.097%2C37.394%2C127.118%2C37.405&layer=mapnik&marker=37.3995%2C127.1075">
-                </iframe>
-              </div>
-            </div>
-          </div>
-
+        <div class="cta-row">
+          <a class="btn" href="programmes.html">Découvrir les programmes</a>
+          <a class="btn secondary" href="contact.html">Devenir partenaire</a>
         </div>
 
         <div class="foot">
           <div><strong>Kyool</strong> • #24C7EB • #F39800 • #25CE62</div>
-          <div style="margin-top:6px; opacity:.85;">© KYOOL — Tous droits réservés.</div>
+          <div>© KYOOL — Tous droits réservés.</div>
+        </div>
+      </div>
+
+      <!-- Scène App Store -->
+      <div class="stage">
+        <div class="stage-grid">
+          <!-- Téléphone (gros) -->
+          <div class="phone" aria-label="Téléphone (placeholder)">
+            <div class="screen"></div>
+          </div>
+
+          <!-- Colonne droite -->
+          <div class="right">
+            <div class="tablet" aria-label="Tablette (placeholder)">
+              <div class="screen"></div>
+            </div>
+
+            <div class="posterBig" aria-label="Affiche (placeholder)">
+              <div class="label">Affiche / visuel clé (on mettra une vraie image après)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom">
+          <!-- Mascotte + QR -->
+          <div class="miniCard">
+            <div class="mascotRow">
+              <div class="avatar">KYOOL</div>
+              <div class="bubble">
+                Bonjour, je m’appelle <strong>KYOOL</strong>.<br/>
+                Je te montre la Corée… sans te demander de parler coréen (pour l’instant 😄).
+              </div>
+            </div>
+
+            <div class="qrTitle">Disponible bientôt</div>
+            <div class="qrRow">
+              <div class="qr">QR iOS<br/>(App Store)</div>
+              <div class="qr">QR Android<br/>(Google Play)</div>
+            </div>
+            <div class="soon">⭐ <strong>Disponible bientôt</strong> — lancement en cours.</div>
+          </div>
+
+          <!-- Carrousel -->
+          <div class="carousel">
+            <div class="carousel-title">À l’affiche sur KYOOL</div>
+            <div class="track">
+              <div class="poster"><span>Poster 01</span></div>
+              <div class="poster"><span>Poster 02</span></div>
+              <div class="poster"><span>Poster 03</span></div>
+              <div class="poster"><span>Poster 04</span></div>
+              <div class="poster"><span>Poster 05</span></div>
+              <div class="poster"><span>Poster 06</span></div>
+              <div class="poster"><span>Poster 07</span></div>
+              <div class="poster"><span>Poster 08</span></div>
+              <div class="poster"><span>Poster 09</span></div>
+              <div class="poster"><span>Poster 10</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
   </main>
-
-  <script>
-    // Formulaire : ouvre le client mail avec un email pré-rempli (gratuit, sans serveur)
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const to = "contact@kyool.eu";
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const subject = document.getElementById("subject").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      const fullSubject = encodeURIComponent(subject);
-      const body = encodeURIComponent(
-        "Nom: " + name + "\n" +
-        "Email: " + email + "\n\n" +
-        message
-      );
-
-      window.location.href = `mailto:${to}?subject=${fullSubject}&body=${body}`;
-    });
-  </script>
 </body>
 </html>
