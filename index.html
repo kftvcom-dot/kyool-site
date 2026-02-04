@@ -1,234 +1,107 @@
-:root{
-  --kyool-blue:#24C7EB;
-  --kyool-orange:#F39800;
-  --kyool-green:#25CE62;
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KYOOL — Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-  --bg-top:#000000;
-  --bg-bottom:#081a33;
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <img src="media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
+      </div>
 
-  --text:#ffffff;
-  --muted:rgba(255,255,255,.78);
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="partenaires.html">Partenaires</a>
+        <a href="contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
 
-  --card:rgba(255,255,255,.06);
-  --border:rgba(255,255,255,.12);
-  --shadow:0 18px 50px rgba(0,0,0,.45);
+  <section class="wrap">
+    <div class="home-grid">
 
-  --radius:22px;
-  --radius2:16px;
+      <!-- TEXTE -->
+      <div>
+        <h1 class="title">Kyool <span class="coree">votre Corée</span></h1>
 
-  --max:1520px;
-  --pad:22px;
+        <p class="subtitle">
+          Plongez au cœur de la Hallyu. Explorez le meilleur des Short Dramas, Films, TV Shows, Web Dramas et contenus exclusifs coréens.
+        </p>
 
-  --topbarH:72px;
-}
+        <div class="cta-row">
+          <a class="btn" href="programmes.html">Découvrir les programmes</a>
+          <a class="btn secondary" href="contact.html">Devenir partenaire</a>
+        </div>
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  color:var(--text);
-  min-height:100vh;
-  background:
-    radial-gradient(900px 520px at 78% 10%, rgba(36,199,235,.25), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
-}
+        <div class="below-text">
+          <div class="mascot-row">
+            <div class="mascot-avatar">
+              <img src="media/kyool-mascot.png" alt="Mascotte KYOOL" onerror="this.style.display='none'">
+            </div>
+            <div class="mascot-text">
+              <strong>Bonjour, je m’appelle KYOOL.</strong><br/>
+              Je te montre la Corée… sans te demander de parler coréen (pour l’instant 😄).
+            </div>
+          </div>
 
-a{color:inherit; text-decoration:none}
-.wrap{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+          <div class="qr-row">
+            <div class="qr-title">Disponible bientôt</div>
 
-.topbar{
-  position:sticky; top:0; z-index:50;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,.55);
-  border-bottom:1px solid var(--border);
-}
-.topbar-inner{
-  height: var(--topbarH);
-  display:flex; align-items:center; justify-content:space-between;
-  gap:16px;
-}
-.brand{
-  display:flex; align-items:center; gap:12px;
-  min-width:210px;
-}
-.brand img{
-  height:34px; width:auto; display:block;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
-}
-.brand-text{display:flex; flex-direction:column; line-height:1.05; gap:6px;}
-.logo-fallback{font-weight:900; letter-spacing:.4px; font-size:20px;}
-.slogan{font-size:12.5px; color:var(--muted);}
+            <div class="qr" title="QR iOS">
+              <img src="media/qr-ios.png" alt="QR iOS (App Store)" onerror="this.parentElement.style.opacity='.5'">
+            </div>
+            <div class="qr" title="QR Android">
+              <img src="media/qr-android.png" alt="QR Android (Google Play)" onerror="this.parentElement.style.opacity='.5'">
+            </div>
 
-nav{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
-nav a{
-  padding:9px 12px;
-  border-radius:999px;
-  border:1px solid transparent;
-  color:var(--muted);
-  transition:.18s ease;
-  font-size:14px;
-}
-nav a:hover{
-  color:#000;
-  background:var(--kyool-blue);
-  border-color:rgba(255,255,255,.15);
-}
+            <div class="qr-note">App Store & Google Play — lancement en cours.</div>
+          </div>
+        </div>
 
-section{padding: 46px 0 56px;}
+        <div class="home-foot">
+          <div>Kyool • #24C7EB • #F39800 • #25CE62</div>
+          <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+        </div>
+      </div>
 
-.title{
-  font-size: clamp(38px, 4.2vw, 64px);
-  margin:0 0 12px;
-  letter-spacing:-.9px;
-  line-height:1.05;
-}
-.title .coree{color:var(--kyool-blue)}
-.subtitle{
-  margin:0 0 22px;
-  color:var(--muted);
-  font-size:16.5px;
-  line-height:1.5;
-  max-width:60ch;
-}
+      <!-- VISUELS -->
+      <div class="showcase">
+        <div class="device-grid">
 
-.cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:12px 16px;
-  border-radius:999px;
-  background:#fff;
-  color:#000;
-  font-weight:900;
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow: var(--shadow);
-  transition:.18s ease;
-  min-width:210px;
-}
-.btn:hover{background:var(--kyool-blue); color:#000}
-.btn.secondary{
-  background:transparent; color:#fff;
-  border:1px solid var(--border);
-  box-shadow:none;
-  min-width:190px;
-}
-.btn.secondary:hover{background:rgba(36,199,235,.18); border-color:rgba(36,199,235,.45)}
+          <div class="frame phone">
+            <video autoplay muted loop playsinline>
+              <source src="media/kyool-ad.mp4" type="video/mp4" />
+            </video>
+          </div>
 
-.home-grid{
-  display:grid;
-  grid-template-columns: 1.05fr 1.35fr;
-  gap:28px;
-  align-items:center;
-  min-height: calc(100vh - var(--topbarH) - 70px);
-}
+          <div class="right-col">
+            <div class="frame tablet">
+              <video autoplay muted loop playsinline>
+                <source src="media/kyool-tablet.mp4" type="video/mp4" />
+              </video>
+            </div>
 
-.showcase{
-  border:1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow: var(--shadow);
-  position:relative;
-  overflow:hidden;
-}
-.showcase:before,
-.showcase:after{
-  content:"";
-  position:absolute;
-  border-radius: var(--radius);
-  border:1px solid rgba(36,199,235,.22);
-  background: rgba(0,0,0,.12);
-  transform: rotate(-4deg);
-  opacity:.55;
-  pointer-events:none;
-}
-.showcase:before{width:88%; height:84%; right:-18px; top:10px;}
-.showcase:after{width:84%; height:78%; right:18px; top:34px; transform: rotate(-8deg); opacity:.35;}
+            <div class="frame square">
+              <img src="media/hero-square.jpg" alt="Visuel" onerror="this.style.display='none'">
+            </div>
+          </div>
 
-.device-grid{
-  position:relative;
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:14px;
-  align-items:stretch;
-  z-index:1;
-}
-.frame{
-  border-radius: var(--radius2);
-  border: 1px solid rgba(36,199,235,.55);
-  box-shadow: 0 0 0 1px rgba(36,199,235,.18), 0 14px 40px rgba(0,0,0,.55);
-  background: rgba(0,0,0,.38);
-  overflow:hidden;
-  position:relative;
-}
-.phone{
-  aspect-ratio: 9/16;
-  min-height: 590px;
-  transform: rotate(-2.5deg) translateY(-4px);
-  transform-origin: 50% 60%;
-  transition: transform .25s ease;
-}
-.phone:hover{transform: rotate(-1deg) translateY(-8px);}
+        </div>
+      </div>
 
-.right-col{display:flex; flex-direction:column; gap:14px;}
-.tablet{aspect-ratio: 16/10; min-height:220px; transform: rotate(1.2deg);}
-.square{aspect-ratio: 1/1; min-height:220px; transform: rotate(-.8deg);}
-
-.frame video,.frame img{
-  width:100%; height:100%;
-  object-fit: cover;
-  display:block;
-  background:#000;
-}
-.tablet video,.tablet img{object-fit: contain;}
-
-.below-text{margin-top:20px; display:grid; gap:12px; max-width:640px;}
-.mascot-row{
-  display:flex; gap:12px; align-items:center;
-  padding:12px 14px; border-radius:18px;
-  border:1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-}
-.mascot-avatar{
-  width:56px; height:56px; border-radius:16px;
-  overflow:hidden; border:1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.22);
-  flex:0 0 auto;
-}
-.mascot-avatar img{width:100%; height:100%; object-fit:cover; display:block;}
-.mascot-text{color: rgba(255,255,255,.92); font-size:14.5px; line-height:1.35;}
-
-.qr-row{
-  display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-  padding:12px 14px; border-radius:18px;
-  border:1px solid rgba(36,199,235,.28);
-  background: rgba(0,0,0,.18);
-}
-.qr-title{font-weight:900; margin-right:auto; font-size:13.5px;}
-.qr{
-  width:84px; height:84px;
-  border-radius:14px;
-  border:1px dashed rgba(255,255,255,.22);
-  background: rgba(255,255,255,.05);
-  overflow:hidden;
-}
-.qr img{width:100%; height:100%; object-fit:cover; display:block;}
-.qr-note{width:100%; color: rgba(255,255,255,.75); font-size:12.8px;}
-
-.home-foot{
-  margin-top:22px;
-  padding-top:14px;
-  border-top:1px solid rgba(255,255,255,.10);
-  display:flex; justify-content:space-between; gap:10px;
-  color: rgba(255,255,255,.68);
-  font-size:13px;
-  flex-wrap:wrap;
-}
-
-@media (max-width: 1200px){
-  .home-grid{grid-template-columns: 1fr; min-height:auto;}
-  .device-grid{grid-template-columns: 1fr;}
-  .phone{min-height:520px; transform:none;}
-  .tablet,.square{transform:none;}
-  nav{justify-content:flex-start}
-}
+    </div>
+  </section>
+</body>
+</html>
