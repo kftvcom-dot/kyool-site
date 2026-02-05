@@ -440,8 +440,10 @@ section{ padding-bottom: 90px; }
   display:grid;
   grid-template-columns: 1.05fr .95fr;
   gap: 26px;
-  align-items:start;
+- align-items:start;
++ align-items: stretch;
 }
+
 .story-tagline{
   margin: 14px 0 0;
   padding: 12px 14px;
