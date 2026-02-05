@@ -274,6 +274,29 @@ section{padding: 46px 0 56px;}
   width: 100%;
   text-align: center;
 }
+/* QR : 2 QR côte à côte + bloc plus compact */
+.qr-row{
+  width: fit-content;
+  max-width: 260px;
+  padding: 12px 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.qr-row .qr{
+  width: 92px;
+  height: 92px;
+  justify-self: center;
+}
+
+/* texte sous les QR centré sur 2 colonnes */
+.qr-note{
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 2px;
+}
 
 /* 5) Mascotte : bloc compact, avatar un peu plus grand */
 .mascot-row{
@@ -285,3 +308,25 @@ section{padding: 46px 0 56px;}
   height: 82px;
   flex: 0 0 82px;
 }
+/* --- Bottom bar (comme la topbar) --- */
+.bottombar{
+  position: fixed;
+  left:0; right:0; bottom:0;
+  z-index: 60;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.55);
+  border-top: 1px solid var(--border);
+}
+.bottombar-inner{
+  height: 56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  color: rgba(255,255,255,.68);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+/* évite que la barre cache le bas */
+section{ padding-bottom: 90px; }
