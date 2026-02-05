@@ -183,17 +183,13 @@ section{padding: 46px 0 56px;}
 .tablet video,.tablet img{object-fit: contain;}
 
 .below-text{
-  margin-top: 220px;   /* ← baisse fortement les blocs QR + mascotte */
+  margin-top: 220px;
   display: grid;
   gap: 14px;
   max-width: 640px;
-  
-    position: relative;
+  position: relative;
+}
 
-  /* ✅ on réserve une colonne à droite pour Kyool-heart */
-  padding-right: 220px;    /* espace réservé pour le perso */
-}
-}
 .mascot-row{
   display:flex; gap:12px; align-items:center;
   padding:12px 14px; border-radius:18px;
@@ -405,11 +401,18 @@ section{ padding-bottom: 90px; }
    KYOOL – HEART MASCOT
    =============================== */
 
+/* Le pack devient la référence */
+.qr-pack{
+  position: relative;
+  width: fit-content;
+}
+
+/* Kyool Heart ne prend plus de place : il se superpose à côté */
 .kyool-heart{
   position: absolute;
-  right: 0;
-  top: 10px;              /* ajuste verticalement */
-  width: 210px;           /* ✅ plus grand */
+  left: 240px;   /* ajuste : 210 / 230 / 250 selon ton rendu */
+  top: -10px;      /* ajuste */
+  width: 260px;  /* taille du perso */
   pointer-events: none;
   z-index: 2;
 }
@@ -418,11 +421,10 @@ section{ padding-bottom: 90px; }
   width: 100%;
   height: auto;
   display: block;
+  animation: kyoolFloat 3.2s ease-in-out infinite;
 }
 
-/* petite animation vivante */
 @keyframes kyoolFloat{
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
 }
