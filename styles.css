@@ -75,6 +75,13 @@ nav a:hover{
   border-color:rgba(255,255,255,.15);
 }
 
+/* ← AJOUTEZ CE NOUVEAU CODE ICI */
+nav a[aria-current="page"]{
+  background: var(--kyool-blue);
+  color: #000;
+  border-color: rgba(255,255,255,.15);
+  font-weight: 600;
+}
 section{padding: 46px 0 56px;}
 
 .title{
@@ -607,5 +614,14 @@ section{ padding-bottom: 90px; }
   .kyool-mosaic .k{
     min-height: 140px;
     max-height: 220px;
+  }
+ /* ← AJOUTEZ CECI */
+  .bottombar-inner{
+    font-size: 11px;
+    padding: 8px 0;
+    text-align: center;
+    flex-direction: column;
+    gap: 6px;
+    height: auto;
   }
 }
