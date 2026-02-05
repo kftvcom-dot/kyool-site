@@ -286,7 +286,7 @@ section{padding: 46px 0 56px;}
 
 /* --- Réduire un peu les visuels à droite --- */
 .device-grid{
-  grid-template-columns: 1fr 0.86fr; /* colonne droite plus étroite */
+  grid-template-columns: 1.05fr 0.95fr; /* colonne droite plus étroite */
 }
 .phone{
   min-height: 590px; /* un peu plus petit */
