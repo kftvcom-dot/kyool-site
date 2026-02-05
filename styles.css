@@ -187,6 +187,12 @@ section{padding: 46px 0 56px;}
   display: grid;
   gap: 14px;
   max-width: 640px;
+  
+    position: relative;
+
+  /* ✅ on réserve une colonne à droite pour Kyool-heart */
+  padding-right: 220px;    /* espace réservé pour le perso */
+}
 }
 .mascot-row{
   display:flex; gap:12px; align-items:center;
@@ -400,18 +406,18 @@ section{ padding-bottom: 90px; }
    =============================== */
 
 .kyool-heart{
-  position: relative;
-  margin-top: -40px;          /* le fait “flotter” au-dessus */
-  margin-left: auto;          /* pousse à droite */
-  width: 140px;               /* ajuste si besoin */
-  pointer-events: none;       /* décoratif */
+  position: absolute;
+  right: 0;
+  top: 10px;              /* ajuste verticalement */
+  width: 210px;           /* ✅ plus grand */
+  pointer-events: none;
+  z-index: 2;
 }
 
 .kyool-heart img{
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 12px 30px rgba(36,199,235,.35));
-  animation: kyoolFloat 4s ease-in-out infinite;
+  display: block;
 }
 
 /* petite animation vivante */
