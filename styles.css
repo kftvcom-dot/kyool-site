@@ -429,7 +429,9 @@ section{ padding-bottom: 90px; }
   50%{ transform: translateY(-8px); }
 }
 
-/* HISTOIRE – LAYOUT TEXTE + MOSAÏQUE */
+/* ===============================
+   HISTOIRE – LAYOUT TEXTE + MOSAÏQUE
+   =============================== */
 .story{
   padding-top: 40px;
 }
@@ -438,7 +440,17 @@ section{ padding-bottom: 90px; }
   display:grid;
   grid-template-columns: 1.05fr .95fr;
   gap: 26px;
-  align-items: stretch; /* ← ENLEVÉ LE - */
+  align-items: start; /* ← CHANGÉ de stretch à start pour aligner en haut */
+}
+
+.story-tagline{
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: rgba(255,255,255,.92);
+  width: fit-content;
 }
 
 .story-card{
@@ -447,6 +459,7 @@ section{ padding-bottom: 90px; }
   border-radius: 22px;
   padding: 22px 22px;
   backdrop-filter: blur(8px);
+  margin-top: 0; /* ← AJOUTÉ pour être sûr qu'il n'y a pas de marge */
 }
 
 .story-card p{
@@ -463,17 +476,13 @@ section{ padding-bottom: 90px; }
   border-radius: 8px;
 }
 
-.story-tagline{
-  margin: 14px 0 0;
-  padding: 12px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(0,0,0,.18);
+.story-bullets div{
+  margin: 8px 0;
   color: rgba(255,255,255,.92);
-  width: fit-content;
+  line-height: 1.5;
 }
 
-/* Cadre à droite */
+/* Cadre à droite - ALIGNÉ EN HAUT */
 .kyool-frame{
   border:1px solid rgba(36,199,235,.28);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
@@ -482,9 +491,9 @@ section{ padding-bottom: 90px; }
   box-shadow: 0 18px 50px rgba(0,0,0,.45);
   overflow:hidden;
   position: sticky;
-  top: 92px;
-  align-self: start; /* IMPORTANT POUR LE STICKY */
-  max-height: calc(100vh - 120px);
+  top: 92px; /* distance depuis le haut quand on scroll */
+  align-self: start; /* ← IMPORTANT : aligné en haut */
+  margin-top: 0; /* ← AJOUTÉ : pas de marge en haut */
 }
 
 /* Grille puzzle */
@@ -492,27 +501,111 @@ section{ padding-bottom: 90px; }
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  height: 100%;
 }
 
-/* Images */
+/* Images avec ANIMATION ACTIVÉE */
 .kyool-mosaic .k{
   width:100%;
-  height: auto; /* CHANGÉ DE 100% À AUTO */
-  min-height: 180px; /* RÉDUIT DE 640px À 180px */
-  max-height: 280px; /* AJOUTÉ POUR LIMITER */
+  height: auto;
+  min-height: 180px;
+  max-height: 280px;
   object-fit:cover;
   border-radius: 18px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow: 0 10px 25px rgba(0,0,0,.35);
   opacity: .98;
-  will-change: transform;
   display: block;
+  cursor: pointer;
   
+  /* ANIMATION : utilise les variables CSS custom */
   transform: translate(var(--x,0px), var(--y,0px)) rotate(var(--r,0deg)) scale(var(--s,1));
   animation: kyoolDrift var(--d,5.2s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
+  transition: all 0.3s ease;
 }
 
-/* Réglages par tuile - gardez vos réglages existants */
-.kyool-mosaic .k:nth-child(1){ --s:1.10; --x:6px; --y:-6px; --r:-1.5deg; --d:5.6s; --delay:-.3s; }
-/* ... etc (gardez tout) */
+/* Animation au survol - zoom */
+.kyool-mosaic .k:hover{
+  transform: scale(1.15) rotate(0deg) !important;
+  z-index: 10;
+  box-shadow: 0 25px 60px rgba(36,199,235,.55);
+  filter: brightness(1.1);
+}
+
+/* Réglages individuels pour chaque image (mouvement, rotation, timing) */
+.kyool-mosaic .k:nth-child(1){ 
+  --s:1.02; --x:4px; --y:-5px; --r:-2deg; --d:6.5s; --delay:0s; 
+}
+.kyool-mosaic .k:nth-child(2){ 
+  --s:0.98; --x:-5px; --y:3px; --r:1.5deg; --d:5.8s; --delay:-1.2s; 
+}
+.kyool-mosaic .k:nth-child(3){ 
+  --s:1.00; --x:3px; --y:6px; --r:-1deg; --d:6.2s; --delay:-0.8s; 
+}
+.kyool-mosaic .k:nth-child(4){ 
+  --s:0.96; --x:6px; --y:2px; --r:2deg; --d:5.5s; --delay:-1.8s; 
+}
+.kyool-mosaic .k:nth-child(5){ 
+  --s:1.04; --x:-3px; --y:5px; --r:-1.8deg; --d:6.8s; --delay:-0.4s; 
+}
+.kyool-mosaic .k:nth-child(6){ 
+  --s:1.01; --x:-6px; --y:-3px; --r:1.2deg; --d:5.3s; --delay:-1.5s; 
+}
+.kyool-mosaic .k:nth-child(7){ 
+  --s:0.97; --x:2px; --y:-6px; --r:-1.5deg; --d:6.0s; --delay:-2.0s; 
+}
+.kyool-mosaic .k:nth-child(8){ 
+  --s:1.03; --x:5px; --y:4px; --r:0.8deg; --d:5.6s; --delay:-0.6s; 
+}
+.kyool-mosaic .k:nth-child(9){ 
+  --s:0.99; --x:-4px; --y:-4px; --r:-0.9deg; --d:6.3s; --delay:-1.3s; 
+}
+
+/* Animation de flottement doux - MOUVEMENT DANS TOUS LES SENS */
+@keyframes kyoolDrift{
+  0%{
+    transform: translate(var(--x,0px), var(--y,0px)) rotate(var(--r,0deg)) scale(var(--s,1));
+    filter: saturate(1.0) brightness(1.0);
+  }
+  25%{
+    transform: translate(calc(var(--x,0px) + 3px), calc(var(--y,0px) - 4px)) 
+               rotate(calc(var(--r,0deg) + 0.5deg)) 
+               scale(calc(var(--s,1) * 1.01));
+    filter: saturate(1.05) brightness(1.02);
+  }
+  50%{
+    transform: translate(calc(var(--x,0px) - 2px), calc(var(--y,0px) + 5px)) 
+               rotate(calc(var(--r,0deg) - 0.8deg)) 
+               scale(var(--s,1));
+    filter: saturate(1.08) brightness(1.05);
+  }
+  75%{
+    transform: translate(calc(var(--x,0px) + 4px), calc(var(--y,0px) + 2px)) 
+               rotate(calc(var(--r,0deg) + 0.6deg)) 
+               scale(calc(var(--s,1) * 0.99));
+    filter: saturate(1.04) brightness(1.03);
+  }
+  100%{
+    transform: translate(var(--x,0px), var(--y,0px)) rotate(var(--r,0deg)) scale(var(--s,1));
+    filter: saturate(1.0) brightness(1.0);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 1200px){
+  .story-grid{
+    grid-template-columns: 1fr;
+  }
+  
+  .kyool-frame{
+    position: relative;
+    top: 0;
+    max-height: none;
+  }
+  
+  .kyool-mosaic .k{
+    min-height: 140px;
+    max-height: 220px;
+  }
+}
