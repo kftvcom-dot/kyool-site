@@ -319,4 +319,30 @@ nav{
 .device-grid{
   justify-content: end;
 }
+/* QR bloc compact (plus pleine largeur) */
+.qr-row{
+  width: fit-content;
+  max-width: 360px;          /* ajuste si besoin */
+  padding: 16px 16px;
+}
 
+.qr-row .qr{
+  width: 110px;
+  height: 110px;
+}
+/* Mascotte : bloc moins long + avatar plus visible */
+.mascot-row{
+  width: fit-content;
+  max-width: 520px;
+  padding: 14px 16px;
+}
+
+.mascot-avatar{
+  width: 82px;     /* plus gros */
+  height: 82px;    /* plus gros */
+  flex: 0 0 82px;
+}
+
+.mascot-text{
+  max-width: 410px; /* évite le bloc trop long */
+}
