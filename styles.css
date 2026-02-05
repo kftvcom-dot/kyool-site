@@ -428,10 +428,10 @@ section{ padding-bottom: 90px; }
   0%,100%{ transform: translateY(0); }
   50%{ transform: translateY(-8px); }
 }
-/* ===============================
-   HISTOIRE
-   =============================== */
 
+/* ===============================
+   HISTOIRE – LAYOUT TEXTE + MOSAÏQUE
+   =============================== */
 .story{
   padding-top: 40px;
 }
@@ -439,79 +439,79 @@ section{ padding-bottom: 90px; }
 .story-grid{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
-  gap: 28px;
-  align-items: start;
+  gap: 26px;
+  align-items:start;
 }
 
 .story-card{
-  margin-top: 14px;
-  padding: 18px 18px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  box-shadow: var(--shadow);
-}
-
-.story-card p{
-  margin: 0 0 12px;
-  color: rgba(255,255,255,.88);
-  line-height: 1.55;
-  font-size: 15.5px;
-}
-
-.story-bullets{
-  margin: 12px 0 14px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(36,199,235,.25);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(0,0,0,.18);
-  color: rgba(255,255,255,.92);
-  display: grid;
-  gap: 6px;
-  font-size: 14.5px;
+  border-radius: 22px;
+  padding: 22px 22px;
+  backdrop-filter: blur(8px);
 }
 
-.story-visuals{
+/* Cadre à droite */
+.kyool-frame{
+  border:1px solid rgba(36,199,235,.28);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  overflow:hidden;
   position: sticky;
-  top: calc(var(--topbarH) + 18px);
+  top: 92px; /* reste visible sous la topbar */
 }
 
-.story-gallery{
+/* Grille “puzzle” */
+.kyool-mosaic{
+  height: 520px;
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
   gap: 12px;
+  position:relative;
 }
 
-.story-gallery img{
-  width: 100%;
-  aspect-ratio: 1/1;
-  object-fit: cover;
+/* Images */
+.kyool-mosaic .k{
+  width:100%;
+  height:100%;
+  object-fit:cover;
   border-radius: 18px;
-  border: 1px solid rgba(36,199,235,.35);
-  box-shadow: 0 12px 30px rgba(0,0,0,.45);
-  transition: transform .2s ease;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  transform: translate(0,0) rotate(0deg);
+  animation: kyoolDrift 4.8s ease-in-out infinite;
+  will-change: transform;
+  opacity: .98;
 }
 
-.story-gallery img:hover{
-  transform: translateY(-2px) scale(1.01);
+/* Tailles (illusion de profondeur) */
+.k-sm{ transform: scale(.88); }
+.k-md{ transform: scale(1.00); }
+.k-lg{ transform: scale(1.12); }
+
+/* Petits décalages + timings différents (effet “puzzle vivant”) */
+.kyool-mosaic .k:nth-child(1){ animation-duration:5.6s; animation-delay:-.3s; transform: scale(1.12) translate(6px, -6px) rotate(-1.5deg); }
+.kyool-mosaic .k:nth-child(2){ animation-duration:4.9s; animation-delay:-1.1s; transform: scale(.88) translate(-6px, 4px) rotate(1deg); }
+.kyool-mosaic .k:nth-child(3){ animation-duration:5.2s; animation-delay:-.7s; transform: scale(1.00) translate(4px, 8px) rotate(-.8deg); }
+.kyool-mosaic .k:nth-child(4){ animation-duration:4.6s; animation-delay:-1.4s; transform: scale(.88) translate(8px, 2px) rotate(1.6deg); }
+.kyool-mosaic .k:nth-child(5){ animation-duration:5.9s; animation-delay:-.2s; transform: scale(1.12) translate(-4px, 6px) rotate(-1.2deg); }
+.kyool-mosaic .k:nth-child(6){ animation-duration:4.8s; animation-delay:-.9s; transform: scale(1.00) translate(-8px, -2px) rotate(.9deg); }
+.kyool-mosaic .k:nth-child(7){ animation-duration:5.4s; animation-delay:-1.6s; transform: scale(.88) translate(2px, -8px) rotate(-1deg); }
+.kyool-mosaic .k:nth-child(8){ animation-duration:4.7s; animation-delay:-.5s; transform: scale(1.00) translate(8px, 6px) rotate(.7deg); }
+.kyool-mosaic .k:nth-child(9){ animation-duration:5.1s; animation-delay:-1.2s; transform: scale(.88) translate(-6px, -6px) rotate(-.6deg); }
+
+/* Animation douce (pas de manège Disney) */
+@keyframes kyoolDrift{
+  0%,100%{ filter: saturate(1.02); transform: translate(var(--x,0), var(--y,0)) rotate(var(--r,0)); }
+  50%{ filter: saturate(1.08); transform: translate(calc(var(--x,0) + 6px), calc(var(--y,0) - 8px)) rotate(calc(var(--r,0) + .8deg)); }
 }
 
-.story-note{
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.78);
-  font-size: 13.5px;
-}
-
+/* Responsive: sur mobile → mosaïque sous le texte */
 @media (max-width: 1100px){
   .story-grid{ grid-template-columns: 1fr; }
-  .story-visuals{ position: relative; top: auto; }
-  .story-gallery{ grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (max-width: 640px){
-  .story-gallery{ grid-template-columns: 1fr 1fr; }
+  .kyool-frame{ position: relative; top:auto; }
+  .kyool-mosaic{ height: 420px; }
 }
