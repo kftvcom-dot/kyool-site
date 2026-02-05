@@ -259,22 +259,9 @@ section{padding: 46px 0 56px;}
 .phone{  min-height: 590px; }
 .tablet{ min-height: 220px; }
 .square{ min-height: 220px; }
+}
 
-/* 4) QR : plus petit + enlever “Disponible” (si tu l’as supprimé en HTML) */
-.qr-row{
-  width: fit-content;
-  max-width: 300px;
-  padding: 12px 12px;
-}
-.qr{
-  width: 92px;
-  height: 92px;
-}
-.qr-note{
-  width: 100%;
-  text-align: center;
-}
-/* QR : 2 QR côte à côte + bloc plus compact */
+/* QR : 2 QR côte à côte + bloc compact */
 .qr-row{
   width: fit-content;
   max-width: 260px;
@@ -283,6 +270,10 @@ section{padding: 46px 0 56px;}
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: center;
+
+  border-radius:18px;
+  border:1px solid rgba(36,199,235,.28);
+  background: rgba(0,0,0,.18);
 }
 
 .qr-row .qr{
@@ -294,9 +285,11 @@ section{padding: 46px 0 56px;}
 /* texte sous les QR centré sur 2 colonnes */
 .qr-note{
   grid-column: 1 / -1;
+  width: 100%;
   text-align: center;
   margin-top: 2px;
 }
+
 
 /* 5) Mascotte : bloc compact, avatar un peu plus grand */
 .mascot-row{
