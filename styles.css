@@ -316,9 +316,3 @@ section{padding: 46px 0 56px;}
 
 /* évite que la barre cache le bas */
 section{ padding-bottom: 90px; }
-
-/* Espace entre le titre et les blocs du bas */
-.below-text{
-  margin-top: 60px; /* ajuste entre 40 et 64 si tu veux */
-}
-
