@@ -475,9 +475,9 @@ section{ padding-bottom: 90px; }
   height: 100%;
   align-self: stretch;               /* important dans une grid */
 }
-.kyool-frame{
-  max-height: calc(100vh - 92px - 70px); /* topbar + bottombar */
-  overflow: hidden;
+.kyool-frame{ overflow:hidden; }
+  position: sticky;
+  top: 92px;
 }
 
 /* Grille puzzle */
