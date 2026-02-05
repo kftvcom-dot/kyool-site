@@ -242,7 +242,7 @@ section{padding: 46px 0 56px;}
 
 /* Centre verticalement le bloc "Kyool votre Corée" */
 .top-content{
-  margin-top: auto;
+  margin-top: 120px;
   margin-bottom: auto;
 }
 
@@ -297,3 +297,26 @@ section{padding: 46px 0 56px;}
 .square{
   min-height: 240px;
 }
+/* TOPBAR plus "edge to edge" */
+.topbar .wrap{
+  max-width: none;           /* ignore --max seulement pour la topbar */
+  padding: 0 18px;           /* petit espace respirant, mais proche des bords */
+}
+
+.topbar-inner{
+  width: 100%;
+}
+
+nav{
+  margin-left: auto;         /* pousse le menu à droite */
+}
+/* Pousse le bloc visuels vers la droite */
+.showcase{
+  justify-self: end;
+  margin-left: 34px;   /* crée plus d'air avec la colonne gauche */
+}
+
+.device-grid{
+  justify-content: end;
+}
+
