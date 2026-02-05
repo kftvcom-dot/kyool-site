@@ -233,7 +233,7 @@ section{padding: 46px 0 56px;}
 /* 1) Place le bloc texte un peu plus bas (mais pas collé en haut) */
 .top-content{
   margin-top: 170px; /* augmente à 200 si tu veux plus bas */
-  margin-bottom: 60px;  /* ← C’EST LUI QUI CRÉE LE VIDE */
+  margin-bottom: 70px;  /* ← C’EST LUI QUI CRÉE LE VIDE */
 }
 
 /* 2) Bloc visuels : taille “bonne” + légèrement à droite */
