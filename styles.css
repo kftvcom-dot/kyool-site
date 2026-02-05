@@ -371,24 +371,27 @@ section{ padding-bottom: 90px; }
 
 .sound-btn{
   position:absolute;
-  top:12px;
-  right:12px;
-  z-index:5;
-  width:40px;
-  height:40px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background: rgba(0,0,0,.45);
+  bottom:12px;     /* ⬅️ bas */
+  right:12px;      /* ⬅️ droite */
+  z-index:6;
+
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55);
   color:#fff;
+  cursor:pointer;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  cursor:pointer;
-  font-size:18px;
-  backdrop-filter: blur(8px);
+
+  font-size:16px;
+  transition: background .2s ease, transform .2s ease;
 }
 
 .sound-btn:hover{
-  background: rgba(0,0,0,.62);
-  border-color: rgba(36,199,235,.55);
+  background: rgba(36,199,235,.75);
+  transform: scale(1.05);
 }
