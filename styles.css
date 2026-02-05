@@ -322,3 +322,46 @@ section{padding: 46px 0 56px;}
 
 /* évite que la barre cache le bas */
 section{ padding-bottom: 90px; }
+
+/* ===============================
+   CAROUSEL (images tablette)
+   =============================== */
+
+.carousel{
+  position:relative;
+  overflow:hidden;
+}
+
+.carousel img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation: carouselFade 30s infinite;
+  background:#000;
+}
+
+/* 10 images → décalage de 3s */
+.carousel img:nth-child(1){ animation-delay: 0s; }
+.carousel img:nth-child(2){ animation-delay: 3s; }
+.carousel img:nth-child(3){ animation-delay: 6s; }
+.carousel img:nth-child(4){ animation-delay: 9s; }
+.carousel img:nth-child(5){ animation-delay: 12s; }
+.carousel img:nth-child(6){ animation-delay: 15s; }
+.carousel img:nth-child(7){ animation-delay: 18s; }
+.carousel img:nth-child(8){ animation-delay: 21s; }
+.carousel img:nth-child(9){ animation-delay: 24s; }
+.carousel img:nth-child(10){ animation-delay: 27s; }
+.carousel:hover img{
+  animation-play-state: paused;
+}
+
+@keyframes carouselFade{
+  0%   {opacity:0; transform:scale(1.03)}
+  8%   {opacity:1}
+  25%  {opacity:1}
+  33%  {opacity:0}
+  100% {opacity:0; transform:scale(1)}
+}
