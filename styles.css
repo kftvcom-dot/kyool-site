@@ -410,8 +410,8 @@ section{ padding-bottom: 90px; }
 /* Kyool Heart ne prend plus de place : il se superpose à côté */
 .kyool-heart{
   position: absolute;
-  left: 240px;   /* ajuste : 210 / 230 / 250 selon ton rendu */
-  top: -10px;      /* ajuste */
+  left: 230px;   /* ajuste : 210 / 230 / 250 selon ton rendu */
+  top: -60px;      /* ajuste */
   width: 260px;  /* taille du perso */
   pointer-events: none;
   z-index: 2;
