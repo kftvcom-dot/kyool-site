@@ -354,21 +354,20 @@ nav{
 /* Bloc QR plus compact */
 .qr-row{
   width: fit-content;
-  max-width: 360px;
-  padding: 16px;
+  max-width: 310px;
+ padding: 12px 12px;
 }
 
 /* QR plus grands */
 .qr{
-  width: 118px;
-  height: 118px;
+  width: 96px;
+  height: 96px;
 }
 
 /* Texte sous QR centré */
 .qr-note{
   width: 100%;
   text-align: center;
-  margin-top: 6px;
 }
 
 /* Mascotte plus lisible */
