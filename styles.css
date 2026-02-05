@@ -232,20 +232,31 @@ section{padding: 46px 0 56px;}
   .tablet,.square{transform:none;}
   nav{justify-content:flex-start}
 }
-/* LEFT column becomes a vertical layout so we can push blocks down */
+/* --- HOME layout: center title block, push QR+mascot lower --- */
 .left-col{
-  min-height: calc(100vh - var(--topbarH) - 70px);
+  min-height: calc(100vh - var(--topbarH));
   display:flex;
   flex-direction:column;
+  padding-bottom: 86px; /* réserve pour la bottom bar */
 }
 
-/* push the two blocks lower (but not fully stuck to bottom) */
+/* Centre verticalement le bloc "Kyool votre Corée" */
+.top-content{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Descend encore les blocs mascotte + QR */
 .below-text{
-  margin-top:auto;           /* pushes it down */
-  padding-bottom:78px;       /* keep space for bottom bar */
+  margin-top: 0;
+  padding-bottom: 16px;
 }
 
-/* bottom bar like topbar */
+/* Pour descendre PLUS : augmente cette valeur (ex: 34px, 50px) */
+.mascot-row{ margin-top: 22px; }
+.qr-row{ margin-top: 14px; }
+
+/* --- Bottom bar (comme la topbar) --- */
 .bottombar{
   position:fixed;
   left:0; right:0; bottom:0;
@@ -262,6 +273,27 @@ section{padding: 46px 0 56px;}
   gap:10px;
   color: rgba(255,255,255,.68);
   font-size:13px;
-  flex-wrap:wrap;
 }
 
+/* --- Page plus large (moins d'espace à gauche/droite) --- */
+:root{
+  --max: 1480px; /* élargit le site */
+}
+.wrap{
+  max-width: var(--max);
+  padding: 0 14px; /* moins de marge sur les côtés */
+}
+
+/* --- Réduire un peu les visuels à droite --- */
+.device-grid{
+  grid-template-columns: 1fr 0.86fr; /* colonne droite plus étroite */
+}
+.phone{
+  min-height: 590px; /* un peu plus petit */
+}
+.tablet{
+  min-height: 190px;
+}
+.square{
+  min-height: 240px;
+}
