@@ -330,7 +330,7 @@ section{padding: 46px 0 56px;}
 }
 
 /* évite que la barre cache le bas */
-section{ padding-bottom: 90px; }
+section{ padding-bottom: 120px; }
 
 /* ===============================
    CAROUSEL (images tablette)
@@ -440,7 +440,7 @@ section{ padding-bottom: 90px; }
    HISTOIRE – LAYOUT TEXTE + MOSAÏQUE
    =============================== */
 .story{
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .story-grid{
