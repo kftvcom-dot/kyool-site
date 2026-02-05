@@ -17,7 +17,7 @@
   --radius2:16px;
 
   --max:1760px;
-  --pad:22px;
+  --pad:14px;
 
   --topbarH:72px;
 }
@@ -242,19 +242,9 @@ section{padding: 46px 0 56px;}
 
 /* Centre verticalement le bloc "Kyool votre Corée" */
 .top-content{
-  margin-top: 120px;
+  margin-top: 150px;
   margin-bottom: auto;
 }
-
-/* Descend encore les blocs mascotte + QR */
-.below-text{
-  margin-top: 0;
-  padding-bottom: 16px;
-}
-
-/* Pour descendre PLUS : augmente cette valeur (ex: 34px, 50px) */
-.mascot-row{ margin-top: 22px; }
-.qr-row{ margin-top: 14px; }
 
 /* --- Bottom bar (comme la topbar) --- */
 .bottombar{
@@ -275,28 +265,6 @@ section{padding: 46px 0 56px;}
   font-size:13px;
 }
 
-/* --- Page plus large (moins d'espace à gauche/droite) --- */
-:root{
-  --max: 1480px; /* élargit le site */
-}
-.wrap{
-  max-width: var(--max);
-  padding: 0 14px; /* moins de marge sur les côtés */
-}
-
-/* --- Réduire un peu les visuels à droite --- */
-.device-grid{
-  grid-template-columns: 1.05fr 0.95fr; /* colonne droite plus étroite */
-}
-.phone{
-  min-height: 590px; /* un peu plus petit */
-}
-.tablet{
-  min-height: 190px;
-}
-.square{
-  min-height: 240px;
-}
 /* TOPBAR plus "edge to edge" */
 .topbar .wrap{
   max-width: none;           /* ignore --max seulement pour la topbar */
@@ -310,39 +278,46 @@ section{padding: 46px 0 56px;}
 nav{
   margin-left: auto;         /* pousse le menu à droite */
 }
-/* Pousse le bloc visuels vers la droite */
-.showcase{
-  justify-self: end;
-  margin-left: 34px;   /* crée plus d'air avec la colonne gauche */
-}
 
 .device-grid{
   justify-content: end;
 }
-/* QR bloc compact (plus pleine largeur) */
-.qr-row{
-  width: fit-content;
-  max-width: 360px;          /* ajuste si besoin */
-  padding: 16px 16px;
+
+/* Décale le showcase à droite sans réduire les visuels */
+.showcase{
+  justify-self: end;
+  margin-left: 56px;   /* + d’air avec la colonne texte */
+}
+/* Blocs mascotte + QR compacts et alignés */
+.below-text{
+  max-width: 520px;    /* stop au bloc trop long */
+  gap: 14px;
 }
 
-.qr-row .qr{
-  width: 110px;
-  height: 110px;
-}
-/* Mascotte : bloc moins long + avatar plus visible */
+/* Mascotte plus grosse + bloc moins long */
 .mascot-row{
   width: fit-content;
   max-width: 520px;
-  padding: 14px 16px;
 }
-
 .mascot-avatar{
-  width: 82px;     /* plus gros */
-  height: 82px;    /* plus gros */
-  flex: 0 0 82px;
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
 }
 
-.mascot-text{
-  max-width: 410px; /* évite le bloc trop long */
+/* QR bloc plus étroit (juste autour des QR) */
+.qr-row{
+  width: fit-content;
+  max-width: 360px;
+}
+.qr-title{
+  width: 100%;
+  margin-right: 0;
+}
+.qr-note{
+  width: 100%;
+}
+.qr{
+  width: 118px;
+  height: 118px;
 }
