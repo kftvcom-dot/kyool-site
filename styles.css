@@ -395,3 +395,28 @@ section{ padding-bottom: 90px; }
   background: rgba(36,199,235,.75);
   transform: scale(1.05);
 }
+/* ===============================
+   KYOOL – HEART MASCOT
+   =============================== */
+
+.kyool-heart{
+  position: relative;
+  margin-top: -40px;          /* le fait “flotter” au-dessus */
+  margin-left: auto;          /* pousse à droite */
+  width: 140px;               /* ajuste si besoin */
+  pointer-events: none;       /* décoratif */
+}
+
+.kyool-heart img{
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 30px rgba(36,199,235,.35));
+  animation: kyoolFloat 4s ease-in-out infinite;
+}
+
+/* petite animation vivante */
+@keyframes kyoolFloat{
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
