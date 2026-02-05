@@ -508,8 +508,8 @@ section{ padding-bottom: 90px; }
 .kyool-mosaic .k{
   width:100%;
   height: auto;
-  min-height: 180px;
-  max-height: 280px;
+  min-height: 120px; /* ← RÉDUIT de 180px à 120px */
+  max-height: 200px; /* ← RÉDUIT de 280px à 200px */
   object-fit:cover;
   border-radius: 18px;
   border:1px solid rgba(255,255,255,.10);
