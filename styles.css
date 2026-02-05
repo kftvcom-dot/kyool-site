@@ -387,3 +387,13 @@ nav{
 .mascot-text{
   max-width: 420px;
 }
+/* Réduire le bloc visuels à droite */
+.showcase{
+  transform: scale(.90);      /* ← baisse la taille globale (0.88 à 0.94) */
+  transform-origin: right center;
+}
+
+/* pour garder un peu d’air avec la colonne gauche */
+.home-grid{
+  column-gap: 34px;
+}
