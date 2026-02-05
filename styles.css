@@ -232,167 +232,56 @@ section{padding: 46px 0 56px;}
   .tablet,.square{transform:none;}
   nav{justify-content:flex-start}
 }
-/* --- HOME layout: center title block, push QR+mascot lower --- */
-.left-col{
-  min-height: calc(100vh - var(--topbarH));
-  display:flex;
-  flex-direction:column;
-  padding-bottom: 86px; /* réserve pour la bottom bar */
-}
-
-/* Centre verticalement le bloc "Kyool votre Corée" */
-.top-content{
-  margin-top: 150px;
-  margin-bottom: auto;
-}
-
-/* --- Bottom bar (comme la topbar) --- */
-.bottombar{
-  position:fixed;
-  left:0; right:0; bottom:0;
-  z-index:60;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,.58);
-  border-top:1px solid var(--border);
-}
-.bottombar-inner{
-  height:56px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  color: rgba(255,255,255,.68);
-  font-size:13px;
-}
-
-/* TOPBAR plus "edge to edge" */
-.topbar .wrap{
-  max-width: none;           /* ignore --max seulement pour la topbar */
-  padding: 0 18px;           /* petit espace respirant, mais proche des bords */
-}
-
-.topbar-inner{
-  width: 100%;
-}
-
-nav{
-  margin-left: auto;         /* pousse le menu à droite */
-}
-/* Blocs mascotte + QR compacts et alignés */
-.below-text{
-  max-width: 520px;    /* stop au bloc trop long */
-  gap: 14px;
-}
-
-/* Mascotte plus grosse + bloc moins long */
-.mascot-row{
-  width: fit-content;
-  max-width: 520px;
-}
-.mascot-avatar{
-  width: 88px;
-  height: 88px;
-  flex: 0 0 88px;
-}
-
-/* QR bloc plus étroit (juste autour des QR) */
-.qr-row{
-  width: fit-content;
-  max-width: 360px;
-}
-.qr-title{
-  width: 100%;
-  margin-right: 0;
-}
-.qr-note{
-  width: 100%;
-}
-.qr{
-  width: 118px;
-  height: 118px;
-}
 /* ===============================
-   AJUSTEMENTS FINALS HOME
+   HOME – AJUSTEMENTS PROPRES (FIN)
    =============================== */
 
-/* Grille principale : visuels plus larges */
-.home-grid{
-  grid-template-columns: 1.05fr 1.55fr;
-  gap: 36px;
+/* 1) Place le bloc texte un peu plus bas (mais pas collé en haut) */
+.top-content{
+  margin-top: 170px; /* augmente à 200 si tu veux plus bas */
 }
 
-/* Bloc visuels : plus grand et plus à droite */
+/* 2) Bloc visuels : taille “bonne” + légèrement à droite */
 .showcase{
   justify-self: end;
   width: 100%;
-  max-width: 980px;
-  margin-right: 8px;
-  margin-left: 0;
+  max-width: 840px;   /* ← clé : réduit la zone à droite */
+  margin-right: 10px; /* rapproche du bord */
 }
 
-/* Organisation des devices */
+/* 3) Devices : proportions raisonnables */
 .device-grid{
-  grid-template-columns: 1.12fr .88fr;
-  gap: 16px;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 14px;
 }
 
-/* Taille des devices */
-.phone{ min-height: 660px; }
-.tablet{ min-height: 240px; }
-.square{ min-height: 270px; }
+/* Taille du phone/tablet/square (revenir à “entre-deux”) */
+.phone{  min-height: 590px; }
+.tablet{ min-height: 220px; }
+.square{ min-height: 220px; }
 
-/* Texte un peu plus à gauche */
-.left-col{
-  padding-left: 6px;
-}
-
-/* Descend le bloc titre */
-.top-content{
-  margin-top: 210px;
-}
-
-/* Bloc QR plus compact */
+/* 4) QR : plus petit + enlever “Disponible” (si tu l’as supprimé en HTML) */
 .qr-row{
   width: fit-content;
-  max-width: 310px;
- padding: 12px 12px;
+  max-width: 300px;
+  padding: 12px 12px;
 }
-
-/* QR plus grands */
 .qr{
-  width: 96px;
-  height: 96px;
+  width: 92px;
+  height: 92px;
 }
-
-/* Texte sous QR centré */
 .qr-note{
   width: 100%;
   text-align: center;
 }
 
-/* Mascotte plus lisible */
+/* 5) Mascotte : bloc compact, avatar un peu plus grand */
 .mascot-row{
   width: fit-content;
   max-width: 520px;
-  padding: 14px 16px;
 }
-
 .mascot-avatar{
-  width: 88px;
-  height: 88px;
-  flex: 0 0 88px;
-}
-
-.mascot-text{
-  max-width: 420px;
-}
-/* Réduire le bloc visuels à droite */
-.showcase{
-  transform: scale(.90);      /* ← baisse la taille globale (0.88 à 0.94) */
-  transform-origin: right center;
-}
-
-/* pour garder un peu d’air avec la colonne gauche */
-.home-grid{
-  column-gap: 34px;
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
 }
