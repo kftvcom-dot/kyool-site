@@ -319,6 +319,6 @@ section{ padding-bottom: 90px; }
 
 /* Espace entre le titre et les blocs du bas */
 .below-text{
-  margin-top: 48px; /* ajuste entre 40 et 64 si tu veux */
+  margin-top: 60px; /* ajuste entre 40 et 64 si tu veux */
 }
 
