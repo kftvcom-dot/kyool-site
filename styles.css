@@ -75,12 +75,13 @@ nav a:hover{
   border-color:rgba(255,255,255,.15);
 }
 
-/* ← AJOUTEZ CE NOUVEAU CODE ICI */
+/* Lien de la page active - AVEC LISERET */
 nav a[aria-current="page"]{
-  background: var(--kyool-blue);
-  color: #000;
-  border-color: rgba(255,255,255,.15);
+  background: transparent;
+  color: var(--kyool-blue);
+  border: 2px solid var(--kyool-blue);
   font-weight: 600;
+  box-shadow: 0 0 12px rgba(36,199,235,.3);
 }
 section{padding: 46px 0 56px;}
 
