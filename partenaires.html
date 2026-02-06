@@ -1,11 +1,223 @@
-<!doctype html><html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KYOOL — Partenaires</title>
-<style>body{margin:0;font-family:system-ui;background:#000;color:#fff}main{max-width:1100px;margin:0 auto;padding:40px 20px}a{color:#24C7EB}</style>
-</head><body>
-<main>
-  <h1>Partenaires</h1>
-  <p>On fera ici une grille <strong>4 rangées × 5 logos</strong> = 20. (Étape 4)</p>
-  <p><a href="index.html">← Retour Home</a></p>
-</main>
-</body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KYOOL — Partenaires</title>
+  <link rel="stylesheet" href="styles.css?v=99">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <img src="media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="partenaires.html" aria-current="page">Partenaires</a>
+        <a href="contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECTION HERO AVEC CITATION CORÉENNE -->
+  <section class="partners-hero">
+    <div class="wrap">
+      <h1 class="korean-quote">시작이 반이다</h1>
+      <p class="quote-translation">« Commencez, c'est déjà la moitié du travail fait. »</p>
+    </div>
+  </section>
+
+  <!-- SECTION VISUALISATION ORBITE -->
+  <section class="partners-orbit-section">
+    <div class="wrap">
+      
+      <!-- Zone d'orbite avec mascotte centrale et logos flottants -->
+      <div class="orbit-container">
+        
+        <!-- Mascotte KYOOL au centre -->
+        <div class="center-mascot">
+          <img src="media/kyool-eating-logo.png" alt="KYOOL mangeant le logo" 
+               onerror="this.src='media/kyool-mascot.png'">
+        </div>
+
+        <!-- Logos partenaires en orbite (bulles flottantes) -->
+        <div class="partner-bubble" style="--angle: 0deg; --distance: 280px; --duration: 25s; --delay: 0s;">
+          <img src="media/partners/72-seconds.png" alt="72 Seconds" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 30deg; --distance: 320px; --duration: 28s; --delay: -3s;">
+          <img src="media/partners/bamboo-networks.png" alt="Bamboo Networks" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 60deg; --distance: 290px; --duration: 26s; --delay: -6s;">
+          <img src="media/partners/centre-culturel-coreen.png" alt="Centre Culturel Coréen" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 90deg; --distance: 310px; --duration: 27s; --delay: -9s;">
+          <img src="media/partners/cinemandal.png" alt="Cinemandal" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 120deg; --distance: 285px; --duration: 29s; --delay: -12s;">
+          <img src="media/partners/cj-enm.png" alt="CJ ENM" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 150deg; --distance: 305px; --duration: 24s; --delay: -15s;">
+          <img src="media/partners/code-crayon.png" alt="Code Crayon" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 180deg; --distance: 295px; --duration: 30s; --delay: -18s;">
+          <img src="media/partners/contents-sero.png" alt="Contents Sero" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 210deg; --distance: 315px; --duration: 25s; --delay: -21s;">
+          <img src="media/partners/crank-studio.png" alt="Crank Studio" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 240deg; --distance: 300px; --duration: 27s; --delay: -24s;">
+          <img src="media/partners/daehan-drama.png" alt="Daehan Drama" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 270deg; --distance: 290px; --duration: 26s; --delay: -27s;">
+          <img src="media/partners/idecom.png" alt="Idecom" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 300deg; --distance: 310px; --duration: 28s; --delay: -30s;">
+          <img src="media/partners/mbc.png" alt="MBC" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 330deg; --distance: 285px; --duration: 29s; --delay: -33s;">
+          <img src="media/partners/sbs.png" alt="SBS" onerror="this.style.display='none'">
+        </div>
+
+        <!-- Cercle 2 : Plus loin -->
+        <div class="partner-bubble" style="--angle: 15deg; --distance: 400px; --duration: 32s; --delay: -4s;">
+          <img src="media/partners/studio-dragon.png" alt="Studio Dragon" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 45deg; --distance: 420px; --duration: 34s; --delay: -8s;">
+          <img src="media/partners/tving.png" alt="TVING" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 75deg; --distance: 390px; --duration: 31s; --delay: -12s;">
+          <img src="media/partners/independance-prod.png" alt="Independance Prod" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 105deg; --distance: 410px; --duration: 33s; --delay: -16s;">
+          <img src="media/partners/intercom-media.png" alt="Intercom Media" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 135deg; --distance: 395px; --duration: 35s; --delay: -20s;">
+          <img src="media/partners/musicwell.png" alt="Musicwell" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 165deg; --distance: 415px; --duration: 30s; --delay: -24s;">
+          <img src="media/partners/videu.png" alt="Videu" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 195deg; --distance: 405px; --duration: 32s; --delay: -28s;">
+          <img src="media/partners/redq.png" alt="REDQ" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 225deg; --distance: 390px; --duration: 34s; --delay: -32s;">
+          <img src="media/partners/short-time.png" alt="Short Time" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 255deg; --distance: 400px; --duration: 31s; --delay: -36s;">
+          <img src="media/partners/plus-x.png" alt="Plus X E&M" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 285deg; --distance: 420px; --duration: 33s; --delay: -40s;">
+          <img src="media/partners/kitschs.png" alt="Kitschs Production" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 315deg; --distance: 395px; --duration: 35s; --delay: -44s;">
+          <img src="media/partners/noonnoon.png" alt="NoonNoon" onerror="this.style.display='none'">
+        </div>
+
+        <div class="partner-bubble" style="--angle: 345deg; --distance: 410px; --duration: 30s; --delay: -48s;">
+          <img src="media/partners/sopp.png" alt="SOPP" onerror="this.style.display='none'">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION TEXTE MANIFESTE -->
+  <section class="partners-manifesto">
+    <div class="wrap">
+      <div class="manifesto-content">
+        
+        <p class="manifesto-intro">
+          Depuis <strong>1997</strong>, nous sommes des professionnels des médias. Depuis <strong>2015</strong>, 
+          nous avons choisi de nous spécialiser dans ce qui nous passionne : la <strong>culture coréenne</strong>.
+        </p>
+
+        <p>
+          En <strong>2026</strong>, avec le lancement de <span class="highlight">KYOOL</span>, nous ouvrons une nouvelle étape : 
+          créer la plus grande passerelle européenne entre les contenus coréens et un public passionné, curieux et fidèle.
+        </p>
+
+        <p class="emphasis">
+          Mais une plateforme ne se construit jamais seul.
+        </p>
+
+        <p>
+          Elle se construit avec des <strong>partenaires</strong> qui partagent la même vision : faire découvrir, 
+          faire rayonner, et surtout proposer aux spectateurs les contenus qu'ils ont envie de voir… ou de découvrir.
+        </p>
+
+        <p>
+          Que vous soyez un grand studio, un diffuseur reconnu, un producteur indépendant ou une structure émergente, 
+          notre objectif est le même : <strong>mettre en valeur votre travail</strong> auprès d'une audience 
+          qui aime profondément la culture coréenne.
+        </p>
+
+        <p>
+          Nous croyons qu'un bon partenariat ne repose pas sur la taille d'une entreprise, mais sur 
+          <strong>la qualité des contenus et la confiance mutuelle</strong>.
+        </p>
+
+        <p class="manifesto-cta">
+          Si vous lisez ces lignes et que vous partagez cette ambition, alors il est peut-être temps de 
+          <strong>commencer à travailler ensemble</strong>.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION LISTE PARTENAIRES -->
+  <section class="partners-list">
+    <div class="wrap">
+      <h2 class="partners-list-title">Ils nous font déjà confiance</h2>
+      <div class="partners-names">
+        72 Seconds · Bamboo Networks · Centre Culturel Coréen de Paris · Cinemandal · CJ ENM · 
+        Code Crayon · Contents Sero · Crank Studio · Daehan Drama · Idecom · I Will Media · 
+        Independance Prod · Intercom Media · Kitschs Production · MBC · Moo AM · Musicwell · 
+        NoonNoon · Plus X E&M · REDQ · SBS · Sero · Short Time · SOPP · Studio Dragon · 
+        TVING · Videu
+      </div>
+    </div>
+  </section>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.</div>
+      <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1"></script>
+</body>
+</html>
