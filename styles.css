@@ -206,7 +206,7 @@ section{padding: 46px 0 56px;}
 .tablet video,.tablet img{object-fit: contain;}
 
 .below-text{
-  margin-top: 220px;
+  margin-top: 30px;
   display: grid;
   gap: 14px;
   max-width: 640px;
@@ -297,7 +297,6 @@ section{padding: 46px 0 56px;}
   border-radius:18px;
   border:1px solid rgba(36,199,235,.28);
   background: rgba(0,0,0,.18);
-  margin-top: -75px;
 }
 
 /* Titre au-dessus des QR codes */
@@ -331,7 +330,6 @@ section{padding: 46px 0 56px;}
   color: rgba(255,255,255,.75);
   font-size: 12.8px;
 }
-
 /* 5) Mascotte : bloc compact, avatar un peu plus grand */
 .mascot-row{
   width: fit-content;
