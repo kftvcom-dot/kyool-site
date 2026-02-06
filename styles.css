@@ -449,7 +449,7 @@ section{ padding-bottom: 100px; }
 .kyool-heart{
   position: absolute;
   left: 290px;   /* ajuste : 210 / 230 / 250 selon ton rendu */
-  top: -10px;      /* ajuste */
+  top: -20px;      /* ajuste */
   width: 260px;  /* taille du perso */
   pointer-events: none;
   z-index: 2;
