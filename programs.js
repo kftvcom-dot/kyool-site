@@ -110,15 +110,3 @@ document.addEventListener('DOMContentLoaded', () => {
   
   console.log('Programs.js chargé - ' + programRows.length + ' lignes détectées');
 });
-```
-
-### **3️⃣ Vérifiez dans la console du navigateur**
-
-1. **Ouvrez la page programmes**
-2. **Appuyez sur F12** (ouvre les outils développeur)
-3. **Allez dans l'onglet "Console"**
-4. **Regardez s'il y a des erreurs en rouge**
-
-Vous devriez voir ce message :
-```
-Programs.js chargé - 8 lignes détectées
