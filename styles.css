@@ -964,3 +964,308 @@ section{ padding-bottom: 100px; }
     height: auto;
   }
 }
+/* ===============================
+   PARTENAIRES - ORBITE FLOTTANTE
+   À AJOUTER À LA FIN DE styles.css
+   =============================== */
+
+/* HERO AVEC CITATION CORÉENNE */
+.partners-hero{
+  padding: 80px 0 40px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(36,199,235,.15), transparent);
+}
+
+.korean-quote{
+  font-size: clamp(48px, 6vw, 96px);
+  margin: 0 0 20px;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  color: var(--kyool-blue);
+  font-weight: 700;
+  text-shadow: 0 4px 20px rgba(36,199,235,.4);
+}
+
+.quote-translation{
+  font-size: clamp(18px, 2.5vw, 28px);
+  margin: 0;
+  color: rgba(255,255,255,.9);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* SECTION ORBITE */
+.partners-orbit-section{
+  padding: 60px 0 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbit-container{
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MASCOTTE CENTRALE */
+.center-mascot{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: centralPulse 4s ease-in-out infinite;
+}
+
+.center-mascot img{
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 30px rgba(36,199,235,.5));
+}
+
+@keyframes centralPulse{
+  0%, 100%{
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50%{
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+/* BULLES PARTENAIRES */
+.partner-bubble{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(36,199,235,.15), rgba(36,199,235,.05));
+  border: 2px solid rgba(36,199,235,.4);
+  box-shadow: 
+    0 0 20px rgba(36,199,235,.3),
+    inset 0 0 15px rgba(36,199,235,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all .3s ease;
+  
+  /* Variables CSS pour personnalisation */
+  animation: orbit var(--duration, 30s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  transform-origin: 0 0;
+}
+
+.partner-bubble img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1.1) contrast(1.05);
+  transition: transform .3s ease;
+}
+
+/* Animation d'orbite circulaire */
+@keyframes orbit{
+  from{
+    transform: 
+      translate(-50%, -50%)
+      rotate(var(--angle, 0deg))
+      translateX(var(--distance, 300px))
+      rotate(calc(-1 * var(--angle, 0deg)));
+  }
+  to{
+    transform: 
+      translate(-50%, -50%)
+      rotate(calc(var(--angle, 0deg) + 360deg))
+      translateX(var(--distance, 300px))
+      rotate(calc(-1 * (var(--angle, 0deg) + 360deg)));
+  }
+}
+
+/* Hover effect */
+.partner-bubble:hover{
+  transform: 
+    translate(-50%, -50%)
+    rotate(var(--angle, 0deg))
+    translateX(var(--distance, 300px))
+    rotate(calc(-1 * var(--angle, 0deg)))
+    scale(1.2) !important;
+  border-color: var(--kyool-blue);
+  box-shadow: 
+    0 0 35px rgba(36,199,235,.6),
+    inset 0 0 25px rgba(36,199,235,.2);
+  z-index: 20;
+  animation-play-state: paused;
+}
+
+.partner-bubble:hover img{
+  transform: scale(1.1);
+}
+
+/* SECTION MANIFESTE */
+.partners-manifesto{
+  padding: 60px 0;
+  background: linear-gradient(180deg, transparent, rgba(36,199,235,.08), transparent);
+}
+
+.manifesto-content{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.manifesto-content p{
+  margin: 0 0 24px;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.7;
+  color: rgba(255,255,255,.88);
+}
+
+.manifesto-content p:last-child{
+  margin-bottom: 0;
+}
+
+.manifesto-intro{
+  font-size: clamp(18px, 2vw, 22px) !important;
+  color: rgba(255,255,255,.95) !important;
+  margin-bottom: 32px !important;
+}
+
+.manifesto-content .emphasis{
+  font-size: clamp(20px, 2.2vw, 26px) !important;
+  font-weight: 600;
+  color: var(--kyool-blue);
+  margin: 32px 0 !important;
+  text-shadow: 0 2px 10px rgba(36,199,235,.3);
+}
+
+.manifesto-content .highlight{
+  color: var(--kyool-blue);
+  font-weight: 700;
+}
+
+.manifesto-cta{
+  margin-top: 40px !important;
+  padding: 24px 32px;
+  border-radius: 18px;
+  background: rgba(36,199,235,.12);
+  border: 1px solid rgba(36,199,235,.3);
+  font-size: clamp(17px, 1.9vw, 21px) !important;
+}
+
+/* LISTE PARTENAIRES */
+.partners-list{
+  padding: 50px 0 60px;
+}
+
+.partners-list-title{
+  font-size: clamp(28px, 3.5vw, 42px);
+  margin: 0 0 30px;
+  text-align: center;
+  color: var(--kyool-blue);
+  font-weight: 700;
+}
+
+.partners-names{
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.8;
+  color: rgba(255,255,255,.85);
+  padding: 30px 40px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px){
+  .orbit-container{
+    height: 800px;
+    max-width: 800px;
+  }
+
+  .center-mascot{
+    width: 220px;
+    height: 220px;
+  }
+
+  .partner-bubble{
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Ajuster les distances pour écrans moyens */
+  .partner-bubble[style*="--distance: 400px"]{
+    --distance: 320px !important;
+  }
+
+  .partner-bubble[style*="--distance: 420px"]{
+    --distance: 340px !important;
+  }
+}
+
+@media (max-width: 768px){
+  .partners-orbit-section{
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .orbit-container{
+    height: 600px;
+    max-width: 600px;
+  }
+
+  .center-mascot{
+    width: 160px;
+    height: 160px;
+  }
+
+  .partner-bubble{
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+  }
+
+  /* Réduire toutes les distances pour mobile */
+  .partner-bubble{
+    --distance: 180px !important;
+  }
+
+  .partner-bubble[style*="--distance: 400px"],
+  .partner-bubble[style*="--distance: 420px"]{
+    --distance: 240px !important;
+  }
+
+  .korean-quote{
+    font-size: 42px;
+  }
+
+  .manifesto-content{
+    padding: 0 20px;
+  }
+
+  .partners-names{
+    padding: 20px 24px;
+    font-size: 14px;
+  }
+}
+
