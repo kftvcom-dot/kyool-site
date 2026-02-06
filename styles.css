@@ -206,7 +206,7 @@ section{padding: 46px 0 56px;}
 .tablet video,.tablet img{object-fit: contain;}
 
 .below-text{
-  margin-top: 100px;
+  margin-top: 110px;
   display: grid;
   gap: 14px;
   max-width: 640px;
