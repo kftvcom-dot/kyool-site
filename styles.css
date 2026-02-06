@@ -330,7 +330,7 @@ section{padding: 46px 0 56px;}
 }
 
 /* évite que la barre cache le bas */
-section{ padding-bottom: 120px; }
+section{ padding-bottom: 100px; }
 
 /* ===============================
    CAROUSEL (images tablette)
@@ -440,7 +440,7 @@ section{ padding-bottom: 120px; }
    HISTOIRE – LAYOUT TEXTE + MOSAÏQUE
    =============================== */
 .story{
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .story-grid{
@@ -515,8 +515,8 @@ section{ padding-bottom: 120px; }
 .kyool-mosaic .k{
   width:100%;
   height: auto;
-  min-height: 120px; /* ← RÉDUIT de 180px à 120px */
-  max-height: 200px; /* ← RÉDUIT de 280px à 200px */
+  min-height: 100px; /* ← RÉDUIT de 180px à 120px */
+  max-height: 180px; /* ← RÉDUIT de 280px à 200px */
   object-fit:cover;
   border-radius: 18px;
   border:1px solid rgba(255,255,255,.10);
