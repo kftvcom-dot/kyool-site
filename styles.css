@@ -1023,8 +1023,8 @@ section{ padding-bottom: 100px; }
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: 183px;
-  height: 183px;
+  width: 275px;
+  height: 275px;
   display: flex;
   align-items: center;
   justify-content: center;
