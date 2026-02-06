@@ -1300,3 +1300,289 @@ section{ padding-bottom: 100px; }
     font-size: 14px;
   }
 }
+/* ===============================
+   CONTACT - DESIGN MODERNE
+   À AJOUTER À LA FIN DE styles.css
+   =============================== */
+
+/* IMAGE HERO KYOOL DORMIR */
+.contact-hero{
+  padding: 0;
+  margin-top: calc(var(--topbarH) * -1);
+}
+
+.contact-hero-image{
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-hero-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXTE D'INTRODUCTION */
+.contact-intro{
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, rgba(0,0,0,.6), transparent);
+}
+
+.contact-title{
+  font-size: clamp(36px, 4vw, 56px);
+  margin: 0 0 30px;
+  text-align: center;
+  color: var(--kyool-blue);
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.contact-intro-text{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-intro-text p{
+  margin: 0 0 20px;
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.7;
+  color: rgba(255,255,255,.88);
+}
+
+.contact-intro-text p:last-child{
+  margin-bottom: 0;
+}
+
+.highlight-text{
+  margin-top: 32px !important;
+  padding: 24px 32px;
+  border-radius: 18px;
+  background: rgba(36,199,235,.12);
+  border: 1px solid rgba(36,199,235,.3);
+  color: rgba(255,255,255,.95) !important;
+  font-size: clamp(17px, 1.7vw, 19px) !important;
+}
+
+/* SECTION CONTACT : GRILLE 2 COLONNES */
+.contact-section{
+  padding: 40px 0 80px;
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.section-title{
+  font-size: clamp(22px, 2.5vw, 32px);
+  margin: 0 0 24px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* FORMULAIRE / EMAIL CARD */
+.contact-form-container{
+  position: sticky;
+  top: 100px;
+}
+
+.email-card{
+  border: 1px solid rgba(36,199,235,.3);
+  background: rgba(0,0,0,.25);
+  border-radius: 22px;
+  padding: 40px 32px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.email-icon{
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.email-card h3{
+  font-size: 24px;
+  margin: 0 0 16px;
+  color: var(--kyool-blue);
+}
+
+.email-card p{
+  margin: 0 0 20px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.6;
+}
+
+.email-link{
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--kyool-blue);
+  padding: 16px 32px;
+  border-radius: 999px;
+  border: 2px solid var(--kyool-blue);
+  background: rgba(36,199,235,.12);
+  transition: all .3s ease;
+  margin: 10px 0 20px;
+  text-decoration: none;
+}
+
+.email-link:hover{
+  background: var(--kyool-blue);
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(36,199,235,.4);
+}
+
+.email-note{
+  font-size: 14px !important;
+  color: rgba(255,255,255,.68) !important;
+  font-style: italic;
+  margin-top: 16px !important;
+}
+
+/* FORMULAIRE (si activé) */
+.contact-form{
+  border: 1px solid rgba(36,199,235,.3);
+  background: rgba(0,0,0,.25);
+  border-radius: 22px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.form-group{
+  margin-bottom: 20px;
+}
+
+.form-group label{
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.9);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea{
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all .3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  outline: none;
+  border-color: var(--kyool-blue);
+  background: rgba(36,199,235,.12);
+  box-shadow: 0 0 0 3px rgba(36,199,235,.2);
+}
+
+.form-group textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* BUREAUX */
+.offices-container{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.office-card{
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(0,0,0,.25);
+  border-radius: 22px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  transition: all .3s ease;
+}
+
+.office-card:hover{
+  border-color: rgba(36,199,235,.4);
+  background: rgba(36,199,235,.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(36,199,235,.2);
+}
+
+.office-info h3{
+  font-size: 20px;
+  margin: 0 0 12px;
+  color: var(--kyool-blue);
+  font-weight: 600;
+}
+
+.office-address{
+  margin: 0 0 20px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* GOOGLE MAPS */
+.map-container{
+  width: 100%;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(36,199,235,.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.map-container iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px){
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-container{
+    position: relative;
+    top: 0;
+  }
+
+  .contact-hero-image{
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px){
+  .contact-hero-image{
+    height: 250px;
+  }
+
+  .contact-intro{
+    padding: 40px 0 30px;
+  }
+
+  .email-card{
+    padding: 32px 24px;
+  }
+
+  .email-link{
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+
+  .map-container{
+    height: 220px;
+  }
+}
+
