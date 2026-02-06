@@ -49,8 +49,21 @@ a{color:inherit; text-decoration:none}
   gap:16px;
 }
 .brand{
-  display:flex; align-items:center; gap:12px;
+  display:flex; 
+  align-items:center; 
+  gap:12px;
   min-width:210px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.brand:hover{
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.brand:active{
+  transform: translateY(0);
 }
 .brand img{
   height:34px; width:auto; display:block;
