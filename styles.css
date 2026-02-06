@@ -285,19 +285,33 @@ section{padding: 46px 0 56px;}
 .tablet{ min-height: 220px; }
 .square{ min-height: 220px; }
 
-/* QR : 2 QR côte à côte + bloc compact */
+/* QR : 2 QR côte à côte + bloc compact avec titre */
 .qr-row{
   width: fit-content;
-  max-width: 260px;
-  padding: 12px 12px;
+  max-width: 280px;
+  padding: 14px 14px 12px 14px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: center;
-
   border-radius:18px;
   border:1px solid rgba(36,199,235,.28);
   background: rgba(0,0,0,.18);
+  margin-top: -35px;
+}
+
+/* Titre au-dessus des QR codes */
+.qr-title{
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--kyool-blue);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(36,199,235,.2);
 }
 
 .qr-row .qr{
@@ -311,7 +325,11 @@ section{padding: 46px 0 56px;}
   grid-column: 1 / -1;
   width: 100%;
   text-align: center;
-  margin-top: 2px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.75);
+  font-size: 12.8px;
 }
 
 
