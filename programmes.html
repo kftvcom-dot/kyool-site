@@ -1,11 +1,508 @@
-<!doctype html><html lang="fr"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KYOOL — Programmes</title>
-<style>body{margin:0;font-family:system-ui;background:#000;color:#fff}main{max-width:1100px;margin:0 auto;padding:40px 20px}a{color:#24C7EB}</style>
-</head><body>
-<main>
-  <h1>Programmes</h1>
-  <p>On fera ici les <strong>2 lignes de 10 visuels</strong>. (Étape 3)</p>
-  <p><a href="index.html">← Retour Home</a></p>
-</main>
-</body></html>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KYOOL — Programmes</title>
+  <link rel="stylesheet" href="styles.css?v=99">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <img src="media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="programmes.html" aria-current="page">Programmes</a>
+        <a href="partenaires.html">Partenaires</a>
+        <a href="contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BANDEAU VIDÉO HERO -->
+  <section class="hero-banner">
+    <div class="hero-video-container">
+      <button class="sound-btn" type="button" data-target="heroVideo" aria-label="Activer le son">🔇</button>
+      <video id="heroVideo" autoplay muted loop playsinline>
+        <source src="media/hero-trailer.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay">
+        <div class="wrap">
+          <h1 class="hero-title">Découvrez notre catalogue</h1>
+          <p class="hero-subtitle">Plus de 1 700 épisodes de contenus coréens exclusifs</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION AVEC MASCOTTES -->
+  <section class="programs-intro">
+    <div class="wrap">
+      <div class="intro-content">
+        
+        <!-- Mascotte gauche -->
+        <div class="intro-mascot left">
+          <img src="media/kyool-mascot.png" alt="KYOOL mascotte">
+        </div>
+
+        <!-- Texte central -->
+        <div class="intro-text">
+          <h2 class="intro-title">
+            <span class="highlight">KYOOL</span> réunit déjà plus de <span class="highlight">1 700 épisodes</span>
+          </h2>
+          <p>
+            Nous visons <strong>5 000+ épisodes d'ici fin 2026</strong> pour devenir la 
+            <strong>plus grande plateforme OTT européenne</strong> dédiée à la culture coréenne.
+          </p>
+          <p>
+            Disponible dès maintenant en <strong>applications iOS & Android</strong>, KYOOL évoluera en 2026 
+            vers une plateforme OTT complète avec un <strong>espace communautaire</strong> pour rassembler 
+            tous les passionnés de la Hallyu.
+          </p>
+        </div>
+
+        <!-- Mascotte droite -->
+        <div class="intro-mascot right">
+          <img src="media/kyool-heart.png" alt="KYOOL coeur">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGUES DE PROGRAMMES -->
+  <section class="programs-catalog">
+    <div class="wrap">
+
+      <!-- LIGNE 1 : Short Drama Verticaux -->
+      <div class="program-row">
+        <h3 class="row-title">Short Drama Verticaux</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/01-short-drama-verticaux.jpg" alt="Short Drama 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/02-short-drama-verticaux.jpg" alt="Short Drama 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/03-short-drama-verticaux.jpg" alt="Short Drama 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/04-short-drama-verticaux.jpg" alt="Short Drama 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/05-short-drama-verticaux.jpg" alt="Short Drama 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/06-short-drama-verticaux.jpg" alt="Short Drama 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/07-short-drama-verticaux.jpg" alt="Short Drama 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/08-short-drama-verticaux.jpg" alt="Short Drama 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/09-short-drama-verticaux.jpg" alt="Short Drama 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card vertical">
+              <img src="media/10-short-drama-verticaux.jpg" alt="Short Drama 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 2 : Drama & Web-Drama -->
+      <div class="program-row">
+        <h3 class="row-title">Drama & Web-Drama</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-drama-web-drama.jpg" alt="Drama 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-drama-web-drama.jpg" alt="Drama 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-drama-web-drama.jpg" alt="Drama 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-drama-web-drama.jpg" alt="Drama 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-drama-web-drama.jpg" alt="Drama 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-drama-web-drama.jpg" alt="Drama 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-drama-web-drama.jpg" alt="Drama 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-drama-web-drama.jpg" alt="Drama 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-drama-web-drama.jpg" alt="Drama 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-drama-web-drama.jpg" alt="Drama 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 3 : Films & Short Films & Animation -->
+      <div class="program-row">
+        <h3 class="row-title">Films & Short Films & Animation</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-films-short-films-animation.jpg" alt="Film 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-films-short-films-animation.jpg" alt="Film 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-films-short-films-animation.jpg" alt="Film 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-films-short-films-animation.jpg" alt="Film 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-films-short-films-animation.jpg" alt="Film 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-films-short-films-animation.jpg" alt="Film 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-films-short-films-animation.jpg" alt="Film 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-films-short-films-animation.jpg" alt="Film 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-films-short-films-animation.jpg" alt="Film 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-films-short-films-animation.jpg" alt="Film 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 4 : GL (Girls Love) -->
+      <div class="program-row">
+        <h3 class="row-title">GL (Girls Love)</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-gl-girls-love.jpg" alt="GL 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-gl-girls-love.jpg" alt="GL 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-gl-girls-love.jpg" alt="GL 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-gl-girls-love.jpg" alt="GL 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-gl-girls-love.jpg" alt="GL 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-gl-girls-love.jpg" alt="GL 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-gl-girls-love.jpg" alt="GL 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-gl-girls-love.jpg" alt="GL 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-gl-girls-love.jpg" alt="GL 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-gl-girls-love.jpg" alt="GL 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 5 : TV Shows -->
+      <div class="program-row">
+        <h3 class="row-title">TV Shows</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-tv-shows.jpg" alt="TV Show 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-tv-shows.jpg" alt="TV Show 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-tv-shows.jpg" alt="TV Show 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-tv-shows.jpg" alt="TV Show 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-tv-shows.jpg" alt="TV Show 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-tv-shows.jpg" alt="TV Show 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-tv-shows.jpg" alt="TV Show 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-tv-shows.jpg" alt="TV Show 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-tv-shows.jpg" alt="TV Show 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-tv-shows.jpg" alt="TV Show 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 6 : Documentaire -->
+      <div class="program-row">
+        <h3 class="row-title">Documentaire</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-documentaire.jpg" alt="Documentaire 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-documentaire.jpg" alt="Documentaire 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-documentaire.jpg" alt="Documentaire 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-documentaire.jpg" alt="Documentaire 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-documentaire.jpg" alt="Documentaire 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-documentaire.jpg" alt="Documentaire 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-documentaire.jpg" alt="Documentaire 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-documentaire.jpg" alt="Documentaire 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-documentaire.jpg" alt="Documentaire 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-documentaire.jpg" alt="Documentaire 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 7 : KYOOL Original -->
+      <div class="program-row">
+        <h3 class="row-title">KYOOL Original</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-kyool-original.jpg" alt="KYOOL Original 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-kyool-original.jpg" alt="KYOOL Original 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-kyool-original.jpg" alt="KYOOL Original 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-kyool-original.jpg" alt="KYOOL Original 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-kyool-original.jpg" alt="KYOOL Original 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-kyool-original.jpg" alt="KYOOL Original 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-kyool-original.jpg" alt="KYOOL Original 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-kyool-original.jpg" alt="KYOOL Original 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-kyool-original.jpg" alt="KYOOL Original 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-kyool-original.jpg" alt="KYOOL Original 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+      <!-- LIGNE 8 : Bientôt BL (Boys Love) -->
+      <div class="program-row">
+        <h3 class="row-title">Bientôt BL (Boys Love)</h3>
+        <div class="row-container">
+          <button class="row-nav prev" aria-label="Précédent">‹</button>
+          <div class="row-slider">
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/01-bientot-bl-boys-love.jpg" alt="BL 1">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/02-bientot-bl-boys-love.jpg" alt="BL 2">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/03-bientot-bl-boys-love.jpg" alt="BL 3">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/04-bientot-bl-boys-love.jpg" alt="BL 4">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/05-bientot-bl-boys-love.jpg" alt="BL 5">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/06-bientot-bl-boys-love.jpg" alt="BL 6">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/07-bientot-bl-boys-love.jpg" alt="BL 7">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/08-bientot-bl-boys-love.jpg" alt="BL 8">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/09-bientot-bl-boys-love.jpg" alt="BL 9">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="program-card">
+              <img src="media/10-bientot-bl-boys-love.jpg" alt="BL 10">
+              <div class="card-overlay">▶ Voir la bande-annonce</div>
+            </a>
+          </div>
+          <button class="row-nav next" aria-label="Suivant">›</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.</div>
+      <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1"></script>
+  <script src="programs.js?v=1"></script>
+</body>
+</html>
