@@ -1,13 +1,11 @@
-// ===============================
-// PROGRAMMES.JS - Gestion du défilement Netflix-style
-// ===============================
+// Programs.js - Gestion du defilement Netflix-style
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
   
-  // Gestion du son pour la vidéo hero
+  // Gestion du son pour la video hero
   const heroSoundBtn = document.querySelector('.hero-banner .sound-btn');
   if (heroSoundBtn) {
-    heroSoundBtn.addEventListener('click', async () => {
+    heroSoundBtn.addEventListener('click', async function() {
       const video = document.getElementById('heroVideo');
       if (!video) return;
       
@@ -27,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Gestion des boutons de navigation pour chaque ligne
   const programRows = document.querySelectorAll('.program-row');
   
-  programRows.forEach(row => {
+  console.log('Lignes trouvees:', programRows.length);
+  
+  programRows.forEach(function(row) {
     const slider = row.querySelector('.row-slider');
     const prevBtn = row.querySelector('.row-nav.prev');
     const nextBtn = row.querySelector('.row-nav.next');
@@ -37,20 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     
-    // Largeur de défilement (afficher 3-4 cartes à la fois)
-    const getScrollAmount = () => {
+    // Largeur de defilement
+    function getScrollAmount() {
       const firstCard = slider.querySelector('.program-card');
-      if (!firstCard) return 800; // valeur par défaut
+      if (!firstCard) return 800;
       
       const cardWidth = firstCard.offsetWidth;
       const gap = 12;
       const cardsToScroll = 3;
       
       return (cardWidth + gap) * cardsToScroll;
-    };
+    }
     
-    // Défilement vers la gauche
-    prevBtn.addEventListener('click', (e) => {
+    // Defilement vers la gauche
+    prevBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
     
-    // Défilement vers la droite
-    nextBtn.addEventListener('click', (e) => {
+    // Defilement vers la droite
+    nextBtn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
@@ -82,24 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX;
     let scrollLeft;
     
-    slider.addEventListener('mousedown', (e) => {
+    slider.addEventListener('mousedown', function(e) {
       isDown = true;
       slider.style.cursor = 'grabbing';
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
     });
     
-    slider.addEventListener('mouseleave', () => {
+    slider.addEventListener('mouseleave', function() {
       isDown = false;
       slider.style.cursor = 'default';
     });
     
-    slider.addEventListener('mouseup', () => {
+    slider.addEventListener('mouseup', function() {
       isDown = false;
       slider.style.cursor = 'default';
     });
     
-    slider.addEventListener('mousemove', (e) => {
+    slider.addEventListener('mousemove', function(e) {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
@@ -108,5 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  console.log('Programs.js chargé - ' + programRows.length + ' lignes détectées');
+  console.log('Programs.js initialise');
 });
