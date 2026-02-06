@@ -75,13 +75,15 @@ nav a:hover{
   border-color:rgba(255,255,255,.15);
 }
 
-/* Lien de la page active - AVEC LISERET */
+/* Lien de la page active - AVEC GLOW INTENSE */
 nav a[aria-current="page"]{
-  background: transparent;
+  background: rgba(36,199,235,.12);
   color: var(--kyool-blue);
   border: 2px solid var(--kyool-blue);
   font-weight: 600;
-  box-shadow: 0 0 12px rgba(36,199,235,.3);
+  box-shadow: 
+    0 0 15px rgba(36,199,235,.4),
+    inset 0 0 10px rgba(36,199,235,.15);
 }
 section{padding: 46px 0 56px;}
 
