@@ -62,22 +62,22 @@ function displayProgramme() {
   document.getElementById('pitchText').textContent = currentProgramme.pitch || 'Non renseigné';
   document.getElementById('resumeText').textContent = currentProgramme.resume || 'Non renseigné';
   
-  // Métadonnées
-  document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
-  document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
-  document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
-  document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
-  document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
-  document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
-  
-  // Équipe créative
-  document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
-  document.getElementById('scenaristeText').textContent = currentProgramme.scenariste || 'Non renseigné';
-  document.getElementById('producteurText').textContent = currentProgramme.producteur || 'Non renseigné';
-  document.getElementById('castingText').textContent = currentProgramme.casting || 'Non renseigné';
-  
-  // Droits
-  document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
+ // Métadonnées
+document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
+document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
+document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
+document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
+document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
+document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
+
+// Équipe créative
+document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
+document.getElementById('scenaristeText').textContent = currentProgramme.scenariste || 'Non renseigné';
+document.getElementById('producteurText').textContent = currentProgramme.producteur || 'Non renseigné';
+document.getElementById('castingText').textContent = currentProgramme.casting || 'Non renseigné';
+
+// Droits
+document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
   // Bande-annonce avec thumbnail cliquable
 const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
