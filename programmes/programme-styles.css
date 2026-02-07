@@ -39,15 +39,16 @@
 
 .hero-images-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: 2fr 1.2fr 1fr;  /* Grande, moyenne, petite */
+  gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
+  align-items: start;  /* Important ! */
 }
 
 .hero-image {
   width: 100%;
-  height: 350px;
+  height: auto;  /* ← Hauteur automatique ! */
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.1);
@@ -56,6 +57,29 @@
   box-shadow: 0 8px 30px rgba(0,0,0,.4);
 }
 
+/* Image 1 : Paysage (plus grande) */
+.hero-image:nth-child(1) {
+  max-height: 400px;
+}
+
+/* Image 2 : Portrait (moyenne) */
+.hero-image:nth-child(2) {
+  max-height: 500px;
+}
+
+/* Image 3 : Carré (petite) */
+.hero-image:nth-child(3) {
+  max-height: 350px;
+}
+
+.hero-image:hover {
+  transform: scale(1.05) translateY(-5px);
+  border-color: var(--kyool-blue);
+  box-shadow: 
+    0 0 40px rgba(36,199,235,.6),
+    0 12px 40px rgba(0,0,0,.6);
+  filter: brightness(1.1);
+}
 .hero-image:hover {
   transform: scale(1.05) translateY(-5px);
   border-color: var(--kyool-blue);
