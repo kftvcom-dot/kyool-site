@@ -66,23 +66,6 @@
   filter: brightness(1.1);
 }
 
-.hero-image:hover {
-  transform: scale(1.05) translateY(-5px);
-  border-color: var(--kyool-blue);
-  box-shadow: 
-    0 0 40px rgba(36,199,235,.6),
-    0 12px 40px rgba(0,0,0,.6);
-  filter: brightness(1.1);
-}
-.hero-image:hover {
-  transform: scale(1.05) translateY(-5px);
-  border-color: var(--kyool-blue);
-  box-shadow: 
-    0 0 40px rgba(36,199,235,.6),
-    0 12px 40px rgba(0,0,0,.6);
-  filter: brightness(1.1);
-}
-
 /* CONTENU PROGRAMME */
 .programme-content {
   padding: 60px 0;
