@@ -130,9 +130,27 @@ document.getElementById('publicText').textContent = currentProgramme.categoriesP
     </div>
   `;
   
-  // Mots-clés
-  displayMotsCles();
+ // Mots-clés
+displayMotsCles();
 
+// SEO Meta Tags (avec vérification pour éviter les erreurs)
+try {
+  const metaDescription = document.getElementById('metaDescription');
+  const metaKeywords = document.getElementById('metaKeywords');
+  const ogTitle = document.getElementById('ogTitle');
+  const ogDescription = document.getElementById('ogDescription');
+  const ogImage = document.getElementById('ogImage');
+
+  if (metaDescription) metaDescription.content = currentProgramme.pitch || '';
+  if (metaKeywords) metaKeywords.content = currentProgramme.motsCles || '';
+  if (ogTitle) ogTitle.content = currentProgramme.titre + ' — KYOOL';
+  if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
+  if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
+} catch (error) {
+  console.log('Meta tags SEO non trouvés (ce n\'est pas grave)');
+}
+  
+}  // ← FIN de displayProgramme()
 // Fonction pour ouvrir la bande-annonce
 window.openTrailer = function(url) {
   window.open(url, '_blank');
