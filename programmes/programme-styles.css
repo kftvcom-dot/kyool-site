@@ -47,7 +47,7 @@
 }
 
 .hero-image {
-  height: 380px;  /* MÊME HAUTEUR pour toutes ! */
+  height: 300px;  /* MÊME HAUTEUR pour toutes ! */
   width: auto;  /* Largeur automatique selon le ratio */
   object-fit: cover;
   border-radius: 16px;
