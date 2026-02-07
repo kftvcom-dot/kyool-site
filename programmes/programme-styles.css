@@ -1,0 +1,372 @@
+/* ===============================
+   FICHES PROGRAMMES - STYLES
+   =============================== */
+
+/* NAVIGATION TOP */
+.programme-nav-top {
+  padding: 20px 0;
+  background: rgba(0,0,0,.2);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+}
+
+.breadcrumb a {
+  color: var(--kyool-blue);
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: rgba(255,255,255,.5);
+}
+
+/* IMAGE HERO */
+.programme-hero {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0,0,0,.5);
+}
+
+.programme-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTENU PROGRAMME */
+.programme-content {
+  padding: 60px 0;
+}
+
+.programme-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.programme-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.programme-title {
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin: 0;
+  color: var(--kyool-blue);
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px rgba(36,199,235,.3);
+}
+
+/* GRILLE 2 COLONNES */
+.programme-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* COLONNE GAUCHE */
+.programme-info-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-block h2 {
+  font-size: 24px;
+  margin: 0 0 16px;
+  color: var(--kyool-blue);
+  font-weight: 700;
+}
+
+.pitch, .resume {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(255,255,255,.88);
+  margin: 0;
+}
+
+.pitch {
+  font-size: 19px;
+  font-weight: 500;
+  color: rgba(255,255,255,.95);
+}
+
+/* BANDE-ANNONCE */
+.trailer-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Ratio 16:9 */
+  background: rgba(0,0,0,.5);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.trailer-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* COLONNE DROITE - MÉTADONNÉES */
+.programme-info-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.meta-card {
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px);
+  transition: all .3s ease;
+}
+
+.meta-card:hover {
+  border-color: rgba(36,199,235,.3);
+  background: rgba(36,199,235,.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(36,199,235,.15);
+}
+
+.meta-card h3 {
+  font-size: 18px;
+  margin: 0 0 20px;
+  color: var(--kyool-blue);
+  font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.meta-label {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 15px;
+  color: rgba(255,255,255,.95);
+  line-height: 1.5;
+}
+
+/* HASHTAGS */
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.hashtag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(36,199,235,.15);
+  color: var(--kyool-blue);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all .3s ease;
+}
+
+.hashtag:hover {
+  background: rgba(36,199,235,.25);
+  transform: scale(1.05);
+}
+
+/* LIENS SOCIAUX */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+.social-link:hover {
+  background: var(--kyool-blue);
+  border-color: var(--kyool-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(36,199,235,.4);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* GALERIE D'IMAGES */
+.programme-gallery {
+  margin-top: 60px;
+  padding-top: 50px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.programme-gallery h2 {
+  font-size: 32px;
+  margin: 0 0 30px;
+  color: var(--kyool-blue);
+  font-weight: 700;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.1);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(36,199,235,.3);
+  border-color: rgba(36,199,235,.5);
+}
+
+/* Variantes de taille pour un rendu éditorial */
+.gallery-grid img:nth-child(1),
+.gallery-grid img:nth-child(5) {
+  grid-column: span 2;
+  max-height: 400px;
+}
+
+/* NAVIGATION BOTTOM */
+.programme-nav-bottom {
+  padding: 50px 0;
+  background: rgba(0,0,0,.2);
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.nav-btn[style*="display: none"] {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .programme-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .programme-info-meta {
+    position: relative;
+    top: 0;
+  }
+
+  .programme-hero {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .programme-hero {
+    height: 300px;
+  }
+
+  .programme-content {
+    padding: 40px 0;
+  }
+
+  .programme-header {
+    margin-bottom: 30px;
+  }
+
+  .programme-info-main {
+    gap: 30px;
+  }
+
+  .info-block h2 {
+    font-size: 20px;
+  }
+
+  .pitch, .resume {
+    font-size: 16px;
+  }
+
+  .meta-card {
+    padding: 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-grid img:nth-child(1),
+  .gallery-grid img:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+  }
+}
