@@ -132,7 +132,15 @@ document.getElementById('publicText').textContent = currentProgramme.categoriesP
   
   // Mots-clés
   displayMotsCles();
-}
+  
+// SEO Meta Tags
+const basePath = `../media/fiche-programmes/${currentProgramme.slug}/`;
+document.getElementById('metaDescription').content = currentProgramme.pitch || '';
+document.getElementById('metaKeywords').content = currentProgramme.motsCles || '';
+document.getElementById('ogTitle').content = currentProgramme.titre + ' — KYOOL';
+document.getElementById('ogDescription').content = currentProgramme.pitch || '';
+document.getElementById('ogImage').content = basePath + 'image_1920x1080.jpg';
+}  // ← FIN de displayProgramme()
 
 // Fonction pour ouvrir la bande-annonce
 window.openTrailer = function(url) {
