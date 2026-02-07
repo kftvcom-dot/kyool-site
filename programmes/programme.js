@@ -133,12 +133,18 @@ document.getElementById('publicText').textContent = currentProgramme.categoriesP
   // Mots-clés
   displayMotsCles();
   
-// SEO Meta Tags
-document.getElementById('metaDescription').content = currentProgramme.pitch || '';
-document.getElementById('metaKeywords').content = currentProgramme.motsCles || '';
-document.getElementById('ogTitle').content = currentProgramme.titre + ' — KYOOL';
-document.getElementById('ogDescription').content = currentProgramme.pitch || '';
-document.getElementById('ogImage').content = basePath + 'image_1920x1080.jpg';
+// SEO Meta Tags (avec vérification)
+const metaDescription = document.getElementById('metaDescription');
+const metaKeywords = document.getElementById('metaKeywords');
+const ogTitle = document.getElementById('ogTitle');
+const ogDescription = document.getElementById('ogDescription');
+const ogImage = document.getElementById('ogImage');
+
+if (metaDescription) metaDescription.content = currentProgramme.pitch || '';
+if (metaKeywords) metaKeywords.content = currentProgramme.motsCles || '';
+if (ogTitle) ogTitle.content = currentProgramme.titre + ' — KYOOL';
+if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
+if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
 }  // ← FIN de displayProgramme()
 
 // Fonction pour ouvrir la bande-annonce
