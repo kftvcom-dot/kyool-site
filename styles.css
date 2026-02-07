@@ -1412,6 +1412,7 @@ section{ padding-bottom: 100px; }
   padding: 40px 32px;
   text-align: center;
   backdrop-filter: blur(10px);
+  margin-bottom: 60px; /* ← AJOUTEZ CETTE LIGNE */
 }
 
 .email-icon{
