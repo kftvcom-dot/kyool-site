@@ -889,20 +889,29 @@ section{ padding-bottom: 100px; }
   transition: transform .3s ease;
 }
 
-.card-overlay{
+.card-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,0) 100%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  color: var(--kyool-blue);  /* ← BLEU CYAN */
+  font-weight: 700;  /* ← Plus gras */
   opacity: 0;
-  transition: opacity .3s ease;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
+  transition: all .3s ease;
+  text-shadow: 
+    0 0 10px rgba(36,199,235,.8),
+    0 0 20px rgba(36,199,235,.6),
+    0 0 30px rgba(36,199,235,.4);  /* ← HALO BLEU */
+}
+
+.program-card:hover .card-overlay {
+  opacity: 1;
+  text-shadow: 
+    0 0 15px rgba(36,199,235,1),
+    0 0 25px rgba(36,199,235,.8),
+    0 0 35px rgba(36,199,235,.6);  /* ← HALO PLUS FORT AU SURVOL */
 }
 
 .program-card:hover{
