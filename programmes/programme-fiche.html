@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title id="programmeTitle">Programme — KYOOL</title>
   <link rel="stylesheet" href="../styles.css?v=99">
-  <link rel="stylesheet" href="programme-styles.css?v=1">
+  <link rel="stylesheet" href="programme-styles.css?v=2">
 </head>
 
 <body>
@@ -43,9 +43,15 @@
     </div>
   </section>
 
-  <!-- IMAGE HERO -->
-  <section class="programme-hero">
-    <img id="heroImage" src="" alt="Programme">
+  <!-- HERO : 3 IMAGES CÔTE À CÔTE -->
+  <section class="programme-hero-gallery">
+    <div class="wrap">
+      <div class="hero-images-grid">
+        <img id="heroImage1" src="" alt="Programme" class="hero-image">
+        <img id="heroImage2" src="" alt="Programme" class="hero-image">
+        <img id="heroImage3" src="" alt="Programme" class="hero-image">
+      </div>
+    </div>
   </section>
 
   <!-- FICHE TECHNIQUE -->
@@ -99,8 +105,13 @@
             </div>
 
             <div class="meta-item">
-              <span class="meta-label">Année de production</span>
-              <span id="anneeProductionText" class="meta-value">...</span>
+              <span class="meta-label">Langue originale</span>
+              <span id="langueText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Sous-titres</span>
+              <span id="sousTitresText" class="meta-value">...</span>
             </div>
 
             <div class="meta-item">
@@ -141,24 +152,20 @@
           </div>
 
           <div class="meta-card">
-            <h3>Droits & Distribution</h3>
+            <h3>Distribution</h3>
             
             <div class="meta-item">
-              <span class="meta-label">Détenteurs des droits</span>
+              <span class="meta-label">Détenteurs des droits de diffusion</span>
               <span id="droitsText" class="meta-value">...</span>
             </div>
 
           </div>
 
           <div class="meta-card">
-            <h3>Tags & Réseaux</h3>
+            <h3>Mots-clés</h3>
             
-            <div id="hashtagsContainer" class="hashtags">
-              <!-- Les hashtags seront injectés ici -->
-            </div>
-
-            <div id="socialLinksContainer" class="social-links">
-              <!-- Les liens sociaux seront injectés ici -->
+            <div id="motsClesContainer" class="mots-cles">
+              <!-- Les mots-clés seront injectés ici -->
             </div>
 
           </div>
@@ -167,16 +174,18 @@
 
       </div>
 
-      <!-- GALERIE D'IMAGES -->
-      <section class="programme-gallery">
-        <h2>Galerie</h2>
-        <div id="galleryContainer" class="gallery-grid">
-          <!-- Les images seront injectées ici -->
-        </div>
-      </section>
-
     </div>
   </article>
+
+  <!-- VOUS POURRIEZ AUSSI AIMER -->
+  <section class="recommendations-section">
+    <div class="wrap">
+      <h2 class="section-title-center">Vous pourriez aussi aimer</h2>
+      <div id="recommendationsGrid" class="recommendations-grid">
+        <!-- Les recommandations seront injectées par JavaScript -->
+      </div>
+    </div>
+  </section>
 
   <!-- NAVIGATION ENTRE PROGRAMMES -->
   <section class="programme-nav-bottom">
@@ -197,6 +206,6 @@
     </div>
   </footer>
 
-  <script src="programme.js"></script>
+  <script src="programme.js?v=2"></script>
 </body>
 </html>
