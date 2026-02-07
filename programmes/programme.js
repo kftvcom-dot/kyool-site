@@ -79,17 +79,25 @@ function displayProgramme() {
   // Droits
   document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
-  // Bande-annonce
-  if (currentProgramme.bandeAnnonce) {
-    const videoId = extractYouTubeId(currentProgramme.bandeAnnonce);
-    if (videoId) {
-      document.getElementById('trailerContainer').innerHTML = 
-        `<iframe src="https://www.youtube.com/embed/${videoId}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    }
-  } else {
-    document.getElementById('trailerContainer').innerHTML = 
-      '<p style="padding: 20px; text-align: center; color: rgba(255,255,255,.7);">Bande-annonce non disponible</p>';
-  }
+  // Bande-annonce avec thumbnail cliquable
+const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
+const thumbnailPath = `../media/fiche-programmes/${currentProgramme.slug}/image_1920x1080.jpg`;
+
+document.getElementById('trailerContainer').innerHTML = `
+  <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openTrailer('${trailerUrl}')">
+    <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+    </div>
+  </div>
+`;
+
+// Fonction pour ouvrir la bande-annonce
+window.openTrailer = function(url) {
+  window.open(url, '_blank');
+};
   
   // Mots-clés
   displayMotsCles();
