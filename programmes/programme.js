@@ -97,13 +97,14 @@ function displayProgramme() {
   document.getElementById('pitchText').textContent = currentProgramme.pitch || 'Non renseigné';
   document.getElementById('resumeText').textContent = currentProgramme.resume || 'Non renseigné';
   
-  // Métadonnées
-  document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
-  document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
-  document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
-  document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
-  document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
-  document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
+// Métadonnées
+document.getElementById('titreOriginalText').textContent = currentProgramme.titreOriginal || 'Non renseigné';
+document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
+document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
+document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
+document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
+document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
+document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
   
   // Équipe créative
   document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
