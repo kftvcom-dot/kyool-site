@@ -134,7 +134,6 @@ document.getElementById('publicText').textContent = currentProgramme.categoriesP
   displayMotsCles();
   
 // SEO Meta Tags
-const basePath = `../media/fiche-programmes/${currentProgramme.slug}/`;
 document.getElementById('metaDescription').content = currentProgramme.pitch || '';
 document.getElementById('metaKeywords').content = currentProgramme.motsCles || '';
 document.getElementById('ogTitle').content = currentProgramme.titre + ' — KYOOL';
