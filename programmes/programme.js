@@ -1,8 +1,14 @@
-// PROGRAMME.JS - Gestion de la page fiche programme (VERSION MODIFIÉE)
+// PROGRAMME.JS - Gestion de la page fiche programme (VERSION FINALE)
 
 let currentProgramme = null;
 let allProgrammes = [];
 let currentIndex = -1;
+
+// Liste de tous les IDs de programmes (à maintenir à jour)
+const ALL_PROGRAMME_IDS = [
+  'My-mans-smartphone',
+  // Ajouter les nouveaux IDs ici au fur et à mesure
+];
 
 // Charger le programme depuis l'URL
 async function loadProgramme() {
@@ -15,15 +21,24 @@ async function loadProgramme() {
   }
   
   try {
-    const response = await fetch('programmes-data.json');
-    allProgrammes = await response.json();
-    currentProgramme = allProgrammes.find(p => p.id === programmeId);
+    // Charger le JSON depuis le dossier du programme
+    const jsonPath = `../media/fiche-programmes/${programmeId}/programme-data.json`;
+    const response = await fetch(jsonPath);
     
-    if (!currentProgramme) {
+    if (!response.ok) {
+      console.error('Programme non trouvé:', programmeId);
       window.location.href = '../programmes.html';
       return;
     }
     
+    currentProgramme = await response.json();
+    currentProgramme.id = programmeId;
+    currentProgramme.slug = programmeId;
+    
+    // Charger tous les programmes pour les recommandations
+    await loadAllProgrammes();
+    
+    // Trouver l'index du programme actuel
     currentIndex = allProgrammes.findIndex(p => p.id === programmeId);
     
     displayProgramme();
@@ -31,6 +46,26 @@ async function loadProgramme() {
     setupNavigation();
   } catch (error) {
     console.error('Erreur de chargement du programme:', error);
+    window.location.href = '../programmes.html';
+  }
+}
+
+// Charger tous les programmes pour les recommandations
+async function loadAllProgrammes() {
+  allProgrammes = [];
+  
+  for (const id of ALL_PROGRAMME_IDS) {
+    try {
+      const response = await fetch(`../media/fiche-programmes/${id}/programme-data.json`);
+      if (response.ok) {
+        const prog = await response.json();
+        prog.id = id;
+        prog.slug = id;
+        allProgrammes.push(prog);
+      }
+    } catch (error) {
+      console.error(`Erreur chargement ${id}:`, error);
+    }
   }
 }
 
@@ -62,53 +97,46 @@ function displayProgramme() {
   document.getElementById('pitchText').textContent = currentProgramme.pitch || 'Non renseigné';
   document.getElementById('resumeText').textContent = currentProgramme.resume || 'Non renseigné';
   
- // Métadonnées
-document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
-document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
-document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
-document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
-document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
-document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
-
-// Équipe créative
-document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
-document.getElementById('scenaristeText').textContent = currentProgramme.scenariste || 'Non renseigné';
-document.getElementById('producteurText').textContent = currentProgramme.producteur || 'Non renseigné';
-document.getElementById('castingText').textContent = currentProgramme.casting || 'Non renseigné';
-
-// Droits
-document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
+  // Métadonnées
+  document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
+  document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
+  document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
+  document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
+  document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
+  document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
+  
+  // Équipe créative
+  document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
+  document.getElementById('scenaristeText').textContent = currentProgramme.scenariste || 'Non renseigné';
+  document.getElementById('producteurText').textContent = currentProgramme.producteur || 'Non renseigné';
+  document.getElementById('castingText').textContent = currentProgramme.casting || 'Non renseigné';
+  
+  // Droits
+  document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
   // Bande-annonce avec thumbnail cliquable
-const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
-const thumbnailPath = `../media/fiche-programmes/${currentProgramme.slug}/image_1920x1080.jpg`;
+  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
+  const thumbnailPath = basePath + 'image_1920x1080.jpg';
 
-document.getElementById('trailerContainer').innerHTML = `
-  <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openTrailer('${trailerUrl}')">
-    <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-    <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
+  document.getElementById('trailerContainer').innerHTML = `
+    <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openTrailer('${trailerUrl}')">
+      <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
     </div>
-  </div>
-`;
-
-// Fonction pour ouvrir la bande-annonce
-window.openTrailer = function(url) {
-  window.open(url, '_blank');
-};
+  `;
   
   // Mots-clés
   displayMotsCles();
 }
 
-// Extraire l'ID YouTube depuis une URL
-function extractYouTubeId(url) {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  return (match && match[2].length === 11) ? match[2] : null;
-}
+// Fonction pour ouvrir la bande-annonce
+window.openTrailer = function(url) {
+  window.open(url, '_blank');
+};
 
 // Afficher les mots-clés
 function displayMotsCles() {
