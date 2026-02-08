@@ -99,7 +99,6 @@ function displayProgramme() {
   
   // Métadonnées
   document.getElementById('titreOriginalText').textContent = currentProgramme.titreOriginal || 'Non renseigné';
-  document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
   document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
   document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
   document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
@@ -147,7 +146,7 @@ function displayProgramme() {
     if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
     if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
   } catch (error) {
-    console.log('Meta tags SEO non trouvés (ce n\'est pas grave)');
+    console.log('Meta tags SEO non trouvés');
   }
 }
 
