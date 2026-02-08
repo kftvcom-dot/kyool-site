@@ -38,17 +38,17 @@
 }
 
 .hero-images-grid {
-  display: flex;  /* Flex au lieu de grid ! */
+  display: flex;
   gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
   justify-content: center;
-  align-items: center;  /* Centré verticalement */
+  align-items: center;
 }
 
 .hero-image {
-  height: 300px;  /* MÊME HAUTEUR pour toutes ! */
-  width: auto;  /* Largeur automatique selon le ratio */
+  height: 300px;
+  width: auto;
   object-fit: cover;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,.1);
@@ -130,7 +130,7 @@
 .trailer-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* Ratio 16:9 */
+  padding-top: 56.25%;
   background: rgba(0,0,0,.5);
   border-radius: 16px;
   overflow: hidden;
@@ -146,7 +146,6 @@
   border: none;
 }
 
-/* FIX THUMBNAIL BANDE-ANNONCE (reste DANS le cadre noir) */
 .trailer-thumbnail{
   position:absolute !important;
   inset:0;
@@ -175,6 +174,98 @@
 .trailer-thumbnail .play-button{
   position:relative;
   z-index:2;
+}
+
+.trailer-thumbnail:hover .play-button{
+  background: rgba(255,0,0,1);
+  box-shadow: 0 0 30px rgba(255,0,0,0.5);
+  scale: 1.1;
+}
+
+/* BLOC QR CODES TÉLÉCHARGEMENT */
+.qr-download-block {
+  margin-top: 40px;
+}
+
+.qr-download-content {
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(36,199,235,.15) 0%, rgba(36,199,235,.05) 100%);
+  border: 2px solid rgba(36,199,235,.3);
+  text-align: center;
+  transition: all .3s ease;
+}
+
+.qr-download-content:hover {
+  border-color: rgba(36,199,235,.5);
+  background: linear-gradient(135deg, rgba(36,199,235,.2) 0%, rgba(36,199,235,.08) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(36,199,235,.2);
+}
+
+.qr-download-text {
+  margin-bottom: 24px;
+}
+
+.qr-download-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,.9);
+  margin: 8px 0;
+}
+
+.qr-download-text strong {
+  color: var(--kyool-blue);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(36,199,235,.3);
+}
+
+.qr-codes-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 16px;
+}
+
+.qr-code-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.1);
+  transition: all .3s ease;
+}
+
+.qr-code-item:hover {
+  border-color: var(--kyool-blue);
+  background: rgba(36,199,235,.1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(36,199,235,.3);
+}
+
+.qr-code-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,.2);
+}
+
+.qr-code-item span {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kyool-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.qr-stores-note {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 /* COLONNE DROITE - MÉTADONNÉES */
@@ -302,7 +393,7 @@
 
 .recommendation-image {
   width: 100%;
-  aspect-ratio: 10/14; /* Format 1500x2100 */
+  aspect-ratio: 10/14;
   overflow: hidden;
   position: relative;
   background: rgba(0,0,0,.5);
@@ -377,6 +468,10 @@
     height: 300px;
   }
 
+  .programme-grid {
+    grid-template-columns: 1fr;
+  }
+
   .programme-info-meta {
     position: relative;
     top: 0;
@@ -428,18 +523,39 @@
   .programme-nav-bottom {
     padding: 40px 0 80px;
   }
+
+  /* QR Codes responsive */
+  .qr-download-content {
+    padding: 20px;
+  }
+
+  .qr-download-text p {
+    font-size: 15px;
+  }
+
+  .qr-codes-row {
+    gap: 20px;
+  }
+
+  .qr-code-item img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (max-width: 480px) {
   .recommendations-grid {
     grid-template-columns: 1fr;
   }
-}
-/* Thumbnail bande-annonce avec effet hover */
-.trailer-thumbnail:hover .play-button{
-  background: rgba(255,0,0,1);
-  box-shadow: 0 0 30px rgba(255,0,0,0.5);
-}
-.trailer-thumbnail:hover .play-button{
-  scale: 1.1;
+
+  .qr-codes-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .qr-code-item {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
 }
