@@ -44,6 +44,7 @@ async function loadProgramme() {
     displayProgramme();
     displayRecommendations();
     setupNavigation();
+    setupYoutubeModal();
   } catch (error) {
     console.error('Erreur de chargement du programme:', error);
     window.location.href = '../programmes.html';
@@ -67,6 +68,31 @@ async function loadAllProgrammes() {
       console.error(`Erreur chargement ${id}:`, error);
     }
   }
+}
+
+// Extraire l'ID YouTube depuis différents formats d'URL
+function extractYouTubeID(url) {
+  if (!url) return null;
+  
+  // Formats supportés:
+  // https://www.youtube.com/watch?v=VIDEO_ID
+  // https://youtu.be/VIDEO_ID
+  // https://www.youtube.com/embed/VIDEO_ID
+  // https://www.youtube.com/watch?v=VIDEO_ID&list=...
+  
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\?\/]+)/,
+    /youtube\.com\/watch\?.*v=([^&]+)/
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+  
+  return null;
 }
 
 // Afficher le programme
@@ -114,20 +140,30 @@ function displayProgramme() {
   // Droits
   document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
-  // Bande-annonce avec thumbnail cliquable
-  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
+  // Bande-annonce avec thumbnail cliquable (NOUVELLE VERSION - ouvre modal)
+  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/watch?v=HDSv3CddkjE';
+  const youtubeID = extractYouTubeID(trailerUrl);
   const thumbnailPath = basePath + 'image_1920x1080.jpg';
 
-  document.getElementById('trailerContainer').innerHTML = `
-    <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openTrailer('${trailerUrl}')">
-      <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-      <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
+  if (youtubeID) {
+    document.getElementById('trailerContainer').innerHTML = `
+      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openYouTubeModal('${youtubeID}')">
+        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  } else {
+    // Fallback si l'URL n'est pas valide
+    document.getElementById('trailerContainer').innerHTML = `
+      <div style="padding: 40px; text-align: center; color: rgba(255,255,255,.7);">
+        <p>Bande-annonce non disponible</p>
+      </div>
+    `;
+  }
   
   // Titre dynamique dans le bloc QR codes
   document.getElementById('qrProgrammeTitle').textContent = currentProgramme.titre;
@@ -153,10 +189,56 @@ function displayProgramme() {
   }
 }
 
-// Fonction pour ouvrir la bande-annonce
-window.openTrailer = function(url) {
-  window.open(url, '_blank');
+// Fonction pour ouvrir la modal YouTube
+window.openYouTubeModal = function(videoID) {
+  const modal = document.getElementById('youtubeModal');
+  const iframe = document.getElementById('youtubeIframe');
+  
+  // Paramètres YouTube pour optimiser l'expérience
+  // rel=0 : Ne pas montrer de vidéos suggérées d'autres chaînes
+  // modestbranding=1 : Logo YouTube discret
+  // autoplay=1 : Démarre automatiquement
+  // fs=1 : Plein écran autorisé
+  const embedUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1&fs=1`;
+  
+  iframe.src = embedUrl;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Empêche le scroll
 };
+
+// Fonction pour fermer la modal YouTube
+function closeYouTubeModal() {
+  const modal = document.getElementById('youtubeModal');
+  const iframe = document.getElementById('youtubeIframe');
+  
+  modal.classList.remove('active');
+  iframe.src = ''; // Arrête la vidéo
+  document.body.style.overflow = ''; // Réactive le scroll
+}
+
+// Configuration de la modal YouTube
+function setupYoutubeModal() {
+  const modal = document.getElementById('youtubeModal');
+  const closeBtn = document.querySelector('.youtube-modal-close');
+  const overlay = document.querySelector('.youtube-modal-overlay');
+  
+  // Fermer avec le bouton X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeYouTubeModal);
+  }
+  
+  // Fermer en cliquant sur l'overlay (fond noir)
+  if (overlay) {
+    overlay.addEventListener('click', closeYouTubeModal);
+  }
+  
+  // Fermer avec la touche Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeYouTubeModal();
+    }
+  });
+}
 
 // Afficher les mots-clés
 function displayMotsCles() {
