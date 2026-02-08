@@ -140,12 +140,16 @@ function displayProgramme() {
   // Droits
   document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
-  // Bande-annonce avec thumbnail cliquable (NOUVELLE VERSION - ouvre modal)
-  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/watch?v=HDSv3CddkjE';
+  // Bande-annonce avec thumbnail cliquable (VERSION CORRIGÉE)
+  // Affiche TOUJOURS le thumbnail avec le bouton play
+  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
   const youtubeID = extractYouTubeID(trailerUrl);
   const thumbnailPath = basePath + 'image_1920x1080.jpg';
 
+  // Si c'est une vidéo YouTube valide, on ouvre la modal
+  // Sinon, on ouvre l'URL dans un nouvel onglet (chaîne, playlist, etc.)
   if (youtubeID) {
+    // Vidéo YouTube valide → Modal
     document.getElementById('trailerContainer').innerHTML = `
       <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openYouTubeModal('${youtubeID}')">
         <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
@@ -157,10 +161,15 @@ function displayProgramme() {
       </div>
     `;
   } else {
-    // Fallback si l'URL n'est pas valide
+    // URL YouTube invalide (chaîne, playlist, etc.) → Ouvre dans nouvel onglet
     document.getElementById('trailerContainer').innerHTML = `
-      <div style="padding: 40px; text-align: center; color: rgba(255,255,255,.7);">
-        <p>Bande-annonce non disponible</p>
+      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="window.open('${trailerUrl}', '_blank')">
+        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
       </div>
     `;
   }
