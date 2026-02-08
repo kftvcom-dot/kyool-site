@@ -129,6 +129,9 @@ function displayProgramme() {
     </div>
   `;
   
+  // Titre dynamique dans le bloc QR codes
+  document.getElementById('qrProgrammeTitle').textContent = currentProgramme.titre;
+  
   // Mots-clés
   displayMotsCles();
   
