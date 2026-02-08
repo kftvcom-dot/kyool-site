@@ -1,334 +1,265 @@
-// PROGRAMME.JS - Gestion de la page fiche programme (VERSION FINALE)
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title id="programmeTitle">Programme — KYOOL</title>
+  
+  <!-- META SEO (à remplir dynamiquement par JS) -->
+  <meta name="description" id="metaDescription" content="">
+  <meta name="keywords" id="metaKeywords" content="">
+  <meta property="og:title" id="ogTitle" content="">
+  <meta property="og:description" id="ogDescription" content="">
+  <meta property="og:image" id="ogImage" content="">
+  
+  <link rel="stylesheet" href="../styles.css?v=99">
+  <link rel="stylesheet" href="programme-styles.css?v=6">
+</head>
 
-let currentProgramme = null;
-let allProgrammes = [];
-let currentIndex = -1;
-
-// Liste de tous les IDs de programmes (à maintenir à jour)
-const ALL_PROGRAMME_IDS = [
-  'My-mans-smartphone',
-  // Ajouter les nouveaux IDs ici au fur et à mesure
-];
-
-// Charger le programme depuis l'URL
-async function loadProgramme() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const programmeId = urlParams.get('id');
-  
-  if (!programmeId) {
-    window.location.href = '../programmes.html';
-    return;
-  }
-  
-  try {
-    // Charger le JSON depuis le dossier du programme
-    const jsonPath = `../media/fiche-programmes/${programmeId}/programme-data.json`;
-    const response = await fetch(jsonPath);
-    
-    if (!response.ok) {
-      console.error('Programme non trouvé:', programmeId);
-      window.location.href = '../programmes.html';
-      return;
-    }
-    
-    currentProgramme = await response.json();
-    currentProgramme.id = programmeId;
-    currentProgramme.slug = programmeId;
-    
-    // Charger tous les programmes pour les recommandations
-    await loadAllProgrammes();
-    
-    // Trouver l'index du programme actuel
-    currentIndex = allProgrammes.findIndex(p => p.id === programmeId);
-    
-    displayProgramme();
-    displayRecommendations();
-    setupNavigation();
-    setupYoutubeModal();
-  } catch (error) {
-    console.error('Erreur de chargement du programme:', error);
-    window.location.href = '../programmes.html';
-  }
-}
-
-// Charger tous les programmes pour les recommandations
-async function loadAllProgrammes() {
-  allProgrammes = [];
-  
-  for (const id of ALL_PROGRAMME_IDS) {
-    try {
-      const response = await fetch(`../media/fiche-programmes/${id}/programme-data.json`);
-      if (response.ok) {
-        const prog = await response.json();
-        prog.id = id;
-        prog.slug = id;
-        allProgrammes.push(prog);
-      }
-    } catch (error) {
-      console.error(`Erreur chargement ${id}:`, error);
-    }
-  }
-}
-
-// Extraire l'ID YouTube depuis différents formats d'URL
-function extractYouTubeID(url) {
-  if (!url) return null;
-  
-  // Formats supportés:
-  // https://www.youtube.com/watch?v=VIDEO_ID
-  // https://youtu.be/VIDEO_ID
-  // https://www.youtube.com/embed/VIDEO_ID
-  // https://www.youtube.com/watch?v=VIDEO_ID&list=...
-  
-  const patterns = [
-    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\?\/]+)/,
-    /youtube\.com\/watch\?.*v=([^&]+)/
-  ];
-  
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match && match[1]) {
-      return match[1];
-    }
-  }
-  
-  return null;
-}
-
-// Afficher le programme
-function displayProgramme() {
-  // Titre de la page
-  document.getElementById('programmeTitle').textContent = currentProgramme.titre + ' — KYOOL';
-  document.getElementById('breadcrumbTitle').textContent = currentProgramme.titre;
-  
-  // Titre principal
-  document.getElementById('mainTitle').textContent = currentProgramme.titre;
-  
-  // HERO : 3 images côte à côte
-  const basePath = `../media/fiche-programmes/${currentProgramme.slug}/`;
-  
-  // Image 1 : Paysage (1920x720)
-  document.getElementById('heroImage1').src = basePath + 'image_1920x720.jpg';
-  document.getElementById('heroImage1').alt = currentProgramme.titre;
-  
-  // Image 2 : Portrait (1500x2100)
-  document.getElementById('heroImage2').src = basePath + 'image_1500x2100.jpg';
-  document.getElementById('heroImage2').alt = currentProgramme.titre;
-  
-  // Image 3 : Portrait grand (2100x1500)
-  document.getElementById('heroImage3').src = basePath + 'image_2100x1500.jpg';
-  document.getElementById('heroImage3').alt = currentProgramme.titre;
-  
-  // Synopsis
-  document.getElementById('pitchText').textContent = currentProgramme.pitch || 'Non renseigné';
-  document.getElementById('resumeText').textContent = currentProgramme.resume || 'Non renseigné';
-  
-  // Métadonnées
-  document.getElementById('titreOriginalText').textContent = currentProgramme.titreOriginal || 'Non renseigné';
-  document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
-  document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
-  document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
-  document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
-  document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
-  
-  // Équipe créative
-  document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
-  document.getElementById('scenaristeText').textContent = currentProgramme.scenariste || 'Non renseigné';
-  document.getElementById('producteurText').textContent = currentProgramme.producteur || 'Non renseigné';
-  document.getElementById('castingText').textContent = currentProgramme.casting || 'Non renseigné';
-  
-  // Droits
-  document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
-  
-  // Bande-annonce avec thumbnail cliquable (VERSION CORRIGÉE)
-  // Affiche TOUJOURS le thumbnail avec le bouton play
-  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
-  const youtubeID = extractYouTubeID(trailerUrl);
-  const thumbnailPath = basePath + 'image_1920x1080.jpg';
-
-  // Si c'est une vidéo YouTube valide, on ouvre la modal
-  // Sinon, on ouvre l'URL dans un nouvel onglet (chaîne, playlist, etc.)
-  if (youtubeID) {
-    // Vidéo YouTube valide → Modal
-    document.getElementById('trailerContainer').innerHTML = `
-      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openYouTubeModal('${youtubeID}')">
-        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-      </div>
-    `;
-  } else {
-    // URL YouTube invalide (chaîne, playlist, etc.) → Ouvre dans nouvel onglet
-    document.getElementById('trailerContainer').innerHTML = `
-      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="window.open('${trailerUrl}', '_blank')">
-        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-      </div>
-    `;
-  }
-  
-  // Titre dynamique dans le bloc QR codes
-  document.getElementById('qrProgrammeTitle').textContent = currentProgramme.titre;
-  
-  // Mots-clés
-  displayMotsCles();
-  
-  // SEO Meta Tags (avec vérification pour éviter les erreurs)
-  try {
-    const metaDescription = document.getElementById('metaDescription');
-    const metaKeywords = document.getElementById('metaKeywords');
-    const ogTitle = document.getElementById('ogTitle');
-    const ogDescription = document.getElementById('ogDescription');
-    const ogImage = document.getElementById('ogImage');
-
-    if (metaDescription) metaDescription.content = currentProgramme.pitch || '';
-    if (metaKeywords) metaKeywords.content = currentProgramme.motsCles || '';
-    if (ogTitle) ogTitle.content = currentProgramme.titre + ' — KYOOL';
-    if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
-    if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
-  } catch (error) {
-    console.log('Meta tags SEO non trouvés');
-  }
-}
-
-// Fonction pour ouvrir la modal YouTube
-window.openYouTubeModal = function(videoID) {
-  const modal = document.getElementById('youtubeModal');
-  const iframe = document.getElementById('youtubeIframe');
-  
-  // Paramètres YouTube pour optimiser l'expérience
-  // rel=0 : Ne pas montrer de vidéos suggérées d'autres chaînes
-  // modestbranding=1 : Logo YouTube discret
-  // autoplay=1 : Démarre automatiquement
-  // fs=1 : Plein écran autorisé
-  const embedUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1&fs=1`;
-  
-  iframe.src = embedUrl;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Empêche le scroll
-};
-
-// Fonction pour fermer la modal YouTube
-function closeYouTubeModal() {
-  const modal = document.getElementById('youtubeModal');
-  const iframe = document.getElementById('youtubeIframe');
-  
-  modal.classList.remove('active');
-  iframe.src = ''; // Arrête la vidéo
-  document.body.style.overflow = ''; // Réactive le scroll
-}
-
-// Configuration de la modal YouTube
-function setupYoutubeModal() {
-  const modal = document.getElementById('youtubeModal');
-  const closeBtn = document.querySelector('.youtube-modal-close');
-  const overlay = document.querySelector('.youtube-modal-overlay');
-  
-  // Fermer avec le bouton X
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeYouTubeModal);
-  }
-  
-  // Fermer en cliquant sur l'overlay (fond noir)
-  if (overlay) {
-    overlay.addEventListener('click', closeYouTubeModal);
-  }
-  
-  // Fermer avec la touche Escape
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closeYouTubeModal();
-    }
-  });
-}
-
-// Afficher les mots-clés
-function displayMotsCles() {
-  const container = document.getElementById('motsClesContainer');
-  const motsCles = currentProgramme.motsCles || '';
-  
-  if (!motsCles) {
-    container.innerHTML = '<p style="color: rgba(255,255,255,.6); font-size: 14px;">Aucun mot-clé</p>';
-    return;
-  }
-  
-  // Séparer les mots-clés par ";" et créer des badges
-  const cles = motsCles.split(';').map(c => c.trim()).filter(c => c);
-  
-  container.innerHTML = cles.map(cle => 
-    `<span class="mot-cle">${cle}</span>`
-  ).join('');
-}
-
-// Afficher les recommandations basées sur les thèmes
-function displayRecommendations() {
-  const container = document.getElementById('recommendationsGrid');
-  
-  // Extraire les thèmes du programme actuel
-  const currentThemes = (currentProgramme.themes || '').toLowerCase().split(',').map(t => t.trim());
-  
-  // Trouver les programmes avec des thèmes similaires
-  const recommendations = allProgrammes
-    .filter(p => p.id !== currentProgramme.id)
-    .filter(p => {
-      const themes = (p.themes || '').toLowerCase().split(',').map(t => t.trim());
-      return themes.some(theme => currentThemes.includes(theme));
-    })
-    .slice(0, 4);
-  
-  if (recommendations.length === 0) {
-    container.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,.7); grid-column: 1/-1;">Aucune recommandation disponible</p>';
-    return;
-  }
-  
-  container.innerHTML = recommendations.map(prog => {
-    const imagePath = `../media/fiche-programmes/${prog.slug}/image_1500x2100.jpg`;
-    const firstTheme = prog.themes ? prog.themes.split(',')[0].trim() : '';
-    
-    return `
-      <a href="programme-fiche.html?id=${prog.id}" class="recommendation-card">
-        <div class="recommendation-image">
-          <img src="${imagePath}" alt="${prog.titre}" onerror="this.src='../media/kyool-mascot.png'">
-          <div class="recommendation-overlay">
-            <h3 class="recommendation-title">${prog.titre}</h3>
-            <p class="recommendation-theme">${firstTheme}</p>
-          </div>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="../index.html" class="brand">
+        <img src="../media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
         </div>
       </a>
-    `;
-  }).join('');
-}
 
-// Navigation entre programmes
-function setupNavigation() {
-  const prevBtn = document.getElementById('prevProgramme');
-  const nextBtn = document.getElementById('nextProgramme');
-  
-  if (currentIndex > 0) {
-    const prevProgramme = allProgrammes[currentIndex - 1];
-    prevBtn.href = `programme-fiche.html?id=${prevProgramme.id}`;
-    prevBtn.textContent = `← ${prevProgramme.titre}`;
-  } else {
-    prevBtn.style.display = 'none';
-  }
-  
-  if (currentIndex < allProgrammes.length - 1) {
-    const nextProgramme = allProgrammes[currentIndex + 1];
-    nextBtn.href = `programme-fiche.html?id=${nextProgramme.id}`;
-    nextBtn.textContent = `${nextProgramme.titre} →`;
-  } else {
-    nextBtn.style.display = 'none';
-  }
-}
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../histoire.html">Histoire</a>
+        <a href="../programmes.html" aria-current="page">Programmes</a>
+        <a href="../partenaires.html">Partenaires</a>
+        <a href="../contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
 
-// Initialisation
-document.addEventListener('DOMContentLoaded', function() {
-  loadProgramme();
-});
+  <!-- NAVIGATION BREADCRUMB -->
+  <section class="programme-nav-top">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span>›</span>
+        <a href="../programmes.html">Programmes</a>
+        <span>›</span>
+        <span id="breadcrumbTitle">Programme</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO : 3 IMAGES CÔTE À CÔTE -->
+  <section class="programme-hero-gallery">
+    <div class="wrap">
+      <div class="hero-images-grid">
+        <img id="heroImage1" src="" alt="Programme" class="hero-image">
+        <img id="heroImage2" src="" alt="Programme" class="hero-image">
+        <img id="heroImage3" src="" alt="Programme" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHE TECHNIQUE -->
+  <article class="programme-content">
+    <div class="wrap programme-wrap">
+      
+      <!-- Titre principal -->
+      <header class="programme-header">
+        <h1 id="mainTitle" class="programme-title">Titre du programme</h1>
+      </header>
+
+      <!-- Fiche technique en 2 colonnes -->
+      <div class="programme-grid">
+        
+        <!-- COLONNE GAUCHE : Informations principales -->
+        <div class="programme-info-main">
+          
+          <div class="info-block">
+            <h2>Synopsis court</h2>
+            <p id="pitchText" class="pitch">...</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Résumé détaillé</h2>
+            <p id="resumeText" class="resume">...</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Bande-annonce</h2>
+            <div id="trailerContainer" class="trailer-container">
+              <!-- La vidéo YouTube sera injectée ici -->
+            </div>
+          </div>
+
+          <!-- BLOC QR CODES AVEC TAMPON GRATUIT -->
+          <div class="info-block qr-download-block">
+            <div class="qr-download-wrapper">
+              
+              <!-- Bloc QR codes principal -->
+              <div class="qr-download-content">
+                <div class="qr-download-text">
+                  <p>Envie de regarder <strong id="qrProgrammeTitle">ce programme</strong> ?</p>
+                  <p>Un scan avec KYOOL, et vous pouvez le regarder dès maintenant.</p>
+                </div>
+                <div class="qr-codes-row">
+                  <div class="qr-code-item">
+                    <img src="../media/qr-ios.png" alt="QR Code iOS App Store">
+                    <span>iOS</span>
+                  </div>
+                  <div class="qr-code-item">
+                    <img src="../media/qr-android.png" alt="QR Code Android Google Play">
+                    <span>Android</span>
+                  </div>
+                </div>
+                <div class="qr-stores-note">App Store & Google Play</div>
+              </div>
+
+              <!-- Tampon gratuit style coréen -->
+              <div class="korean-stamp">
+                <div class="stamp-inner">
+                  <div class="stamp-text-kr">무료</div>
+                  <div class="stamp-text-fr">ÉPISODES</div>
+                  <div class="stamp-text-fr">GRATUITS</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- COLONNE DROITE : Métadonnées -->
+        <div class="programme-info-meta">
+          
+          <div class="meta-card">
+            <h3>Informations</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Titre original</span>
+              <span id="titreOriginalText" class="meta-value" style="font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 16px;">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Thèmes</span>
+              <span id="themesText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Langue originale</span>
+              <span id="langueText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Sous-titres</span>
+              <span id="sousTitresText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Année de diffusion</span>
+              <span id="anneeDiffusionText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Public</span>
+              <span id="publicText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Équipe créative</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Réalisateur</span>
+              <span id="realisateurText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Scénariste</span>
+              <span id="scenaristeText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Producteur</span>
+              <span id="producteurText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Casting</span>
+              <span id="castingText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Distribution</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Détenteurs des droits de diffusion</span>
+              <span id="droitsText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Mots-clés</h3>
+            
+            <div id="motsClesContainer" class="mots-cles">
+              <!-- Les mots-clés seront injectés ici -->
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- VOUS POURRIEZ AUSSI AIMER -->
+  <section class="recommendations-section">
+    <div class="wrap">
+      <h2 class="section-title-center">Vous pourriez aussi aimer</h2>
+      <div id="recommendationsGrid" class="recommendations-grid">
+        <!-- Les recommandations seront injectées par JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION ENTRE PROGRAMMES -->
+  <section class="programme-nav-bottom">
+    <div class="wrap">
+      <div class="nav-buttons">
+        <a href="#" id="prevProgramme" class="nav-btn btn secondary">← Programme précédent</a>
+        <a href="../programmes.html" class="nav-btn btn">Retour aux Programmes</a>
+        <a href="../index.html" class="nav-btn btn secondary">Accueil</a>
+        <a href="#" id="nextProgramme" class="nav-btn btn secondary">Programme suivant →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL YOUTUBE -->
+  <div id="youtubeModal" class="youtube-modal">
+    <div class="youtube-modal-overlay"></div>
+    <div class="youtube-modal-content">
+      <button class="youtube-modal-close" aria-label="Fermer">&times;</button>
+      <div class="youtube-modal-player">
+        <iframe id="youtubeIframe" 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99faf6f7edf8faedd9f2e0f6f6f5b7fcec">[email&#160;protected]</a> ou utilisez le formulaire de la page Nous contacter.</div>
+      <div>© Kyool — Indépendance Prod — 20
