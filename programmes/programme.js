@@ -97,14 +97,14 @@ function displayProgramme() {
   document.getElementById('pitchText').textContent = currentProgramme.pitch || 'Non renseigné';
   document.getElementById('resumeText').textContent = currentProgramme.resume || 'Non renseigné';
   
-// Métadonnées
-document.getElementById('titreOriginalText').textContent = currentProgramme.titreOriginal || 'Non renseigné';
-document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
-document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
-document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
-document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
-document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
-document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
+  // Métadonnées
+  document.getElementById('titreOriginalText').textContent = currentProgramme.titreOriginal || 'Non renseigné';
+  document.getElementById('categoriesText').textContent = currentProgramme.categories || 'Non renseigné';
+  document.getElementById('themesText').textContent = currentProgramme.themes || 'Non renseigné';
+  document.getElementById('langueText').textContent = currentProgramme.langue || 'Coréen';
+  document.getElementById('sousTitresText').textContent = currentProgramme.sousTitres || 'Français, Anglais';
+  document.getElementById('anneeDiffusionText').textContent = currentProgramme.anneeDiffusion || 'Non renseigné';
+  document.getElementById('publicText').textContent = currentProgramme.categoriesPublic || 'Non renseigné';
   
   // Équipe créative
   document.getElementById('realisateurText').textContent = currentProgramme.realisateur || 'Non renseigné';
@@ -130,27 +130,27 @@ document.getElementById('publicText').textContent = currentProgramme.categoriesP
     </div>
   `;
   
- // Mots-clés
-displayMotsCles();
-
-// SEO Meta Tags (avec vérification pour éviter les erreurs)
-try {
-  const metaDescription = document.getElementById('metaDescription');
-  const metaKeywords = document.getElementById('metaKeywords');
-  const ogTitle = document.getElementById('ogTitle');
-  const ogDescription = document.getElementById('ogDescription');
-  const ogImage = document.getElementById('ogImage');
-
-  if (metaDescription) metaDescription.content = currentProgramme.pitch || '';
-  if (metaKeywords) metaKeywords.content = currentProgramme.motsCles || '';
-  if (ogTitle) ogTitle.content = currentProgramme.titre + ' — KYOOL';
-  if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
-  if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
-} catch (error) {
-  console.log('Meta tags SEO non trouvés (ce n\'est pas grave)');
-}
+  // Mots-clés
+  displayMotsCles();
   
-}  // ← FIN de displayProgramme()
+  // SEO Meta Tags (avec vérification pour éviter les erreurs)
+  try {
+    const metaDescription = document.getElementById('metaDescription');
+    const metaKeywords = document.getElementById('metaKeywords');
+    const ogTitle = document.getElementById('ogTitle');
+    const ogDescription = document.getElementById('ogDescription');
+    const ogImage = document.getElementById('ogImage');
+
+    if (metaDescription) metaDescription.content = currentProgramme.pitch || '';
+    if (metaKeywords) metaKeywords.content = currentProgramme.motsCles || '';
+    if (ogTitle) ogTitle.content = currentProgramme.titre + ' — KYOOL';
+    if (ogDescription) ogDescription.content = currentProgramme.pitch || '';
+    if (ogImage) ogImage.content = basePath + 'image_1920x1080.jpg';
+  } catch (error) {
+    console.log('Meta tags SEO non trouvés (ce n\'est pas grave)');
+  }
+}
+
 // Fonction pour ouvrir la bande-annonce
 window.openTrailer = function(url) {
   window.open(url, '_blank');
@@ -183,13 +183,12 @@ function displayRecommendations() {
   
   // Trouver les programmes avec des thèmes similaires
   const recommendations = allProgrammes
-    .filter(p => p.id !== currentProgramme.id) // Pas le programme actuel
+    .filter(p => p.id !== currentProgramme.id)
     .filter(p => {
       const themes = (p.themes || '').toLowerCase().split(',').map(t => t.trim());
-      // Au moins un thème en commun
       return themes.some(theme => currentThemes.includes(theme));
     })
-    .slice(0, 4); // Maximum 4 recommandations
+    .slice(0, 4);
   
   if (recommendations.length === 0) {
     container.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,.7); grid-column: 1/-1;">Aucune recommandation disponible</p>';
@@ -219,7 +218,6 @@ function setupNavigation() {
   const prevBtn = document.getElementById('prevProgramme');
   const nextBtn = document.getElementById('nextProgramme');
   
-  // Programme précédent
   if (currentIndex > 0) {
     const prevProgramme = allProgrammes[currentIndex - 1];
     prevBtn.href = `programme-fiche.html?id=${prevProgramme.id}`;
@@ -228,7 +226,6 @@ function setupNavigation() {
     prevBtn.style.display = 'none';
   }
   
-  // Programme suivant
   if (currentIndex < allProgrammes.length - 1) {
     const nextProgramme = allProgrammes[currentIndex + 1];
     nextBtn.href = `programme-fiche.html?id=${nextProgramme.id}`;
