@@ -13,7 +13,7 @@
   <meta property="og:image" id="ogImage" content="">
   
   <link rel="stylesheet" href="../styles.css?v=99">
-  <link rel="stylesheet" href="programme-styles.css?v=4">
+  <link rel="stylesheet" href="programme-styles.css?v=5">
 </head>
 
 <body>
@@ -94,7 +94,7 @@
             </div>
           </div>
 
-          <!-- NOUVEAU BLOC QR CODES -->
+          <!-- BLOC QR CODES -->
           <div class="info-block qr-download-block">
             <div class="qr-download-content">
               <div class="qr-download-text">
@@ -228,6 +228,23 @@
     </div>
   </section>
 
+  <!-- MODAL YOUTUBE -->
+  <div id="youtubeModal" class="youtube-modal">
+    <div class="youtube-modal-overlay"></div>
+    <div class="youtube-modal-content">
+      <button class="youtube-modal-close" aria-label="Fermer">&times;</button>
+      <div class="youtube-modal-player">
+        <iframe id="youtubeIframe" 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
   <footer class="bottombar">
     <div class="wrap bottombar-inner">
       <div>Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.</div>
@@ -235,6 +252,6 @@
     </div>
   </footer>
 
-  <script src="programme.js?v=4"></script>
+  <script src="programme.js?v=5"></script>
 </body>
 </html>
