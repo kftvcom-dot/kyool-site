@@ -247,7 +247,7 @@
 .youtube-modal-player {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 ratio */
+  padding-top: 56.25%;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
@@ -284,12 +284,20 @@
   }
 }
 
-/* BLOC QR CODES TÉLÉCHARGEMENT */
+/* BLOC QR CODES TÉLÉCHARGEMENT AVEC TAMPON */
 .qr-download-block {
   margin-top: 40px;
 }
 
+.qr-download-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .qr-download-content {
+  flex: 1;
   padding: 30px;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(36,199,235,.15) 0%, rgba(36,199,235,.05) 100%);
@@ -368,6 +376,86 @@
   color: rgba(255,255,255,.6);
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+/* TAMPON GRATUIT STYLE CORÉEN */
+.korean-stamp {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  position: relative;
+  animation: stampPulse 3s ease-in-out infinite;
+}
+
+.stamp-inner {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #DC143C 0%, #B81428 100%);
+  border: 5px solid #8B0000;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px;
+  box-shadow: 
+    0 4px 15px rgba(220, 20, 60, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+  transform: rotate(-12deg);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stamp-inner::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.korean-stamp:hover .stamp-inner {
+  transform: rotate(-12deg) scale(1.1);
+  box-shadow: 
+    0 6px 25px rgba(220, 20, 60, 0.6),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.stamp-text-kr {
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 5px rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.stamp-text-fr {
+  font-family: 'Arial Black', 'Arial Bold', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.5),
+    0 0 3px rgba(255, 255, 255, 0.2);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+@keyframes stampPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 /* COLONNE DROITE - MÉTADONNÉES */
@@ -638,7 +726,17 @@
     font-size: 30px;
   }
 
-  /* QR Codes responsive */
+  /* QR + Tampon responsive */
+  .qr-download-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .korean-stamp {
+    align-self: center;
+    margin-top: 20px;
+  }
+
   .qr-download-content {
     padding: 20px;
   }
@@ -679,5 +777,18 @@
     width: 40px;
     height: 40px;
     font-size: 24px;
+  }
+
+  .korean-stamp {
+    width: 120px;
+    height: 120px;
+  }
+
+  .stamp-text-kr {
+    font-size: 20px;
+  }
+
+  .stamp-text-fr {
+    font-size: 11px;
   }
 }
