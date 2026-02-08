@@ -182,6 +182,108 @@
   scale: 1.1;
 }
 
+/* MODAL YOUTUBE */
+.youtube-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.youtube-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  backdrop-filter: blur(10px);
+}
+
+.youtube-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 10000;
+  animation: zoomIn 0.3s ease;
+}
+
+.youtube-modal-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.3);
+  color: white;
+  font-size: 36px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.youtube-modal-close:hover {
+  background: rgba(255,0,0,0.8);
+  border-color: rgba(255,0,0,1);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.youtube-modal-player {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  border: 2px solid rgba(36,199,235,0.3);
+}
+
+.youtube-modal-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* BLOC QR CODES TÉLÉCHARGEMENT */
 .qr-download-block {
   margin-top: 40px;
@@ -524,6 +626,18 @@
     padding: 40px 0 80px;
   }
 
+  /* Modal responsive */
+  .youtube-modal-content {
+    width: 95%;
+  }
+
+  .youtube-modal-close {
+    top: -45px;
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+  }
+
   /* QR Codes responsive */
   .qr-download-content {
     padding: 20px;
@@ -557,5 +671,13 @@
     width: 100%;
     max-width: 200px;
     margin: 0 auto;
+  }
+
+  .youtube-modal-close {
+    top: -40px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
   }
 }
