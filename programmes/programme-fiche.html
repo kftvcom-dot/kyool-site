@@ -13,7 +13,7 @@
   <meta property="og:image" id="ogImage" content="">
   
   <link rel="stylesheet" href="../styles.css?v=99">
-  <link rel="stylesheet" href="programme-styles.css?v=3">
+  <link rel="stylesheet" href="programme-styles.css?v=4">
 </head>
 
 <body>
@@ -91,6 +91,27 @@
             <h2>Bande-annonce</h2>
             <div id="trailerContainer" class="trailer-container">
               <!-- La vidéo YouTube sera injectée ici -->
+            </div>
+          </div>
+
+          <!-- NOUVEAU BLOC QR CODES -->
+          <div class="info-block qr-download-block">
+            <div class="qr-download-content">
+              <div class="qr-download-text">
+                <p>Envie de regarder <strong id="qrProgrammeTitle">ce programme</strong> ?</p>
+                <p>Un scan avec KYOOL, et vous pouvez le regarder dès maintenant.</p>
+              </div>
+              <div class="qr-codes-row">
+                <div class="qr-code-item">
+                  <img src="../media/qr-ios.png" alt="QR Code iOS App Store">
+                  <span>iOS</span>
+                </div>
+                <div class="qr-code-item">
+                  <img src="../media/qr-android.png" alt="QR Code Android Google Play">
+                  <span>Android</span>
+                </div>
+              </div>
+              <div class="qr-stores-note">App Store & Google Play</div>
             </div>
           </div>
 
@@ -214,6 +235,6 @@
     </div>
   </footer>
 
-  <script src="programme.js?v=3"></script>
+  <script src="programme.js?v=4"></script>
 </body>
 </html>
