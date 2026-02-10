@@ -1757,6 +1757,144 @@ section{ padding-bottom: 100px; }
 }
 
 /* =====================================================
+   BADGE "ÉPISODES GRATUITS" - HOMEPAGE
+   À ajouter dans styles.css
+   ===================================================== */
+
+/* Badge principal - Style tampon rouge EXACTEMENT comme sur la fiche programme */
+.badge-episodes-gratuits {
+    position: fixed;
+    bottom: 120px;
+    right: 40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle at 30% 30%, #FF4757 0%, #E63946 40%, #DC143C 70%, #C1121F 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 15px 40px rgba(230, 57, 70, 0.7),
+        0 0 0 4px #8B0000,
+        0 0 0 10px rgba(230, 57, 70, 0.2),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 8px 20px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+    text-align: center;
+    animation: pulse-glow 3s ease-in-out infinite;
+    border: 5px solid #DC143C;
+}
+
+/* Effet hover */
+.badge-episodes-gratuits:hover {
+    transform: scale(1.05) rotate(-3deg);
+    box-shadow: 
+        0 18px 50px rgba(230, 57, 70, 0.8),
+        0 0 0 4px #8B0000,
+        0 0 0 12px rgba(230, 57, 70, 0.25),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Texte coréen "무료" (gratuit) */
+.badge-episodes-gratuits .texte-coreen {
+    font-size: 38px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+/* Texte "ÉPISODES" */
+.badge-episodes-gratuits .texte-episodes {
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2px;
+}
+
+/* Texte "GRATUITS" */
+.badge-episodes-gratuits .texte-gratuits {
+    font-size: 18px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation pulse et glow */
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 20px rgba(230, 57, 70, 0.4),
+            0 0 0 8px rgba(230, 57, 70, 0.1),
+            0 0 0 16px rgba(230, 57, 70, 0.05);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 
+            0 8px 25px rgba(230, 57, 70, 0.5),
+            0 0 0 10px rgba(230, 57, 70, 0.15),
+            0 0 0 20px rgba(230, 57, 70, 0.08);
+    }
+}
+
+/* Version mobile et tablette */
+@media (max-width: 768px) {
+    .badge-episodes-gratuits {
+        width: 100px;
+        height: 100px;
+        bottom: 80px;
+        right: 20px;
+    }
+    
+    .badge-episodes-gratuits .nombre {
+        font-size: 32px;
+    }
+    
+    .badge-episodes-gratuits .texte-episodes {
+        font-size: 10px;
+    }
+    
+    .badge-episodes-gratuits .texte-gratuits {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge-episodes-gratuits {
+        width: 80px;
+        height: 80px;
+        bottom: 60px;
+        right: 15px;
+    }
+    
+    .badge-episodes-gratuits .nombre {
+        font-size: 26px;
+    }
+    
+    .badge-episodes-gratuits .texte-episodes {
+        font-size: 8px;
+    }
+    
+    .badge-episodes-gratuits .texte-gratuits {
+        font-size: 10px;
+    }
+}
+
+/* =====================================================
    MODAL "ÉPISODES GRATUITS" (OPTIONNEL)
    À afficher au clic sur le badge
    ===================================================== */
