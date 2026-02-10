@@ -127,81 +127,267 @@
 </footer>
 
 <script src="script.js?v=1"></script>
-<!-- =====================================================
-     BADGE "ÉPISODES GRATUITS" - À AJOUTER DANS INDEX.HTML
-     Position : Juste avant la balise fermante </body>
-     ===================================================== -->
+/* =====================================================
+   BADGE "ÉPISODES GRATUITS" - HOMEPAGE
+   À ajouter dans styles.css
+   ===================================================== */
 
-<!-- Badge fixe en bas à droite -->
-<div class="badge-episodes-gratuits" id="badgeEpisodesGratuits">
-    <div class="texte-coreen">무료</div>
-    <div class="texte-episodes">ÉPISODES</div>
-    <div class="texte-gratuits">GRATUITS</div>
-</div>
+/* Badge principal - Style tampon rouge EXACTEMENT comme sur la fiche programme */
+.badge-episodes-gratuits {
+    position: fixed;
+    bottom: 120px;
+    right: 40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle at 30% 30%, #FF4757 0%, #E63946 40%, #DC143C 70%, #C1121F 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 15px 40px rgba(230, 57, 70, 0.7),
+        0 0 0 4px #8B0000,
+        0 0 0 10px rgba(230, 57, 70, 0.2),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 8px 20px rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+    text-align: center;
+    animation: pulse-glow 3s ease-in-out infinite;
+    border: 5px solid #DC143C;
+}
 
-<!-- Modal qui s'ouvre au clic -->
-<div class="modal-episodes-gratuits" id="modalEpisodesGratuits">
-    <div class="modal-episodes-gratuits-content">
-        <button class="modal-episodes-gratuits-close" id="closeModal">×</button>
-        
-        <h2>🎁 Regardez gratuitement !</h2>
-        
-        <p>
-            Téléchargez KYOOL et accédez à <strong>5 épisodes gratuits</strong> 
-            de chaque programme, sans inscription !
-        </p>
-        
-        <p style="font-size: 16px; color: #24C7EB;">
-            Scannez le QR code avec votre smartphone :
-        </p>
-        
-        <!-- QR Codes -->
-        <div class="modal-qr-codes">
-            <div class="modal-qr-code">
-                <img src="media/qr-ios.png" alt="QR iOS (App Store)">
-                <p>iOS</p>
-            </div>
-            <div class="modal-qr-code">
-                <img src="media/qr-android.png" alt="QR Android (Google Play)">
-                <p>ANDROID</p>
-            </div>
-        </div>
-        
-        <p style="font-size: 14px; color: #999; margin-top: 20px;">
-            App Store & Google Play
-        </p>   
-    </div>
-</div>
+/* Effet hover */
+.badge-episodes-gratuits:hover {
+    transform: scale(1.05) rotate(-3deg);
+    box-shadow: 
+        0 18px 50px rgba(230, 57, 70, 0.8),
+        0 0 0 4px #8B0000,
+        0 0 0 12px rgba(230, 57, 70, 0.25),
+        inset 0 -8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 8px 20px rgba(255, 255, 255, 0.2);
+}
 
-<!-- JavaScript pour gérer le badge et la modal -->
-<script>
-    // Ouvrir la modal au clic sur le badge
-    document.getElementById('badgeEpisodesGratuits').addEventListener('click', function() {
-        document.getElementById('modalEpisodesGratuits').classList.add('active');
-        document.body.style.overflow = 'hidden'; // Empêcher le scroll
-    });
+/* Texte coréen "무료" (gratuit) */
+.badge-episodes-gratuits .texte-coreen {
+    font-size: 38px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+/* Texte "ÉPISODES" */
+.badge-episodes-gratuits .texte-episodes {
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2px;
+}
+
+/* Texte "GRATUITS" */
+.badge-episodes-gratuits .texte-gratuits {
+    font-size: 18px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation pulse et glow */
+@keyframes pulse-glow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 
+            0 8px 20px rgba(230, 57, 70, 0.4),
+            0 0 0 8px rgba(230, 57, 70, 0.1),
+            0 0 0 16px rgba(230, 57, 70, 0.05);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 
+            0 8px 25px rgba(230, 57, 70, 0.5),
+            0 0 0 10px rgba(230, 57, 70, 0.15),
+            0 0 0 20px rgba(230, 57, 70, 0.08);
+    }
+}
+
+/* Version mobile et tablette */
+@media (max-width: 768px) {
+    .badge-episodes-gratuits {
+        width: 100px;
+        height: 100px;
+        bottom: 80px;
+        right: 20px;
+    }
     
-    // Fermer la modal avec le bouton X
-    document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('modalEpisodesGratuits').classList.remove('active');
-        document.body.style.overflow = ''; // Réactiver le scroll
-    });
+    .badge-episodes-gratuits .nombre {
+        font-size: 32px;
+    }
     
-    // Fermer la modal en cliquant en dehors du contenu
-    document.getElementById('modalEpisodesGratuits').addEventListener('click', function(e) {
-        if (e.target === this) {
-            this.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
+    .badge-episodes-gratuits .texte-episodes {
+        font-size: 10px;
+    }
     
-    // Fermer la modal avec la touche Échap
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            document.getElementById('modalEpisodesGratuits').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-</script>
+    .badge-episodes-gratuits .texte-gratuits {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge-episodes-gratuits {
+        width: 80px;
+        height: 80px;
+        bottom: 60px;
+        right: 15px;
+    }
+    
+    .badge-episodes-gratuits .nombre {
+        font-size: 26px;
+    }
+    
+    .badge-episodes-gratuits .texte-episodes {
+        font-size: 8px;
+    }
+    
+    .badge-episodes-gratuits .texte-gratuits {
+        font-size: 10px;
+    }
+}
+
+/* =====================================================
+   MODAL "ÉPISODES GRATUITS" (OPTIONNEL)
+   À afficher au clic sur le badge
+   ===================================================== */
+
+.modal-episodes-gratuits {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-episodes-gratuits.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-episodes-gratuits-content {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.modal-episodes-gratuits.active .modal-episodes-gratuits-content {
+    transform: scale(1);
+}
+
+/* Bouton fermer modal */
+.modal-episodes-gratuits-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-episodes-gratuits-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Contenu modal */
+.modal-episodes-gratuits h2 {
+    color: #24C7EB;
+    font-size: 32px;
+    margin: 0 0 20px 0;
+}
+
+.modal-episodes-gratuits p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Boutons QR codes dans modal */
+.modal-qr-codes {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.modal-qr-code {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-qr-code img {
+    width: 120px;
+    height: 120px;
+}
+
+.modal-qr-code p {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Bouton CTA modal */
+.modal-cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #24C7EB 0%, #0099CC 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.modal-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(36, 199, 235, 0.4);
+}
 </body>
 </html>
