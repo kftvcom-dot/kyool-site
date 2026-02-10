@@ -127,5 +127,83 @@
 </footer>
 
 <script src="script.js?v=1"></script>
+  <!-- =====================================================
+     BADGE "ÉPISODES GRATUITS" - À AJOUTER DANS INDEX.HTML
+     Position : Juste avant la balise fermante </body>
+     ===================================================== -->
+
+<!-- Badge fixe en bas à droite -->
+<div class="badge-episodes-gratuits" id="badgeEpisodesGratuits">
+    <div class="nombre">5</div>
+    <div class="texte-episodes">ÉPISODES</div>
+    <div class="texte-gratuits">GRATUITS</div>
+</div>
+
+<!-- Modal qui s'ouvre au clic -->
+<div class="modal-episodes-gratuits" id="modalEpisodesGratuits">
+    <div class="modal-episodes-gratuits-content">
+        <button class="modal-episodes-gratuits-close" id="closeModal">×</button>
+        
+        <h2>🎁 Regardez gratuitement !</h2>
+        
+        <p>
+            Téléchargez KYOOL et accédez à <strong>5 épisodes gratuits</strong> 
+            de chaque programme, sans inscription !
+        </p>
+        
+        <p style="font-size: 16px; color: #24C7EB;">
+            Scannez le QR code avec votre smartphone :
+        </p>
+        
+        <!-- QR Codes -->
+        <div class="modal-qr-codes">
+            <div class="modal-qr-code">
+                <img src="media/qr-codes/qr-app-store.png" alt="QR Code iOS">
+                <p>iOS</p>
+            </div>
+            <div class="modal-qr-code">
+                <img src="media/qr-codes/qr-google-play.png" alt="QR Code Android">
+                <p>ANDROID</p>
+            </div>
+        </div>
+        
+        <p style="font-size: 14px; color: #999; margin-top: 20px;">
+            App Store & Google Play
+        </p>
+        
+        <a href="#" class="modal-cta-button">En savoir plus</a>
+    </div>
+</div>
+
+<!-- JavaScript pour gérer le badge et la modal -->
+<script>
+    // Ouvrir la modal au clic sur le badge
+    document.getElementById('badgeEpisodesGratuits').addEventListener('click', function() {
+        document.getElementById('modalEpisodesGratuits').classList.add('active');
+        document.body.style.overflow = 'hidden'; // Empêcher le scroll
+    });
+    
+    // Fermer la modal avec le bouton X
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modalEpisodesGratuits').classList.remove('active');
+        document.body.style.overflow = ''; // Réactiver le scroll
+    });
+    
+    // Fermer la modal en cliquant en dehors du contenu
+    document.getElementById('modalEpisodesGratuits').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Fermer la modal avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('modalEpisodesGratuits').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script>
 </body>
 </html>
