@@ -804,6 +804,51 @@ section{ padding-bottom: 100px; }
   position: relative;
   padding: 0 50px;
 }
+/* ===============================
+   PROGRAMMES – TITRE + LIEN "TOUT EXPLORER"
+   =============================== */
+
+.genre-header{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+
+  /* on reprend ton spacing actuel du titre */
+  margin: 0 0 18px;
+  padding-left: 4px;
+}
+
+/* IMPORTANT : quand row-title est dans genre-header,
+   on enlève son margin-bottom sinon ça fait double espace */
+.genre-header .row-title{
+  margin: 0;
+}
+
+.tout-explorer{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--kyool-blue);
+
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(36,199,235,.35);
+  background: rgba(36,199,235,.08);
+
+  transition: .2s ease;
+  white-space: nowrap;
+}
+
+.tout-explorer:hover{
+  background: rgba(36,199,235,.20);
+  border-color: rgba(36,199,235,.65);
+  color: #fff;
+  transform: translateY(-1px);
+}
 
 /* BOUTONS DE NAVIGATION */
 .row-nav{
@@ -823,13 +868,14 @@ section{ padding-bottom: 100px; }
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4px);
-  opacity: 0;
-  pointer-events: none;
+
+  opacity: 0;              /* invisible */
+  pointer-events: auto;    /* MAIS cliquable */
 }
 
-.row-container:hover .row-nav{
+.row-container:hover .row-nav,
+.row-nav:focus-visible{
   opacity: 1;
-  pointer-events: all;
 }
 
 .row-nav.prev{
