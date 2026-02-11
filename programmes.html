@@ -532,5 +532,29 @@
 
 <script src="script.js?v=1"></script>
 <!-- <script src="programs.js?v=1"></script> -->
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".program-row").forEach((row) => {
+    const slider = row.querySelector(".row-slider");
+    const prev = row.querySelector(".row-nav.prev");
+    const next = row.querySelector(".row-nav.next");
+    if (!slider || !prev || !next) return;
+
+    // calcule un "pas" de scroll (une carte + gap)
+    const firstCard = slider.querySelector(".program-card");
+    const step = firstCard ? (firstCard.getBoundingClientRect().width + 12) : 320;
+
+    prev.addEventListener("click", (e) => {
+      e.preventDefault();
+      slider.scrollBy({ left: -step * 2, behavior: "smooth" });
+    });
+
+    next.addEventListener("click", (e) => {
+      e.preventDefault();
+      slider.scrollBy({ left: step * 2, behavior: "smooth" });
+    });
+  });
+});
+</script>
 </body>
 </html>
