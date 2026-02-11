@@ -79,50 +79,50 @@ async function loadCategorie() {
     return;
   }
   
-// Charger la liste des IDs depuis le JSON
-let programmeIds = [];
-try {
-  const response = await fetch(`../media/categories/${currentCategorie.jsonFile}`);
-  if (!response.ok) {
-    console.error('Fichier JSON non trouvé:', currentCategorie.jsonFile);
-    programmeIds = [];
-  } else {
-    const data = await response.json();
-    programmeIds = data.programmes || [];
-  }
-} catch (error) {
-  console.error('Erreur chargement JSON:', error);
-  programmeIds = [];
-}
-
-// Charger les données complètes de chaque programme
-allProgrammes = [];
-for (const id of programmeIds) {
+  // Charger la liste des IDs depuis le JSON
+  let programmeIds = [];
   try {
-    const response = await fetch(`../media/fiche-programmes/${id}/programme-data.json`);
-    if (response.ok) {
-      const programmeData = await response.json();
-      allProgrammes.push({
-        id: id,
-        titre: programmeData.titre || id,
-        pitch: programmeData.pitch || '',
-        themes: programmeData.themes || ''
-      });
+    const response = await fetch(`../media/categories/${currentCategorie.jsonFile}`);
+    if (!response.ok) {
+      console.error('Fichier JSON non trouvé:', currentCategorie.jsonFile);
+      programmeIds = [];
     } else {
-      console.error(`programme-data.json introuvable pour: ${id}`);
+      const data = await response.json();
+      programmeIds = data.programmes || [];
     }
   } catch (error) {
-    console.error(`Erreur chargement ${id}:`, error);
+    console.error('Erreur chargement JSON:', error);
+    programmeIds = [];
   }
-}
-
-// Trier par ordre alphabétique
-allProgrammes.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
-
-// Afficher tous les programmes
-filteredProgrammes = [...allProgrammes];
-displayProgrammes();
-updateResultsCount();
+  
+  // Charger les données complètes de chaque programme
+  allProgrammes = [];
+  for (const id of programmeIds) {
+    try {
+      const response = await fetch(`../media/fiche-programmes/${id}/programme-data.json`);
+      if (response.ok) {
+        const programmeData = await response.json();
+        allProgrammes.push({
+          id: id,
+          titre: programmeData.titre,
+          pitch: programmeData.pitch || '',
+          themes: programmeData.themes || ''
+        });
+      } else {
+        console.error(`Programme non trouvé: ${id}`);
+      }
+    } catch (error) {
+      console.error(`Erreur chargement ${id}:`, error);
+    }
+  }
+  
+  // Trier par ordre alphabétique
+  allProgrammes.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
+  
+  // Afficher tous les programmes
+  filteredProgrammes = [...allProgrammes];
+  displayProgrammes();
+  updateResultsCount();
 }
 
 // Afficher message "Bientôt disponible"
