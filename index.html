@@ -141,38 +141,50 @@
 
 <!-- Modal qui s'ouvre au clic -->
 <div class="modal-episodes-gratuits" id="modalEpisodesGratuits">
-    <div class="modal-episodes-gratuits-content">
-        <button class="modal-episodes-gratuits-close" id="closeModal">×</button>
-        
-        <h2>🎁 Regardez gratuitement !</h2>
-        
-        <p>
-            Téléchargez KYOOL et accédez à <strong>à plusieurs épisodes gratuits</strong> 
-            sans inscription !
-        </p>
-        
-        <p style="font-size: 16px; color: #24C7EB;">
-            Scannez le QR code avec votre smartphone :
-        </p>
-        
-        <!-- QR Codes -->
-        <div class="modal-qr-codes">
-          <div class="modal-qr-code">
-            <img src="media/qr-ios.png" alt="QR iOS (App Store)">
-            <p>iOS</p>
-          </div>
+  <div class="modal-episodes-gratuits-content">
+    
+    <!-- Bouton fermer -->
+    <button class="modal-episodes-gratuits-close" id="closeModal">×</button>
 
-          <div class="modal-qr-code">
-            <img src="media/qr-android.png" alt="QR Android (Google Play)">
-            <p>ANDROID</p>
-          </div>
-        </div>       
-        <p style="font-size: 14px; color: #999; margin-top: 20px;">
-            App Store & Google Play
-        </p>
-        
-        <a href="#" class="modal-cta-button">En savoir plus</a>
+    <!-- Titre -->
+    <h2>🎁 Regardez gratuitement !</h2>
+
+    <!-- Texte principal -->
+    <p>
+      Téléchargez <strong>KYOOL</strong> et accédez à
+      <strong>plusieurs épisodes gratuits</strong>,
+      sans inscription !
+    </p>
+
+    <!-- VISUEL KYOOL -->
+    <div class="modal-kyool-visual">
+      <img src="media/kyool-episodes-gratuits.jpg" alt="KYOOL – épisodes gratuits">
     </div>
+
+    <!-- Texte QR -->
+    <p class="modal-qr-title">
+      Scannez le QR code avec votre smartphone :
+    </p>
+
+    <!-- QR Codes -->
+    <div class="modal-qr-codes">
+      <div class="modal-qr-code">
+        <img src="media/qr-ios.png" alt="QR iOS (App Store)">
+        <p>iOS</p>
+      </div>
+
+      <div class="modal-qr-code">
+        <img src="media/qr-android.png" alt="QR Android (Google Play)">
+        <p>ANDROID</p>
+      </div>
+    </div>
+
+    <!-- Note stores -->
+    <p class="modal-store-note">
+      App Store & Google Play
+    </p>
+
+  </div>
 </div>
 
 <!-- JavaScript pour gérer le badge et la modal -->
