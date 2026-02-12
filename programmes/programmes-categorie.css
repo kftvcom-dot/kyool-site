@@ -399,3 +399,40 @@
     font-size: 16px;
   }
 }
+/* Animation de chargement */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Loader responsive */
+@media (max-width: 768px) {
+  .programmes-grid > div[style*="grid-column"] {
+    padding: 60px 20px !important;
+  }
+  
+  .programmes-grid > div[style*="grid-column"] > div {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .programmes-grid > div[style*="grid-column"] p:first-of-type {
+    font-size: 18px !important;
+  }
+  
+  .programmes-grid > div[style*="grid-column"] p:last-of-type {
+    font-size: 14px !important;
+  }
+}
+```
+
+---
+
+## 🎨 **CE QUE L'UTILISATEUR VERRA :**
+
+**Pendant le chargement :**
+```
+       ⟳  (spinner qui tourne)
+       
+   Chargement des programmes en cours...
+   Veuillez patienter quelques instants
