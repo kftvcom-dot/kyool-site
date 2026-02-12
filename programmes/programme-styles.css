@@ -792,30 +792,100 @@
     font-size: 11px;
   }
 }
-/* CENTRER LE BOUTON ACCUEIL EN BAS */
+/* ===============================
+   OPTION 1 : BOUTONS CÔTE À CÔTE
+   Les deux boutons ont le même style oval
+   =============================== */
+
+/* NAVIGATION BOTTOM - BOUTONS CÔTE À CÔTE */
 .programme-nav-bottom {
   padding: 60px 0 80px;
+  background: rgba(0,0,0,.2);
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
 .programme-nav-bottom .wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 
-.programme-nav-bottom .wrap > a,
-.programme-nav-bottom .wrap > .btn {
+.nav-actions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Style commun pour les boutons */
+.nav-actions .btn,
+.nav-actions .explore-category-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s ease;
+  border: 2px solid;
+  min-width: 200px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.3);
 }
 
-/* Si vous voulez VRAIMENT centrer UNIQUEMENT Accueil */
-.programme-nav-bottom .wrap {
-  text-align: center;
+/* Bouton Accueil (style primaire) */
+.nav-actions .btn-primary {
+  background: linear-gradient(135deg, var(--kyool-blue) 0%, #1a8a9e 100%);
+  color: #fff;
+  border-color: var(--kyool-blue);
 }
 
-.programme-nav-bottom .wrap > * {
-  margin: 0 10px;
+.nav-actions .btn-primary:hover {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  color: var(--kyool-blue);
+  border-color: var(--kyool-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(36,199,235,.4);
+}
+
+/* Bouton Explorer (style secondaire) */
+.explore-category-btn {
+  background: rgba(36,199,235,.1);
+  color: var(--kyool-blue);
+  border-color: rgba(36,199,235,.5);
+  backdrop-filter: blur(10px);
+}
+
+.explore-category-btn:hover {
+  background: var(--kyool-blue);
+  color: #fff;
+  border-color: var(--kyool-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(36,199,235,.6);
+}
+
+.explore-category-btn .arrow {
+  font-size: 20px;
+  transition: transform .3s ease;
+}
+
+.explore-category-btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-actions .btn,
+  .nav-actions .explore-category-btn {
+    width: 100%;
+    max-width: 350px;
+  }
 }
