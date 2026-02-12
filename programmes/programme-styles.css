@@ -792,3 +792,30 @@
     font-size: 11px;
   }
 }
+/* CENTRER LE BOUTON ACCUEIL EN BAS */
+.programme-nav-bottom {
+  padding: 60px 0 80px;
+}
+
+.programme-nav-bottom .wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.programme-nav-bottom .wrap > a,
+.programme-nav-bottom .wrap > .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Si vous voulez VRAIMENT centrer UNIQUEMENT Accueil */
+.programme-nav-bottom .wrap {
+  text-align: center;
+}
+
+.programme-nav-bottom .wrap > * {
+  margin: 0 10px;
+}
