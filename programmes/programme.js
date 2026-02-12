@@ -306,28 +306,69 @@ function displayRecommendations() {
   }).join('');
 }
 
-// Navigation entre programmes
-function setupNavigation() {
-  const prevBtn = document.getElementById('prevProgramme');
-  const nextBtn = document.getElementById('nextProgramme');
-  
-  if (currentIndex > 0) {
-    const prevProgramme = allProgrammes[currentIndex - 1];
-    prevBtn.href = `programme-fiche.html?id=${prevProgramme.id}`;
-    prevBtn.textContent = `← ${prevProgramme.titre}`;
-  } else {
-    prevBtn.style.display = 'none';
+// Noms des catégories
+const CATEGORY_NAMES = {
+  'short-drama-vertical': 'Short Drama Vertical',
+  'drama-web-drama': 'Drama & Web-Drama',
+  'film-short-film-animation': 'Film & Short Film & Animation',
+  'gl-girls-love': 'GL (Girls Love)',
+  'tv-shows': 'TV Shows',
+  'documentaire': 'Documentaire',
+  'kyool-original': 'KYOOL Original',
+  'bl-boys-love': 'BL (Boys Love)'
+};
+
+// Fichiers JSON des catégories
+const CATEGORY_FILES = [
+  'short-drama-vertical.json',
+  'drama-web-drama.json',
+  'film-short-film-animation.json',
+  'gl-girls-love.json',
+  'tv-shows.json',
+  'documentaire.json',
+  'kyool-original.json',
+  'bl-boys-love.json'
+];
+
+// Trouver automatiquement la catégorie du programme
+async function findProgrammeCategory(programmeId) {
+  for (const file of CATEGORY_FILES) {
+    try {
+      const response = await fetch(`../media/categories/${file}`);
+      if (response.ok) {
+        const data = await response.json();
+        const programmes = data.programmes || [];
+        
+        // Si le programme est dans cette catégorie
+        if (programmes.includes(programmeId)) {
+          const categorySlug = file.replace('.json', '');
+          return categorySlug;
+        }
+      }
+    } catch (error) {
+      console.error(`Erreur chargement ${file}:`, error);
+    }
   }
   
-  if (currentIndex < allProgrammes.length - 1) {
-    const nextProgramme = allProgrammes[currentIndex + 1];
-    nextBtn.href = `programme-fiche.html?id=${nextProgramme.id}`;
-    nextBtn.textContent = `${nextProgramme.titre} →`;
-  } else {
-    nextBtn.style.display = 'none';
-  }
+  return 'short-drama-vertical'; // Catégorie par défaut
 }
 
+// Créer le bouton "Explorer ma catégorie"
+async function setupNavigation() {
+  const buttonContainer = document.getElementById('exploreCategoryButton');
+  if (!buttonContainer) return;
+
+  // Trouver automatiquement la catégorie du programme actuel
+  const categorySlug = await findProgrammeCategory(currentProgramme.id);
+  const categoryName = CATEGORY_NAMES[categorySlug] || 'cette catégorie';
+
+  buttonContainer.innerHTML = `
+    <a href="programmes-categorie.html?cat=${categorySlug}" class="explore-category-btn">
+      <span>Explorer ${categoryName}</span>
+      <span class="arrow">→</span>
+    </a>
+  `;
+}
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
   loadProgramme();
