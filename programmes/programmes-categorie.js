@@ -182,6 +182,20 @@ function displayComingSoon() {
 function displayProgrammes() {
   const grid = document.getElementById('programmesGrid');
   const noResults = document.getElementById('noResults');
+
+    // AJOUTER CES LIGNES (NOUVEAU) ↓↓↓
+  // Afficher un loader pendant le chargement
+  if (filteredProgrammes.length === 0 && allProgrammes.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1/-1; text-align: center; padding: 100px 20px;">
+        <div style="display: inline-block; width: 60px; height: 60px; border: 4px solid rgba(36,199,235,.3); border-top-color: var(--kyool-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <p style="font-size: 20px; color: var(--kyool-blue); font-weight: 700;">Chargement des programmes en cours...</p>
+        <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-top: 10px;">Veuillez patienter quelques instants</p>
+      </div>
+    `;
+    return;
+  }
+  // FIN DU NOUVEAU CODE ↑↑↑
   
   if (filteredProgrammes.length === 0) {
     grid.style.display = 'none';
