@@ -81,7 +81,23 @@ function loadHeroImage(categorieSlug) {
     };
   }
 }
-
+// Afficher le loader pendant le chargement
+function showLoader() {
+  const grid = document.getElementById('programmesGrid');
+  const resultsCount = document.getElementById('resultsCount');
+  
+  // Afficher "Chargement..." dans le compteur
+  resultsCount.textContent = '...';
+  
+  // Afficher le loader dans la grille
+  grid.innerHTML = `
+    <div style="grid-column: 1/-1; text-align: center; padding: 100px 20px;">
+      <div style="display: inline-block; width: 60px; height: 60px; border: 4px solid rgba(36,199,235,.3); border-top-color: var(--kyool-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
+      <p style="font-size: 20px; color: var(--kyool-blue); font-weight: 700;">Chargement des programmes en cours...</p>
+      <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-top: 10px;">Veuillez patienter quelques instants ⏳</p>
+    </div>
+  `;
+}
 // Charger les données de la catégorie
 async function loadCategorie() {
   const catSlug = getCategorieFromURL();
@@ -102,6 +118,10 @@ async function loadCategorie() {
   document.getElementById('breadcrumbTitle').textContent = currentCategorie.title;
   document.getElementById('categorieTitle').textContent = currentCategorie.title;
   document.getElementById('categorieDescription').textContent = currentCategorie.description;
+  
+  // ===== AJOUTER CETTE LIGNE (NOUVEAU) ===== ↓↓↓
+  showLoader();
+  // ========================================== ↑↑↑
   
   // Si catégorie "bientôt disponible", afficher message
   if (currentCategorie.comingSoon) {
@@ -151,100 +171,6 @@ async function loadCategorie() {
   
   // Afficher tous les programmes
   filteredProgrammes = [...allProgrammes];
-  displayProgrammes();
-  updateResultsCount();
-}
-
-// Afficher message "Bientôt disponible"
-function displayComingSoon() {
-  const grid = document.getElementById('programmesGrid');
-  const noResults = document.getElementById('noResults');
-  const searchSection = document.querySelector('.search-section');
-  
-  // Masquer la recherche
-  searchSection.style.display = 'none';
-  
-  // Afficher message
-  grid.style.display = 'none';
-  noResults.style.display = 'block';
-  noResults.innerHTML = `
-    <div style="padding: 100px 20px; text-align: center;">
-      <h2 style="font-size: 36px; color: var(--kyool-blue); margin-bottom: 24px;">🎬 Bientôt disponible !</h2>
-      <p style="font-size: 20px; color: rgba(255,255,255,.85); max-width: 600px; margin: 0 auto; line-height: 1.7;">
-        La catégorie ${currentCategorie.title} arrive prochainement sur KYOOL avec des contenus exclusifs.
-        Restez connectés !
-      </p>
-    </div>
-  `;
-}
-
-// Afficher les programmes
-function displayProgrammes() {
-  const grid = document.getElementById('programmesGrid');
-  const noResults = document.getElementById('noResults');
-
-    // AJOUTER CES LIGNES (NOUVEAU) ↓↓↓
-  // Afficher un loader pendant le chargement
-  if (filteredProgrammes.length === 0 && allProgrammes.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: 1/-1; text-align: center; padding: 100px 20px;">
-        <div style="display: inline-block; width: 60px; height: 60px; border: 4px solid rgba(36,199,235,.3); border-top-color: var(--kyool-blue); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px;"></div>
-        <p style="font-size: 20px; color: var(--kyool-blue); font-weight: 700;">Chargement des programmes en cours...</p>
-        <p style="font-size: 16px; color: rgba(255,255,255,.7); margin-top: 10px;">Veuillez patienter quelques instants</p>
-      </div>
-    `;
-    return;
-  }
-  // FIN DU NOUVEAU CODE ↑↑↑
-  
-  if (filteredProgrammes.length === 0) {
-    grid.style.display = 'none';
-    noResults.style.display = 'block';
-    noResults.innerHTML = `
-      <p>Aucun programme trouvé pour votre recherche.</p>
-    `;
-    return;
-  }
-  
-  grid.style.display = 'grid';
-  noResults.style.display = 'none';
-  
-  grid.innerHTML = filteredProgrammes.map(prog => {
-    const imagePath = `../media/fiche-programmes/${prog.id}/image_1500x2100.jpg`;
-    
-    return `
-      <a href="programme-fiche.html?id=${prog.id}" class="programme-card">
-        <div class="programme-image">
-          <img src="${imagePath}" alt="${prog.titre}" onerror="this.src='../media/kyool-mascot.png'">
-          <div class="programme-overlay">
-            <h3 class="programme-title">${prog.titre}</h3>
-            <span class="programme-link">En savoir plus →</span>
-          </div>
-        </div>
-      </a>
-    `;
-  }).join('');
-}
-
-// Mettre à jour le compteur de résultats
-function updateResultsCount() {
-  document.getElementById('resultsCount').textContent = filteredProgrammes.length;
-}
-
-// Fonction de recherche
-function searchProgrammes(query) {
-  const searchTerm = query.toLowerCase().trim();
-  
-  if (searchTerm === '') {
-    filteredProgrammes = [...allProgrammes];
-  } else {
-    filteredProgrammes = allProgrammes.filter(prog => 
-      prog.titre.toLowerCase().includes(searchTerm) ||
-      prog.pitch.toLowerCase().includes(searchTerm) ||
-      prog.themes.toLowerCase().includes(searchTerm)
-    );
-  }
-  
   displayProgrammes();
   updateResultsCount();
 }
