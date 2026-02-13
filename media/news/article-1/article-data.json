@@ -1,0 +1,16 @@
+{
+  "id": "article-X",
+  "title": "Titre de votre article",
+  "theme": "Culture",
+  "journalist": "Nom du journaliste",
+  "date": "2026-02-13",
+  "rating": 0,
+  "folder": "article-X",
+  "image": "cover.jpg",
+  "photos": [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg"
+  ],
+  "content": "<p>Introduction de votre article...</p><h2>Premier titre</h2><p>Contenu du premier paragraphe...</p><h2>Deuxième titre</h2><p>Contenu du deuxième paragraphe...</p>"
+}
