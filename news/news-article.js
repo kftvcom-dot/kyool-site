@@ -1,8 +1,8 @@
-// NEWS-ARTICLE.JS - Gestion de la page article individuelle
+// NEWS-ARTICLE.JS - Version avec JSON séparés (UN FICHIER PAR ARTICLE)
 
 let currentArticle = null;
 
-// Charger l'article depuis l'URL
+// Charger l'article depuis son fichier individuel
 async function loadArticle() {
   const urlParams = new URLSearchParams(window.location.search);
   const articleId = urlParams.get('id');
@@ -13,18 +13,20 @@ async function loadArticle() {
   }
   
   try {
-    const response = await fetch('articles-data.json');
-    const articles = await response.json();
-    currentArticle = articles.find(a => a.id === articleId);
+    // Charger le JSON individuel de cet article
+    const response = await fetch(`../media/news/${articleId}/article-data.json`);
     
-    if (!currentArticle) {
+    if (!response.ok) {
+      console.error('Article non trouvé:', articleId);
       window.location.href = 'news.html';
       return;
     }
     
+    currentArticle = await response.json();
     displayArticle();
   } catch (error) {
     console.error('Erreur de chargement de l\'article:', error);
+    window.location.href = 'news.html';
   }
 }
 
