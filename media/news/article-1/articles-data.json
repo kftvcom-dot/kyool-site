@@ -1,79 +1,16 @@
-[
-  {
-    "id": "article-1",
-    "title": "K-pop : Les nouveaux groupes qui font sensation en 2026",
-    "theme": "Musique",
-    "journalist": "Sophie Martin",
-    "date": "2026-02-05",
-    "rating": 4.5,
-    "folder": "article-1",
-    "image": "cover.jpg",
-    "photos": [
-      "photo1.jpg",
-      "photo2.jpg",
-      "photo3.jpg"
-    ],
-    "content": "<p>La scène K-pop ne cesse d'évoluer et 2026 marque l'arrivée de groupes exceptionnels qui redéfinissent les codes du genre. Découverte de ces nouveaux talents qui captivent déjà des millions de fans à travers le monde.</p><h2>Une nouvelle génération d'artistes</h2><p>Cette année, plusieurs agences ont dévoilé leurs nouveaux groupes, chacun apportant sa propre identité musicale et visuelle. Les fans sont conquis par la fraîcheur et l'originalité de ces artistes.</p><h2>L'impact sur la culture mondiale</h2><p>Au-delà de la musique, ces nouveaux groupes véhiculent des messages positifs et inspirants, touchant un public international toujours plus large.</p><p>La K-pop continue de prouver qu'elle n'est pas qu'un phénomène temporaire, mais bien un mouvement culturel durable qui influence la mode, le cinéma et les arts en général.</p>"
-  },
-  {
-    "id": "article-2",
-    "title": "Découverte : Les trésors cachés de Séoul",
-    "theme": "Voyage",
-    "journalist": "Lucas Dubois",
-    "date": "2026-02-03",
-    "rating": 4.8,
-    "folder": "article-2",
-    "image": "cover.jpg",
-    "photos": [
-      "photo1.jpg",
-      "photo2.jpg"
-    ],
-    "content": "<p>Séoul regorge de lieux méconnus qui méritent d'être explorés. Au-delà des sites touristiques classiques, la capitale coréenne cache des quartiers authentiques et des expériences uniques.</p><h2>Bukchon Hanok Village</h2><p>Ce village traditionnel offre une plongée dans le Séoul d'autrefois, avec ses maisons hanok parfaitement préservées. Se promener dans ses ruelles étroites, c'est voyager dans le temps.</p><h2>Les cafés secrets d'Itaewon</h2><p>Itaewon n'est pas seulement connu pour ses restaurants internationaux. Des cafés intimistes, nichés dans des ruelles discrètes, offrent des ambiances uniques et des créations originales.</p><p>Chaque coin de Séoul réserve des surprises pour ceux qui prennent le temps de s'éloigner des sentiers battus.</p>"
-  },
-  {
-    "id": "article-3",
-    "title": "Interview exclusive : Rencontre avec un réalisateur coréen",
-    "theme": "Cinéma",
-    "journalist": "Marie Lefebvre",
-    "date": "2026-02-01",
-    "rating": 4.2,
-    "folder": "article-3",
-    "image": "cover.jpg",
-    "photos": [
-      "photo1.jpg",
-      "photo2.jpg",
-      "photo3.jpg",
-      "photo4.jpg"
-    ],
-    "content": "<p>Nous avons eu la chance de rencontrer Kim Joon-ho, réalisateur émergent dont le dernier film fait sensation dans les festivals internationaux. Il nous parle de son parcours, de ses inspirations et de sa vision du cinéma.</p><h2>Les débuts d'une passion</h2><p>« J'ai toujours été fasciné par le pouvoir du cinéma de raconter des histoires qui touchent l'âme », confie Kim Joon-ho. Son parcours, depuis ses études à l'Académie Coréenne des Arts du Film jusqu'à son premier long-métrage, témoigne d'une détermination sans faille.</p><h2>Une esthétique unique</h2><p>Ce qui distingue son travail, c'est sa capacité à mêler tradition et modernité. Ses films explorent les contradictions de la société coréenne contemporaine tout en rendant hommage aux valeurs ancestrales.</p><p>« Le cinéma coréen a encore tant à offrir au monde », conclut-il avec un sourire.</p>"
-  },
-  {
-    "id": "article-4",
-    "title": "La cuisine coréenne : Au-delà du kimchi",
-    "theme": "Gastronomie",
-    "journalist": "Pierre Durand",
-    "date": "2026-01-28",
-    "rating": 4.6,
-    "folder": "article-4",
-    "image": "cover.jpg",
-    "photos": [
-      "photo1.jpg"
-    ],
-    "content": "<p>La cuisine coréenne est bien plus riche et diverse que ce que l'on imagine. Si le kimchi est devenu célèbre dans le monde entier, d'autres plats méritent tout autant d'attention et de reconnaissance.</p><h2>Le bibimbap : Un arc-en-ciel de saveurs</h2><p>Ce plat emblématique combine riz, légumes variés, viande et œuf dans un mélange harmonieux. Chaque bouchée est une explosion de textures et de goûts.</p><h2>Les banchan : L'art des accompagnements</h2><p>Ces petits plats d'accompagnement sont essentiels dans un repas coréen. Ils témoignent de la générosité et de la complexité de cette cuisine.</p><h2>Le jjigae : Confort dans un bol</h2><p>Ces ragoûts épicés sont l'âme de la cuisine familiale coréenne. Parfaits pour les journées froides, ils réchauffent le corps et l'esprit.</p>"
-  },
-  {
-    "id": "article-5",
-    "title": "Les dramas coréens qui ont marqué l'année",
-    "theme": "Culture",
-    "journalist": "Emma Bernard",
-    "date": "2026-01-25",
-    "rating": 4.9,
-    "folder": "article-5",
-    "image": "cover.jpg",
-    "photos": [
-      "photo1.jpg",
-      "photo2.jpg"
-    ],
-    "content": "<p>L'année 2025 a été exceptionnelle pour les dramas coréens. Entre histoires d'amour captivantes, thrillers haletants et comédies hilarantes, les spectateurs du monde entier ont été gâtés.</p><h2>Le phénomène du moment</h2><p>Un drama en particulier a battu tous les records d'audience et est devenu un phénomène culturel global. Son succès réside dans son scénario original et ses personnages attachants.</p><h2>La diversité des genres</h2><p>Ce qui rend les dramas coréens si populaires, c'est leur capacité à aborder tous les genres avec brio. Du romance au thriller, en passant par l'historique et la science-fiction, il y en a pour tous les goûts.</p><p>Les plateformes de streaming ont considérablement contribué à leur diffusion mondiale, permettant à des millions de personnes de découvrir ces œuvres remarquables.</p>"
-  }
-]
+{
+  "id": "article-1",
+  "title": "K-pop : Les nouveaux groupes qui font sensation en 2026",
+  "theme": "Musique",
+  "journalist": "Sophie Martin",
+  "date": "2026-02-05",
+  "rating": 4.5,
+  "folder": "article-1",
+  "image": "cover.jpg",
+  "photos": [
+    "photo1.jpg",
+    "photo2.jpg",
+    "photo3.jpg"
+  ],
+  "content": "<p>La scène K-pop ne cesse d'évoluer...</p><h2>Une nouvelle génération</h2><p>...</p>"
+}
