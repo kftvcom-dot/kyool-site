@@ -1,12 +1,40 @@
-// NEWS.JS - Gestion de la page listing des articles
+// NEWS.JS - Version avec JSON séparés (UN FICHIER PAR ARTICLE)
 
-// Charger les articles depuis le fichier JSON
 let articles = [];
 
+// Liste des IDs d'articles (à maintenir à jour quand vous ajoutez un article)
+const ARTICLE_IDS = [
+  'article-1',
+  'article-2',
+  'article-3',
+  'article-4',
+  'article-5'
+  // Ajoutez les nouveaux IDs ici
+];
+
+// Charger tous les articles depuis leurs fichiers individuels
 async function loadArticles() {
   try {
-    const response = await fetch('articles-data.json');
-    articles = await response.json();
+    articles = [];
+    
+    // Charger chaque article individuellement
+    for (const articleId of ARTICLE_IDS) {
+      try {
+        const response = await fetch(`../media/news/${articleId}/article-data.json`);
+        if (response.ok) {
+          const article = await response.json();
+          articles.push(article);
+        } else {
+          console.warn(`Article ${articleId} non trouvé`);
+        }
+      } catch (error) {
+        console.error(`Erreur chargement ${articleId}:`, error);
+      }
+    }
+    
+    // Trier par date (plus récent en premier)
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    
     displayArticles();
     updateCount();
   } catch (error) {
