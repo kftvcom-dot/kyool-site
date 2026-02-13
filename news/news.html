@@ -1,1 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KYOOL — News & Reportages</title>
+  <link rel="stylesheet" href="../styles.css?v=99">
+  <link rel="stylesheet" href="news-styles.css?v=1">
+</head>
 
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="../index.html" class="brand">
+        <img src="../media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../histoire.html">Histoire</a>
+        <a href="../programmes.html">Programmes</a>
+        <a href="../partenaires.html">Partenaires</a>
+        <a href="news.html" aria-current="page">News</a>
+        <a href="../contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- IMAGE HERO REPORTERS -->
+  <section class="news-hero">
+    <div class="news-hero-image">
+      <img src="../media/news/Kyool_reporters.jpg" alt="KYOOL reporters">
+    </div>
+    <div class="news-hero-overlay">
+      <h1 class="news-hero-title">KYOOL News & Reportages</h1>
+    </div>
+  </section>
+
+  <!-- INTRO & APPEL À CONTRIBUTION -->
+  <section class="news-intro">
+    <div class="wrap">
+      <div class="news-intro-content">
+        <p>
+          <strong>Valorisons l'écriture et le travail des reporters.</strong> Chaque article que vous découvrez ici est le fruit d'une passion sincère pour la culture coréenne et d'un engagement personnel.
+        </p>
+        <p>
+          Prenez le temps de lire, de partager et de parler du travail de chacun. Vos commentaires et votre soutien comptent énormément pour nos contributeurs.
+        </p>
+        <p class="news-cta">
+          <strong>Vous aussi, devenez journaliste KYOOL !</strong> Envoyez-nous vos articles accompagnés de photos à 
+          <a href="mailto:contact@kyool.eu">contact@kyool.eu</a>. 
+          Faites découvrir votre univers, votre passion pour la Corée, dans le respect de tous. Ensemble, créons une communauté qui célèbre et partage la Hallyu.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTRES & TRI -->
+  <section class="news-filters">
+    <div class="wrap">
+      <div class="filters-bar">
+        <div class="filter-group">
+          <label for="sortBy">Trier par :</label>
+          <select id="sortBy" class="filter-select">
+            <option value="date">Date (plus récent)</option>
+            <option value="theme">Thème</option>
+            <option value="journalist">Journaliste</option>
+            <option value="rating">Les mieux notés</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterTheme">Thème :</label>
+          <select id="filterTheme" class="filter-select">
+            <option value="all">Tous les thèmes</option>
+            <option value="culture">Culture</option>
+            <option value="musique">Musique</option>
+            <option value="cinema">Cinéma</option>
+            <option value="gastronomie">Gastronomie</option>
+            <option value="voyage">Voyage</option>
+            <option value="interview">Interview</option>
+          </select>
+        </div>
+
+        <div class="filter-count">
+          <span id="articleCount">0</span> article(s)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRILLE D'ARTICLES -->
+  <section class="news-grid-section">
+    <div class="wrap">
+      <div id="newsGrid" class="news-grid">
+        <!-- Les articles seront injectés ici par JavaScript -->
+      </div>
+
+      <div id="noResults" class="no-results" style="display: none;">
+        <p>Aucun article ne correspond à vos critères de recherche.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.</div>
+      <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script src="news.js"></script>
+</body>
+</html>
