@@ -362,7 +362,7 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   grid-template-columns: repeat(3, 1fr) !important;
   gap: 20px;
   margin-bottom: 30px;
-  max-width: 1600px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
