@@ -245,7 +245,8 @@
   margin: 40px 0;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 3px solid var(--kyool-blue);  /* ← AJOUTER CETTE LIGNE */
+  transition: all .3s ease;
 }
 
 .article-photo img {
@@ -256,7 +257,8 @@
 }
 
 .article-photo:hover img {
-  transform: scale(1.02);
+border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
+  box-shadow: 0 0 30px rgba(36,199,235,.6);
 }
 
 /* Photo simple - formats spécifiques */
