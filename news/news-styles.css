@@ -1134,7 +1134,7 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
 
 @media (max-width: 768px) {
   .promo-trio {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     max-width: 350px;
   }
@@ -1209,8 +1209,10 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   }
 
   .rating-buttons {
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: row;  /* ← Ajouter cette ligne */
+  gap: 16px;
+}
 
   .nav-buttons {
     flex-direction: column;
