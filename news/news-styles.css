@@ -1208,10 +1208,11 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
     flex-direction: column;
   }
 
-  .rating-buttons {
+.rating-buttons {
   display: flex;
-  flex-direction: row;  /* ← Ajouter cette ligne */
+  flex-direction: row;  /* ← Forcer en ligne */
   gap: 16px;
+  flex-wrap: wrap;
 }
 
   .nav-buttons {
