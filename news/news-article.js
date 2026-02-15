@@ -1,4 +1,4 @@
-// NEWS-ARTICLE.JS - VERSION CORRIGÉE COMPLÈTE
+// NEWS-ARTICLE.JS - Version Magazine CORRIGÉE
 
 let currentArticle = null;
 
@@ -32,7 +32,7 @@ async function loadArticle() {
 // Afficher l'article
 function displayArticle() {
   // Titre de la page
-  document.getElementById('articleTitle').textContent = currentArticle.title + ' – KYOOL News';
+  document.getElementById('articleTitle').textContent = currentArticle.title + ' — KYOOL News';
   document.getElementById('breadcrumbTitle').textContent = currentArticle.title;
   
   // Hero
@@ -46,8 +46,6 @@ function displayArticle() {
   // Corps de l'article avec layouts variés (photos 1-9)
   displayContentWithMagazineLayout();
   
-  // Trio promo 10-11-12 APRÈS l'article
-  displayPromoPhoto();
   
   // Boutons de partage
   setupShareButtons();
@@ -71,7 +69,7 @@ function displayHero() {
   };
 }
 
-// Afficher le contenu avec layout magazine (photos 1-9)
+// Afficher le contenu avec layout magazine (photos 1-9 seulement)
 function displayContentWithMagazineLayout() {
   const container = document.getElementById('articleBody');
   const photos = currentArticle.photos || [];
@@ -125,6 +123,13 @@ function displayContentWithMagazineLayout() {
         if (photos[8]) {
           finalHTML += createStandardPhoto(photos[8], 9);
         }
+        
+        // Après la photo 9, ajouter le titre et les photos 10-11-12
+        if (photos[9] && photos[10] && photos[11]) {
+          finalHTML += '<h2 class="promo-section-title">Découvrez nos programmes KYOOL</h2>';
+          finalHTML += createTrioPhotos(photos[9], photos[10], photos[11]);
+          finalHTML += '<div style="text-align: center; margin: 30px 0;"><a href="../programmes.html" class="btn-primary">📺 Voir tous nos programmes →</a></div>';
+        }
         break;
     }
   });
@@ -143,18 +148,18 @@ function displayContentWithMagazineLayout() {
   container.innerHTML = finalHTML;
 }
 
-// Afficher le TRIO PROMO (photos 10, 11, 12) APRÈS l'article
+// Afficher la photo 10 (devient 10-11-12) promo APRÈS l'article (dans une section séparée)
 function displayPromoPhoto() {
   const photos = currentArticle.photos || [];
   const promoContainer = document.getElementById('promoPhotoContainer');
   
   if (!promoContainer) return;
   
-  // TRIO de photos 10, 11, 12 (indices 9, 10, 11) ← CORRIGÉ !
-  if (photos[9] && photos[10] && photos[11]) {
-    const path10 = `../media/news/${currentArticle.folder}/${photos[9]}`;
-    const path11 = `../media/news/${currentArticle.folder}/${photos[10]}`;
-    const path12 = `../media/news/${currentArticle.folder}/${photos[11]}`;
+  // TRIO de photos 6, 7, 8 (indices 5, 6, 7)
+  if (photos[5] && photos[6] && photos[7]) {
+    const path6 = `../media/news/${currentArticle.folder}/${photos[5]}`;
+    const path7 = `../media/news/${currentArticle.folder}/${photos[6]}`;
+    const path8 = `../media/news/${currentArticle.folder}/${photos[7]}`;
     
     promoContainer.innerHTML = `
       <div class="wrap">
@@ -162,13 +167,13 @@ function displayPromoPhoto() {
           <h2 class="promo-title">Découvrez nos programmes KYOOL</h2>
           <div class="promo-trio">
             <figure class="promo-trio-item">
-              <img src="${path10}" alt="Programme 1" onerror="this.src='../media/news/ads/kyool_ad_01.jpg'">
+              <img src="${path6}" alt="Programme 1">
             </figure>
             <figure class="promo-trio-item">
-              <img src="${path11}" alt="Programme 2" onerror="this.src='../media/news/ads/kyool_ad_02.jpg'">
+              <img src="${path7}" alt="Programme 2">
             </figure>
             <figure class="promo-trio-item">
-              <img src="${path12}" alt="Programme 3" onerror="this.src='../media/news/ads/kyool_ad_03.jpg'">
+              <img src="${path8}" alt="Programme 3">
             </figure>
           </div>
           <a href="../programmes.html" class="promo-btn">
@@ -261,14 +266,7 @@ function setupShareButtons() {
   const url = window.location.href;
   const title = currentArticle.title;
   const heroImage = `${window.location.origin}/media/news/${currentArticle.folder}/hero.jpg`;
-  
-  // Extraire un extrait du contenu
-  let excerpt = '';
-  if (currentArticle.intro) {
-    excerpt = currentArticle.intro.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-  } else if (currentArticle.chapters && currentArticle.chapters[0]) {
-    excerpt = currentArticle.chapters[0].content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
-  }
+  const excerpt = currentArticle.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
   
   // Texte enrichi pour partage
   const text = `📰 ${title}
@@ -293,32 +291,27 @@ ${excerpt}
     `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
   
   // Instagram (copie le texte + ouvre Instagram)
-  const instagramBtn = document.getElementById('shareInstagram');
-  if (instagramBtn) {
-    instagramBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const instagramText = `${text}
+  document.getElementById('shareInstagram').addEventListener('click', function(e) {
+    e.preventDefault();
+    const instagramText = `${text}
 
 🔗 ${url}`;
-      
-      // Copier dans le presse-papiers
-      navigator.clipboard.writeText(instagramText).then(() => {
-        alert('✅ Texte copié ! Ouvrez Instagram et collez-le dans votre story ou post.');
-        // Ouvrir Instagram
-        window.open('https://www.instagram.com/', '_blank');
-      }).catch(() => {
-        alert('❌ Impossible de copier. Copiez manuellement le texte ci-dessous :\n\n' + instagramText);
-      });
+    
+    // Copier dans le presse-papiers
+    navigator.clipboard.writeText(instagramText).then(() => {
+      alert('✅ Texte copié ! Ouvrez Instagram et collez-le dans votre story ou post.');
+      // Ouvrir Instagram
+      window.open('https://www.instagram.com/', '_blank');
+    }).catch(() => {
+      alert('❌ Impossible de copier. Copiez manuellement le texte ci-dessous :\n\n' + instagramText);
     });
-  }
+  });
 }
 
 // Gestion de la notation
 function setupRating() {
   const ratingButtons = document.querySelectorAll('.rating-btn');
   const ratingThanks = document.querySelector('.rating-section .rating-thanks');
-  
-  if (!ratingButtons.length || !ratingThanks) return;
   
   ratingButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -347,8 +340,6 @@ function setupReport() {
   const submitReport = document.getElementById('submitReport');
   const cancelReport = document.getElementById('cancelReport');
   const reportThanks = document.querySelector('.report-form .report-thanks');
-  
-  if (!reportBtn || !reportForm) return;
   
   reportBtn.addEventListener('click', function() {
     reportForm.style.display = 'block';
