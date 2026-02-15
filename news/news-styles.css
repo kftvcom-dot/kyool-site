@@ -289,8 +289,9 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 3px solid var(--kyool-blue);
   height: 100%;
+  transition: all .3s ease;
 }
 
 .photo-duo-item img {
@@ -302,8 +303,10 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   transition: transform .3s ease;
 }
 
-.photo-duo-item:hover img {
-  transform: scale(1.05);
+.photo-duo-item:hover {
+  border-color: #fff;
+  box-shadow: 0 0 30px rgba(36,199,235,.6);
+  transform: translateY(-5px);
 }
 
 /* TRIO de photos verticales */
@@ -318,7 +321,8 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 3px solid var(--kyool-blue);
+  transition: all .3s ease;
 }
 
 .photo-trio-item img {
@@ -330,8 +334,10 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   transition: transform .3s ease;
 }
 
-.photo-trio-item:hover img {
-  transform: scale(1.05);
+.photo-trio-item:hover {
+  border-color: #fff;
+  box-shadow: 0 0 30px rgba(36,199,235,.6);
+  transform: translateY(-5px);
 }
 
 /* RESTE DES STYLES (inchangés) */
