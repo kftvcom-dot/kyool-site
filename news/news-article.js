@@ -154,25 +154,39 @@ function displayContentWithMagazineLayout() {
   container.innerHTML = finalHTML;
 }
 
-// Afficher la photo 10 promo APRÈS l'article (dans une section séparée)
+// Afficher la photo 10 (devient 10-11-12) promo APRÈS l'article (dans une section séparée)
 function displayPromoPhoto() {
   const photos = currentArticle.photos || [];
   const promoContainer = document.getElementById('promoPhotoContainer');
   
   if (!promoContainer) return;
   
-  // Photo 10 (si elle existe)
-  if (photos[9]) {
-    const photoPath = `../media/news/${currentArticle.folder}/${photos[9]}`;
+  // TRIO de photos 6, 7, 8 (indices 5, 6, 7)
+  if (photos[5] && photos[6] && photos[7]) {
+    const path6 = `../media/news/${currentArticle.folder}/${photos[5]}`;
+    const path7 = `../media/news/${currentArticle.folder}/${photos[6]}`;
+    const path8 = `../media/news/${currentArticle.folder}/${photos[7]}`;
+    
     promoContainer.innerHTML = `
       <div class="wrap">
-        <figure class="promo-photo-section">
-          <img src="${photoPath}" alt="Découvrez nos programmes KYOOL" onerror="this.src='../media/news/ads/kyool_ad_01.jpg'">
-          <figcaption>
-            <span class="promo-icon">🎬</span>
-            Découvrez tous nos programmes sur KYOOL
-          </figcaption>
-        </figure>
+        <div class="promo-trio-container">
+          <h2 class="promo-title">Découvrez nos programmes KYOOL</h2>
+          <div class="promo-trio">
+            <figure class="promo-trio-item">
+              <img src="${path6}" alt="Programme 1">
+            </figure>
+            <figure class="promo-trio-item">
+              <img src="${path7}" alt="Programme 2">
+            </figure>
+            <figure class="promo-trio-item">
+              <img src="${path8}" alt="Programme 3">
+            </figure>
+          </div>
+          <a href="../programmes.html" class="promo-btn">
+            <span>🎬 Voir tous nos programmes</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
       </div>
     `;
   }
