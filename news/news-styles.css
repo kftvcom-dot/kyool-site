@@ -196,14 +196,20 @@
 }
 
 .article-hero-title {
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(28px, 4vw, 48px);   ← Plus petit
   margin: 0;
-  color: #fff;
+  color: var(--kyool-blue);             ← BLEU !
   font-weight: 700;
-  line-height: 1.2;
-  text-shadow: 0 4px 20px rgba(0,0,0,.8);
-  max-width: 1200px;
-  margin: 0 auto;
+  line-height: 1.1;                     ← Plus compact
+  text-align: left;                     ← À gauche
+  text-shadow: 
+    0 4px 20px rgba(0,0,0,.8),
+    0 0 40px rgba(36,199,235,.5);       ← Effet glow bleu
+  max-width: none;                      ← Toute la largeur
+  padding: 0 40px;                      ← Espace sur les côtés
+  white-space: nowrap;                  ← Sur UNE seule ligne
+  overflow: hidden;                     ← Cache le débordement
+  text-overflow: ellipsis;              ← ... si trop long
 }
 
 /* CORPS ARTICLE */
