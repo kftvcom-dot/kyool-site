@@ -51,6 +51,10 @@ function displayArticle() {
   
   // Boutons de partage
   setupShareButtons();
+  
+   // Mettre à jour meta tags pour partage social
+  updateMetaTags();
+
 }
 
 // Afficher l'image hero
@@ -383,6 +387,44 @@ function setupReport() {
       reportThanks.style.display = 'none';
     }, 3000);
   });
+}
+// Mettre à jour les meta tags pour le partage social
+function updateMetaTags() {
+  const url = window.location.href;
+  const title = currentArticle.title;
+  const theme = currentArticle.theme;
+  const journalist = currentArticle.journalist;
+  
+  const heroImage = `${window.location.origin}/media/news/${currentArticle.folder}/hero.jpg`;
+  
+  let excerpt = '';
+  if (currentArticle.intro) {
+    excerpt = currentArticle.intro.replace(/<[^>]*>/g, '').substring(0, 200);
+  } else if (currentArticle.chapters && currentArticle.chapters[0]) {
+    excerpt = currentArticle.chapters[0].content.replace(/<[^>]*>/g, '').substring(0, 200);
+  }
+  
+  const description = `${excerpt}... Par ${journalist} | Thème : ${theme}`;
+  
+  const ogTitle = document.getElementById('ogTitle');
+  const ogDescription = document.getElementById('ogDescription');
+  const ogImage = document.getElementById('ogImage');
+  const ogUrl = document.getElementById('ogUrl');
+  
+  if (ogTitle) ogTitle.setAttribute('content', title);
+  if (ogDescription) ogDescription.setAttribute('content', description);
+  if (ogImage) ogImage.setAttribute('content', heroImage);
+  if (ogUrl) ogUrl.setAttribute('content', url);
+  
+  const twitterTitle = document.getElementById('twitterTitle');
+  const twitterDescription = document.getElementById('twitterDescription');
+  const twitterImage = document.getElementById('twitterImage');
+  
+  if (twitterTitle) twitterTitle.setAttribute('content', title);
+  if (twitterDescription) twitterDescription.setAttribute('content', description);
+  if (twitterImage) twitterImage.setAttribute('content', heroImage);
+  
+  document.title = `${title} — KYOOL News`;
 }
 
 // Initialisation
