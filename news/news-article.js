@@ -75,72 +75,61 @@ function displayHero() {
 function displayContentWithMagazineLayout() {
   const container = document.getElementById('articleBody');
   const photos = currentArticle.photos || [];
-  
-  // Séparer le contenu en sections
-  const tempDiv = document.createElement('div');
-  tempDiv.innerHTML = currentArticle.content;
-  const elements = Array.from(tempDiv.children);
+  const chapters = currentArticle.chapters || [];
   
   let finalHTML = '';
-  let chapterCount = 0;
   
-  elements.forEach((element, index) => {
-    // Ajouter l'élément
-    finalHTML += element.outerHTML;
+  // AFFICHER L'INTRO (si présente)
+  if (currentArticle.intro) {
+    finalHTML += `<div class="article-intro">${currentArticle.intro}</div>`;
+  }
+  
+  // AFFICHER CHAQUE CHAPITRE
+  chapters.forEach((chapter, index) => {
+    const chapterNum = index + 1;
     
-    // Après chaque <h2>, insérer les photos selon le layout
-    if (element.tagName === 'H2') {
-      chapterCount++;
-      
-      // LAYOUT SPÉCIFIQUE PAR CHAPITRE (photos 1-9)
-      switch(chapterCount) {
-        case 1:
-          // Après chapitre 1 : Photo 1 (format libre)
-          if (photos[0]) {
-            finalHTML += createSinglePhoto(photos[0], 1);
-          }
-          break;
-          
-        case 2:
-          // Après chapitre 2 : Photos 2 & 3 côte à côte (1500x2100)
-          if (photos[1] && photos[2]) {
-            finalHTML += createDuoPhotos(photos[1], photos[2]);
-          }
-          break;
-          
-        case 3:
-          // Après chapitre 3 : Photo 4 paysage large (1920x720)
-          if (photos[3]) {
-            finalHTML += createWideLandscapePhoto(photos[3], 4);
-          }
-          break;
-          
-        case 4:
-          // Après chapitre 4 : Photo 5 standard (1920x1080)
-          if (photos[4]) {
-            finalHTML += createStandardPhoto(photos[4], 5);
-          }
-          break;
-          
-        case 5:
-          // Après chapitre 5 : Photos 6, 7, 8 en trio (1500x2100)
-          if (photos[5] && photos[6] && photos[7]) {
-            finalHTML += createTrioPhotos(photos[5], photos[6], photos[7]);
-          }
-          break;
-          
-        case 6:
-          // Après chapitre 6 : Photo 9 standard (1920x1080)
-          if (photos[8]) {
-            finalHTML += createStandardPhoto(photos[8], 9);
-          }
-          // NE PLUS METTRE photo10 ici
-          break;
-      }
+    // Titre du chapitre
+    finalHTML += `<h2 class="chapter-title">${chapter.title}</h2>`;
+    
+    // Contenu du chapitre
+    finalHTML += chapter.content;
+    
+    // Insérer les photos selon le chapitre
+    switch(chapterNum) {
+      case 1:
+        if (photos[0]) {
+          finalHTML += createSinglePhoto(photos[0], 1);
+        }
+        break;
+      case 2:
+        if (photos[1] && photos[2]) {
+          finalHTML += createDuoPhotos(photos[1], photos[2]);
+        }
+        break;
+      case 3:
+        if (photos[3]) {
+          finalHTML += createWideLandscapePhoto(photos[3], 4);
+        }
+        break;
+      case 4:
+        if (photos[4]) {
+          finalHTML += createStandardPhoto(photos[4], 5);
+        }
+        break;
+      case 5:
+        if (photos[5] && photos[6] && photos[7]) {
+          finalHTML += createTrioPhotos(photos[5], photos[6], photos[7]);
+        }
+        break;
+      case 6:
+        if (photos[8]) {
+          finalHTML += createStandardPhoto(photos[8], 9);
+        }
+        break;
     }
   });
   
-  // AJOUTER LA SIGNATURE DU JOURNALISTE À LA FIN
+  // SIGNATURE JOURNALISTE
   finalHTML += `
     <div class="article-signature">
       <div class="signature-line"></div>
