@@ -46,9 +46,15 @@ function displayArticle() {
   // Corps de l'article avec layouts variés (photos 1-9)
   displayContentWithMagazineLayout();
   
+  // Photo 10 promo KYOOL APRÈS l'article
+  displayPromoPhoto();
   
   // Boutons de partage
   setupShareButtons();
+  
+  // Système de notation et signalement
+  setupRating();
+  setupReport();
 }
 
 // Afficher l'image hero
@@ -122,13 +128,6 @@ function displayContentWithMagazineLayout() {
       case 6:
         if (photos[8]) {
           finalHTML += createStandardPhoto(photos[8], 9);
-        }
-        
-        // Après la photo 9, ajouter le titre et les photos 10-11-12
-        if (photos[9] && photos[10] && photos[11]) {
-          finalHTML += '<h2 class="promo-section-title">Découvrez nos programmes KYOOL</h2>';
-          finalHTML += createTrioPhotos(photos[9], photos[10], photos[11]);
-          finalHTML += '<div style="text-align: center; margin: 30px 0;"><a href="../programmes.html" class="btn-primary">📺 Voir tous nos programmes →</a></div>';
         }
         break;
     }
@@ -379,6 +378,6 @@ function setupReport() {
 // Initialisation
 document.addEventListener('DOMContentLoaded', function() {
   loadArticle();
-  setupRating();
-  setupReport();
+  // setupRating();
+  // setupReport();
 });
