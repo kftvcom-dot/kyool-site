@@ -428,28 +428,6 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   transform: translateX(8px);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   RESPONSIVE - PROMO TRIO
-   À AJOUTER dans la section @media (max-width: 768px)
-   ═══════════════════════════════════════════════════════════ */
-
-@media (max-width: 768px) {
-  .promo-trio {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    max-width: 350px;
-  }
-  
-  .promo-title {
-    font-size: 24px;
-  }
-  
-  .promo-btn {
-    padding: 16px 32px;
-    font-size: 18px;
-  }
-}
-
 /* RESTE DES STYLES (inchangés) */
 
 .news-intro {
@@ -1147,6 +1125,27 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
   .article-body .quote::before {
     font-size: 50px;
     left: 10px;
+  }
+}
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - PROMO TRIO
+   À AJOUTER dans la section @media (max-width: 768px)
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .promo-trio {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 350px;
+  }
+  
+  .promo-title {
+    font-size: 24px;
+  }
+  
+  .promo-btn {
+    padding: 16px 32px;
+    font-size: 18px;
   }
 }
 
