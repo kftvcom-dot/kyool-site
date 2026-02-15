@@ -271,16 +271,47 @@ function formatDate(dateString) {
 function setupShareButtons() {
   const url = window.location.href;
   const title = currentArticle.title;
-  const text = `${title} par ${currentArticle.journalist} sur KYOOL News`;
+  const heroImage = `${window.location.origin}/media/news/${currentArticle.folder}/hero.jpg`;
+  const excerpt = currentArticle.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...';
   
+  // Texte enrichi pour partage
+  const text = `📰 ${title}
+
+✍️ Par ${currentArticle.journalist}
+🏷️ Thème : ${currentArticle.theme}
+
+${excerpt}
+
+#KYOOL #KoreanCulture #Hallyu`;
+
+  // LinkedIn
   document.getElementById('shareLinkedIn').href = 
     `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
   
+  // Facebook
   document.getElementById('shareFacebook').href = 
     `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
   
+  // Twitter/X
   document.getElementById('shareTwitter').href = 
     `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+  
+  // Instagram (copie le texte + ouvre Instagram)
+  document.getElementById('shareInstagram').addEventListener('click', function(e) {
+    e.preventDefault();
+    const instagramText = `${text}
+
+🔗 ${url}`;
+    
+    // Copier dans le presse-papiers
+    navigator.clipboard.writeText(instagramText).then(() => {
+      alert('✅ Texte copié ! Ouvrez Instagram et collez-le dans votre story ou post.');
+      // Ouvrir Instagram
+      window.open('https://www.instagram.com/', '_blank');
+    }).catch(() => {
+      alert('❌ Impossible de copier. Copiez manuellement le texte ci-dessous :\n\n' + instagramText);
+    });
+  });
 }
 
 // Gestion de la notation
