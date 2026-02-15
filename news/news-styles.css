@@ -514,34 +514,6 @@ a { color: inherit; }
   object-fit: cover;
 }
 
-/* TRIO — Desktop 3 columns */
-.photo-trio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin: 40px 0;
-}
-
-.photo-trio-item {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 3px solid rgba(36,199,235,.55);
-  background: rgba(0,0,0,.22);
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
-
-.photo-trio-item:hover {
-  border-color: rgba(255,255,255,.55);
-  box-shadow: 0 0 32px rgba(36,199,235,.35);
-  transform: translateY(-3px);
-}
-
-.photo-trio-item img {
-  width: 100%;
-  height: 420px;      /* IMPORTANT: height contrôlée */
-  object-fit: cover;  /* pas de “3 pages de haut” */
-}
-
 /* ============================================================
    SIGNATURE JOURNALISTE
    ============================================================ */
@@ -575,31 +547,6 @@ a { color: inherit; }
   font-weight: 900;
   display: block;
   margin-bottom: 4px;
-}
-
-/* ============================================================
-   PROMO — 3 PROGRAMMES (si tu l’utilises)
-   ============================================================ */
-
-.promo-trio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin: 34px auto 0;
-  width: min(980px, 100%);
-}
-
-.promo-item {
-  border-radius: 16px;
-  overflow: hidden;
-  border: 2px solid rgba(36,199,235,.35);
-  background: rgba(0,0,0,.22);
-}
-
-.promo-item img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
 }
 
 /* ============================================================
@@ -700,6 +647,114 @@ a { color: inherit; }
   font-size: 15px;
   resize: vertical;
 }
+/* ===============================
+   PROMO TRIO (PHOTOS 10-11-12) — PROPRE & RESPONSIVE
+   =============================== */
+
+.promo-photo-section-wrapper{
+  padding: 60px 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(36,199,235,.05) 100%);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.promo-trio-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 14px;
+  text-align: center;
+}
+
+.promo-title{
+  font-size: clamp(22px, 2.8vw, 34px);
+  margin: 0 0 26px;
+  color: var(--kyool-blue);
+  font-weight: 800;
+}
+
+/* 3 affiches côte à côte (desktop) */
+.promo-trio{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+  margin: 0 auto 26px;
+}
+
+.promo-trio-item{
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(36,199,235,.35);
+  background: rgba(0,0,0,.25);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.promo-trio-item:hover{
+  transform: translateY(-4px);
+  border-color: var(--kyool-blue);
+  box-shadow: 0 10px 30px rgba(36,199,235,.25);
+}
+
+.promo-trio-item img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1500 / 2100; /* format affiche */
+  object-fit: cover;
+  display: block;
+}
+
+/* Bouton */
+.promo-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  background: rgba(36,199,235,.15);
+  border: 1px solid rgba(36,199,235,.35);
+  color: #fff;
+  transition: all .25s ease;
+}
+
+.promo-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(36,199,235,.22);
+  box-shadow: 0 10px 30px rgba(36,199,235,.18);
+}
+
+.promo-btn .arrow{
+  font-size: 18px;
+  color: var(--kyool-blue);
+}
+
+/* TABLET: 3 colonnes mais plus compact */
+@media (max-width: 900px){
+  .promo-trio{
+    gap: 14px;
+  }
+}
+
+/* MOBILE: 3 affiches sur une ligne, scroll horizontal (propre, pas 3 pages) */
+@media (max-width: 600px){
+  .promo-trio{
+    grid-auto-flow: column;
+    grid-auto-columns: 70%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+  }
+
+  .promo-trio::-webkit-scrollbar{ display: none; }
+  .promo-trio{ scrollbar-width: none; }
+
+  .promo-trio-item{
+    scroll-snap-align: start;
+  }
+}
 
 /* ============================================================
    NAV BOTTOM
@@ -769,26 +824,6 @@ a { color: inherit; }
     gap: 14px;
   }
 
-  /* TRIO => CARROUSEL SWIPE */
-  .photo-trio {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    padding-bottom: 8px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .photo-trio-item {
-    flex: 0 0 auto;
-    width: 240px;
-    scroll-snap-align: start;
-  }
-
-  .photo-trio-item img {
-    height: 340px;
-  }
-
   .article-signature { text-align: center; }
   .signature-line { margin: 0 auto 18px; }
 
@@ -817,9 +852,6 @@ a { color: inherit; }
 
   .rating-buttons { flex-direction: column; }
 
-  /* promo-trio en colonne si utilisé */
-  .promo-trio {
-    grid-template-columns: 1fr;
   }
 
   .promo-item img {
