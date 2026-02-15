@@ -1250,3 +1250,34 @@ border-color: #fff;                    /* ← AJOUTER CETTE LIGNE */
     grid-template-columns: 1fr;
   }
 }
+/* FORCE les photos 10-11-12 à être plus grandes */
+.promo-trio-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 60px 40px !important;
+}
+
+.promo-trio {
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+}
+
+.promo-trio-item {
+  width: 100% !important;
+}
+
+.promo-trio-item img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (max-width: 768px) {
+  .promo-trio {
+    grid-template-columns: 1fr !important;
+    max-width: 400px !important;
+  }
+}
