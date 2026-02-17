@@ -59,7 +59,7 @@ photos:
 
 <p>Elle ne cherche pas à « coréaniser » le monde, elle séduit sans coloniser, inspire sans écraser.</p>
 
-<p>Contrairement au soft power américain – souvent adossé à une puissance économique ou militaire – la Corée a tenté une autre voie : celle du <em>sweet power</em>.</p>
+<p>Contrairement au soft power américain, souvent adossé à une puissance économique ou militaire – la Corée a tenté une autre voie : celle du <em>sweet power</em>.</p>
 
 <p>Ce pouvoir doux repose sur l'attachement émotionnel plutôt que sur la conquête.</p>
 
