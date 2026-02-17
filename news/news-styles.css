@@ -1165,3 +1165,19 @@ a { color: inherit; }
     max-width: 90% !important;
   }
 }
+/* ═══════════════════════════════════════════════════════════
+   CORRECTIF - Titre hero BEAUCOUP PLUS HAUT
+   À AJOUTER à la fin de news-styles.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* Titre article - MONTER DU TRIPLE */
+.article-hero-title {
+  bottom: 180px !important;  /* Monté du triple (60px → 180px) */
+}
+
+/* Sur mobile - aussi plus haut */
+@media (max-width: 768px) {
+  .article-hero-title {
+    bottom: 120px !important;  /* Monté sur mobile aussi */
+  }
+}
