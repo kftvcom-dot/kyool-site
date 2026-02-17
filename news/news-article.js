@@ -2,6 +2,47 @@
 
 let currentArticle = null;
 
+function parseFrontmatter(mdText) {
+  const m = mdText.match(/^---\s*([\s\S]*?)\s*---\s*/);
+  if (!m) return { meta: {}, body: mdText };
+
+  const fm = m[1];
+  const body = mdText.slice(m[0].length);
+
+  const meta = {};
+  const lines = fm.split(/\r?\n/);
+  let currentListKey = null;
+
+  for (const line of lines) {
+    const l = line.trim();
+    if (!l) continue;
+
+    if (currentListKey && l.startsWith('- ')) {
+      meta[currentListKey].push(l.slice(2).trim().replace(/^"|"$/g, ''));
+      continue;
+    }
+
+    const kv = line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
+    if (!kv) continue;
+
+    const key = kv[1];
+    let val = kv[2].trim();
+
+    if (val === '') {
+      meta[key] = [];
+      currentListKey = key;
+      continue;
+    }
+
+    currentListKey = null;
+    val = val.replace(/^"|"$/g, '');
+    meta[key] = val;
+  }
+
+  return { meta, body };
+}
+
+
 // Charger l'article depuis son fichier individuel
 async function loadArticle() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -13,7 +54,7 @@ async function loadArticle() {
   }
   
   try {
-    const response = await fetch(`../media/news/${articleId}/article-data.json`);
+    const response = await fetch(`../media/news/${articleId}/article.md`);
     
     if (!response.ok) {
       console.error('Article non trouvé:', articleId);
@@ -21,7 +62,9 @@ async function loadArticle() {
       return;
     }
     
-    currentArticle = await response.json();
+    const md = await response.text();
+    const parsed = parseFrontmatter(md);
+    currentArticle = { ...parsed.meta, body: parsed.body };
     displayArticle();
   } catch (error) {
     console.error('Erreur de chargement de l\'article:', error);
@@ -43,12 +86,13 @@ function displayArticle() {
   document.getElementById('publishDate').textContent = formatDate(currentArticle.date);
   document.getElementById('themeTag').textContent = currentArticle.theme;
   
-  // Corps de l'article avec layouts variés (photos 1-9)
-  displayContentWithMagazineLayout();
-  
-  // Trio promo 10-11-12 APRÈS l'article
-  displayPromoPhoto();
-  
+  // Corps : HTML direct depuis article.md
+  document.getElementById('articleBody').innerHTML = currentArticle.body || '';
+
+  // L'ancien container promo (si présent) devient inutile
+  const promo = document.getElementById('promoPhotoContainer');
+  if (promo) promo.style.display = 'none';
+
   // Boutons de partage
   setupShareButtons();
 }
