@@ -1172,7 +1172,7 @@ a { color: inherit; }
 
 /* Titre article - MONTER DU TRIPLE */
 .article-hero-title {
-  bottom: 180px !important;  /* Monté du triple (60px → 180px) */
+  bottom: 260px !important;  /* Monté du triple (60px → 180px) */
 }
 
 /* Sur mobile - aussi plus haut */
