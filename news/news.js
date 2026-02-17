@@ -10,6 +10,46 @@ const ARTICLE_IDS = [
   // 'article-3',
 ];
 
+function parseFrontmatter(mdText) {
+  const m = mdText.match(/^---\s*([\s\S]*?)\s*---\s*/);
+  if (!m) return { meta: {}, body: mdText };
+
+  const fm = m[1];
+  const body = mdText.slice(m[0].length);
+
+  const meta = {};
+  const lines = fm.split(/\r?\n/);
+  let currentListKey = null;
+
+  for (const line of lines) {
+    const l = line.trim();
+    if (!l) continue;
+
+    if (currentListKey && l.startsWith('- ')) {
+      meta[currentListKey].push(l.slice(2).trim().replace(/^"|"$/g, ''));
+      continue;
+    }
+
+    const kv = line.match(/^([A-Za-z0-9_-]+)\s*:\s*(.*)$/);
+    if (!kv) continue;
+
+    const key = kv[1];
+    let val = kv[2].trim();
+
+    if (val === '') {
+      meta[key] = [];
+      currentListKey = key;
+      continue;
+    }
+
+    currentListKey = null;
+    val = val.replace(/^"|"$/g, '');
+    meta[key] = val;
+  }
+
+  return { meta, body };
+}
+
 // Charger tous les articles depuis leurs fichiers individuels
 async function loadArticles() {
   try {
@@ -18,9 +58,11 @@ async function loadArticles() {
     // Charger chaque article individuellement
     for (const articleId of ARTICLE_IDS) {
       try {
-        const response = await fetch(`../media/news/${articleId}/article-data.json`);
+        const response = await fetch(`../media/news/${articleId}/article.md`);
         if (response.ok) {
-          const article = await response.json();
+          const md = await response.text();
+          const parsed = parseFrontmatter(md);
+          const article = { ...parsed.meta, excerpt: parsed.body.replace(/<[^>]*>/g,'').trim().slice(0,160) };
           articles.push(article);
         } else {
           console.warn(`Article ${articleId} non trouvé`);
