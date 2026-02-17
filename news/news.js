@@ -4,7 +4,8 @@ let articles = [];
 
 // Liste des IDs d'articles (à maintenir à jour quand vous ajoutez un article)
 const ARTICLE_IDS = [
-  'article-1'
+  'article-1',
+  'article-2'
   // Ajoutez les nouveaux IDs ici quand vous créez d'autres articles
   // 'article-2',
   // 'article-3',
