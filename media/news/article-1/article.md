@@ -30,7 +30,7 @@ photos:
 
 <p>Ce qui rend la Hallyu si fascinante, c'est justement cette imprévisibilité.</p>
 
-<p><strong>« Le succès global ne se fabrique pas, il se raconte. »</strong><br>— Rédaction Kyool News, 2025</p>
+<p><strong>« Le succès global ne se fabrique pas, il se raconte. »</strong>
 <figure class="article-photo single">
   <img src="../media/news/article-1/photo1.jpg" alt="Photo 1" onerror="this.src='../media/news/ads/kyool_ad_02.jpg'">
 </figure>
