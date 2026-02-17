@@ -1181,3 +1181,19 @@ a { color: inherit; }
     bottom: 120px !important;  /* Monté sur mobile aussi */
   }
 }
+/* FIX: éviter que le hero remonte sous la breadcrumb */
+.article-hero{
+  margin-top: 0 !important;
+}
+
+/* un petit “respir” entre breadcrumb et image */
+.article-nav-top{
+  position: relative;
+  z-index: 5;
+  background: rgba(0,0,0,.35); /* optionnel: pour bien lire le texte */
+}
+
+/* ajoute un espace si tu veux que ça descende un peu plus */
+.article-hero{
+  padding-top: 14px; /* ajuste: 8 / 14 / 20 selon ton goût */
+}
