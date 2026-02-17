@@ -1204,7 +1204,7 @@ a { color: inherit; }
 
 /* Réduire l'espace entre les paragraphes */
 .article-body p {
-  margin: 0 0 15px !important;  /* Réduit de 20px à 15px */
+  margin: 0 0 10px !important;  /* Réduit de 20px à 15px */
 }
 
 /* Si c'est encore trop grand, utiliser 10px */
