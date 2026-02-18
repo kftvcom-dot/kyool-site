@@ -140,26 +140,38 @@
         }
         
 /* ═══════════════════════════════════════════════════════════
-   HERO SECTION - VERSION PLEINE LARGEUR AMÉLIORÉE
-   À REMPLACER dans nouvelle-ere.html
+   HERO SECTION - IMAGE 100% + CONTENU EN DESSOUS
+   Version EXPLOSIVE - À REMPLACER dans nouvelle-ere.html
    ═══════════════════════════════════════════════════════════ */
 
-/* Hero pleine largeur avec image de fond */
+/* Container principal du Hero */
 .hero-new-era {
-    position: relative;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--bg-darker) 0%, #1a0a2e 100%);
     width: 100%;
     margin: 0;
     padding: 0;
+    background: var(--bg-darker);
 }
 
-/* Image de fond */
-.hero-new-era::before {
+/* PARTIE 1 : IMAGE PLEINE (100% visible) */
+.hero-image-full {
+    width: 100%;
+    height: 60vh;
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a0a2e 0%, #0A1628 100%);
+}
+
+.hero-image-full img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Si pas d'image, afficher un gradient */
+.hero-image-full::before {
     content: '';
     position: absolute;
     top: 0;
@@ -167,33 +179,21 @@
     right: 0;
     bottom: 0;
     background: url('media/nouvelle-ere/hero-bg.jpg') center/cover no-repeat;
-    opacity: 0.4;
     z-index: 0;
 }
 
-/* Overlay sombre pour lisibilité */
-.hero-new-era::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 10, 46, 0.85) 100%);
-    z-index: 1;
-}
-
-/* Container du contenu - LAYOUT HORIZONTAL */
+/* PARTIE 2 : CONTENU EN DESSOUS */
 .hero-overlay {
     position: relative;
     z-index: 2;
     max-width: 1400px;
     width: 100%;
-    padding: 60px 40px;
+    padding: 80px 40px;
     margin: 0 auto;
+    background: var(--bg-darker);
 }
 
-/* Titre - Plus compact */
+/* Titre */
 .hero-title {
     font-size: clamp(36px, 5vw, 56px);
     margin-bottom: 20px;
@@ -205,20 +205,20 @@
     animation: fadeInUp 0.8s ease;
 }
 
-/* Sous-titre - Plus discret */
+/* Sous-titre */
 .hero-subtitle {
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: var(--text-gray);
     text-align: center;
     animation: fadeInUp 1.2s ease;
 }
 
-/* ⭐ CITATION - MISE EN AVANT - LAYOUT WIDE */
+/* ⭐ CITATION MISE EN AVANT - EFFET VISUEL */
 .hero-manifesto {
     font-size: clamp(20px, 2.5vw, 32px);
     line-height: 1.6;
-    margin: 0 auto 40px;
+    margin: 0 auto 50px;
     padding: 40px 60px;
     color: var(--text-white);
     font-style: italic;
@@ -236,7 +236,7 @@
     animation: fadeInUp 1.6s ease;
 }
 
-/* Boutons CTA - Centrés */
+/* Boutons CTA */
 .hero-cta {
     display: flex;
     gap: 20px;
@@ -261,12 +261,13 @@
    RESPONSIVE - MOBILE
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-    .hero-new-era {
-        min-height: 60vh;
+    .hero-image-full {
+        height: 50vh;
+        min-height: 300px;
     }
     
     .hero-overlay {
-        padding: 40px 20px;
+        padding: 60px 20px;
     }
     
     .hero-title {
@@ -924,27 +925,33 @@
     <!-- ═══════════════════════════════════════════════════════════
          HERO SECTION
          ═══════════════════════════════════════════════════════════ -->
-    <section class="hero-new-era">
-        <div class="hero-overlay">
-            <h1 class="hero-title">2026–2027 : La Nouvelle Ère KYOOL</h1>
-            
-            <p class="hero-subtitle">
-                De la simple plateforme de streaming à l'écosystème culturel le plus immersif d'Europe.
-            </p>
-            
-            <p class="hero-manifesto">
-                « Nous ne créons pas juste une application.
-                Nous construisons un pont entre deux continents,
-                une communauté de 1 000 000 passionnés,
-                et un nouveau modèle où créer vaut autant que consommer. »
-            </p>
-            
-            <div class="hero-cta">
-                <a href="#vision" class="btn btn-primary">Découvrir la vision</a>
-                <a href="#kyoolquest" class="btn btn-secondary">Explorer KYOOL Quest</a>
-            </div>
+<section class="hero-new-era">
+    <!-- PARTIE 1 : IMAGE PLEINE -->
+    <div class="hero-image-full">
+        <!-- L'image s'affichera ici automatiquement -->
+    </div>
+    
+    <!-- PARTIE 2 : CONTENU EN DESSOUS -->
+    <div class="hero-overlay">
+        <h1 class="hero-title">2026–2027 : La Nouvelle Ère KYOOL</h1>
+        
+        <p class="hero-subtitle">
+            De la simple plateforme de streaming à l'écosystème culturel le plus immersif d'Europe.
+        </p>
+        
+        <p class="hero-manifesto">
+            « Nous ne créons pas juste une application. 
+            Nous construisons un pont entre deux continents, 
+            une communauté de 1 000 000 de passionnés, 
+            et un nouveau modèle où créer vaut autant que consommer. »
+        </p>
+        
+        <div class="hero-cta">
+            <a href="#vision" class="btn btn-primary">Découvrir la vision</a>
+            <a href="#kyoolquest" class="btn btn-secondary">Explorer KYOOL Quest</a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- ═══════════════════════════════════════════════════════════
          VISION SECTION
