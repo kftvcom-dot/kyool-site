@@ -399,80 +399,134 @@
             display: none;
         }
         
-        /* ═══════════════════════════════════════════════════════════
-           GROWTH SECTION - STATS 3 COLONNES HORIZONTALES
-           ═══════════════════════════════════════════════════════════ */
-        .growth-section {
-            background: var(--bg-dark);
-        }
-        
-        .growth-year {
-            margin-bottom: 80px;
-            padding: 40px;
-            background: var(--bg-card);
-            border-radius: 16px;
-            border-left: 4px solid var(--kyool-blue);
-        }
-        
-        .year-header {
-            margin-bottom: 30px;
-        }
-        
-        .year-number {
-            font-size: 48px;
-            font-weight: 900;
-            color: var(--kyool-blue);
-            display: block;
-            margin-bottom: 10px;
-        }
-        
-        /* 3 COLONNES HORIZONTALES */
-        .year-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .stat {
-            text-align: center;
-            padding: 30px;
-            background: rgba(36, 199, 235, 0.1);
-            border-radius: 12px;
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--kyool-blue);
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .year-actions ul {
-            list-style: none;
-        }
-        
-        .year-actions li {
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-        
-        .year-actions li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--kyool-blue);
-            font-weight: 700;
-        }
+       /* ═══════════════════════════════════════════════════════════
+   GROWTH SECTION - TIMELINE HORIZONTALE
+   ═══════════════════════════════════════════════════════════ */
+.growth-section {
+    background: var(--bg-dark);
+}
+
+/* GRILLE HORIZONTALE 3 COLONNES */
+.growth-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.growth-year {
+    padding: 30px;
+    background: var(--bg-card);
+    border-radius: 16px;
+    border-top: 4px solid var(--kyool-blue);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.growth-year:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(36, 199, 235, 0.2);
+}
+
+/* Effet de progression - chaque année grandit */
+.growth-year:nth-child(1) {
+    border-top-color: var(--kyool-blue);
+}
+
+.growth-year:nth-child(2) {
+    border-top-color: var(--accent-purple);
+    transform: scale(1.02);
+}
+
+.growth-year:nth-child(3) {
+    border-top-color: var(--accent-pink);
+    transform: scale(1.05);
+}
+
+.year-header {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.year-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--kyool-blue);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.year-header h3 {
+    font-size: 20px;
+    color: var(--text-white);
+}
+
+/* STATS EN COLONNE (vertical dans chaque bloc) */
+.year-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.stat {
+    text-align: center;
+    padding: 20px 15px;
+    background: rgba(36, 199, 235, 0.1);
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--kyool-blue);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.year-actions {
+    margin-top: 20px;
+}
+
+.year-actions ul {
+    list-style: none;
+}
+
+.year-actions li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.year-actions li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--kyool-blue);
+    font-weight: 700;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 1024px) {
+    .growth-timeline {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .growth-year:nth-child(2),
+    .growth-year:nth-child(3) {
+        transform: scale(1);
+    }
+}
         
         /* ═══════════════════════════════════════════════════════════
            MANIFESTO SECTION
