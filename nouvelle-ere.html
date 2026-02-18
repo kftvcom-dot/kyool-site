@@ -139,83 +139,158 @@
             transform: translateY(-2px);
         }
         
-        /* ═══════════════════════════════════════════════════════════
-           HERO SECTION
-           ═══════════════════════════════════════════════════════════ */
-        .hero-new-era {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--bg-darker) 0%, #1a0a2e 100%);
-        }
-        
-        .hero-new-era::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('../media/nouvelle-ere/hero-bg.jpg') center/cover;
-            opacity: 0.3;
-            z-index: 0;
-        }
-        
-        .hero-overlay {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            padding: 40px 20px;
-        }
-        
-        .hero-title {
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 40px rgba(36, 199, 235, 0.3);
-            animation: fadeInUp 0.8s ease;
-        }
-        
-        .hero-subtitle {
-            font-size: 24px;
-            margin-bottom: 32px;
-            color: var(--text-gray);
-            animation: fadeInUp 1.2s ease;
-        }
-        
-        .hero-manifesto {
-            font-size: 20px;
-            line-height: 1.8;
-            margin-bottom: 48px;
-            color: var(--text-white);
-            font-style: italic;
-            animation: fadeInUp 1.6s ease;
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 2s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION - VERSION PLEINE LARGEUR AMÉLIORÉE
+   À REMPLACER dans nouvelle-ere.html
+   ═══════════════════════════════════════════════════════════ */
+
+/* Hero pleine largeur avec image de fond */
+.hero-new-era {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--bg-darker) 0%, #1a0a2e 100%);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Image de fond */
+.hero-new-era::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('media/nouvelle-ere/hero-bg.jpg') center/cover no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* Overlay sombre pour lisibilité */
+.hero-new-era::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 10, 46, 0.85) 100%);
+    z-index: 1;
+}
+
+/* Container du contenu - LAYOUT HORIZONTAL */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    width: 100%;
+    padding: 60px 40px;
+    margin: 0 auto;
+}
+
+/* Titre - Plus compact */
+.hero-title {
+    font-size: clamp(36px, 5vw, 56px);
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    animation: fadeInUp 0.8s ease;
+}
+
+/* Sous-titre - Plus discret */
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: var(--text-gray);
+    text-align: center;
+    animation: fadeInUp 1.2s ease;
+}
+
+/* ⭐ CITATION - MISE EN AVANT - LAYOUT WIDE */
+.hero-manifesto {
+    font-size: clamp(20px, 2.5vw, 32px);
+    line-height: 1.6;
+    margin: 0 auto 40px;
+    padding: 40px 60px;
+    color: var(--text-white);
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+    max-width: 1200px;
+    
+    /* Effet visuel */
+    background: rgba(36, 199, 235, 0.05);
+    border-left: 4px solid var(--kyool-blue);
+    border-right: 4px solid var(--accent-purple);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(36, 199, 235, 0.15);
+    
+    animation: fadeInUp 1.6s ease;
+}
+
+/* Boutons CTA - Centrés */
+.hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 2s ease;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - MOBILE
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .hero-new-era {
+        min-height: 60vh;
+    }
+    
+    .hero-overlay {
+        padding: 40px 20px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .hero-manifesto {
+        font-size: 18px;
+        padding: 30px 20px;
+        line-height: 1.5;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+    }
+}
         
         /* ═══════════════════════════════════════════════════════════
            SECTION HEADERS
@@ -858,9 +933,9 @@
             </p>
             
             <p class="hero-manifesto">
-                « Nous ne créons pas juste une application. <br>
-                Nous construisons un pont entre deux continents, <br>
-                une communauté de 500 000 passionnés, <br>
+                « Nous ne créons pas juste une application.
+                Nous construisons un pont entre deux continents,
+                une communauté de 1 000 000 passionnés,
                 et un nouveau modèle où créer vaut autant que consommer. »
             </p>
             
