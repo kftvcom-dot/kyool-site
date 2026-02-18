@@ -1,6 +1,6 @@
 ---
 id: "article-2"
-title: "Entreprendre en France et en Corée : le quotidien d’un CEO passionné"
+title: "Entreprendre en France et en Corée :<br>le quotidien d’un CEO passionné"
 theme: "Culture"
 journalist: "Christophe Diez Rédaction Kyool News"
 date: "2026-02-12"
