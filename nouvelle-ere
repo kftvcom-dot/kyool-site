@@ -141,8 +141,10 @@
         
 /* ═══════════════════════════════════════════════════════════
    HERO SECTION - IMAGE 100% + CONTENU EN DESSOUS
+   Version EXPLOSIVE - À REMPLACER dans nouvelle-ere.html
    ═══════════════════════════════════════════════════════════ */
 
+/* Container principal du Hero */
 .hero-new-era {
     width: 100%;
     margin: 0;
@@ -150,6 +152,7 @@
     background: var(--bg-darker);
 }
 
+/* PARTIE 1 : IMAGE PLEINE (100% visible) */
 .hero-image-full {
     width: 100%;
     height: 60vh;
@@ -167,6 +170,7 @@
     display: block;
 }
 
+/* Si pas d'image, afficher un gradient */
 .hero-image-full::before {
     content: '';
     position: absolute;
@@ -178,6 +182,7 @@
     z-index: 0;
 }
 
+/* PARTIE 2 : CONTENU EN DESSOUS */
 .hero-overlay {
     position: relative;
     z-index: 2;
@@ -188,6 +193,7 @@
     background: var(--bg-darker);
 }
 
+/* Titre */
 .hero-title {
     font-size: clamp(36px, 5vw, 56px);
     margin-bottom: 20px;
@@ -199,6 +205,7 @@
     animation: fadeInUp 0.8s ease;
 }
 
+/* Sous-titre */
 .hero-subtitle {
     font-size: 20px;
     margin-bottom: 40px;
@@ -207,6 +214,7 @@
     animation: fadeInUp 1.2s ease;
 }
 
+/* ⭐ CITATION MISE EN AVANT - EFFET VISUEL */
 .hero-manifesto {
     font-size: clamp(20px, 2.5vw, 32px);
     line-height: 1.6;
@@ -216,15 +224,19 @@
     font-style: italic;
     font-weight: 600;
     text-align: center;
-    max-width: 1200px;
+    max-width: 1000px;
+    
+    /* Effet visuel */
     background: rgba(36, 199, 235, 0.05);
     border-left: 4px solid var(--kyool-blue);
     border-right: 4px solid var(--accent-purple);
     border-radius: 8px;
     box-shadow: 0 10px 40px rgba(36, 199, 235, 0.15);
+    
     animation: fadeInUp 1.6s ease;
 }
 
+/* Boutons CTA */
 .hero-cta {
     display: flex;
     gap: 20px;
@@ -233,6 +245,7 @@
     animation: fadeInUp 2s ease;
 }
 
+/* Animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -244,27 +257,37 @@
     }
 }
 
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - MOBILE
+   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
     .hero-image-full {
         height: 50vh;
         min-height: 300px;
     }
+    
     .hero-overlay {
         padding: 60px 20px;
     }
+    
     .hero-title {
         font-size: 32px;
     }
+    
     .hero-subtitle {
         font-size: 16px;
     }
+    
     .hero-manifesto {
         font-size: 18px;
         padding: 30px 20px;
+        line-height: 1.5;
     }
+    
     .hero-cta {
         flex-direction: column;
     }
+    
     .hero-cta .btn {
         width: 100%;
     }
@@ -400,74 +423,20 @@
             gap: 30px;
             margin: 40px 0;
         }
-        /* GRILLE 2×2 */
-.quest-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 colonnes au lieu de 4 */
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.quest-card {
-    background: var(--bg-card);
-    padding: 0;  /* Changé : 0 au lieu de 40px */
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;  /* NOUVEAU */
-    transition: all 0.3s ease;
-}
-
-.quest-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--kyool-blue);
-    box-shadow: 0 10px 40px rgba(36, 199, 235, 0.2);
-}
-
-/* IMAGE EN HAUT DE LA CARTE - NOUVEAU */
-.quest-card-image {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-}
-
-.quest-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.3s ease;
-}
-
-.quest-card:hover .quest-card-image img {
-    transform: scale(1.05);
-}
-
-/* CONTENU TEXTE - NOUVEAU */
-.quest-card-content {
-    padding: 30px;
-}
-
-.quest-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
-    display: none;  /* Caché car on a des vraies images */
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .quest-grid {
-        grid-template-columns: 1fr;  /* 1 colonne sur mobile */
-        gap: 20px;
-    }
-    
-    .quest-card-image {
-        height: 200px;
-    }
-    
-    .quest-card-content {
-        padding: 20px;
-    }
-}
+        
+        .quest-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .quest-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--kyool-blue);
+            box-shadow: 0 10px 40px rgba(36, 199, 235, 0.2);
+        }
         
         .quest-icon {
             font-size: 48px;
@@ -1084,7 +1053,7 @@
         <div class="container">
             <div class="section-header centered">
                 <span class="eyebrow">Innovation Majeure 2026</span>
-                <h2>KYOOL Quest :<br>Quand la Culture devient une Aventure</h2>
+                <h2>KYOOL Quest : Quand la Culture devient une Aventure</h2>
                 <p class="section-intro">
                     Imaginez une application qui transforme chaque ruelle de Séoul en quête, 
                     chaque temple en énigme, chaque artiste en personnage d'une histoire que <em>vous</em> écrivez.
@@ -1106,63 +1075,45 @@
             <div class="quest-revolutionary">
                 <h3>Pourquoi KYOOL Quest change tout</h3>
                 
-             <div class="quest-grid">
-    <!-- Carte 1 -->
-    <div class="quest-card">
-        <div class="quest-card-image">
-            <img src="media/nouvelle-ere/Explore_Seoul_ARTS.png" alt="Culture coréenne">
+                <div class="quest-grid">
+                    <div class="quest-card">
+                        <div class="quest-icon">🎨</div>
+                        <h4>Une nouvelle façon d'explorer la culture</h4>
+                        <p>
+                            Parcours géolocalisés, contenus exclusifs, expériences immersives : 
+                            l'art devient accessible, vivant, interactif.
+                        </p>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-icon">🌍</div>
+                        <h4>Pour ceux qui sont en Corée... et ceux qui rêvent d'y aller</h4>
+                        <p>
+                            Sur place : Transformez votre voyage en aventure gamifiée. <br>
+                            À distance : Explorez Séoul en VR, participez à des lives.
+                        </p>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-icon">🤝</div>
+                        <h4>Un impact concret pour les artistes coréens</h4>
+                        <p>
+                            KYOOL Quest met en lumière des talents invisibles : 
+                            jeunes créateurs, artistes en situation de handicap, artisans oubliés.
+                        </p>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-icon">🏆</div>
+                        <h4>Stimuler le tourisme par l'Art</h4>
+                        <p>
+                            Partenariats avec l'Office du Tourisme Coréen. 
+                            Valorisation des lieux méconnus, quartiers oubliés.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="quest-card-content">
-            <h4>Une nouvelle façon d'explorer la culture</h4>
-            <p>
-                Parcours géolocalisés, contenus exclusifs, expériences immersives : 
-                l'art devient accessible, vivant, interactif.
-            </p>
-        </div>
-    </div>
-    
-    <!-- Carte 2 -->
-    <div class="quest-card">
-        <div class="quest-card-image">
-            <img src="media/nouvelle-ere/Explore_Seoul_Drama.png" alt="Séoul">
-        </div>
-        <div class="quest-card-content">
-            <h4>Pour ceux qui sont en Corée... et ceux qui rêvent d'y aller</h4>
-            <p>
-                Sur place : Transformez votre voyage en aventure gamifiée. 
-                À distance : Explorez Séoul en VR, participez à des lives.
-            </p>
-        </div>
-    </div>
-    
-    <!-- Carte 3 -->
-    <div class="quest-card">
-        <div class="quest-card-image">
-            <img src="media/nouvelle-ere/Rooftops_trans.png" alt="Artistes">
-        </div>
-        <div class="quest-card-content">
-            <h4>Un impact concret pour les artistes coréens</h4>
-            <p>
-                KYOOL Quest met en lumière des talents invisibles : 
-                jeunes créateurs, artistes en situation de handicap, artisans oubliés.
-            </p>
-        </div>
-    </div>
-    
-    <!-- Carte 4 -->
-    <div class="quest-card">
-        <div class="quest-card-image">
-            <img src="media/nouvelle-ere/Explore_Busan.png" alt="Busan">
-        </div>
-        <div class="quest-card-content">
-            <h4>Stimuler le tourisme par l'Art</h4>
-            <p>
-                Partenariats avec l'Office du Tourisme Coréen. 
-                Valorisation des lieux méconnus, quartiers oubliés.
-            </p>
-        </div>
-    </div>
-</div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -1172,10 +1123,10 @@
         <div class="container">
             <div class="section-header centered">
                 <span class="eyebrow">Expansion</span>
-                <h2>De 10 000 à 1 000 000 utilisateurs en 3 ans</h2>
+                <h2>De 10 000 à 500 000 utilisateurs en 3 ans</h2>
                 <p class="section-intro">
                     Une croissance ambitieuse, mais réaliste. <br>
-                    Basée sur une stratégie d'expansion géographique méthodique et<br>une communauté ultra-engagée.
+                    Basée sur une stratégie d'expansion géographique méthodique et une communauté ultra-engagée.
                 </p>
             </div>
             
