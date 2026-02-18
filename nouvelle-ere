@@ -1106,45 +1106,63 @@
             <div class="quest-revolutionary">
                 <h3>Pourquoi KYOOL Quest change tout</h3>
                 
-                <div class="quest-grid">
-                    <div class="quest-card">
-                        <div class="quest-icon">🎨</div>
-                        <h4>Une nouvelle façon d'explorer la culture</h4>
-                        <p>
-                            Parcours géolocalisés, contenus exclusifs, expériences immersives : 
-                            l'art devient accessible, vivant, interactif.
-                        </p>
-                    </div>
-                    
-                    <div class="quest-card">
-                        <div class="quest-icon">🌍</div>
-                        <h4>Pour ceux qui sont en Corée... et ceux qui rêvent d'y aller</h4>
-                        <p>
-                            Sur place : Transformez votre voyage en aventure gamifiée. <br>
-                            À distance : Explorez Séoul en VR, participez à des lives.
-                        </p>
-                    </div>
-                    
-                    <div class="quest-card">
-                        <div class="quest-icon">🤝</div>
-                        <h4>Un impact concret pour les artistes coréens</h4>
-                        <p>
-                            KYOOL Quest met en lumière des talents invisibles : 
-                            jeunes créateurs, artistes en situation de handicap, artisans oubliés.
-                        </p>
-                    </div>
-                    
-                    <div class="quest-card">
-                        <div class="quest-icon">🏆</div>
-                        <h4>Stimuler le tourisme par l'Art</h4>
-                        <p>
-                            Partenariats avec l'Office du Tourisme Coréen. 
-                            Valorisation des lieux méconnus, quartiers oubliés.
-                        </p>
-                    </div>
-                </div>
-            </div>
+             <div class="quest-grid">
+    <!-- Carte 1 -->
+    <div class="quest-card">
+        <div class="quest-card-image">
+            <img src="media/nouvelle-ere/Explore_Seoul_ARTS.png" alt="Culture coréenne">
         </div>
+        <div class="quest-card-content">
+            <h4>Une nouvelle façon d'explorer la culture</h4>
+            <p>
+                Parcours géolocalisés, contenus exclusifs, expériences immersives : 
+                l'art devient accessible, vivant, interactif.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Carte 2 -->
+    <div class="quest-card">
+        <div class="quest-card-image">
+            <img src="media/nouvelle-ere/Explore_Seoul_Drama.png" alt="Séoul">
+        </div>
+        <div class="quest-card-content">
+            <h4>Pour ceux qui sont en Corée... et ceux qui rêvent d'y aller</h4>
+            <p>
+                Sur place : Transformez votre voyage en aventure gamifiée. 
+                À distance : Explorez Séoul en VR, participez à des lives.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Carte 3 -->
+    <div class="quest-card">
+        <div class="quest-card-image">
+            <img src="media/nouvelle-ere/Rooftops_trans.png" alt="Artistes">
+        </div>
+        <div class="quest-card-content">
+            <h4>Un impact concret pour les artistes coréens</h4>
+            <p>
+                KYOOL Quest met en lumière des talents invisibles : 
+                jeunes créateurs, artistes en situation de handicap, artisans oubliés.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Carte 4 -->
+    <div class="quest-card">
+        <div class="quest-card-image">
+            <img src="media/nouvelle-ere/Explore_Busan.png" alt="Busan">
+        </div>
+        <div class="quest-card-content">
+            <h4>Stimuler le tourisme par l'Art</h4>
+            <p>
+                Partenariats avec l'Office du Tourisme Coréen. 
+                Valorisation des lieux méconnus, quartiers oubliés.
+            </p>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════
