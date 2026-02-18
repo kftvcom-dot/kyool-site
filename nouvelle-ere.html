@@ -292,7 +292,38 @@
         width: 100%;
     }
 }
-        
+/* ═══════════════════════════════════════════════════════════
+   IMAGE BANNER PLEINE LARGEUR (dans Vision section)
+   ═══════════════════════════════════════════════════════════ */
+.vision-banner {
+    width: 100%;
+    max-width: 1400px;  /* Aligné avec le contenu */
+    height: 300px;
+    overflow: hidden;
+    margin: 60px auto;  /* Espace au-dessus et en-dessous */
+    padding: 0;
+    border-radius: 12px;  /* Coins arrondis */
+}
+
+.vision-banner img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .vision-banner {
+        height: 200px;
+        margin: 40px 20px;
+    }
+    .vision-banner img {
+        height: 200px;
+    }
+}
         /* ═══════════════════════════════════════════════════════════
            SECTION HEADERS
            ═══════════════════════════════════════════════════════════ */
@@ -985,6 +1016,14 @@
                         KYOOL vous relie à une communauté passionnée, vous emmène dans les rues de Séoul et d’Europe (même virtuellement),
                         et transforme votre curiosité en aventure culturelle partagée.
                     </p>
+                    </div>
+            </div>
+        </div>
+        
+        <!-- IMAGE PLEINE LARGEUR -->
+        <div class="vision-banner">
+            <img src="media/nouvelle-ere/vision-banner.jpg" alt="KYOOL Vision 2026-2030" loading="lazy">
+        </div>
                     
                     <div class="vision-statement">
                         <h3>Notre ambition pour 2026-2030</h3>
