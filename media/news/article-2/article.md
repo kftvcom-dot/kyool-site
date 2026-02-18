@@ -1,6 +1,6 @@
 ---
 id: "article-2"
-title: "Le syndrome classique du CEO marié à sa start-up"
+title: "Entreprendre en France et en Corée : le quotidien d’un CEO passionné"
 theme: "Culture"
 journalist: "Christophe Diez Rédaction Kyool News"
 date: "2026-02-12"
@@ -21,7 +21,7 @@ photos:
   - photo12.jpg
 ---
 
-<div class="article-intro"><p>Tu sais ce qu'on dit : <em>« L'amour, c'est comme une levée de fonds — ça n'arrive jamais quand tu le cherches, mais toujours quand t'as plus le temps. »</em> Pendant que les autres sortent dîner, toi tu dînes avec ton business plan. Pendant que certains rêvent d'amour, toi tu rêves de stabilité financière… et d'une plateforme sans bug. Bienvenue dans la vie du CEO marié à sa start-up.</p></div>
+<div class="article-intro"><p>Tu sais ce qu'on dit : <em>« L'amour, c'est comme une levée de fonds — ça n'arrive jamais quand tu le cherches, mais toujours quand t'as plus le temps. »</em> Pendant que les autres sortent dîner, toi tu dînes avec ton business plan. Pendant que certains rêvent d'amour, toi tu rêves de stabilité financière… et d'une plateforme sans bug. Bienvenue dans Entreprendre en France et en Corée : le quotidien d’un CEO passionné.</p></div>
 
 <h2 class="chapter-title">Le CEO célibataire malgré lui</h2>
 
