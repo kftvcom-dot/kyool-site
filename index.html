@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KYOOL — Home</title>
+  <link rel="stylesheet" href="styles.css?v=99">
+  <!-- ✅ NOUVEAU : CSS Mobile optimisé -->
+  <link rel="stylesheet" href="mobile-fixes.css">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="media/kyool-logo.png" alt="KYOOL"
+          onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's Kyool, it's cool !</div>
+        </div>
+      </a>
+
+      <!-- ✅ NOUVEAU : Bouton hamburger pour mobile -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="mainNav">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="programmes.html">Programmes</a>
+        <a href="news/news.html">News</a>
+        <a href="partenaires.html">Partenaires</a>
+        <a href="nouvelle-ere.html">Nouvelle Ère</a>   
+        <a href="contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <section class="wrap">
+  <div class="home-grid">
+      <!-- TEXTE -->
+<div class="left-col">
+  <div class="top-content">
+    <h1 class="title">Kyool <span class="coree">votre Corée</span></h1>
+
+    <p class="subtitle">
+      Vibrez au rythme de la Corée. Que vous ayez 60 secondes ou 2 heures KYOOL s'adapte à votre temps. Short dramas verticaux, K-dramas, TV Shows, films et documentaires officiels sous-titrés pour l'Europe.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn" href="programmes.html">Découvrir les programmes</a>
+      <a class="btn secondary" href="partenaires.html">Devenir partenaire</a>
+    </div>
+  </div> <!-- fin top-content -->
+
+  <div class="below-text">
+
+<div class="qr-pack">
+  <div class="qr-row">
+    <div class="qr-title">Un scan, et la Corée s'ouvre à vous. Téléchargez KYOOL.</div>
+    <div class="qr" title="QR iOS">
+      <img src="media/qr-ios.png" alt="QR iOS (App Store)">
+    </div>
+    <div class="qr" title="QR Android">
+      <img src="media/qr-android.png" alt="QR Android (Google Play)">
+    </div>
+    <div class="qr-note">App Store & Google Play</div>
+  </div>
+  
+  <div class="kyool-heart">
+    <img src="media/kyool-heart.png" alt="Kyool cœur">
+  </div>
+</div>
+
+    <div class="mascot-row">
+      <div class="mascot-avatar">
+        <img src="media/kyool-mascot.png" alt="Mascotte KYOOL">
+      </div>
+      <div class="mascot-text">
+        <strong>Bonjour, je m'appelle KYOOL.</strong><br/>
+        Je te montre la Corée… sans te demander de parler coréen (pour l'instant 😄).
+      </div>
+    </div>
+
+  </div> <!-- fin below-text -->
+</div> <!-- fin left-col -->
+
+<!-- VISUELS -->
+<div class="showcase">
+  <div class="device-grid">
+
+    <div class="frame phone">
+  <button class="sound-btn" type="button" data-target="phoneVideo" aria-label="Activer le son">🔇</button>
+
+    <video id="phoneVideo" autoplay muted loop playsinline poster="media/phone-poster.jpg">
+      <source src="media/kyool-ad.mp4" type="video/mp4" />
+    </video>
+</div>
+
+    <div class="right-col">
+      <div class="frame tablet">
+  <button class="sound-btn" type="button" data-target="tabletVideo" aria-label="Activer le son">🔇</button>
+
+    <video id="tabletVideo" autoplay muted loop playsinline poster="media/tablet-poster.jpg">
+      <source src="media/kyool-tablet.mp4" type="video/mp4" />
+    </video>
+</div>
+
+ <div class="frame square carousel">
+  <img src="media/carousel-1.jpg" alt="Série coréenne 1">
+  <img src="media/carousel-2.jpg" alt="Série coréenne 2">
+  <img src="media/carousel-3.jpg" alt="Série coréenne 3">
+  <img src="media/carousel-4.jpg" alt="Série coréenne 4">
+  <img src="media/carousel-5.jpg" alt="Série coréenne 5">
+  <img src="media/carousel-6.jpg" alt="Série coréenne 6">
+  <img src="media/carousel-7.jpg" alt="Série coréenne 7">
+  <img src="media/carousel-8.jpg" alt="Série coréenne 8">
+  <img src="media/carousel-9.jpg" alt="Série coréenne 9">
+  <img src="media/carousel-10.jpg" alt="Série coréenne 10">
+</div>
+    </div>
+  </div>
+</div>
+  </div> <!-- ✅ FIN home-grid -->
+</section>
+
+<footer class="bottombar">
+  <div class="wrap bottombar-inner">
+    <div>Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.</div>
+    <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+  </div>
+</footer>
+
+<script src="script.js?v=1"></script>
+
+<!-- ✅ NOUVEAU : Script pour le menu mobile -->
+<script>
+// Menu hamburger toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const mainNav = document.getElementById('mainNav');
+
+if (mobileMenuToggle && mainNav) {
+  mobileMenuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mainNav.classList.toggle('active');
+    
+    // Empêcher le scroll quand le menu est ouvert
+    if (mainNav.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Fermer le menu quand on clique sur un lien
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+</script>
+
+<!-- Badge fixe en bas à droite -->
+<div class="badge-episodes-gratuits" id="badgeEpisodesGratuits">
+    <div class="texte-coreen">무료</div>
+    <div class="texte-episodes">ÉPISODES</div>
+    <div class="texte-gratuits">GRATUITS</div>
+</div>
+
+<!-- Modal qui s'ouvre au clic -->
+<div class="modal-episodes-gratuits" id="modalEpisodesGratuits">
+  <div class="modal-episodes-gratuits-content">
+    
+    <!-- Bouton fermer -->
+    <button class="modal-episodes-gratuits-close" id="closeModal">×</button>
+
+    <!-- Titre -->
+    <h2>🎁 Regardez gratuitement !</h2>
+
+    <!-- Texte principal -->
+    <p>
+      Téléchargez <strong>KYOOL</strong> et accédez<br>
+      <strong>à plusieurs épisodes gratuits</strong><br>
+      sans inscription !
+    </p>
+
+    <!-- VISUEL KYOOL -->
+    <div class="modal-kyool-visual">
+      <img src="media/kyool-episodes-gratuits.jpg" alt="KYOOL — épisodes gratuits">
+    </div>
+
+    <!-- Texte QR -->
+    <p class="modal-qr-title">
+      Scannez le QR code avec votre smartphone :
+    </p>
+
+    <!-- QR Codes -->
+    <div class="modal-qr-codes">
+      <div class="modal-qr-code">
+        <img src="media/qr-ios.png" alt="QR iOS (App Store)">
+        <p>iOS</p>
+      </div>
+
+      <div class="modal-qr-code">
+        <img src="media/qr-android.png" alt="QR Android (Google Play)">
+        <p>ANDROID</p>
+      </div>
+    </div>
+
+    <!-- Note stores -->
+    <p class="modal-store-note">
+      App Store & Google Play
+    </p>
+
+  </div>
+</div>
+
+<!-- JavaScript pour gérer le badge et la modal -->
+<script>
+    // Ouvrir la modal au clic sur le badge
+    document.getElementById('badgeEpisodesGratuits').addEventListener('click', function() {
+        document.getElementById('modalEpisodesGratuits').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Fermer la modal avec le bouton X
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modalEpisodesGratuits').classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Fermer la modal en cliquant en dehors du contenu
+    document.getElementById('modalEpisodesGratuits').addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Fermer la modal avec la touche Échap
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('modalEpisodesGratuits').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+</body>
+</html>

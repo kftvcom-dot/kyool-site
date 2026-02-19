@@ -1,0 +1,457 @@
+/* =====================================================
+   KYOOL - OPTIMISATION MOBILE
+   Fichier à ajouter APRÈS styles.css dans index.html
+   <link rel="stylesheet" href="mobile-fixes.css">
+   ===================================================== */
+
+/* =====================================================
+   MEDIA QUERIES - MOBILE UNIQUEMENT
+   ===================================================== */
+
+@media (max-width: 768px) {
+  
+  /* ===========================
+     HEADER MOBILE OPTIMISÉ
+     =========================== */
+  
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 12px 0;
+  }
+  
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+  
+  /* Logo plus petit sur mobile */
+  .brand img {
+    max-height: 35px;
+    width: auto;
+  }
+  
+  .brand-text {
+    display: none; /* Cacher le slogan sur mobile */
+  }
+  
+  /* Navigation mobile - Hamburger */
+  .topbar nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  
+  .topbar nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .topbar nav a {
+    font-size: 18px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(36, 199, 235, 0.1);
+    text-align: center;
+  }
+  
+  .topbar nav a[aria-current="page"] {
+    background: linear-gradient(135deg, #24C7EB 0%, #9D4EDD 100%);
+  }
+  
+  /* Bouton hamburger */
+  .mobile-menu-toggle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #24C7EB;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+  
+  /* ===========================
+     HOME PAGE MOBILE
+     =========================== */
+  
+  /* Padding top pour compenser le header fixe */
+  body {
+    padding-top: 70px;
+  }
+  
+  /* Grid en colonne unique */
+  .home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 15px;
+  }
+  
+  .left-col {
+    width: 100%;
+    order: 1;
+  }
+  
+  .showcase {
+    width: 100%;
+    order: 2;
+  }
+  
+  /* ===========================
+     TITRE ET TEXTES
+     =========================== */
+  
+  .title {
+    font-size: 32px !important;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .coree {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .subtitle {
+    font-size: 16px !important;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .subtitle br {
+    display: none; /* Supprimer les <br> sur mobile */
+  }
+  
+  /* ===========================
+     BOUTONS CTA
+     =========================== */
+  
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0;
+  }
+  
+  .cta-row .btn {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* ===========================
+     QR CODES SECTION
+     =========================== */
+  
+  .below-text {
+    margin-top: 30px;
+  }
+  
+  .qr-pack {
+    background: rgba(36, 199, 235, 0.05);
+    padding: 20px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .qr-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .qr-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .qr {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .qr img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .qr-note {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .kyool-heart {
+    display: none; /* Cacher le cœur sur mobile */
+  }
+  
+  /* ===========================
+     MASCOTTE
+     =========================== */
+  
+  .mascot-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 15px;
+    background: rgba(36, 199, 235, 0.05);
+    border-radius: 12px;
+  }
+  
+  .mascot-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mascot-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mascot-text {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  /* ===========================
+     VIDÉOS ET VISUELS
+     =========================== */
+  
+  .device-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .frame {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Vidéo téléphone */
+  .frame.phone {
+    width: 280px;
+    height: auto;
+  }
+  
+  .frame.phone video {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+  }
+  
+  /* Vidéo tablette */
+  .right-col {
+    width: 100%;
+  }
+  
+  .frame.tablet {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .frame.tablet video {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+  }
+  
+  /* Carrousel */
+  .frame.carousel {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+  
+  .frame.carousel img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Boutons son */
+  .sound-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* ===========================
+     FOOTER
+     =========================== */
+  
+  .bottombar {
+    padding: 20px 15px 100px 15px; /* Padding bottom pour le badge */
+  }
+  
+  .bottombar-inner {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  /* ===========================
+     BADGE ÉPISODES GRATUITS
+     =========================== */
+  
+  .badge-episodes-gratuits {
+    bottom: 20px;
+    right: 15px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .texte-coreen {
+    font-size: 18px;
+  }
+  
+  .texte-episodes,
+  .texte-gratuits {
+    font-size: 9px;
+  }
+  
+  /* Modal responsive */
+  .modal-episodes-gratuits-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 25px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-episodes-gratuits h2 {
+    font-size: 24px;
+  }
+  
+  .modal-episodes-gratuits p {
+    font-size: 15px;
+  }
+  
+  .modal-kyool-visual img {
+    max-height: 180px;
+  }
+  
+  .modal-qr-codes {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .modal-qr-code img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* ===========================
+     SCROLL SMOOTH
+     =========================== */
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* ===========================
+     TOUCHES FINALES
+     =========================== */
+  
+  /* Empêcher le zoom sur les inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Améliorer le tap target */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Supprimer le highlight au tap */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* =====================================================
+   MOBILE EXTRA SMALL (< 375px)
+   ===================================================== */
+
+@media (max-width: 374px) {
+  .title {
+    font-size: 28px !important;
+  }
+  
+  .subtitle {
+    font-size: 14px !important;
+  }
+  
+  .qr {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .frame.phone {
+    width: 240px;
+  }
+  
+  .badge-episodes-gratuits {
+    width: 60px;
+    height: 60px;
+  }
+}
