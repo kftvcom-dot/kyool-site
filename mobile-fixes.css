@@ -1,9 +1,17 @@
 /* =====================================================
-   KYOOL - OPTIMISATION MOBILE CORRIGÉE
-   Fichier à ajouter APRÈS styles.css dans index.html
-   <link rel="stylesheet" href="mobile-fixes.css">
+   KYOOL - MOBILE FIXES (VERSION CORRIGÉE)
    ===================================================== */
 
+/* ========================================
+   ✅ FIX RECTANGLE BLANC - À AJOUTER ICI EN HAUT
+   ======================================== */
+
+/* CACHER LE BOUTON HAMBURGER SUR DESKTOP */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* AFFICHER LE BOUTON HAMBURGER SEULEMENT SUR MOBILE */
 @media (max-width: 768px) {
   
   /* ===========================
@@ -21,11 +29,27 @@
     padding: 12px 0;
   }
   
-  .topbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
+  /* AFFICHER LE BOUTON HAMBURGER SUR MOBILE */
+  .mobile-menu-toggle {
+    display: block !important;  /* ← Visible sur mobile */
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    z-index: 1001;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: white;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
   }
   
   /* Logo + SLOGAN VISIBLE */
