@@ -786,3 +786,36 @@
     line-height: 1.2 !important;
   }
 }
+/* ========================================
+   CORRECTION INDEX - RÉDUIRE L'ESPACE EN HAUT SUR MOBILE
+   ======================================== */
+
+/* À AJOUTER À LA FIN DU FICHIER mobile-fixes.css */
+
+@media (max-width: 768px) {
+  
+  /* RÉDUIRE L'ESPACE ENTRE LE HEADER ET LE TITRE "KYOOL VOTRE CORÉE" */
+  
+  /* 1. Réduire le padding-top de .home-grid (était 20px) */
+  .home-grid {
+    padding-top: 0 !important;
+  }
+  
+  /* 2. Remonter toute la section principale avec un margin négatif */
+  body > section.wrap:first-of-type {
+    margin-top: -60px !important;
+  }
+  
+  /* TOTAL : 20px (padding) + 60px (margin négatif) = 80px enlevés */
+  /* Équivalent à environ 4 lignes de texte */
+  
+}
+
+/* Si c'est encore trop espacé, utiliser cette version PLUS AGRESSIVE */
+/*
+@media (max-width: 768px) {
+  body > section.wrap:first-of-type {
+    margin-top: -80px !important;
+  }
+}
+*/
