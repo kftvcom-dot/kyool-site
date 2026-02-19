@@ -550,9 +550,9 @@
   
   /* Hero image du HAUT - Plus petite pour tout voir */
   .hero-image-full {
-    height: 35vh !important;
-    min-height: 220px !important;
-    max-height: 300px !important;
+    height: 30vh !important;
+    min-height: 210px !important;
+    max-height: 290px !important;
   }
   
   .hero-image-full img {
@@ -586,9 +586,9 @@
   
   /* Hero image du BAS (manifesto-footer-image) - MÊME TAILLE que le haut */
   .manifesto-footer-image {
-    height: 35vh !important;
-    min-height: 220px !important;
-    max-height: 300px !important;
+    height: 30vh !important;
+    min-height: 210px !important;
+    max-height: 290px !important;
   }
   
   .manifesto-footer-image img {
