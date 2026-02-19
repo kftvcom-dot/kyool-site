@@ -618,97 +618,130 @@
   
 }
 /* ========================================
-   MODIFICATIONS NOUVELLE ERE - À AJOUTER DANS mobile-fixes.css
+   CORRECTIONS NOUVELLE ERE MOBILE - FINAL
    ======================================== */
 
-/* ============================================
-   CHANGEMENT 1 & 2 : RÉDUIRE LES IMAGES SUR MOBILE
-   ============================================ */
+/* REMPLACER le CSS Nouvelle Ere précédent dans mobile-fixes.css par celui-ci */
 
 @media (max-width: 768px) {
   
-  /* 1. Réduire la hauteur de vision-banner sur mobile */
-  .vision-banner {
-    height: 200px !important;
-    min-height: 200px !important;
-  }
+  /* ============================================
+     1. RÉDUIRE LES PHOTOS HERO (HAUT ET BAS)
+     ============================================ */
   
-  .vision-banner img {
-    height: 200px !important;
-    object-fit: cover !important;
-  }
-  
-  /* 2. Réduire la photo Hero en haut et en bas */
+  /* Hero image du HAUT - Plus petite pour tout voir */
   .hero-image-full {
-    height: 40vh !important;
-    min-height: 250px !important;
-    max-height: 350px !important;
+    height: 35vh !important;
+    min-height: 220px !important;
+    max-height: 300px !important;
   }
   
+  .hero-image-full img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  
+  /* Hero overlay - Texte */
   .hero-overlay {
-    padding: 40px 15px !important;
+    padding: 30px 15px !important;
   }
   
   .hero-title {
-    font-size: 24px !important;
+    font-size: 22px !important;
     line-height: 1.3 !important;
+    text-align: center !important;
   }
   
   .hero-subtitle {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    text-align: center !important;
   }
   
   .hero-manifesto {
-    font-size: 16px !important;
-    padding: 20px 15px !important;
+    font-size: 15px !important;
+    padding: 15px 10px !important;
+    text-align: center !important;
   }
   
-  /* Footer en bas de page (manifesto-footer-image) */
+  /* Hero image du BAS (manifesto-footer-image) - MÊME TAILLE que le haut */
   .manifesto-footer-image {
-    height: 250px !important;
-    min-height: 250px !important;
+    height: 35vh !important;
+    min-height: 220px !important;
+    max-height: 300px !important;
   }
   
   .manifesto-footer-image img {
-    height: 250px !important;
+    height: 100% !important;
+    width: 100% !important;
     object-fit: cover !important;
+    object-position: center center !important;
   }
   
-  /* 3. Réduire la hauteur du footer (3 lignes → compact) */
+  /* ============================================
+     2. FOOTER COMPACT + ENLEVER LIENS CLIQUABLES
+     ============================================ */
+  
+  /* Footer beaucoup plus compact */
   .site-footer {
-    padding: 12px 20px !important;
-    font-size: 11px !important;
-    line-height: 1.6 !important;
-    gap: 8px !important;
+    padding: 10px 15px !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    gap: 6px !important;
   }
   
   .footer-left,
   .footer-right {
-    font-size: 11px !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
   }
+  
+  /* Enlever le style de lien (pas cliquable visuellement) */
+  .site-footer a {
+    color: inherit !important;
+    text-decoration: none !important;
+    pointer-events: none !important;
+    cursor: text !important;
+  }
+  
+  /* ============================================
+     3. VISION BANNER RÉDUITE DE 1.5x
+     ============================================ */
+  
+  /* Vision banner : hauteur divisée par 1.5 */
+  .vision-banner {
+    height: 133px !important; /* 200px / 1.5 = 133px */
+    min-height: 133px !important;
+  }
+  
+  .vision-banner img {
+    height: 133px !important;
+    object-fit: cover !important;
+  }
+  
+  /* ============================================
+     BONUS : CARTES QUEST PLUS HAUTES (WEB UNIQUEMENT)
+     ============================================ */
   
 }
 
-/* ============================================
-   CHANGEMENT 4 : AUGMENTER HAUTEUR DES 4 CADRES QUEST (WEB)
-   ============================================ */
-
+/* CARTES QUEST : Augmenter hauteur photos de 1.5x (WEB SEULEMENT) */
 @media (min-width: 769px) {
   
-  /* Augmenter la hauteur de la partie image des cartes Quest de 1.5x */
   .quest-category-card {
-    min-height: 600px !important; /* 400px * 1.5 = 600px */
+    min-height: 600px !important;
   }
   
   .quest-category-card img {
-    height: 450px !important; /* 300px * 1.5 = 450px */
+    height: 450px !important;
     object-fit: cover !important;
   }
   
 }
 
 /* ============================================
-   CHANGEMENT 5 : BOUTONS CTA DÉSACTIVÉS (WEB ET MOBILE)
+   BOUTONS CTA DÉSACTIVÉS (WEB ET MOBILE)
    ============================================ */
 
 .cta-disabled {
