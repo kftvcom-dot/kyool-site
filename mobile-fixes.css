@@ -819,3 +819,104 @@
   }
 }
 */
+/* ========================================
+   CORRECTION PARTENAIRES - ANIMATION VISIBLE ET RÉDUITE SUR MOBILE
+   ======================================== */
+
+/* REMPLACER le CSS-A-AJOUTER-PARTENAIRES.css précédent par celui-ci */
+
+@media (max-width: 768px) {
+  
+  /* EMPÊCHER LE SCROLL HORIZONTAL SUR TOUTE LA PAGE */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Section orbite : visible mais compacte */
+  .partners-orbit-section {
+    padding: 40px 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* Conteneur orbite : RÉDUIT mais VISIBLE */
+  .orbit-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 280px !important;
+    margin: 0 auto !important;
+    overflow: visible !important; /* CHANGÉ : visible au lieu de hidden */
+  }
+  
+  /* Mascotte centrale : PLUS PETITE mais VISIBLE */
+  .center-mascot {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 10 !important;
+  }
+  
+  .center-mascot img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+  
+  /* GARDER les bulles du cercle 1 (près de la mascotte) */
+  .partner-bubble {
+    position: absolute !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+  }
+  
+  .partner-bubble img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  /* CACHER les bulles du cercle 2 (trop loin) sur mobile */
+  .partner-bubble[style*="--distance: 390px"],
+  .partner-bubble[style*="--distance: 395px"],
+  .partner-bubble[style*="--distance: 400px"],
+  .partner-bubble[style*="--distance: 405px"],
+  .partner-bubble[style*="--distance: 410px"],
+  .partner-bubble[style*="--distance: 415px"],
+  .partner-bubble[style*="--distance: 420px"] {
+    display: none !important;
+  }
+  
+  /* RÉDUIRE les distances du cercle 1 pour tenir dans 280px */
+  .partner-bubble[style*="--distance: 280px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 285px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 290px"] { --distance: 100px !important; }
+  .partner-bubble[style*="--distance: 295px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 300px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 305px"] { --distance: 100px !important; }
+  .partner-bubble[style*="--distance: 310px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 315px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 320px"] { --distance: 100px !important; }
+  
+  /* Hero section : texte coréen plus petit */
+  .korean-quote {
+    font-size: 32px !important;
+  }
+  
+  .quote-translation {
+    font-size: 14px !important;
+  }
+  
+  /* Section liste partenaires : meilleure lisibilité */
+  .partners-names {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+  }
+  
+}
