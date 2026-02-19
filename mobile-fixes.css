@@ -617,3 +617,111 @@
   }
   
 }
+/* ========================================
+   MODIFICATIONS NOUVELLE ERE - À AJOUTER DANS mobile-fixes.css
+   ======================================== */
+
+/* ============================================
+   CHANGEMENT 1 & 2 : RÉDUIRE LES IMAGES SUR MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  
+  /* 1. Réduire la hauteur de vision-banner sur mobile */
+  .vision-banner {
+    height: 200px !important;
+    min-height: 200px !important;
+  }
+  
+  .vision-banner img {
+    height: 200px !important;
+    object-fit: cover !important;
+  }
+  
+  /* 2. Réduire la photo Hero en haut et en bas */
+  .hero-image-full {
+    height: 40vh !important;
+    min-height: 250px !important;
+    max-height: 350px !important;
+  }
+  
+  .hero-overlay {
+    padding: 40px 15px !important;
+  }
+  
+  .hero-title {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px !important;
+  }
+  
+  .hero-manifesto {
+    font-size: 16px !important;
+    padding: 20px 15px !important;
+  }
+  
+  /* Footer en bas de page (manifesto-footer-image) */
+  .manifesto-footer-image {
+    height: 250px !important;
+    min-height: 250px !important;
+  }
+  
+  .manifesto-footer-image img {
+    height: 250px !important;
+    object-fit: cover !important;
+  }
+  
+  /* 3. Réduire la hauteur du footer (3 lignes → compact) */
+  .site-footer {
+    padding: 12px 20px !important;
+    font-size: 11px !important;
+    line-height: 1.6 !important;
+    gap: 8px !important;
+  }
+  
+  .footer-left,
+  .footer-right {
+    font-size: 11px !important;
+  }
+  
+}
+
+/* ============================================
+   CHANGEMENT 4 : AUGMENTER HAUTEUR DES 4 CADRES QUEST (WEB)
+   ============================================ */
+
+@media (min-width: 769px) {
+  
+  /* Augmenter la hauteur de la partie image des cartes Quest de 1.5x */
+  .quest-category-card {
+    min-height: 600px !important; /* 400px * 1.5 = 600px */
+  }
+  
+  .quest-category-card img {
+    height: 450px !important; /* 300px * 1.5 = 450px */
+    object-fit: cover !important;
+  }
+  
+}
+
+/* ============================================
+   CHANGEMENT 5 : BOUTONS CTA DÉSACTIVÉS (WEB ET MOBILE)
+   ============================================ */
+
+.cta-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+  pointer-events: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.cta-disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
