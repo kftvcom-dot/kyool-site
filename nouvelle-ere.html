@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KYOOL 2026-2027 : La Nouvelle Ère de la culture coréenne en Europe. Streaming, création IA, gamification culturelle.">
+    <meta name="keywords" content="KYOOL, K-Drama, Culture coréenne, Short Drama, IA, Streaming, KYOOL Quest">
+    <title>Nouvelle Ère 2026-2027 | KYOOL</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="KYOOL - Nouvelle Ère 2026-2027">
+    <meta property="og:description" content="De la simple plateforme de streaming à l'écosystème culturel le plus immersif d'Europe">
+    <meta property="og:image" content="https://kyool.eu/media/nouvelle-ere/og-image.jpg">
+    <meta property="og:url" content="https://kyool.eu/nouvelle-ere.html">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=99">
+    <!-- ✅ ÉTAPE 1 : CSS MOBILE -->
+    <link rel="stylesheet" href="mobile-fixes.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --kyool-blue: #24C7EB;
+            --kyool-blue-dark: #1A9FB8;
+            --kyool-blue-light: #5FD9F5;
+            --accent-pink: #FF1F8F;
+            --accent-purple: #9D4EDD;
+            --accent-yellow: #FFD700;
+            --bg-dark: #0A1628;
+            --bg-darker: #050B14;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-white: #FFFFFF;
+            --text-gray: rgba(255, 255, 255, 0.7);
+            --text-light: rgba(255, 255, 255, 0.5);
+            --section-padding: 120px 0;
+            --container-padding: 0 20px;
+            --container-max-width: 1200px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #050B14 0%, #0A1628 50%, #0A1628 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+        
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: var(--container-padding);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.2;
+            font-weight: 800;
+        }
+        
+        h1 { font-size: clamp(40px, 6vw, 64px); }
+        h2 { font-size: clamp(32px, 5vw, 48px); }
+        h3 { font-size: clamp(24px, 4vw, 32px); }
+        h4 { font-size: clamp(20px, 3vw, 24px); }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 1em;
+        }
+        
+        .lead {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 1.5em;
+        }
+        
+        .eyebrow {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--kyool-blue);
+            margin-bottom: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(36, 199, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(36, 199, 235, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--kyool-blue);
+            border: 2px solid var(--kyool-blue);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--kyool-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* HERO SECTION */
+        .hero-new-era {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: var(--bg-darker);
+        }
+
+        .hero-image-full {
+            width: 100%;
+            height: 60vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a0a2e 0%, #0A1628 100%);
+        }
+
+        .hero-image-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('media/nouvelle-ere/hero-bg.jpg') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            padding: 80px 40px;
+            margin: 0 auto;
+            background: var(--bg-darker);
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 5vw, 56px);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+            text-align: center;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-manifesto {
+            font-size: clamp(20px, 2.5vw, 32px);
+            line-height: 1.6;
+            margin: 0 auto 50px;
+            padding: 40px 60px;
+            color: var(--text-white);
+            font-style: italic;
+            font-weight: 600;
+            text-align: center;
+            max-width: 1000px;
+            background: rgba(36, 199, 235, 0.05);
+            border-left: 4px solid var(--kyool-blue);
+            border-right: 4px solid var(--accent-purple);
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(36, 199, 235, 0.15);
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* VISION BANNER */
+        .vision-banner {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin: 60px 0;
+            padding: 0;
+        }
+
+        .vision-banner img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+        
+        section {
+            padding: var(--section-padding);
+            position: relative;
+        }
+        
+        .section-header {
+            margin-bottom: 60px;
+        }
+        
+        .section-header.centered {
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 80px;
+        }
+        
+        .section-intro {
+            font-size: 20px;
+            color: var(--text-gray);
+            margin-top: 20px;
+        }
+        
+        /* VISION SECTION */
+        .vision-section {
+            background: transparent;
+        }
+        
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+        
+        .vision-statement {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border-left: 4px solid var(--kyool-blue);
+            margin: 40px 0;
+        }
+        
+        .vision-goals {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .vision-goals li {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+        }
+        
+        .vision-goals li:last-child {
+            border-bottom: none;
+        }
+        
+        /* CONCLUSION TEXT - AGRANDI */
+        .vision-conclusion-wrapper {
+            text-align: center;
+            margin: 80px auto;
+        }
+        
+        .vision-conclusion-text {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--kyool-blue);
+            margin-bottom: 0;
+        }
+        
+        /* QUEST CATEGORIES - FOND TRANSPARENT */
+        .quest-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+            background: transparent;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: visible;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(36, 199, 235, 0.4) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+            filter: blur(20px);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+            border-radius: 16px;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* KYOOL QUEST SECTION */
+        .kyoolquest-section {
+            background: transparent;
+            padding-top: 60px !important;
+        }
+        
+        .quest-tagline {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .quest-mockup {
+            text-align: center;
+            margin: 60px auto;
+            max-width: 900px;
+        }
+
+        .quest-mockup img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(36, 199, 235, 0.3);
+        }
+        
+        .quest-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .quest-card {
+            background: var(--bg-card);
+            padding: 0;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .quest-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--kyool-blue);
+            box-shadow: 0 10px 40px rgba(36, 199, 235, 0.2);
+        }
+        
+        /* CARTES QUEST PLUS HAUTES (1.5x) */
+        .quest-card-image {
+            width: 100%;
+            height: 375px;
+            overflow: hidden;
+        }
+        
+        .quest-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .quest-card:hover .quest-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .quest-card-content {
+            padding: 30px;
+        }
+        
+        /* GROWTH SECTION */
+        .growth-section {
+            background: transparent;
+        }
+
+        .growth-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .growth-year {
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border-top: 4px solid var(--kyool-blue);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .growth-year:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(36, 199, 235, 0.2);
+        }
+
+        .growth-year:nth-child(1) {
+            border-top-color: var(--kyool-blue);
+        }
+
+        .growth-year:nth-child(2) {
+            border-top-color: var(--accent-purple);
+            transform: scale(1.02);
+        }
+
+        .growth-year:nth-child(3) {
+            border-top-color: var(--accent-pink);
+            transform: scale(1.05);
+        }
+
+        .year-header {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .year-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--kyool-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .year-header h3 {
+            font-size: 20px;
+            color: var(--text-white);
+        }
+
+        .year-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px 15px;
+            background: rgba(36, 199, 235, 0.1);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--kyool-blue);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .year-actions {
+            margin-top: 20px;
+        }
+
+        .year-actions ul {
+            list-style: none;
+        }
+
+        .year-actions li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .year-actions li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--kyool-blue);
+            font-weight: 700;
+        }
+        
+        /* MANIFESTO SECTION - FOND COHÉRENT */
+        .manifesto-section {
+            background: transparent;
+            text-align: center;
+        }
+        
+        .manifesto-hero-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .manifesto-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .manifesto-text {
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+        
+        .manifesto-text p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .cta-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-card:hover {
+            border-color: var(--kyool-blue);
+            transform: translateY(-5px);
+        }
+        
+        .cta-card h4 {
+            margin-bottom: 15px;
+        }
+        
+        .cta-card p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+        
+        .cta-card .btn {
+            width: 100%;
+        }
+        
+        .quote-final {
+            font-size: 32px;
+            line-height: 1.6;
+            font-style: italic;
+            color: var(--kyool-blue);
+            margin: 80px 0 40px;
+        }
+        
+        /* PHOTO FINALE PLEINE LARGEUR */
+        .manifesto-footer-image {
+            width: 100vw;
+            height: 60vh;
+            min-height: 500px;
+            overflow: hidden;
+            margin: 80px 0 0 0;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .manifesto-footer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .manifesto-footer-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+        }
+        
+        /* FOOTER FIXE TRANSPARENT */
+        .site-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-gray);
+            padding: 20px 40px;
+            font-size: 13px;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-footer a {
+            color: var(--kyool-blue);
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-left {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .footer-right {
+            flex: 1;
+            text-align: right;
+        }
+        
+        /* SCROLL TO TOP */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(36, 199, 235, 0.4);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(36, 199, 235, 0.6);
+        }
+
+        .scroll-to-top::before {
+            content: '↑';
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .quest-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .growth-timeline {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .growth-year:nth-child(2),
+            .growth-year:nth-child(3) {
+                transform: scale(1);
+            }
+            
+            .site-footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .footer-left,
+            .footer-right {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 120px;
+            }
+            
+            .hero-image-full {
+                height: 50vh;
+                min-height: 300px;
+            }
+            
+            .hero-overlay {
+                padding: 60px 20px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .hero-manifesto {
+                font-size: 18px;
+                padding: 30px 20px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+            }
+            
+            .vision-banner {
+                height: 200px;
+            }
+            
+            .vision-banner img {
+                height: 200px;
+            }
+            
+            .vision-conclusion-text {
+                font-size: 28px;
+            }
+            
+            .quest-categories {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+            
+            .quest-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quest-card-image {
+                height: 300px;
+            }
+            
+            .quest-card-content {
+                padding: 20px;
+            }
+            
+            .manifesto-hero-image {
+                height: 250px;
+            }
+            
+            .manifesto-footer-image {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .site-footer {
+                padding: 15px 20px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a href="index.html" class="brand">
+                <img src="media/kyool-logo.png" alt="KYOOL"
+                   onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+                <div class="brand-text">
+                    <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+                    <div class="slogan">If it's Kyool, it's cool !</div>
+                </div>
+            </a>
+            
+
+      <!-- ✅ ÉTAPE 2A : BOUTON HAMBURGER -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- ✅ ÉTAPE 2B : ID SUR NAV -->
+      <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="histoire.html">Histoire</a>
+                <a href="programmes.html">Programmes</a>
+                <a href="news/news.html">News</a>
+                <a href="partenaires.html">Partenaires</a>
+                <a href="nouvelle-ere.html" aria-current="page">Nouvelle Ère</a>
+                <a href="contact.html">Nous contacter</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero-new-era">
+        <div class="hero-image-full"></div>
+        
+        <div class="hero-overlay">
+            <h1 class="hero-title">2026–2027 : La Nouvelle Ère KYOOL</h1>
+            
+            <p class="hero-subtitle">
+                De la simple plateforme de streaming à l'écosystème culturel le plus immersif d'Europe.
+            </p>
+            
+            <p class="hero-manifesto">
+                « Nous ne créons pas juste une application. 
+                Nous construisons un pont entre deux continents, 
+                une communauté de 1 000 000 de passionnés, 
+                et un nouveau modèle où créer vaut autant que consommer. »
+            </p>
+            
+            <div class="hero-cta">
+                <a href="#vision" class="btn btn-primary">Découvrir la vision</a>
+                <a href="#kyoolquest" class="btn btn-secondary">Explorer KYOOL Quest</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="vision-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Notre Vision</span>
+                <h2>Réinventer la manière dont l'Europe découvre et vit la culture coréenne</h2>
+            </div>
+            
+            <div class="vision-content">
+                <div class="vision-text">
+                    <p class="lead">
+                        En 2020, nous étions une plateforme de streaming. <br>
+                        En 2026-2027, nous devenons un écosystème culturel complet.
+                    </p>
+                    
+                    <p>
+                        Pendant que Netflix vous fait <em>regarder</em> du contenu coréen, 
+                        KYOOL vous invite à <em>vivre</em> la culture coréenne.
+                    </p>
+                    
+                    <p>
+                        Pendant que TikTok vous fait <em>consommer</em> des vidéos virales, 
+                        KYOOL vous permet de <em>créer</em> la suite des histoires.
+                    </p>
+                    
+                    <p>
+                        Là où les autres plateformes vous enferment derrière un écran,
+                        KYOOL vous relie à une communauté passionnée, vous emmène dans les rues de Séoul et d'Europe (même virtuellement),
+                        et transforme votre curiosité en aventure culturelle partagée.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="vision-conclusion-wrapper">
+            <div class="container">
+                <p class="vision-conclusion-text">
+                    KYOOL ne sera plus « juste une plateforme ».
+                </p>
+            </div>
+        </div>
+        
+        <div class="vision-banner">
+            <img src="media/nouvelle-ere/vision-banner.jpg" alt="KYOOL Vision" loading="lazy">
+        </div>
+        
+        <div class="vision-conclusion-wrapper">
+            <div class="container">
+                <p class="vision-conclusion-text">
+                    KYOOL sera un mouvement culturel.
+                </p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-text">
+                    <div class="vision-statement">
+                        <h3>Notre ambition pour 2026-2030</h3>
+                        <ul class="vision-goals">
+                            <li>
+                                <strong>+15 000 000 utilisateurs</strong> à travers l'Europe : France, UK, Espagne, Allemagne, Portugal, Italie, Québec
+                            </li>
+                            <li>
+                                Vers le catalogue de short dramas coréens le plus riche d'Europe <strong>(+1 000 contenus exclusifs à venir en 2026–2027)</strong>
+                            </li>
+                            <li>
+                                <strong>La première Super-App</strong> alliant streaming, création IA, gamification culturelle et tourisme immersif
+                            </li>
+                            <li>
+                                <strong>Le modèle "Create-to-Earn"</strong> qui rémunère les créateurs européens pour leurs contenus inspirés de la K-Culture
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="quest-categories">
+        <div class="category-card">
+            <img src="media/nouvelle-ere/Concerts_trans.png" alt="Concerts" loading="lazy">
+        </div>
+        <div class="category-card">
+            <img src="media/nouvelle-ere/Cultures_trans.png" alt="Cultures" loading="lazy">
+        </div>
+        <div class="category-card">
+            <img src="media/nouvelle-ere/Rooftops_trans.png" alt="Rooftops" loading="lazy">
+        </div>
+        <div class="category-card">
+            <img src="media/nouvelle-ere/Restaurants_Trans.png" alt="Restaurants" loading="lazy">
+        </div>
+    </div>
+
+    <section id="kyoolquest" class="kyoolquest-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="eyebrow">Innovation Majeure 2026</span>
+                <h2>KYOOL Quest : Quand la Culture devient une Aventure</h2>
+                <p class="section-intro">
+                    Imaginez une application qui transforme chaque ruelle de Séoul en quête, 
+                    chaque temple en énigme, chaque artiste en personnage d'une histoire que <em>vous</em> écrivez.
+                </p>
+            </div>
+            
+            <div class="quest-tagline">
+                <h3>« Prêt(e) à sortir de l'écran et plonger dans le vrai Séoul ? »</h3>
+                <p>
+                    KYOOL Quest vous emmène en mission dans les coins les plus stylés, 
+                    gourmands, festifs ou secrets de la Corée.
+                </p>
+            </div>
+            
+            <div class="quest-mockup">
+                <img src="media/nouvelle-ere/kyool-quest-mockup.jpg" alt="KYOOL Quest App" loading="lazy">
+            </div>
+            
+            <div class="quest-revolutionary">
+                <h3>Pourquoi KYOOL Quest change tout</h3>
+                
+                <div class="quest-grid">
+                    <div class="quest-card">
+                        <div class="quest-card-image">
+                            <img src="media/nouvelle-ere/Explore_Seoul_ARTS.png" alt="Culture coréenne">
+                        </div>
+                        <div class="quest-card-content">
+                            <h4>Une nouvelle façon d'explorer la culture</h4>
+                            <p>
+                                Parcours géolocalisés, contenus exclusifs, expériences immersives : 
+                                l'art devient accessible, vivant, interactif.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-card-image">
+                            <img src="media/nouvelle-ere/Explore_Seoul_Drama.png" alt="Séoul">
+                        </div>
+                        <div class="quest-card-content">
+                            <h4>Pour ceux qui sont en Corée... et ceux qui rêvent d'y aller</h4>
+                            <p>
+                                Sur place : Transformez votre voyage en aventure gamifiée. 
+                                À distance : Explorez Séoul en VR, participez à des lives.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-card-image">
+                            <img src="media/nouvelle-ere/Rooftops_trans.png" alt="Artistes">
+                        </div>
+                        <div class="quest-card-content">
+                            <h4>Un impact concret pour les artistes coréens</h4>
+                            <p>
+                                KYOOL Quest met en lumière des talents invisibles : 
+                                jeunes créateurs, artistes en situation de handicap, artisans oubliés.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="quest-card">
+                        <div class="quest-card-image">
+                            <img src="media/nouvelle-ere/Explore_Busan.png" alt="Busan">
+                        </div>
+                        <div class="quest-card-content">
+                            <h4>Stimuler le tourisme par l'Art</h4>
+                            <p>
+                                Partenariats avec l'Office du Tourisme Coréen. 
+                                Valorisation des lieux méconnus, quartiers oubliés.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="growth" class="growth-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="eyebrow">Expansion</span>
+                <h2>De 10 000 à 500 000 utilisateurs en 3 ans</h2>
+                <p class="section-intro">
+                    Une croissance ambitieuse, mais réaliste. Basée sur une stratégie d'expansion géographique méthodique.
+                </p>
+            </div>
+            
+            <div class="growth-timeline">
+                <div class="growth-year">
+                    <div class="year-header">
+                        <span class="year-number">2026</span>
+                        <h3>La Fondation</h3>
+                    </div>
+                    
+                    <div class="year-stats">
+                        <div class="stat">
+                            <span class="stat-number">10 000+</span>
+                            <span class="stat-label">Utilisateurs actifs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100 000</span>
+                            <span class="stat-label">Utilisateurs inscrits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1 000+</span>
+                            <span class="stat-label">Contenus exclusifs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-actions">
+                        <ul>
+                            <li>Lancement de la nouvelle plateforme (AVOD, SVOD, VOD)</li>
+                            <li>Production de 15 short-forms</li>
+                            <li>Collaboration avec 10 influenceurs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="growth-year">
+                    <div class="year-header">
+                        <span class="year-number">2027</span>
+                        <h3>L'Accélération</h3>
+                    </div>
+                    
+                    <div class="year-stats">
+                        <div class="stat">
+                            <span class="stat-number">50 000+</span>
+                            <span class="stat-label">Utilisateurs actifs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">300 000</span>
+                            <span class="stat-label">Utilisateurs inscrits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">UK + Québec</span>
+                            <span class="stat-label">Nouveaux marchés</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-actions">
+                        <ul>
+                            <li>Expansion UK & Québec</li>
+                            <li>Production de 30 short-forms</li>
+                            <li>Collaboration avec 20 influenceurs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="growth-year">
+                    <div class="year-header">
+                        <span class="year-number">2028</span>
+                        <h3>La Domination</h3>
+                    </div>
+                    
+                    <div class="year-stats">
+                        <div class="stat">
+                            <span class="stat-number">90 000+</span>
+                            <span class="stat-label">Utilisateurs actifs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500 000</span>
+                            <span class="stat-label">Utilisateurs inscrits</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">7 pays</span>
+                            <span class="stat-label">Présence européenne</span>
+                        </div>
+                    </div>
+                    
+                    <div class="year-actions">
+                        <ul>
+                            <li>Lancement Espagne, Portugal, Italie, Allemagne</li>
+                            <li>Production de 50 short-forms + 10 web dramas</li>
+                            <li>KYOOL devient la référence européenne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="manifesto" class="manifesto-section">
+        <div class="manifesto-hero-image">
+            <img src="media/nouvelle-ere/og-image.jpg" alt="KYOOL Manifesto" loading="lazy">
+        </div>
+        
+        <div class="container">
+            <h2>Notre Manifeste</h2>
+            
+            <div class="manifesto-text">
+                <p>
+                    En 2026, nous ne construisons pas juste une plateforme. <br>
+                    Nous construisons un <strong>mouvement culturel</strong>.
+                </p>
+                
+                <p>
+                    Un mouvement où <strong>consommer devient créer</strong>. <br>
+                    Où <strong>regarder devient explorer</strong>. <br>
+                    Où <strong>l'écran devient un pont</strong> entre l'Europe et la Corée.
+                </p>
+                
+                <p>
+                    <strong>En 2027, KYOOL sera la référence européenne de la culture coréenne.</strong>
+                </p>
+            </div>
+            
+            <h3>Rejoignez le mouvement</h3>
+            
+            <div class="cta-grid">
+                <div class="cta-card">
+                    <h4>Vous êtes un utilisateur ?</h4>
+                    <p>Envie d'explorer Kyool ?</p>
+                    <a href="#" class="btn btn-primary cta-disabled">Bientôt disponible. Restez connectés.</a>
+                </div>
+                
+                <div class="cta-card">
+                    <h4>Vous êtes un créateur ?</h4>
+                    <p>Envie de rejoindre KYOOL AI Studio ?</p>
+                    <a href="#" class="btn btn-secondary cta-disabled">Bientôt disponible. Restez connectés.</a>
+                </div>
+            </div>
+            
+            <p class="quote-final">
+                « 2026–2027 : La Nouvelle Ère KYOOL. <br>
+                L'avenir de la culture coréenne en Europe commence maintenant. <br>
+                <strong>Et il commence avec vous.</strong> »
+            </p>
+        </div>
+        
+        <div class="manifesto-footer-image">
+            <img src="media/nouvelle-ere/hero-bg.jpg" alt="KYOOL Future" loading="lazy">
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+        <div class="footer-left">
+            Pour nous contacter, écrivez-nous à contact@kyool.eu ou utilisez le formulaire de la page Nous contacter.
+        </div>
+        <div class="footer-right">
+            © Kyool — Indépendance Prod — 2026 • Tous droits réservés
+        </div>
+    </footer>
+
+    <div class="scroll-to-top" id="scrollToTop"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        const scrollBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                        scrollBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+  <!-- ✅ ÉTAPE 3 : SCRIPT MENU HAMBURGER -->
+  <script>
+  // Menu hamburger toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      // Empêcher le scroll quand le menu est ouvert
+      if (mainNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  </script>
+</body>
+</html>
