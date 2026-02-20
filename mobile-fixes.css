@@ -1002,3 +1002,212 @@
   }
   
 }
+/* ========================================
+   BOUTONS STORES SUR INDEX.HTML (Mobile)
+   ======================================== */
+
+/* ===========================
+   1. QR CODES PAGE PRINCIPALE
+   =========================== */
+
+@media (max-width: 768px) {
+  
+  /* Cacher les QR codes sur mobile (page principale) */
+  .qr-pack .qr-row .qr {
+    display: none !important;
+  }
+  
+  .qr-pack .qr-row .qr-note {
+    display: none !important;
+  }
+  
+  /* Réduire l'espace du titre */
+  .qr-pack .qr-row .qr-title {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  
+  /* Container pour les boutons (page principale) */
+  .qr-pack .qr-row .mobile-store-buttons-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    width: 100%;
+  }
+  
+  /* Boutons stores (page principale) */
+  .mobile-store-buttons-main .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-store-buttons-main .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .mobile-store-buttons-main .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-main .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .mobile-store-buttons-main .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-main .store-icon {
+    font-size: 22px;
+  }
+  
+  .mobile-store-buttons-main .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+  }
+  
+  .mobile-store-buttons-main .store-text-small {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .mobile-store-buttons-main .store-text-large {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+}
+
+/* ===========================
+   2. QR CODES DANS LA MODALE
+   =========================== */
+
+@media (max-width: 768px) {
+  
+  /* Cacher le texte QR et les QR codes dans la modale */
+  .modal-qr-title {
+    display: none !important;
+  }
+  
+  .modal-qr-codes {
+    display: none !important;
+  }
+  
+  .modal-store-note {
+    display: none !important;
+  }
+  
+  /* Container pour les boutons (modale) */
+  .mobile-store-buttons-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  /* Boutons stores (modale) */
+  .mobile-store-buttons-modal .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-store-buttons-modal .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .mobile-store-buttons-modal .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-modal .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .mobile-store-buttons-modal .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-modal .store-icon {
+    font-size: 24px;
+  }
+  
+  .mobile-store-buttons-modal .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+  }
+  
+  .mobile-store-buttons-modal .store-text-small {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .mobile-store-buttons-modal .store-text-large {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+}
+
+/* ===========================
+   3. DESKTOP (Afficher QR codes)
+   =========================== */
+
+@media (min-width: 769px) {
+  
+  /* Cacher les boutons sur desktop */
+  .mobile-store-buttons-main,
+  .mobile-store-buttons-modal {
+    display: none !important;
+  }
+  
+  /* Afficher les QR codes normalement */
+  .qr-pack .qr-row .qr,
+  .qr-pack .qr-row .qr-note,
+  .modal-qr-title,
+  .modal-qr-codes,
+  .modal-store-note {
+    display: block !important;
+  }
+  
+  .modal-qr-codes {
+    display: flex !important;
+  }
+  
+}
