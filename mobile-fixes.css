@@ -26,7 +26,8 @@
     z-index: 1000;
     background: rgba(10, 22, 40, 0.98);
     backdrop-filter: blur(10px);
-    padding: 12px 0;
+    padding: 4px 0 !important;
+    min-height: 45px !important;
   }
   
   /* AFFICHER LE BOUTON HAMBURGER SUR MOBILE */
@@ -60,7 +61,7 @@
   }
   
   .brand img {
-    max-height: 35px;
+    max-height: 37px;
     width: auto;
   }
   
@@ -81,7 +82,7 @@
   /* Navigation mobile - Hamburger */
   .topbar nav {
     position: fixed;
-    top: 60px;
+    top: 45px;
     left: 0;
     right: 0;
     background: rgba(10, 22, 40, 0.98);
@@ -155,7 +156,7 @@
   
   /* Padding top pour header fixe */
   body {
-    padding-top: 70px;
+    padding-top: 45px;
     padding-bottom: 60px !important; /* FOOTER PLUS PETIT */
   }
   
