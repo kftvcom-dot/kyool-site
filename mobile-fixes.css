@@ -1272,3 +1272,99 @@
   }
   
 }
+/* ========================================
+   CORRECTION 2 : RÉDUIRE HEADER ET FOOTER MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* ===========================
+     HEADER MOBILE COMPACT
+     =========================== */
+  
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 8px 0; /* Réduit de 12px à 8px */
+  }
+  
+  .topbar-inner {
+    padding: 0 15px;
+  }
+  
+  /* Logo plus petit */
+  .brand img {
+    max-height: 30px !important; /* Réduit de 35px à 30px */
+    width: auto;
+  }
+  
+  /* Slogan plus petit */
+  .slogan {
+    font-size: 9px !important; /* Réduit de 10px à 9px */
+    line-height: 1.2;
+  }
+  
+  /* Bouton hamburger compact */
+  .mobile-menu-toggle {
+    width: 36px; /* Réduit de 40px à 36px */
+    height: 36px;
+    padding: 6px;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 22px; /* Réduit de 24px à 22px */
+    height: 2.5px; /* Réduit de 3px à 2.5px */
+    margin: 4px auto; /* Réduit de 5px à 4px */
+  }
+  
+  /* Menu déroulant commence plus haut */
+  .topbar nav {
+    top: 48px; /* Ajusté pour le nouveau header */
+    max-height: calc(100vh - 48px);
+  }
+  
+  /* ===========================
+     FOOTER MOBILE COMPACT
+     =========================== */
+  
+  .bottombar {
+    padding: 12px 0 !important; /* Réduit de 20px à 12px */
+  }
+  
+  .bottombar-inner {
+    padding: 0 15px;
+    font-size: 10px !important; /* Réduit de 12px à 10px */
+    line-height: 1.4 !important;
+    gap: 8px !important; /* Réduit de 12px à 8px */
+  }
+  
+  .bottombar-inner > div {
+    margin: 0;
+  }
+  
+}
+
+/* ===========================
+   AJUSTER L'ESPACE DU BODY
+   =========================== */
+
+@media (max-width: 768px) {
+  
+  /* Compenser le header fixe réduit */
+  body {
+    padding-top: 48px; /* Ajusté pour le nouveau header */
+  }
+  
+  /* Première section après le header */
+  .wrap:first-of-type,
+  section:first-of-type {
+    margin-top: 0;
+    padding-top: 20px;
+  }
+  
+}
