@@ -428,7 +428,9 @@
 * Remonter le titre ET la description pour Documentaire & TV Shows */
 body.category-documentaire .categorie-title,
 body.category-tv-shows .categorie-title,
+body.category-kyool-original .categorie-title,
 body.category-documentaire .categorie-description,
+body.category-kyool-original .categorie-description,
 body.category-tv-shows .categorie-description {
   transform: translateY(-70%);
 }
