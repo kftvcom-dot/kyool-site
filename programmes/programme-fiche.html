@@ -299,5 +299,70 @@
   </footer>
 
   <script src="programme.js?v=6"></script>
+  <!-- ====================================================
+     CORRECTION 3 : HEADER AVEC MENU HAMBURGER
+     À remplacer dans programme-fiche.html
+     ==================================================== -->
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="../index.html" class="brand">
+      <img src="../media/kyool-logo.png" alt="KYOOL"
+           onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+      <div class="brand-text">
+        <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+        <div class="slogan">If it's Kyool, it's cool !</div>
+      </div>
+    </a>
+
+    <!-- ✅ BOUTON HAMBURGER MOBILE -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- ✅ NAVIGATION AVEC ID -->
+    <nav id="mainNav">
+      <a href="../index.html">Home</a>
+      <a href="../histoire.html">Histoire</a>
+      <a href="../programmes.html" aria-current="page">Programmes</a>
+      <a href="../news/news.html">News</a>
+      <a href="../partenaires.html">Partenaires</a>
+      <a href="../nouvelle-ere.html">Nouvelle Ère</a>
+      <a href="../contact.html">Nous contacter</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ✅ SCRIPT MENU HAMBURGER (à ajouter avant </body>) -->
+<script>
+// Menu hamburger toggle
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const mainNav = document.getElementById('mainNav');
+
+if (mobileMenuToggle && mainNav) {
+  mobileMenuToggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+    mainNav.classList.toggle('active');
+    
+    // Empêcher le scroll quand le menu est ouvert
+    if (mainNav.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Fermer le menu quand on clique sur un lien
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      mobileMenuToggle.classList.remove('active');
+      mainNav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+</script>
 </body>
 </html>
