@@ -430,7 +430,7 @@ body.category-documentaire .categorie-title,
 body.category-tv-shows .categorie-title,
 body.category-documentaire .categorie-description,
 body.category-tv-shows .categorie-description {
-  transform: translateY(-50%);
+  transform: translateY(-70%);
 }
 
 /* Mobile : remonter un peu moins */
