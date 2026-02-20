@@ -1368,3 +1368,149 @@
   }
   
 }
+/* ========================================
+   CORRECTION 5 : BOUTONS STORES MOBILE AMÉLIORÉS
+   Programme-fiche uniquement
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* ===========================
+     ORDRE DES SECTIONS MOBILE
+     =========================== */
+  
+  /* S'assurer que les infos sont AVANT le QR code */
+  .programme-fiche-container,
+  .programme-content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Synopsis et résumé */
+  .left-column-programme {
+    order: 1;
+  }
+  
+  /* Informations, équipe, distribution, mots-clés */
+  .right-column-programme {
+    order: 2; /* AVANT le QR code */
+  }
+  
+  /* QR code et boutons stores */
+  .qr-download-block {
+    order: 3; /* EN DERNIER */
+  }
+  
+  /* ===========================
+     BOUTONS STORES PLUS GROS
+     =========================== */
+  
+  /* Container des boutons */
+  .mobile-store-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px !important; /* Augmenté de 12px à 16px */
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 10px; /* Ajouter du padding */
+  }
+  
+  /* Boutons individuels - PLUS GROS */
+  .qr-download-block .mobile-store-buttons .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 24px !important; /* Augmenté de 14px/20px à 16px/24px */
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px !important; /* Augmenté de 16px à 17px */
+    transition: all 0.3s ease;
+    min-height: 60px; /* Hauteur minimum */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Ombre pour plus de relief */
+  }
+  
+  /* Bouton iOS - Style Apple */
+  .qr-download-block .mobile-store-buttons .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  
+  /* Bouton Android - Style Google Play */
+  .qr-download-block .mobile-store-buttons .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  
+  /* Icône plus grosse */
+  .qr-download-block .mobile-store-buttons .store-icon {
+    font-size: 26px !important; /* Augmenté de 24px à 26px */
+    min-width: 26px;
+  }
+  
+  /* Texte du bouton */
+  .qr-download-block .mobile-store-buttons .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-text-small {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-text-large {
+    font-size: 19px !important; /* Augmenté de 18px à 19px */
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  
+  /* ===========================
+     TITRE QR CODE PLUS PETIT
+     =========================== */
+  
+  .qr-download-text {
+    margin-bottom: 10px;
+  }
+  
+  .qr-download-text p {
+    font-size: 15px !important;
+    line-height: 1.5;
+    margin: 6px 0;
+  }
+  
+  /* ===========================
+     ESPACEMENT GÉNÉRAL
+     =========================== */
+  
+  /* Section QR download */
+  .qr-download-block {
+    margin-top: 30px;
+    padding: 20px 15px;
+  }
+  
+  /* Wrapper */
+  .qr-download-wrapper {
+    padding: 0;
+  }
+  
+}
