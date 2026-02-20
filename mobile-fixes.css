@@ -1278,10 +1278,19 @@
 
 @media (max-width: 768px) {
   
+ /* ========================================
+   RÉDUIRE LA HAUTEUR DE LA BARRE NOIRE
+   Header et Footer sur mobile
+   À ajouter/remplacer dans mobile-fixes.css
+   ======================================== */
+
+@media (max-width: 768px) {
+  
   /* ===========================
-     HEADER MOBILE COMPACT
+     HEADER : RÉDUIRE LA BARRE NOIRE
      =========================== */
   
+  /* Réduire la hauteur de la barre noire du header */
   .topbar {
     position: fixed;
     top: 0;
@@ -1290,61 +1299,157 @@
     z-index: 1000;
     background: rgba(10, 22, 40, 0.98);
     backdrop-filter: blur(10px);
-    padding: 8px 0; /* Réduit de 12px à 8px */
+    padding: 4px 0 !important; /* Réduire le padding vertical (était 12px) */
+    min-height: 45px; /* Hauteur minimale de la barre */
   }
   
+  /* Ajuster le container interne */
   .topbar-inner {
+    min-height: 40px;
     padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
-  /* Logo plus petit */
+  /* Logo et brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0; /* Réduire le padding vertical */
+  }
+  
   .brand img {
-    max-height: 30px !important; /* Réduit de 35px à 30px */
+    max-height: 30px !important; /* Logo plus petit */
     width: auto;
   }
   
-  /* Slogan plus petit */
-  .slogan {
-    font-size: 9px !important; /* Réduit de 10px à 9px */
-    line-height: 1.2;
+  .brand-text {
+    display: block !important;
   }
   
-  /* Bouton hamburger compact */
+  .slogan {
+    font-size: 9px !important; /* Texte plus petit */
+    color: var(--kyool-blue);
+    white-space: nowrap;
+    line-height: 1;
+  }
+  
+  /* Bouton hamburger */
   .mobile-menu-toggle {
-    width: 36px; /* Réduit de 40px à 36px */
+    display: block !important;
+    width: 36px;
     height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
     padding: 6px;
+    position: relative;
+    z-index: 1001;
   }
   
   .mobile-menu-toggle span {
-    width: 22px; /* Réduit de 24px à 22px */
-    height: 2.5px; /* Réduit de 3px à 2.5px */
-    margin: 4px auto; /* Réduit de 5px à 4px */
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: white;
+    margin: 4px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
   }
   
-  /* Menu déroulant commence plus haut */
+  /* Menu déroulant : ajuster la position en fonction du header réduit */
   .topbar nav {
-    top: 48px; /* Ajusté pour le nouveau header */
-    max-height: calc(100vh - 48px);
+    position: fixed;
+    top: 45px; /* Ajusté pour le header réduit */
+    left: 0;
+    right: 0;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 45px);
+    overflow-y: auto;
+  }
+  
+  .topbar nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
   
   /* ===========================
-     FOOTER MOBILE COMPACT
+     FOOTER : RÉDUIRE LA BARRE NOIRE
      =========================== */
   
+  /* Réduire la hauteur de la barre noire du footer */
   .bottombar {
-    padding: 12px 0 !important; /* Réduit de 20px à 12px */
+    background: rgba(10, 22, 40, 0.98);
+    padding: 6px 0 !important; /* Réduire le padding vertical (était 12-20px) */
+    min-height: 40px;
   }
   
   .bottombar-inner {
     padding: 0 15px;
-    font-size: 10px !important; /* Réduit de 12px à 10px */
+    font-size: 9px !important; /* Texte plus petit */
     line-height: 1.4 !important;
-    gap: 8px !important; /* Réduit de 12px à 8px */
+    gap: 6px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
   .bottombar-inner > div {
-    margin: 0;
+    margin: 2px 0;
+  }
+  
+  /* ===========================
+     AJUSTER LE CONTENU DES PAGES
+     Pour éviter qu'il soit coupé par le header
+     =========================== */
+  
+  /* Compenser le header fixe réduit */
+  body {
+    padding-top: 45px !important; /* Ajusté pour le header de 45px */
+  }
+  
+  /* Première section après le header : ajouter un peu d'espace */
+  .wrap:first-of-type,
+  section:first-of-type,
+  .programme-nav-top,
+  .page-header,
+  .hero {
+    margin-top: 15px !important; /* Ajouter de l'espace pour éviter que le texte soit coupé */
+    padding-top: 15px !important;
+  }
+  
+  /* Sections spécifiques des pages */
+  .history-section:first-of-type,
+  .partners-section:first-of-type,
+  .contact-section:first-of-type {
+    margin-top: 15px !important;
+    padding-top: 20px !important;
+  }
+  
+}
+
+/* ===========================
+   DESKTOP : Ne rien changer
+   =========================== */
+
+@media (min-width: 769px) {
+  
+  /* Le header et footer gardent leur taille normale sur desktop */
+  .topbar,
+  .bottombar {
+    /* Taille normale */
   }
   
 }
