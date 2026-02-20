@@ -424,15 +424,17 @@
     font-size: 14px !important;
   }
 }
-```
 
----
+/* Remonter le titre pour Documentaire & TV Shows */
+body.category-documentaire .categorie-title,
+body.category-tv-shows .categorie-title {
+  transform: translateY(-50%);
+}
 
-## 🎨 **CE QUE L'UTILISATEUR VERRA :**
-
-**Pendant le chargement :**
-```
-       ⟳  (spinner qui tourne)
-       
-   Chargement des programmes en cours...
-   Veuillez patienter quelques instants
+/* Mobile : remonter un peu moins */
+@media (max-width: 768px) {
+  body.category-documentaire .categorie-title,
+  body.category-tv-shows .categorie-title {
+    transform: translateY(-40%);
+  }
+}
