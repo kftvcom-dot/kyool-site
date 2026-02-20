@@ -205,8 +205,32 @@ function extractYouTubeID(url) {
   if (!url) return null;
   
   const patterns = [
+    // YouTube classique
     /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\?\/]+)/,
-    /youtube\.com\/watch\?.*v=([^&]+)/
+    /youtube\.com\/watch\?.*v=([^&]+)/,
+    // ✅ YouTube Shorts AJOUTÉ
+    /youtube\.com\/shorts\/([^&\?\/]+)/,
+    /youtu\.be\/shorts\/([^&\?\/]+)/
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+  // ===========================
+// FONCTION : Extraire l'ID TikTok
+// ===========================
+
+function extractTikTokID(url) {
+  if (!url) return null;
+  
+  const patterns = [
+    /tiktok\.com\/@[\w.-]+\/video\/(\d+)/,
+    /tiktok\.com\/v\/(\d+)/,
+    /vm\.tiktok\.com\/([\w]+)/,
+    /vt\.tiktok\.com\/([\w]+)/
   ];
   
   for (const pattern of patterns) {
@@ -216,6 +240,95 @@ function extractYouTubeID(url) {
     }
   }
   
+  return null;
+}
+
+// ===========================
+// FONCTION : Extraire l'ID Instagram
+// ===========================
+
+function extractInstagramID(url) {
+  if (!url) return null;
+  
+  const patterns = [
+    /instagram\.com\/reel\/([A-Za-z0-9_-]+)/,
+    /instagram\.com\/p\/([A-Za-z0-9_-]+)/,
+    /instagram\.com\/tv\/([A-Za-z0-9_-]+)/
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+  
+  return null;
+}
+
+// ===========================
+// FONCTION : Extraire l'ID X/Twitter
+// ===========================
+
+function extractTwitterID(url) {
+  if (!url) return null;
+  
+  const patterns = [
+    /(?:twitter\.com|x\.com)\/[\w]+\/status\/(\d+)/,
+    /(?:twitter\.com|x\.com)\/i\/status\/(\d+)/
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) {
+      return match[1];
+    }
+  }
+  
+  return null;
+}
+
+// ===========================
+// FONCTION : Détecter le type de vidéo
+// ===========================
+
+function detectVideoType(url) {
+  if (!url) return null;
+  
+  // YouTube (classique et Shorts)
+  if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    const id = extractYouTubeID(url);
+    if (id) {
+      return { type: 'youtube', id: id };
+    }
+  }
+  
+  // TikTok
+  if (url.includes('tiktok.com')) {
+    const id = extractTikTokID(url);
+    if (id) {
+      return { type: 'tiktok', id: id };
+    }
+  }
+  
+  // Instagram
+  if (url.includes('instagram.com')) {
+    const id = extractInstagramID(url);
+    if (id) {
+      return { type: 'instagram', id: id };
+    }
+  }
+  
+  // X/Twitter
+  if (url.includes('twitter.com') || url.includes('x.com')) {
+    const id = extractTwitterID(url);
+    if (id) {
+      return { type: 'twitter', id: id };
+    }
+  }
+  
+  return null;
+}
   return null;
 }
 
@@ -252,33 +365,35 @@ function displayProgramme() {
   
   document.getElementById('droitsText').textContent = currentProgramme.detenteursDroits || 'Non renseigné';
   
-  const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
-  const youtubeID = extractYouTubeID(trailerUrl);
-  const thumbnailPath = basePath + 'image_1920x1080.jpg';
+const trailerUrl = currentProgramme.bandeAnnonce || 'https://www.youtube.com/@KoreanFrenchTeleVision';
+const videoInfo = detectVideoType(trailerUrl); // ✅ CHANGÉ
+const thumbnailPath = basePath + 'image_1920x1080.jpg';
 
-  if (youtubeID) {
-    document.getElementById('trailerContainer').innerHTML = `
-      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openYouTubeModal('${youtubeID}')">
-        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
+if (videoInfo) { // ✅ CHANGÉ
+  // Vidéo supportée (YouTube, TikTok, Instagram, Twitter)
+  document.getElementById('trailerContainer').innerHTML = `
+    <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="openVideoModal('${videoInfo.type}', '${videoInfo.id}')">
+      <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
       </div>
-    `;
-  } else {
-    document.getElementById('trailerContainer').innerHTML = `
-      <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="window.open('${trailerUrl}', '_blank')">
-        <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
+    </div>
+  `;
+} else {
+  // Lien non supporté - ouvrir dans un nouvel onglet
+  document.getElementById('trailerContainer').innerHTML = `
+    <div class="trailer-thumbnail" style="position: relative; width: 100%; height: 100%; cursor: pointer;" onclick="window.open('${trailerUrl}', '_blank')">
+      <img src="${thumbnailPath}" alt="Bande-annonce" style="width: 100%; height: 100%; object-fit: cover;">
+      <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(255,0,0,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
       </div>
-    `;
-  }
+    </div>
+  `;
+}
   
   document.getElementById('qrProgrammeTitle').textContent = currentProgramme.titre;
   
@@ -301,15 +416,50 @@ function displayProgramme() {
   }
 }
 
-window.openYouTubeModal = function(videoID) {
+// ===========================
+// FONCTION UNIVERSELLE : Ouvrir modale vidéo
+// ===========================
+
+window.openVideoModal = function(videoType, videoID) {
   const modal = document.getElementById('youtubeModal');
   const iframe = document.getElementById('youtubeIframe');
   
-  const embedUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1&fs=1`;
+  let embedUrl = '';
+  
+  switch(videoType) {
+    case 'youtube':
+      // YouTube classique ET Shorts (même embed)
+      embedUrl = `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&modestbranding=1&fs=1`;
+      break;
+      
+    case 'tiktok':
+      // TikTok embed
+      embedUrl = `https://www.tiktok.com/embed/v2/${videoID}`;
+      break;
+      
+    case 'instagram':
+      // Instagram embed
+      embedUrl = `https://www.instagram.com/p/${videoID}/embed`;
+      break;
+      
+    case 'twitter':
+      // X/Twitter - Ouvrir dans nouvel onglet (pas d'embed disponible)
+      window.open(`https://twitter.com/i/status/${videoID}`, '_blank');
+      return; // Ne pas ouvrir la modale
+      
+    default:
+      console.error('Type de vidéo non supporté:', videoType);
+      return;
+  }
   
   iframe.src = embedUrl;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+};
+
+// ✅ GARDER pour compatibilité avec l'ancien code
+window.openYouTubeModal = function(videoID) {
+  window.openVideoModal('youtube', videoID);
 };
 
 function closeYouTubeModal() {
