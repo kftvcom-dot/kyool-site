@@ -1211,3 +1211,64 @@
   }
   
 }
+/* ========================================
+   CORRECTION 1 : LAYOUT PROGRAMME-FICHE DESKTOP
+   ======================================== */
+
+/* Sur DESKTOP : S'assurer que le layout 2 colonnes fonctionne */
+@media (min-width: 769px) {
+  
+  /* Container principal en 2 colonnes */
+  .programme-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    align-items: start;
+  }
+  
+  /* Colonne de gauche : synopsis + résumé + trailer + QR */
+  .left-column-programme {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Colonne de droite : informations */
+  .right-column-programme {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: sticky;
+    top: 100px;
+  }
+  
+  /* QR codes desktop : garder dans la colonne de gauche */
+  .qr-download-block {
+    order: 10; /* À la fin de la colonne de gauche */
+  }
+  
+}
+
+/* Sur MOBILE : Une seule colonne */
+@media (max-width: 768px) {
+  
+  .programme-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Ordre des sections sur mobile */
+  .left-column-programme {
+    order: 1;
+  }
+  
+  .right-column-programme {
+    order: 2; /* Infos AVANT le QR code sur mobile */
+  }
+  
+  .qr-download-block {
+    order: 3; /* QR code en dernier sur mobile */
+  }
+  
+}
