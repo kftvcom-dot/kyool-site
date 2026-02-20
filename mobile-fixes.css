@@ -1,0 +1,585 @@
+/* =====================================================
+   KYOOL - MOBILE FIXES - VERSION FINALE COMPACTE
+   
+   ✅ HEADER COMPACT: 40px de hauteur
+   ✅ FOOTER COMPACT: 35px de hauteur
+   ✅ Logo: 34px
+   ✅ Slogan: 10px
+   
+   À utiliser À LA PLACE de l'ancien mobile-fixes.css
+   ===================================================== */
+
+/* ========================================
+   CACHER LE BOUTON HAMBURGER SUR DESKTOP
+   ======================================== */
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ========================================
+   MOBILE UNIQUEMENT (< 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* ===========================
+     HEADER MOBILE ULTRA-COMPACT
+     =========================== */
+  
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 22, 40, 0.98) !important;
+    backdrop-filter: blur(10px);
+    padding: 2px 0 !important;        /* ✅ TRÈS COMPACT */
+    min-height: 40px !important;      /* ✅ HAUTEUR FIXE */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px !important;
+    min-height: 40px !important;
+  }
+  
+  /* Logo et brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 !important;
+  }
+  
+  /* Logo AGRANDI */
+  .brand img {
+    max-height: 34px !important;      /* ✅ AGRANDI */
+    width: auto;
+    display: block;
+  }
+  
+  /* Slogan VISIBLE et LISIBLE */
+  .brand-text {
+    display: block !important;
+  }
+  
+  .logo-fallback {
+    display: none !important;
+  }
+  
+  .slogan {
+    font-size: 10px !important;       /* ✅ LISIBLE */
+    color: #24C7EB !important;
+    white-space: nowrap;
+    line-height: 1.2;
+    display: block !important;
+  }
+  
+  /* Bouton hamburger COMPACT */
+  .mobile-menu-toggle {
+    display: block !important;
+    width: 36px !important;
+    height: 36px !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px !important;
+    position: relative;
+    z-index: 1001;
+    flex-shrink: 0;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: white;
+    margin: 4px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* Navigation mobile */
+  .topbar nav {
+    position: fixed;
+    top: 40px !important;             /* ✅ AJUSTÉ */
+    left: 0;
+    right: 0;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  
+  .topbar nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .topbar nav a {
+    font-size: 18px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(36, 199, 235, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .topbar nav a:hover {
+    background: rgba(36, 199, 235, 0.2);
+  }
+  
+  .topbar nav a[aria-current="page"] {
+    background: linear-gradient(135deg, #24C7EB 0%, #9D4EDD 100%);
+  }
+  
+  /* ===========================
+     BODY - AJUSTER L'ESPACE
+     =========================== */
+  
+  body {
+    padding-top: 40px !important;     /* ✅ AJUSTÉ pour header 40px */
+    padding-bottom: 35px !important;  /* ✅ AJUSTÉ pour footer 35px */
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* Première section après le header */
+  .wrap:first-of-type,
+  section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 20px !important;
+  }
+  
+  /* ===========================
+     HOME PAGE MOBILE
+     =========================== */
+  
+  .home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 15px;
+  }
+  
+  .left-col {
+    width: 100%;
+    order: 1;
+  }
+  
+  .showcase {
+    width: 100%;
+    order: 2;
+  }
+  
+  /* ===========================
+     TITRE ET TEXTES
+     =========================== */
+  
+  .title {
+    font-size: 32px !important;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .coree {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .subtitle {
+    font-size: 16px !important;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .subtitle br {
+    display: none;
+  }
+  
+  /* ===========================
+     BOUTONS CTA
+     =========================== */
+  
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0;
+  }
+  
+  .cta-row .btn {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* ===========================
+     QR CODES SECTION
+     =========================== */
+  
+  .below-text {
+    margin-top: 30px;
+  }
+  
+  .qr-pack {
+    background: rgba(36, 199, 235, 0.05);
+    padding: 20px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .qr-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .qr-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .qr {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .qr img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .qr-note {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .kyool-heart {
+    display: none;
+  }
+  
+  /* ===========================
+     MASCOTTE
+     =========================== */
+  
+  .mascot-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 15px;
+    background: rgba(36, 199, 235, 0.05);
+    border-radius: 12px;
+  }
+  
+  .mascot-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mascot-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mascot-text {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  /* ===========================
+     VIDÉOS ET VISUELS
+     =========================== */
+  
+  .device-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .frame {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /* Vidéo téléphone */
+  .frame.phone {
+    width: 280px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .frame.phone video {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* Vidéo tablette */
+  .right-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .frame.tablet {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    min-height: auto;
+  }
+  
+  .frame.tablet video {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* Carrousel */
+  .frame.carousel {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    min-height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .frame.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Boutons son */
+  .sound-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* ===========================
+     FOOTER MOBILE ULTRA-COMPACT
+     =========================== */
+  
+  .bottombar {
+    position: fixed !important;       /* ✅ FIXÉ EN BAS */
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(10, 22, 40, 0.98) !important;
+    backdrop-filter: blur(10px);
+    padding: 5px 10px !important;     /* ✅ TRÈS COMPACT */
+    min-height: 35px !important;      /* ✅ HAUTEUR FIXE */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 900;
+  }
+  
+  .bottombar-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;              /* ✅ GAP MINI */
+    text-align: center !important;
+    font-size: 9px !important;        /* ✅ PETIT */
+    line-height: 1.2 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .bottombar-inner > div {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* ===========================
+     BADGE ÉPISODES GRATUITS
+     =========================== */
+  
+  .badge-episodes-gratuits {
+    position: fixed;
+    bottom: 40px !important;          /* ✅ AU-DESSUS DU FOOTER */
+    right: 15px;
+    width: 70px;
+    height: 70px;
+    z-index: 998;
+  }
+  
+  .texte-coreen {
+    font-size: 18px;
+  }
+  
+  .texte-episodes,
+  .texte-gratuits {
+    font-size: 9px;
+  }
+  
+  /* Modal responsive */
+  .modal-episodes-gratuits-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 25px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-episodes-gratuits h2 {
+    font-size: 24px;
+  }
+  
+  .modal-episodes-gratuits p {
+    font-size: 15px;
+  }
+  
+  .modal-kyool-visual img {
+    max-height: 180px;
+  }
+  
+  .modal-qr-codes {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .modal-qr-code img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* ===========================
+     SCROLL ET TOUCHES FINALES
+     =========================== */
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+  
+  .wrap {
+    padding-bottom: 40px;
+  }
+  
+  /* Empêcher le zoom sur les inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  /* Améliorer le tap target */
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Supprimer le highlight au tap */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ========================================
+   MOBILE EXTRA SMALL (< 375px)
+   ======================================== */
+
+@media (max-width: 374px) {
+  .title {
+    font-size: 28px !important;
+  }
+  
+  .subtitle {
+    font-size: 14px !important;
+  }
+  
+  .qr {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .frame.phone {
+    width: 240px;
+  }
+  
+  .badge-episodes-gratuits {
+    width: 60px;
+    height: 60px;
+    bottom: 38px !important;
+  }
+  
+  .slogan {
+    font-size: 9px !important;
+  }
+  
+  .brand img {
+    max-height: 30px !important;
+  }
+  
+  .bottombar-inner {
+    font-size: 8px !important;
+  }
+}
+
+/* ========================================
+   DESKTOP - CACHER LE BOUTON HAMBURGER
+   ======================================== */
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+}
