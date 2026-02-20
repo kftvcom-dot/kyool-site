@@ -124,7 +124,9 @@ async function loadCategorie() {
   document.getElementById('breadcrumbTitle').textContent = currentCategorie.title;
   document.getElementById('categorieTitle').textContent = currentCategorie.title;
   document.getElementById('categorieDescription').textContent = currentCategorie.description;
-  
+  if (catSlug === 'documentaire' || catSlug === 'tv-shows') {
+  document.body.classList.add('category-' + catSlug);
+}
   // Afficher le loader
   showLoader();
   
