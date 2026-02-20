@@ -429,14 +429,14 @@
 body.category-documentaire .categorie-title,
 body.category-tv-shows .categorie-title,
 body.category-kyool-original .categorie-title {
-  transform: translateY(-80%);
+  transform: translateY(-60%);
 }
 
 /* Remonter SEULEMENT la description pour Documentaire, TV Shows & KYOOL Original */
 body.category-documentaire .categorie-description,
 body.category-tv-shows .categorie-description,
 body.category-kyool-original .categorie-description {
-  transform: translateY(-130%);
+  transform: translateY(-120%);
 }
 
 /* Mobile : remonter un peu moins */
