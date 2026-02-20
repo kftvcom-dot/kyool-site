@@ -425,13 +425,17 @@
   }
 }
 
-* Remonter le titre ET la description pour Documentaire & TV Shows */
+/* Remonter SEULEMENT le titre pour Documentaire, TV Shows & KYOOL Original */
 body.category-documentaire .categorie-title,
 body.category-tv-shows .categorie-title,
-body.category-kyool-original .categorie-title,
+body.category-kyool-original .categorie-title {
+  transform: translateY(-110%);
+}
+
+/* Remonter SEULEMENT la description pour Documentaire, TV Shows & KYOOL Original */
 body.category-documentaire .categorie-description,
-body.category-kyool-original .categorie-description,
-body.category-tv-shows .categorie-description {
+body.category-tv-shows .categorie-description,
+body.category-kyool-original .categorie-description {
   transform: translateY(-110%);
 }
 
@@ -439,10 +443,13 @@ body.category-tv-shows .categorie-description {
 @media (max-width: 768px) {
   body.category-documentaire .categorie-title,
   body.category-tv-shows .categorie-title,
-  body.category-kyool-original .categorie-title,
+  body.category-kyool-original .categorie-title {
+    transform: translateY(-70%);
+  }
+  
   body.category-documentaire .categorie-description,
-  body.category-kyool-original .categorie-description,
-  body.category-tv-shows .categorie-description {
-    transform: translateY(-40%);
+  body.category-tv-shows .categorie-description,
+  body.category-kyool-original .categorie-description {
+    transform: translateY(-70%);
   }
 }
