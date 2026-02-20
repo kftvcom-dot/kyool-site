@@ -432,7 +432,7 @@ body.category-kyool-original .categorie-title,
 body.category-documentaire .categorie-description,
 body.category-kyool-original .categorie-description,
 body.category-tv-shows .categorie-description {
-  transform: translateY(-70%);
+  transform: translateY(-110%);
 }
 
 /* Mobile : remonter un peu moins */
