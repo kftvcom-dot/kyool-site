@@ -896,3 +896,109 @@
   }
   
 }
+/* ========================================
+   QR CODES → BOUTONS CLIQUABLES SUR MOBILE
+   ======================================== */
+
+/* Sur MOBILE : Cacher les QR codes et afficher des boutons */
+@media (max-width: 768px) {
+  
+  /* Cacher les QR codes sur mobile */
+  .qr-codes-row {
+    display: none !important;
+  }
+  
+  .qr-stores-note {
+    display: none !important;
+  }
+  
+  /* Container pour les boutons app stores */
+  .mobile-store-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  /* Bouton App Store */
+  .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Bouton iOS - Style Apple */
+  .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.98);
+  }
+  
+  /* Bouton Android - Style Google Play */
+  .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.98);
+  }
+  
+  /* Icônes des stores */
+  .store-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+  
+  /* Texte du bouton */
+  .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+  }
+  
+  .store-text-small {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .store-text-large {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+}
+
+/* Sur DESKTOP : Afficher les QR codes normalement */
+@media (min-width: 769px) {
+  
+  /* Cacher les boutons sur desktop */
+  .mobile-store-buttons {
+    display: none !important;
+  }
+  
+  /* Afficher les QR codes */
+  .qr-codes-row {
+    display: flex !important;
+  }
+  
+}
