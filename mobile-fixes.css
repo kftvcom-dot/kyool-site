@@ -1514,3 +1514,72 @@
   }
   
 }
+/* ========================================
+   NOUVELLE-ÈRE : AJUSTEMENTS IMAGES MOBILE
+   Version simplifiée - À ajouter dans mobile-fixes.css
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* ===========================
+     MODIFICATION 1 : IMAGES EXPLORE
+     Augmenter de 1.5x en hauteur
+     =========================== */
+  
+  /* Images Explore_Seoul_ARTS, Explore_Seoul_Drama, etc. */
+  .quest-card-image {
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .quest-card-image img {
+    width: 100%;
+    /* Augmenter la hauteur de 1.5x */
+    min-height: 350px; /* Au lieu de ~230px par défaut */
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* ===========================
+     MODIFICATION 2 : IMAGES CATEGORIES
+     Réduire de 3x (diviser par 3)
+     =========================== */
+  
+  /* Images Concerts_trans, Cultures_trans, etc. */
+  .quest-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 15px 10px;
+  }
+  
+  .category-card {
+    /* Réduire à 1/3 de la taille */
+    width: 70px !important;
+    height: 70px !important;
+    flex-shrink: 0;
+  }
+  
+  .category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+}
+
+/* ===========================
+   DESKTOP : Ne rien changer
+   =========================== */
+
+@media (min-width: 769px) {
+  
+  /* Les images gardent leur taille originale sur desktop */
+  .quest-card-image img,
+  .category-card img {
+    /* Pas de modification sur desktop */
+  }
+  
+}
