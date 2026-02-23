@@ -1855,3 +1855,108 @@
   }
   
 }
+/* ====================================================
+   CORRECTION RESPONSIVE - ZONE INTERMÉDIAIRE
+   Pour écrans entre 770px et 1024px
+   Corrige le problème de scroll et contenu coupé
+   ==================================================== */
+
+/* Zone problématique : Entre tablette portrait et petit laptop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+  /* Permettre au home-grid de s'adapter à son contenu */
+  .home-grid {
+    min-height: auto !important;
+    padding-bottom: 40px;
+  }
+  
+  /* Réduire les hauteurs fixes pour que tout rentre */
+  .phone {
+    min-height: 450px !important;
+    max-height: 520px;
+  }
+  
+  .tablet,
+  .square {
+    min-height: 180px !important;
+    max-height: 200px;
+  }
+  
+  /* Réduire l'espacement pour gagner de la place */
+  .top-content {
+    margin-top: 100px !important;
+    margin-bottom: 40px !important;
+  }
+  
+  /* S'assurer que le body peut scroller */
+  body {
+    overflow-y: auto !important;
+    overflow-x: hidden;
+  }
+  
+  /* Permettre au showcase de s'adapter */
+  .showcase {
+    max-width: 100% !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Réduire le gap pour compacter le layout */
+  .device-grid {
+    gap: 12px !important;
+  }
+  
+  /* Réduire la mascotte si nécessaire */
+  .mascot-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Zone encore plus étroite : 770px - 900px */
+@media (min-width: 770px) and (max-width: 900px) {
+  
+  /* Encore plus petit pour que tout rentre */
+  .phone {
+    min-height: 380px !important;
+    max-height: 450px;
+  }
+  
+  .tablet,
+  .square {
+    min-height: 150px !important;
+    max-height: 180px;
+  }
+  
+  /* Moins d'espace en haut */
+  .top-content {
+    margin-top: 80px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  /* Réduire la taille des boutons QR/stores */
+  .qr-pack {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+}
+
+/* S'assurer que le scroll fonctionne TOUJOURS */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+/* Correction pour la section wrap */
+.wrap {
+  overflow: visible !important;
+}
+
+section.wrap {
+  overflow: visible !important;
+}
