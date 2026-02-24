@@ -333,6 +333,62 @@
       .vision-banner, .vision-banner img { height: 200px; }
       .manifesto-footer-image { height: 40vh; min-height: 300px; }
     }
+    /* ====================================================
+   BOUTON RETOUR EN HAUT
+   ==================================================== */
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--kyool-blue) 0%, var(--accent-purple) 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(36, 199, 235, 0.3);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  z-index: 9999;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(36, 199, 235, 0.5);
+}
+
+.scroll-to-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .scroll-to-top svg {
+    width: 20px;
+    height: 20px;
+  }
+}
   </style>
 </head>
 
@@ -821,6 +877,34 @@
         });
       });
     })();
-  </script>
+<!-- Bouton retour en haut -->
+<button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<!-- Script du bouton retour en haut -->
+<script>
+// Bouton retour en haut
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+// Afficher/cacher le bouton selon le scroll
+window.addEventListener('scroll', function() {
+  if (window.pageYOffset > 300) {
+    scrollToTopBtn.classList.add('visible');
+  } else {
+    scrollToTopBtn.classList.remove('visible');
+  }
+});
+
+// Remonter en haut au clic
+scrollToTopBtn.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+</script>
 </body>
 </html>
