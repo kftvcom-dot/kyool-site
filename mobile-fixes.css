@@ -73,11 +73,12 @@
     display: none !important;
   }
   
-  .slogan {
-    font-size: 10px !important;
-    color: var(--kyool-blue);
-    white-space: nowrap;
-  }
+ .slogan {
+     font-size: 12px !important;
+     color: var(--kyool-blue);
+     white-space: nowrap;
+     font-weight: 600;
+   }
   
   /* Navigation mobile - Hamburger */
   .topbar nav {
@@ -1330,12 +1331,13 @@
     display: block !important;
   }
   
-  .slogan {
-    font-size: 9px !important; /* Texte plus petit */
-    color: var(--kyool-blue);
-    white-space: nowrap;
-    line-height: 1;
-  }
+   .slogan {
+     font-size: 11px !important;
+     color: var(--kyool-blue);
+     white-space: nowrap;
+     line-height: 1;
+     font-weight: 600;
+   }
   
   /* Bouton hamburger */
   .mobile-menu-toggle {
@@ -1686,10 +1688,10 @@
     max-height: 25px !important; /* Au lieu de 35px */
   }
   
-  /* Slogan plus petit */
-  .slogan {
-    font-size: 8px !important; /* Au lieu de 10px */
-  }
+   .slogan {
+     font-size: 10px !important;
+     font-weight: 600;
+   }
   
   /* Bouton hamburger plus petit */
   .mobile-menu-toggle {
