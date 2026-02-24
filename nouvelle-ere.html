@@ -866,25 +866,26 @@
           });
         });
 
-        document.addEventListener('click', function(e) {
-          if (mainNav.classList.contains('active')) {
-            if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-              mobileMenuToggle.classList.remove('active');
-              mainNav.classList.remove('active');
-              document.body.style.overflow = '';
-            }
+    document.addEventListener('click', function(e) {
+        if (mainNav.classList.contains('active')) {
+          if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mobileMenuToggle.classList.remove('active');
+            mainNav.classList.remove('active');
+            document.body.style.overflow = '';
           }
-        });
+        }
       });
-    })();
-<!-- Bouton retour en haut -->
+    });
+  })();
+</script>
+
+<!-- ✅ Bouton retour en haut -->
 <button id="scrollToTop" class="scroll-to-top" aria-label="Retour en haut">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M12 19V5M5 12l7-7 7 7"/>
   </svg>
 </button>
 
-<!-- Script du bouton retour en haut -->
 <script>
 // Bouton retour en haut
 const scrollToTopBtn = document.getElementById('scrollToTop');
@@ -906,5 +907,6 @@ scrollToTopBtn.addEventListener('click', function() {
   });
 });
 </script>
+
 </body>
 </html>
