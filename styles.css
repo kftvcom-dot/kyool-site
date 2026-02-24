@@ -253,6 +253,103 @@ section{padding: 46px 0 56px;}
   font-size:13px;
   flex-wrap:wrap;
 }
+/* ====================================================
+   CORRECTION RESPONSIVE HOME - ZONE 770px-1024px
+   À AJOUTER DANS styles.css JUSTE AVANT @media (max-width: 1200px) (ligne 257)
+   ==================================================== */
+
+/* Zone problématique : Entre tablette et desktop compact */
+@media (min-width: 770px) and (max-width: 1024px) {
+  
+  /* Permettre au contenu de définir sa hauteur */
+  .home-grid {
+    min-height: auto !important;
+    padding-bottom: 40px;
+  }
+  
+  /* Réduire les hauteurs fixes pour que tout rentre */
+  .phone {
+    min-height: 420px !important;  /* Au lieu de 590px */
+    max-height: 500px;
+  }
+  
+  .tablet,
+  .square {
+    min-height: 170px !important;  /* Au lieu de 220px */
+    max-height: 190px;
+  }
+  
+  /* Réduire l'espacement en haut pour gagner de la place */
+  .top-content {
+    margin-top: 100px !important;  /* Au lieu de 170px */
+    margin-bottom: 40px !important;  /* Au lieu de 70px */
+  }
+  
+  /* Réduire la taille du showcase pour compacter */
+  .showcase {
+    max-width: 700px !important;  /* Au lieu de 840px */
+  }
+  
+  /* Réduire le gap entre les devices */
+  .device-grid {
+    gap: 10px !important;  /* Au lieu de 14px */
+  }
+  
+  /* Compacter la mascotte */
+  .mascot-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* QR codes un peu plus petits */
+  .qr-pack {
+    transform: scale(0.92);
+    transform-origin: left center;
+  }
+}
+
+/* Zone encore plus critique : 770px-900px */
+@media (min-width: 770px) and (max-width: 900px) {
+  
+  /* Encore plus petit */
+  .phone {
+    min-height: 380px !important;  /* Encore plus compact */
+    max-height: 450px;
+  }
+  
+  .tablet,
+  .square {
+    min-height: 150px !important;
+    max-height: 170px;
+  }
+  
+  /* Moins d'espace en haut */
+  .top-content {
+    margin-top: 80px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  /* Showcase encore plus petit */
+  .showcase {
+    max-width: 600px !important;
+  }
+  
+  /* QR codes encore plus petits */
+  .qr-pack {
+    transform: scale(0.85);
+  }
+}
+
+/* S'assurer que le scroll fonctionne TOUJOURS */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
 
 @media (max-width: 1200px){
   .home-grid{grid-template-columns: 1fr; min-height:auto;}
