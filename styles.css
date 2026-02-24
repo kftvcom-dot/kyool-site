@@ -2175,3 +2175,179 @@ section{ padding-bottom: 100px; }
   object-fit: cover;
   border-radius: 14px;
 }
+/* ====================================================
+   SECTION BD - HISTOIRE DE KYOOL
+   À AJOUTER DANS styles.css (à la fin du fichier)
+   ==================================================== */
+
+/* Section BD */
+.story-bd {
+  padding: 60px 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.08));
+}
+
+/* Titre optionnel */
+.bd-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--kyool-blue);
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Grid des 4 images BD - Desktop */
+.bd-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Chaque image BD */
+.bd-item {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(0,0,0,.2);
+}
+
+/* Effet hover sur desktop */
+.bd-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(36,199,235,.4);
+}
+
+/* Image responsive */
+.bd-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* ====================================================
+   RESPONSIVE - RÉDUCTION PROGRESSIVE
+   ==================================================== */
+
+/* Zone 1200px - 1400px : 4 colonnes mais un peu plus petit */
+@media (max-width: 1400px) {
+  .bd-grid {
+    gap: 16px;
+  }
+}
+
+/* Zone 1024px - 1200px : 4 colonnes plus compactes */
+@media (max-width: 1200px) {
+  .bd-grid {
+    gap: 14px;
+  }
+  
+  .bd-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Zone 900px - 1024px : Passer à 2 colonnes */
+@media (max-width: 1024px) {
+  .bd-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 20px;
+  }
+  
+  .story-bd {
+    padding: 50px 0;
+  }
+}
+
+/* Zone 768px - 900px : 2 colonnes plus compactes */
+@media (max-width: 900px) {
+  .bd-grid {
+    gap: 16px;
+  }
+  
+  .bd-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+}
+
+/* Mobile < 768px : 1 colonne */
+@media (max-width: 768px) {
+  .bd-grid {
+    grid-template-columns: 1fr; /* 1 seule colonne */
+    gap: 20px;
+    max-width: 500px; /* Largeur max pour ne pas être trop large */
+    margin: 0 auto; /* Centrer */
+  }
+  
+  .story-bd {
+    padding: 40px 0;
+  }
+  
+  .bd-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  /* Pas d'effet hover sur mobile */
+  .bd-item:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+  }
+}
+
+/* Mobile très petit < 500px : Images encore plus petites */
+@media (max-width: 500px) {
+  .bd-grid {
+    gap: 16px;
+    max-width: 400px; /* Un peu plus petit */
+  }
+  
+  .bd-title {
+    font-size: 20px;
+  }
+}
+
+
+/* ====================================================
+   VARIANTE : SI VOUS NE VOULEZ PAS LE TITRE
+   ==================================================== */
+
+/* Si vous supprimez le titre, décommentez cette ligne pour ajuster l'espacement : */
+/*
+.story-bd {
+  padding-top: 40px;
+}
+*/
+
+
+/* ====================================================
+   NOTES TECHNIQUES
+   ==================================================== */
+
+/*
+1. ALIGNEMENT AUTOMATIQUE :
+   - Le .wrap assure l'alignement avec le texte et les mascottes
+   - grid-template-columns: repeat(4, 1fr) crée 4 colonnes égales
+   - Première image alignée à gauche, dernière à droite
+
+2. RESPONSIVE :
+   - > 1024px : 4 colonnes côte à côte
+   - 768px - 1024px : 2 colonnes (2 en haut, 2 en bas)
+   - < 768px : 1 colonne (les unes sous les autres)
+
+3. TAILLES :
+   - Desktop : ~25% de la largeur chacune (avec gaps)
+   - Tablette : ~50% de la largeur chacune
+   - Mobile : 100% de la largeur, max 500px
+
+4. FORMAT DES IMAGES :
+   - 1080x1350 (portrait) → Le ratio est préservé automatiquement
+   - height: auto assure que le ratio 0.8 est maintenu
+*/
