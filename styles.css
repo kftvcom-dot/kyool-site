@@ -585,13 +585,13 @@ body {
   border-top: 1px solid var(--border);
 }
 .bottombar-inner{
-  height: 56px;
+  height: 28px;  /* ← CHANGÉ : 56px → 28px */
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:10px;
   color: rgba(255,255,255,.68);
-  font-size: 13px;
+  font-size: 12px;  /* ← CHANGÉ : 13px → 12px */
   flex-wrap: wrap;
 }
 
