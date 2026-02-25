@@ -921,17 +921,20 @@ section#build ~ .full-width-image img {
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    (function() {
-      document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
+ <script>
+// Menu hamburger - Version simplifiée mobile-friendly
+(function() {
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
 
-        if (!mobileMenuToggle || !mainNav) return;
+  if (!mobileMenuToggle || !mainNav) {
+    console.warn('Menu hamburger: éléments non trouvés');
+    return;
+  }
 
-        mobileMenuToggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
+  // ✅ PAS de e.preventDefault() - fonctionne sur mobile !
+  mobileMenuToggle.addEventListener('click', function(e) {
+    e.stopPropagation();
           this.classList.toggle('active');
           mainNav.classList.toggle('active');
           document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
