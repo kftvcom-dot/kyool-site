@@ -389,6 +389,29 @@
     height: 20px;
   }
 }
+    /* Images pleine largeur (bord à bord) */
+.full-width-image {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.full-width-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .full-width-image {
+    margin-bottom: 40px;
+  }
+}
+
   </style>
 </head>
 
@@ -455,7 +478,9 @@
         <span class="eyebrow">Notre Vision</span>
         <h2>Réinventer la manière dont l'Europe découvre et vit la culture coréenne</h2>
       </div>
-
+ <div class="full-width-image">
+      <img src="media/nouvelle-ere/vision-cultural-bridge.jpg" alt="Vision culturelle KYOOL" loading="lazy">
+    </div>
       <p class="lead">
         En 2020, nous étions une plateforme de streaming.<br />
         En 2026-2027, nous devenons un écosystème culturel complet.
@@ -581,7 +606,9 @@
           proposer, voter, créer, co-produire, et faire émerger les projets de demain.
         </p>
       </div>
-
+<div class="full-width-image">
+      <img src="media/nouvelle-ere/map-europe-korea-connection.jpg" alt="Connexion Europe-Corée" loading="lazy">
+    </div>
       <div class="grid-2">
         <div class="info-card">
           <div class="media">
