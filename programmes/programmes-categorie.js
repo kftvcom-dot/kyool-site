@@ -249,20 +249,20 @@ function displayProgrammes() {
   }
   
   grid.innerHTML = filteredProgrammes.map(prog => {
-    const imagePath = `../media/fiche-programmes/${prog.id}/image_1500x2100.jpg`;
-    
-    return `
-      <a href="programme-fiche.html?id=${prog.id}" class="programme-card">
-        <div class="programme-image">
-          <img src="${imagePath}" alt="${prog.titre}" onerror="this.src='../media/kyool-mascot.png'">
-          <div class="programme-overlay">
-            <h3 class="programme-title">${prog.titre}</h3>
-            <span class="programme-link">En savoir plus →</span>
-          </div>
+  const imagePath = `../media/fiche-programmes/${escapeHtml(prog.id)}/image_1500x2100.jpg`;
+  
+  return `
+    <a href="programme-fiche.html?id=${escapeHtml(prog.id)}" class="programme-card">
+      <div class="programme-image">
+        <img src="${imagePath}" alt="${escapeHtml(prog.titre)}" onerror="this.src='../media/kyool-mascot.png'">
+        <div class="programme-overlay">
+          <h3 class="programme-title">${escapeHtml(prog.titre)}</h3>
+          <span class="programme-link">En savoir plus →</span>
         </div>
-      </a>
-    `;
-  }).join('');
+      </div>
+    </a>
+  `;
+}).join('');
 }
 
 // Mettre à jour le compteur de résultats
