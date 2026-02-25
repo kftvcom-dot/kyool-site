@@ -45,7 +45,8 @@ function parseFrontmatter(mdText) {
 // Charger l'article
 async function loadArticle() {
   const urlParams = new URLSearchParams(window.location.search);
-  const articleId = urlParams.get('id');
+  const rawId = urlParams.get('id');
+  const articleId = SecurityUtils.validateId(rawId);
   
   if (!articleId) {
     window.location.href = 'news.html';
