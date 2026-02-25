@@ -61,7 +61,21 @@ const CATEGORIES_CONFIG = {
 // Récupérer la catégorie depuis l'URL
 function getCategorieFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('cat');
+  const rawCat = urlParams.get('cat');
+  
+  // ✅ VALIDATION avec whitelist
+  const allowedCategories = [
+    'short-drama-vertical',
+    'drama-web-drama',
+    'film-short-film-animation',
+    'gl-girls-love',
+    'kyool-original',
+    'documentaire',
+    'tv-shows',
+    'bl-boys-love'
+  ];
+  
+  return SecurityUtils.validateCategorySlug(rawCat, allowedCategories);
 }
 
 // Charger l'image hero selon la catégorie
