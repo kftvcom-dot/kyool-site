@@ -356,9 +356,9 @@ function displayMotsCles() {
   
   const cles = motsCles.split(';').map(c => c.trim()).filter(c => c);
   
-  container.innerHTML = cles.map(cle => 
-    `<span class="mot-cle">${cle}</span>`
-  ).join('');
+    container.innerHTML = cles.map(cle => 
+    `<span class="mot-cle">${escapeHtml(cle)}</span>`  // ✅ ÉCHAPPÉ !
+).join('');
 }
 
 function displayRecommendations() {
@@ -402,17 +402,17 @@ function displayRecommendations() {
     return;
   }
   
-  container.innerHTML = recommendations.map(prog => {
-    const imagePath = `../media/fiche-programmes/${prog.slug}/image_1500x2100.jpg`;
-    const firstTheme = prog.themes ? prog.themes.split(';')[0].trim() : '';
-    
-    return `
-      <a href="programme-fiche.html?id=${prog.id}" class="recommendation-card">
-        <div class="recommendation-image">
-          <img src="${imagePath}" alt="${prog.titre}" onerror="this.src='../media/kyool-mascot.png'">
-          <div class="recommendation-overlay">
-            <h3 class="recommendation-title">${prog.titre}</h3>
-            <p class="recommendation-theme">${firstTheme}</p>
+ container.innerHTML = recommendations.map(prog => {
+  const imagePath = `../media/fiche-programmes/${escapeHtml(prog.slug)}/image_1500x2100.jpg`;
+  const firstTheme = prog.themes ? escapeHtml(prog.themes.split(';')[0].trim()) : '';
+  
+  return `
+    <a href="programme-fiche.html?id=${escapeHtml(prog.id)}" class="recommendation-card">
+      <div class="recommendation-image">
+        <img src="${imagePath}" alt="${escapeHtml(prog.titre)}" onerror="this.src='../media/kyool-mascot.png'">
+        <div class="recommendation-overlay">
+          <h3 class="recommendation-title">${escapeHtml(prog.titre)}</h3>
+          <p class="recommendation-theme">${firstTheme}</p>
           </div>
         </div>
       </a>
