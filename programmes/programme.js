@@ -130,7 +130,8 @@ const ALL_PROGRAMME_IDS = [
 // ✅ CORRECTION : Charger le programme depuis l'URL
 async function loadProgramme() {
   const urlParams = new URLSearchParams(window.location.search);
-  const programmeId = urlParams.get('id');
+  const rawId = urlParams.get('id');
+  const programmeId = SecurityUtils.validateId(rawId);
   
   if (!programmeId) {
     window.location.href = '../programmes.html';
