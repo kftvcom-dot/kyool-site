@@ -86,7 +86,7 @@ function displayArticle() {
   document.getElementById('themeTag').textContent = currentArticle.theme;
   
   // Corps : HTML direct depuis article.md
-  document.getElementById('articleBody').innerHTML = currentArticle.body || '';
+  SecurityUtils.setHTMLSafe('articleBody', currentArticle.body || '', true);
 
   // Ancien container promo
   const promo = document.getElementById('promoPhotoContainer');
