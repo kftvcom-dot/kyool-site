@@ -1,0 +1,1224 @@
+/* =====================================================
+   KYOOL - MOBILE FIXES (VERSION NETTOYÉE)
+   ===================================================== */
+
+/* CACHER LE BOUTON HAMBURGER SUR DESKTOP */
+.mobile-menu-toggle {
+  display: none;
+}
+
+/* ===================================================== 
+   MOBILE (max-width: 768px)
+   ===================================================== */
+@media (max-width: 768px) {
+  
+  /* ===========================
+     HEADER MOBILE COMPACT
+     =========================== */
+  
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 6px 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .topbar-inner {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 0 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Logo et brand */
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  
+  .brand img {
+    max-height: 26px !important;
+    width: auto;
+  }
+  
+  .brand-text {
+    display: block !important;
+  }
+  
+  .logo-fallback {
+    display: none !important;
+  }
+  
+  /* SLOGAN - 15px */
+  .slogan {
+    font-size: 15px !important;
+    color: var(--kyool-blue);
+    white-space: nowrap;
+    font-weight: 700 !important;
+    line-height: 1.2;
+  }
+  
+  /* Bouton hamburger */
+  .mobile-menu-toggle {
+    display: block !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    position: relative;
+    z-index: 1001;
+    flex-shrink: 0;
+  }
+  
+  .mobile-menu-toggle span {
+    display: block;
+    width: 20px !important;
+    height: 2.5px !important;
+    background: white;
+    margin: 3.5px auto !important;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  /* Navigation mobile */
+  .topbar nav {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 22, 40, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 20px 15px;
+    gap: 15px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+  
+  .topbar nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .topbar nav a {
+    font-size: 18px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: rgba(36, 199, 235, 0.1);
+    text-align: center;
+  }
+  
+  .topbar nav a[aria-current="page"] {
+    background: linear-gradient(135deg, #24C7EB 0%, #9D4EDD 100%);
+  }
+  
+  /* ===========================
+     FOOTER MOBILE COMPACT
+     Seulement le copyright
+     =========================== */
+  
+  .bottombar {
+    background: rgba(10, 22, 40, 0.98);
+    padding: 8px 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  .bottombar-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+  }
+  
+  /* CACHER le texte "Pour nous contacter..." */
+  .bottombar-inner > div:first-child {
+    display: none !important;
+  }
+  
+  /* AFFICHER SEULEMENT le copyright */
+  .bottombar-inner > div:last-child {
+    display: block !important;
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    margin: 0 !important;
+  }
+  
+  /* ===========================
+     PADDING BODY
+     =========================== */
+  
+  body {
+    padding-top: 50px !important;
+    padding-bottom: 45px !important;
+  }
+  
+  /* ===========================
+     BADGE ÉPISODES GRATUITS
+     Sans texte coréen
+     =========================== */
+  
+  .badge-episodes-gratuits .texte-coreen {
+    display: none !important;
+  }
+  
+  .badge-episodes-gratuits {
+    width: auto !important;
+    min-width: 90px !important;
+    height: auto !important;
+    min-height: 90px !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    bottom: 55px !important;
+  }
+  
+  .badge-episodes-gratuits .texte-episodes {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+  
+  .badge-episodes-gratuits .texte-gratuits {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+  
+  /* ===========================
+     HOME PAGE MOBILE
+     =========================== */
+  
+  .home-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 15px;
+    padding-top: 0 !important;
+  }
+  
+  body > section.wrap:first-of-type {
+    margin-top: -60px !important;
+  }
+  
+  .left-col {
+    width: 100%;
+    order: 1;
+  }
+  
+  .showcase {
+    width: 100%;
+    order: 2;
+  }
+  
+  /* ===========================
+     TITRE ET TEXTES
+     =========================== */
+  
+  .title {
+    font-size: 32px !important;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .coree {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .subtitle {
+    font-size: 16px !important;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .subtitle br {
+    display: none;
+  }
+  
+  /* ===========================
+     BOUTONS CTA
+     =========================== */
+  
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0;
+  }
+  
+  .cta-row .btn {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* ===========================
+     QR CODES SECTION
+     =========================== */
+  
+  .below-text {
+    margin-top: 30px;
+  }
+  
+  .qr-pack {
+    background: rgba(36, 199, 235, 0.05);
+    padding: 20px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .qr-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .qr-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Cacher les QR codes sur mobile */
+  .qr-pack .qr-row .qr {
+    display: none !important;
+  }
+  
+  .qr-pack .qr-row .qr-note {
+    display: none !important;
+  }
+  
+  .qr {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .qr img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .qr-note {
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .kyool-heart {
+    display: none;
+  }
+  
+  /* ===========================
+     MASCOTTE
+     =========================== */
+  
+  .mascot-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 15px;
+    background: rgba(36, 199, 235, 0.05);
+    border-radius: 12px;
+  }
+  
+  .mascot-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .mascot-avatar img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mascot-text {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  /* ===========================
+     VIDÉOS ET VISUELS
+     =========================== */
+  
+  .device-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .frame {
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .frame.phone {
+    width: 280px;
+    height: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .frame.phone video {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .right-col {
+    width: 100%;
+  }
+  
+  .frame.tablet {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .frame.tablet video {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .frame.carousel {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 30px;
+  }
+  
+  .frame.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .sound-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* ===========================
+     BOUTONS STORES MOBILE (Index)
+     =========================== */
+  
+  .qr-pack .qr-row .mobile-store-buttons-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    width: 100%;
+  }
+  
+  .mobile-store-buttons-main .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-store-buttons-main .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .mobile-store-buttons-main .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-main .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .mobile-store-buttons-main .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-main .store-icon {
+    font-size: 22px;
+  }
+  
+  .mobile-store-buttons-main .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+  }
+  
+  .mobile-store-buttons-main .store-text-small {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .mobile-store-buttons-main .store-text-large {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  /* ===========================
+     MODAL ÉPISODES GRATUITS
+     =========================== */
+  
+  .modal-episodes-gratuits-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 25px 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-episodes-gratuits h2 {
+    font-size: 24px;
+  }
+  
+  .modal-episodes-gratuits p {
+    font-size: 15px;
+  }
+  
+  .modal-kyool-visual img {
+    max-height: 180px;
+  }
+  
+  .modal-qr-title {
+    display: none !important;
+  }
+  
+  .modal-qr-codes {
+    display: none !important;
+  }
+  
+  .modal-store-note {
+    display: none !important;
+  }
+  
+  .mobile-store-buttons-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .mobile-store-buttons-modal .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-store-buttons-modal .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .mobile-store-buttons-modal .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-modal .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .mobile-store-buttons-modal .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.98);
+  }
+  
+  .mobile-store-buttons-modal .store-icon {
+    font-size: 24px;
+  }
+  
+  .mobile-store-buttons-modal .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+  }
+  
+  .mobile-store-buttons-modal .store-text-small {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+  
+  .mobile-store-buttons-modal .store-text-large {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* ===========================
+     SCROLL SMOOTH
+     =========================== */
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-y: auto !important;
+  }
+  
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* ===========================
+     PAGE CONTACT
+     =========================== */
+  
+  .contact-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  
+  .offices-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  
+  .office-card {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .map-container {
+    width: 100% !important;
+    height: 250px !important;
+  }
+  
+  .map-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  /* ===========================
+     NOUVELLE ÈRE
+     =========================== */
+  
+  .hero-image-full {
+    height: 28vh !important;
+    min-height: 180px !important;
+    max-height: 240px !important;
+  }
+  
+  .hero-image-full img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  
+  .hero-overlay {
+    padding: 30px 15px !important;
+  }
+  
+  .hero-title {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+  
+  .hero-manifesto {
+    font-size: 15px !important;
+    padding: 15px 10px !important;
+    text-align: center !important;
+  }
+  
+  .manifesto-footer-image {
+    height: 28vh !important;
+    min-height: 180px !important;
+    max-height: 240px !important;
+  }
+  
+  .manifesto-footer-image img {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  
+  .site-footer {
+    padding: 10px 15px !important;
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+    gap: 6px !important;
+  }
+  
+  .footer-left,
+  .footer-right {
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+  }
+  
+  .site-footer a {
+    color: inherit !important;
+    text-decoration: none !important;
+    pointer-events: none !important;
+    cursor: text !important;
+  }
+  
+  .vision-banner {
+    height: 133px !important;
+    min-height: 133px !important;
+  }
+  
+  .vision-banner img {
+    height: 133px !important;
+    object-fit: cover !important;
+  }
+  
+  .quest-card-image {
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .quest-card-image img {
+    width: 100%;
+    min-height: 350px;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .quest-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px 15px;
+    width: 100%;
+  }
+  
+  .category-card {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .category-card img {
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* ===========================
+     NEWS ARTICLE
+     =========================== */
+  
+  .article-nav-top {
+    padding-top: 100px !important;
+    padding-bottom: 15px !important;
+  }
+  
+  .breadcrumb {
+    font-size: 12px !important;
+  }
+  
+  .article-hero-title {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    padding: 0 15px !important;
+  }
+  
+  .article-hero-title br {
+    display: block !important;
+  }
+  
+  .article-hero-overlay {
+    padding: 30px 0 !important;
+  }
+  
+  .share-buttons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    justify-content: center !important;
+  }
+  
+  .share-btn {
+    flex: 1 1 calc(50% - 5px) !important;
+    min-width: 120px !important;
+    max-width: 160px !important;
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+  
+  /* ===========================
+     PARTENAIRES
+     =========================== */
+  
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  
+  .partners-orbit-section {
+    padding: 40px 0 !important;
+    overflow: hidden !important;
+  }
+  
+  .orbit-container {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 280px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+  }
+  
+  .center-mascot {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 10 !important;
+  }
+  
+  .center-mascot img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+  
+  .partner-bubble {
+    position: absolute !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+  }
+  
+  .partner-bubble img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .partner-bubble[style*="--distance: 390px"],
+  .partner-bubble[style*="--distance: 395px"],
+  .partner-bubble[style*="--distance: 400px"],
+  .partner-bubble[style*="--distance: 405px"],
+  .partner-bubble[style*="--distance: 410px"],
+  .partner-bubble[style*="--distance: 415px"],
+  .partner-bubble[style*="--distance: 420px"] {
+    display: none !important;
+  }
+  
+  .partner-bubble[style*="--distance: 280px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 285px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 290px"] { --distance: 100px !important; }
+  .partner-bubble[style*="--distance: 295px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 300px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 305px"] { --distance: 100px !important; }
+  .partner-bubble[style*="--distance: 310px"] { --distance: 90px !important; }
+  .partner-bubble[style*="--distance: 315px"] { --distance: 95px !important; }
+  .partner-bubble[style*="--distance: 320px"] { --distance: 100px !important; }
+  
+  .korean-quote {
+    font-size: 32px !important;
+  }
+  
+  .quote-translation {
+    font-size: 14px !important;
+  }
+  
+  .partners-names {
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+  }
+  
+  /* ===========================
+     PROGRAMME FICHE
+     =========================== */
+  
+  .programme-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .left-column-programme {
+    order: 1;
+  }
+  
+  .right-column-programme {
+    order: 2;
+  }
+  
+  .qr-download-block {
+    order: 3;
+  }
+  
+  .programme-hero-gallery .hero-images-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .programme-hero-gallery .hero-images-grid img:nth-child(3) {
+    display: none !important;
+  }
+  
+  .programme-hero-gallery .hero-images-grid img:nth-child(1),
+  .programme-hero-gallery .hero-images-grid img:nth-child(2) {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .programme-hero-gallery .hero-images-grid img:nth-child(1) {
+    max-height: 200px;
+  }
+  
+  .programme-hero-gallery .hero-images-grid img:nth-child(2) {
+    max-height: 300px;
+  }
+  
+  .qr-download-block .mobile-store-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px !important;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 24px !important;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px !important;
+    transition: all 0.3s ease;
+    min-height: 60px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.ios {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.ios:active {
+    background: #1a1a1a;
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.android {
+    background: #01875f;
+    color: #ffffff;
+    border: 2px solid #01875f;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-button.android:active {
+    background: #016d4c;
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-icon {
+    font-size: 26px !important;
+    min-width: 26px;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-text-small {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.95;
+    letter-spacing: 0.3px;
+  }
+  
+  .qr-download-block .mobile-store-buttons .store-text-large {
+    font-size: 19px !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+  
+  .qr-download-text p {
+    font-size: 15px !important;
+    line-height: 1.5;
+    margin: 6px 0;
+  }
+  
+  .qr-download-block {
+    margin-top: 30px;
+    padding: 20px 15px;
+  }
+  
+  .qr-download-wrapper {
+    padding: 0;
+  }
+  
+}
+
+/* =====================================================
+   MOBILE EXTRA SMALL (< 375px)
+   ===================================================== */
+
+@media (max-width: 374px) {
+  .title {
+    font-size: 28px !important;
+  }
+  
+  .subtitle {
+    font-size: 14px !important;
+  }
+  
+  .qr {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .frame.phone {
+    width: 240px;
+  }
+  
+  .badge-episodes-gratuits {
+    width: 60px;
+    height: 60px;
+    bottom: 50px !important;
+  }
+}
+
+/* =====================================================
+   DESKTOP (min-width: 769px)
+   ===================================================== */
+
+@media (min-width: 769px) {
+  
+  .slogan {
+    font-size: 12px;
+  }
+  
+  .badge-episodes-gratuits .texte-coreen {
+    display: block;
+  }
+  
+  .bottombar-inner > div:first-child {
+    display: block !important;
+  }
+  
+  .mobile-store-buttons-main,
+  .mobile-store-buttons-modal,
+  .qr-download-block .mobile-store-buttons {
+    display: none !important;
+  }
+  
+  .qr-pack .qr-row .qr,
+  .qr-pack .qr-row .qr-note,
+  .modal-qr-title,
+  .modal-qr-codes,
+  .modal-store-note {
+    display: block !important;
+  }
+  
+  .modal-qr-codes {
+    display: flex !important;
+  }
+  
+  .programme-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    align-items: start;
+  }
+  
+  .left-column-programme {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .right-column-programme {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: sticky;
+    top: 100px;
+  }
+  
+  .qr-download-block {
+    order: 10;
+  }
+  
+  .quest-card-image img,
+  .category-card img {
+    /* Pas de modification sur desktop */
+  }
+  
+  .quest-categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .category-card img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .programme-hero-gallery .hero-images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .programme-hero-gallery .hero-images-grid img {
+    display: block !important;
+  }
+  
+  .quest-category-card {
+    min-height: 600px !important;
+  }
+  
+  .quest-category-card img {
+    height: 450px !important;
+    object-fit: cover !important;
+  }
+  
+}
+
+/* =====================================================
+   BOUTONS CTA DÉSACTIVÉS (WEB ET MOBILE)
+   ===================================================== */
+
+.cta-disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7 !important;
+  pointer-events: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.cta-disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
