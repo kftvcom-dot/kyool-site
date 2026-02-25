@@ -1858,18 +1858,18 @@
   
 }
 /* =====================================================
-   CORRECTIONS MOBILE V2 - BONNES CORRECTIONS
+   CORRECTIONS MOBILE V3 - FOOTER SIMPLIFIÉ
    À AJOUTER À LA FIN DE mobile-fixes.css
    ===================================================== */
 
 @media (max-width: 768px) {
   
   /* ===========================
-     ✅ CORRECTION 1 : SLOGAN - 15px (pas trop grand)
+     ✅ CORRECTION 1 : SLOGAN - 14px (bien visible)
      =========================== */
   
   .slogan {
-    font-size: 15px !important; /* Réduit de 2 fois (30px / 2) */
+    font-size: 14px !important;
     color: var(--kyool-blue);
     white-space: nowrap;
     font-weight: 700 !important;
@@ -1878,13 +1878,11 @@
   
   /* ===========================
      ✅ CORRECTION 2 : RÉDUIRE LA HAUTEUR DE LA BARRE HEADER DE 50%
-     Pas le texte, mais la BARRE elle-même !
      =========================== */
   
-  /* BARRE HEADER - Réduire la hauteur totale */
   .topbar {
-    padding: 3px 0 !important; /* Réduit de moitié */
-    min-height: 25px !important; /* Hauteur de barre réduite */
+    padding: 3px 0 !important;
+    min-height: 25px !important;
     max-height: 25px !important;
     height: 25px !important;
   }
@@ -1896,13 +1894,11 @@
     padding: 0 15px !important;
   }
   
-  /* Logo proportionnel à la nouvelle barre */
   .brand img {
     max-height: 20px !important;
     width: auto;
   }
   
-  /* Bouton hamburger proportionnel */
   .mobile-menu-toggle {
     width: 25px !important;
     height: 25px !important;
@@ -1915,57 +1911,72 @@
     margin: 3px auto !important;
   }
   
-  /* Menu déroulant ajusté à la nouvelle hauteur */
   .topbar nav {
     top: 25px !important;
     max-height: calc(100vh - 25px);
   }
   
-  /* Padding du body ajusté */
   body {
     padding-top: 25px !important;
   }
   
   /* ===========================
-     ✅ CORRECTION 3 : RÉDUIRE LA HAUTEUR DE LA BARRE FOOTER DE 50%
-     Pas le texte, mais la BARRE elle-même !
+     ✅ CORRECTION 3 : FOOTER SIMPLIFIÉ
+     Barre compacte (35px) avec SEULEMENT le copyright
      =========================== */
   
-  /* BARRE FOOTER - Réduire la hauteur totale */
+  /* BARRE FOOTER - Compacte */
   .bottombar {
-    padding: 5px 0 !important; /* Réduit de moitié */
-    min-height: 35px !important; /* Hauteur de barre réduite */
+    padding: 8px 0 !important;
+    min-height: 35px !important;
     max-height: 35px !important;
     height: 35px !important;
+    background: rgba(10, 22, 40, 0.98);
   }
   
+  /* Container du footer */
   .bottombar-inner {
-    font-size: 8px !important; /* Texte lisible */
-    line-height: 1.3 !important;
-    gap: 4px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
     padding: 0 10px !important;
+    text-align: center !important;
   }
   
-  .bottombar-inner > div {
-    margin: 2px 0;
+  /* CACHER le texte "Pour nous contacter..." */
+  .bottombar-inner > div:first-child {
+    display: none !important;
   }
   
-  /* Padding du body ajusté pour footer */
+  /* AFFICHER SEULEMENT le copyright */
+  .bottombar-inner > div:last-child {
+    display: block !important;
+    font-size: 10px !important; /* Lisible ! */
+    line-height: 1.3 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  /* Padding du body ajusté */
   body {
     padding-bottom: 35px !important;
   }
   
   /* ===========================
      ✅ CORRECTION 4 : BADGE ÉPISODES GRATUITS
-     Enlever le texte coréen "무료" et garder seulement "ÉPISODES GRATUITS"
+     Sans texte coréen "무료"
      =========================== */
   
-  /* Cacher le texte coréen */
   .badge-episodes-gratuits .texte-coreen {
     display: none !important;
   }
   
-  /* Ajuster la taille du badge sans le texte coréen */
   .badge-episodes-gratuits {
     width: auto !important;
     min-width: 90px !important;
@@ -1979,7 +1990,6 @@
     gap: 2px !important;
   }
   
-  /* Texte "ÉPISODES" */
   .badge-episodes-gratuits .texte-episodes {
     font-size: 13px !important;
     font-weight: 700 !important;
@@ -1987,7 +1997,6 @@
     line-height: 1.1;
   }
   
-  /* Texte "GRATUITS" */
   .badge-episodes-gratuits .texte-gratuits {
     font-size: 13px !important;
     font-weight: 700 !important;
@@ -2003,20 +2012,17 @@
 
 @media (min-width: 769px) {
   
-  /* Le slogan reste normal sur desktop */
   .slogan {
     font-size: 12px;
   }
   
-  /* Badge reste normal avec texte coréen */
   .badge-episodes-gratuits .texte-coreen {
     display: block;
   }
   
-  /* Header et footer taille normale */
-  .topbar,
-  .bottombar {
-    /* Tailles normales sur desktop */
+  /* Footer normal avec les 2 lignes sur desktop */
+  .bottombar-inner > div:first-child {
+    display: block !important;
   }
   
 }
