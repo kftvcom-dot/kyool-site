@@ -1869,7 +1869,7 @@
      =========================== */
   
   .slogan {
-    font-size: 30px !important; /* 12px * 2.5 = 30px */
+    font-size: 14px !important; /* 12px * 2.5 = 30px */
     color: var(--kyool-blue);
     white-space: nowrap;
     font-weight: 700 !important; /* Plus gras */
@@ -1882,16 +1882,16 @@
   
   .topbar {
     padding: 2px 0 !important; /* Réduit de moitié */
-    min-height: 22px !important; /* Réduit de 45px à ~22px */
+    min-height: 18px !important; /* Réduit de 45px à ~22px */
   }
   
   .topbar-inner {
-    min-height: 22px !important;
+    min-height: 18px !important;
   }
   
   /* Logo 50% plus petit */
   .brand img {
-    max-height: 18px !important; /* 37px / 2 ≈ 18px */
+    max-height: 20px !important; /* 37px / 2 ≈ 18px */
   }
   
   /* Bouton hamburger 50% plus petit */
@@ -1923,8 +1923,8 @@
      =========================== */
   
   .bottombar {
-    padding: 4px 0 !important; /* Réduit de moitié */
-    min-height: 30px !important; /* Réduit de 60px à 30px */
+    padding: 2px 0 !important; /* Réduit de moitié */
+    min-height: 22px !important; /* Réduit de 60px à 30px */
   }
   
   .bottombar-inner {
@@ -1991,7 +1991,7 @@
   .fiche-programmes .slogan,
   .categories .slogan,
   .news .slogan {
-    font-size: 25px !important; /* Légèrement plus petit dans les sous-pages */
+    font-size: 14px !important; /* Légèrement plus petit dans les sous-pages */
   }
   
 }
