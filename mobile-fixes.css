@@ -1858,18 +1858,18 @@
   
 }
 /* =====================================================
-   CORRECTIONS MOBILE V3 - FOOTER SIMPLIFIÉ
+   CORRECTIONS MOBILE V4 - HAUTEUR AUTO ADAPTATIVE
    À AJOUTER À LA FIN DE mobile-fixes.css
    ===================================================== */
 
 @media (max-width: 768px) {
   
   /* ===========================
-     ✅ CORRECTION 1 : SLOGAN - 14px (bien visible)
+     ✅ CORRECTION 1 : SLOGAN - 15px (bien visible)
      =========================== */
   
   .slogan {
-    font-size: 14px !important;
+    font-size: 15px !important;
     color: var(--kyool-blue);
     white-space: nowrap;
     font-weight: 700 !important;
@@ -1877,64 +1877,82 @@
   }
   
   /* ===========================
-     ✅ CORRECTION 2 : RÉDUIRE LA HAUTEUR DE LA BARRE HEADER DE 50%
+     ✅ CORRECTION 2 : HEADER COMPACT - HAUTEUR AUTO
+     Padding réduit mais hauteur s'adapte au contenu
      =========================== */
   
   .topbar {
-    padding: 3px 0 !important;
-    min-height: 25px !important;
-    max-height: 25px !important;
-    height: 25px !important;
+    padding: 4px 0 !important; /* Padding réduit */
+    min-height: auto !important; /* Pas de hauteur minimale fixe */
+    max-height: none !important; /* Pas de limite de hauteur */
+    height: auto !important; /* Hauteur automatique */
   }
   
   .topbar-inner {
-    min-height: 25px !important;
-    max-height: 25px !important;
-    height: 25px !important;
+    min-height: auto !important;
+    max-height: none !important;
+    height: auto !important;
     padding: 0 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Logo compact */
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
   }
   
   .brand img {
-    max-height: 20px !important;
+    max-height: 22px !important;
     width: auto;
   }
   
+  /* Slogan bien visible */
+  .brand-text {
+    display: block !important;
+  }
+  
+  /* Bouton hamburger proportionnel */
   .mobile-menu-toggle {
-    width: 25px !important;
-    height: 25px !important;
-    padding: 3px;
+    width: 28px !important;
+    height: 28px !important;
+    padding: 4px;
+    flex-shrink: 0;
   }
   
   .mobile-menu-toggle span {
-    width: 15px !important;
+    width: 18px !important;
     height: 2px !important;
     margin: 3px auto !important;
   }
   
+  /* Menu déroulant */
   .topbar nav {
-    top: 25px !important;
-    max-height: calc(100vh - 25px);
+    top: auto !important; /* Position automatique sous le header */
+    max-height: calc(100vh - 60px);
   }
   
+  /* Padding du body ajusté */
   body {
-    padding-top: 25px !important;
+    padding-top: 50px !important; /* Un peu plus d'espace */
   }
   
   /* ===========================
-     ✅ CORRECTION 3 : FOOTER SIMPLIFIÉ
-     Barre compacte (35px) avec SEULEMENT le copyright
+     ✅ CORRECTION 3 : FOOTER SIMPLIFIÉ - HAUTEUR AUTO
+     Barre compacte avec SEULEMENT le copyright
      =========================== */
   
-  /* BARRE FOOTER - Compacte */
   .bottombar {
-    padding: 8px 0 !important;
-    min-height: 35px !important;
-    max-height: 35px !important;
-    height: 35px !important;
+    padding: 6px 0 !important; /* Padding réduit */
+    min-height: auto !important; /* Pas de hauteur minimale fixe */
+    max-height: none !important; /* Pas de limite de hauteur */
+    height: auto !important; /* Hauteur automatique */
     background: rgba(10, 22, 40, 0.98);
   }
   
-  /* Container du footer */
   .bottombar-inner {
     display: flex !important;
     flex-direction: column !important;
@@ -1950,22 +1968,19 @@
     display: none !important;
   }
   
-  /* AFFICHER SEULEMENT le copyright */
+  /* AFFICHER SEULEMENT le copyright - BIEN VISIBLE */
   .bottombar-inner > div:last-child {
     display: block !important;
-    font-size: 10px !important; /* Lisible ! */
-    line-height: 1.3 !important;
-    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 11px !important; /* Plus gros = plus lisible */
+    line-height: 1.4 !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     margin: 0 !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    padding: 0 !important;
   }
   
   /* Padding du body ajusté */
   body {
-    padding-bottom: 35px !important;
+    padding-bottom: 40px !important;
   }
   
   /* ===========================
@@ -2020,7 +2035,6 @@
     display: block;
   }
   
-  /* Footer normal avec les 2 lignes sur desktop */
   .bottombar-inner > div:first-child {
     display: block !important;
   }
