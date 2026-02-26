@@ -1,0 +1,93 @@
+# ========================================
+# KYOOL - Robots.txt
+# Optimisé pour SEO et indexation
+# ========================================
+
+# Règles par défaut - Autoriser tous les bots
+User-agent: *
+Allow: /
+
+# ========================================
+# SITEMAP
+# ========================================
+Sitemap: https://kyool.eu/sitemap.xml
+
+# ========================================
+# BLOQUER LES RÉPERTOIRES NON PUBLICS
+# ========================================
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_old/
+Disallow: /test/
+Disallow: /backup/
+
+# ========================================
+# AUTORISER LES RESSOURCES PUBLIQUES
+# ========================================
+Allow: /media/
+Allow: /styles.css
+Allow: /mobile-fixes.css
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# ========================================
+# BLOQUER LES PARAMÈTRES DE TRACKING
+# ========================================
+# Éviter l'indexation des URLs avec paramètres de tracking
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /*?ref=*
+
+# ========================================
+# RÈGLES SPÉCIALES PAR BOT
+# ========================================
+
+# Google Bot - Tout autoriser
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /media/
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex - Ralentir un peu
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Baidu - Ralentir davantage
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+# ========================================
+# BLOQUER LES BOTS MALVEILLANTS
+# ========================================
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# ========================================
+# NOTES
+# ========================================
+# Ce fichier permet:
+# - L'indexation complète du site par Google
+# - Le référencement de toutes les pages programmes
+# - La protection des répertoires privés
+# - Le contrôle du crawl par bot
