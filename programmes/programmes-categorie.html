@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- ========================================
+       ✅ GOOGLE TAG MANAGER
+       ======================================== -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5HKBCJVC');</script>
+  <!-- End Google Tag Manager -->
+  
+  <title id="pageTitle">Tous les programmes — KYOOL</title>
+  <meta name="description" content="Découvrez tous les programmes KYOOL par catégorie : short dramas verticaux, K-dramas, films coréens, documentaires et TV shows.">
+  <meta name="keywords" content="catalogue KYOOL, catégories programmes, short drama vertical, k-drama, films coréens">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" id="canonicalURL" href="https://kyool.eu/categories/programmes-categorie.html">
+  
+  <!-- Langue et localisation -->
+  <meta http-equiv="content-language" content="fr">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KYOOL">
+  <meta property="og:title" id="ogTitle" content="Programmes KYOOL">
+  <meta property="og:description" id="ogDescription" content="Découvrez tous les programmes KYOOL par catégorie">
+  <meta property="og:image" id="ogImage" content="">
+  <meta property="og:url" id="ogUrl" content="">
+  <meta property="og:locale" content="fr_FR">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="">
+  <meta name="twitter:description" id="twitterDescription" content="">
+  <meta name="twitter:image" id="twitterImage" content="">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  
+  <link rel="stylesheet" href="../styles.css?v=99">
+  <link rel="stylesheet" href="programmes-categorie.css?v=4">
+  <!-- ✅ ÉTAPE 1 : CSS MOBILE -->
+  <link rel="stylesheet" href="../mobile-fixes.css">
+</head>
+
+<body>
+  
+  <!-- ========================================
+       ✅ GOOGLE TAG MANAGER (noscript)
+       ======================================== -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HKBCJVC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="../index.html" class="brand">
+        <img src="../media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's cool, it's kyool !</div>
+        </div>
+      </a>
+
+      <!-- ✅ ÉTAPE 2A : BOUTON HAMBURGER -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- ✅ ÉTAPE 2B : ID SUR NAV -->
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../histoire.html">Histoire</a>
+        <a href="../programmes.html" aria-current="page">Programmes</a>
+        <a href="../news/news.html">News</a>
+        <a href="../partenaires.html">Partenaires</a>
+        <a href="../nouvelle-ere.html">Nouvelle Ère</a>
+        <a href="../contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO CATÉGORIE AVEC IMAGE PLEINE LARGEUR -->
+  <section class="categorie-hero-fullwidth">
+    <!-- Image de fond hero (chargée dynamiquement selon la catégorie) -->
+    <div class="hero-image-container">
+      <img id="categoryHeroImage" src="" alt="Hero catégorie">
+      <div class="hero-gradient-overlay"></div>
+    </div>
+
+    <!-- Contenu par-dessus l'image -->
+    <div class="wrap hero-content-overlay">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span>›</span>
+        <a href="../programmes.html">Programmes</a>
+        <span>›</span>
+        <span id="breadcrumbTitle">Catégorie</span>
+      </div>
+
+      <!-- Titre + Description -->
+      <div class="hero-text-block">
+        <h1 id="categorieTitle" class="categorie-title">Catégorie</h1>
+        <p id="categorieDescription" class="categorie-description"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARRE DE RECHERCHE -->
+  <section class="search-section">
+    <div class="wrap">
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Rechercher un programme..."
+        >
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </div>
+      <div class="results-count">
+        <span id="resultsCount">0</span> programme(s)
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID DES PROGRAMMES -->
+  <section class="programmes-section">
+    <div class="wrap">
+      <div id="programmesGrid" class="programmes-grid">
+        <!-- Les programmes seront injectés ici par JavaScript -->
+      </div>
+
+      <!-- Message si aucun résultat -->
+      <div id="noResults" class="no-results" style="display: none;">
+        <p>Aucun programme trouvé pour votre recherche.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION BOTTOM -->
+  <section class="navigation-bottom">
+    <div class="wrap">
+      <div class="nav-buttons">
+        <a href="../programmes.html" class="btn">← Retour aux Programmes</a>
+        <a href="../index.html" class="btn secondary">Accueil</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6b5b9b8a2b7b5a296bdafb9b9baf8b3a3">[email&#160;protected]</a></div>
+      <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="programmes-categorie.js?v=4"></script>
+  
+  <!-- ✅ ÉTAPE 3 : SCRIPT MENU HAMBURGER -->
+  <script>
+  // Menu hamburger toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      // Empêcher le scroll quand le menu est ouvert
+      if (mainNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  </script>
+  
+<!-- ========================================
+     ✅ SCHEMA.ORG (DONNÉES STRUCTURÉES)
+     CollectionPage pour la catégorie
+     ======================================== -->
+<script type="application/ld+json" id="categorySchema">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Programmes KYOOL",
+  "description": "Découvrez notre sélection de programmes coréens",
+  "url": "https://kyool.eu/categories/programmes-categorie.html"
+}
+</script>
+
+<!-- ========================================
+     ✅ SCRIPTS DE SÉCURITÉ (OBLIGATOIRES)
+     ======================================== -->
+<!-- DOMPurify -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+<!-- Security Utils -->
+<script src="../security-utils.js"></script>
+
+</body>
+</html>
