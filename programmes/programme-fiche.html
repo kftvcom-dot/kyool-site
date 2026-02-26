@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <!-- ========================================
+       ✅ GOOGLE TAG MANAGER
+       ======================================== -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5HKBCJVC');</script>
+  <!-- End Google Tag Manager -->
+  
+  <title id="programmeTitle">Programme — KYOOL</title>
+  
+  <!-- META SEO (à remplir dynamiquement par JS) -->
+  <meta name="description" id="metaDescription" content="Découvrez ce programme coréen exclusif sur KYOOL">
+  <meta name="keywords" id="metaKeywords" content="k-drama, programme coréen, KYOOL">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" id="canonicalURL" href="https://kyool.eu/fiche-programmes/programme-fiche.html">
+  
+  <meta property="og:type" content="video.tv_show">
+  <meta property="og:site_name" content="KYOOL">
+  <meta property="og:title" id="ogTitle" content="Programme — KYOOL">
+  <meta property="og:description" id="ogDescription" content="">
+  <meta property="og:image" id="ogImage" content="">
+  <meta property="og:url" id="ogUrl" content="">
+  <meta property="og:locale" content="fr_FR">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="">
+  <meta name="twitter:description" id="twitterDescription" content="">
+  <meta name="twitter:image" id="twitterImage" content="">
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  
+  <link rel="stylesheet" href="../styles.css?v=99">
+  <link rel="stylesheet" href="programme-styles.css?v=6">
+  <!-- ✅ AJOUTER LE CSS MOBILE -->
+  <link rel="stylesheet" href="../mobile-fixes.css">
+</head>
+
+<body>
+  
+  <!-- ========================================
+       ✅ GOOGLE TAG MANAGER (noscript)
+       ======================================== -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HKBCJVC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- ✅ HEADER AVEC MENU HAMBURGER -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="../index.html" class="brand">
+        <img src="../media/kyool-logo.png" alt="KYOOL"
+             onerror="this.style.display='none';document.getElementById('logoFallback').style.display='block';">
+        <div class="brand-text">
+          <div id="logoFallback" class="logo-fallback" style="display:none;">Kyool</div>
+          <div class="slogan">If it's cool, it's kyool !</div>
+        </div>
+      </a>
+
+      <!-- ✅ BOUTON HAMBURGER MOBILE -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- ✅ NAVIGATION AVEC ID -->
+      <nav id="mainNav">
+        <a href="../index.html">Home</a>
+        <a href="../histoire.html">Histoire</a>
+        <a href="../programmes.html" aria-current="page">Programmes</a>
+        <a href="../news/news.html">News</a>
+        <a href="../partenaires.html">Partenaires</a>
+        <a href="../nouvelle-ere.html">Nouvelle Ère</a>
+        <a href="../contact.html">Nous contacter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- NAVIGATION BREADCRUMB -->
+  <section class="programme-nav-top">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="../index.html">Accueil</a>
+        <span>›</span>
+        <a href="../programmes.html">Programmes</a>
+        <span>›</span>
+        <span id="breadcrumbTitle">Programme</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO : 3 IMAGES CÔTE À CÔTE -->
+  <section class="programme-hero-gallery">
+    <div class="wrap">
+      <div class="hero-images-grid">
+        <img id="heroImage1" src="" alt="Programme" class="hero-image">
+        <img id="heroImage2" src="" alt="Programme" class="hero-image">
+        <img id="heroImage3" src="" alt="Programme" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- FICHE TECHNIQUE -->
+  <article class="programme-content">
+    <div class="wrap programme-wrap">
+      
+      <!-- Titre principal -->
+      <header class="programme-header">
+        <h1 id="mainTitle" class="programme-title">Titre du programme</h1>
+      </header>
+
+      <!-- ✅ Fiche technique en 2 colonnes - STRUCTURE CORRIGÉE -->
+      <div class="programme-grid">
+        
+        <!-- COLONNE GAUCHE : Informations principales -->
+        <div class="programme-info-main">
+          
+          <div class="info-block">
+            <h2>Synopsis court</h2>
+            <p id="pitchText" class="pitch">...</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Résumé détaillé</h2>
+            <p id="resumeText" class="resume">...</p>
+          </div>
+
+          <div class="info-block">
+            <h2>Bande-annonce</h2>
+            <div id="trailerContainer" class="trailer-container">
+              <!-- La vidéo YouTube sera injectée ici -->
+            </div>
+          </div>
+
+          <!-- BLOC QR CODES / BOUTONS STORES -->
+          <div class="info-block qr-download-block">
+            <div class="qr-download-wrapper">
+              
+              <!-- Contenu principal -->
+              <div class="qr-download-content">
+                <div class="qr-download-text">
+                  <p>Envie de regarder <strong id="qrProgrammeTitle">ce programme</strong> ?</p>
+                  <p>Un scan avec KYOOL, et vous pouvez le regarder dès maintenant.</p>
+                </div>
+                
+                <!-- QR CODES (visible sur DESKTOP uniquement) -->
+                <div class="qr-codes-row">
+                  <div class="qr-code-item">
+                    <img src="../media/qr-ios.png" alt="QR Code iOS App Store">
+                    <span>iOS</span>
+                  </div>
+                  <div class="qr-code-item">
+                    <img src="../media/qr-android.png" alt="QR Code Android Google Play">
+                    <span>Android</span>
+                  </div>
+                </div>
+                <div class="qr-stores-note">App Store & Google Play</div>
+                
+                <!-- BOUTONS STORES (visible sur MOBILE uniquement) -->
+                <div class="mobile-store-buttons">
+                  
+                  <!-- Bouton App Store iOS -->
+                  <a href="https://apps.apple.com/fr/app/kyool-short-dramas-films/id6758418842" 
+                     class="store-button ios" 
+                     target="_blank" 
+                     rel="noopener">
+                    <span class="store-icon">🍎</span>
+                    <span class="store-text">
+                      <span class="store-text-small">Télécharger sur</span>
+                      <span class="store-text-large">App Store</span>
+                    </span>
+                  </a>
+                  
+                  <!-- Bouton Google Play Android -->
+                  <a href="https://play.google.com/store/apps/details?id=com.codecrayon.kyool" 
+                     class="store-button android" 
+                     target="_blank" 
+                     rel="noopener">
+                    <span class="store-icon">📱</span>
+                    <span class="store-text">
+                      <span class="store-text-small">Télécharger sur</span>
+                      <span class="store-text-large">Google Play</span>
+                    </span>
+                  </a>
+                  
+                </div>
+                
+              </div>
+
+              <!-- Tampon gratuit style coréen -->
+              <div class="korean-stamp">
+                <div class="stamp-inner">
+                  <div class="stamp-text-kr">무료</div>
+                  <div class="stamp-text-fr">ÉPISODES</div>
+                  <div class="stamp-text-fr">GRATUITS</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <!-- ✅ FIN DE LA COLONNE GAUCHE (balise manquante corrigée !) -->
+        
+        <!-- COLONNE DROITE : Métadonnées -->
+        <div class="programme-info-meta">
+          
+          <div class="meta-card">
+            <h3>Informations</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Titre original</span>
+              <span id="titreOriginalText" class="meta-value" style="font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-size: 16px;">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Thèmes</span>
+              <span id="themesText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Langue originale</span>
+              <span id="langueText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Sous-titres</span>
+              <span id="sousTitresText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Année de diffusion</span>
+              <span id="anneeDiffusionText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Public</span>
+              <span id="publicText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Équipe créative</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Réalisateur</span>
+              <span id="realisateurText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Scénariste</span>
+              <span id="scenaristeText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Producteur</span>
+              <span id="producteurText" class="meta-value">...</span>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Casting</span>
+              <span id="castingText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Distribution</h3>
+            
+            <div class="meta-item">
+              <span class="meta-label">Détenteurs des droits de diffusion</span>
+              <span id="droitsText" class="meta-value">...</span>
+            </div>
+
+          </div>
+
+          <div class="meta-card">
+            <h3>Mots-clés</h3>
+            
+            <div id="motsClesContainer" class="mots-cles">
+              <!-- Les mots-clés seront injectés ici -->
+            </div>
+
+          </div>
+
+        </div>
+        <!-- ✅ FIN DE LA COLONNE DROITE -->
+
+      </div>
+      <!-- ✅ FIN DU GRID 2 COLONNES -->
+
+    </div>
+  </article>
+
+  <!-- VOUS POURRIEZ AUSSI AIMER -->
+  <section class="recommendations-section">
+    <div class="wrap">
+      <h2 class="section-title-center">Vous pourriez aussi aimer</h2>
+      <div id="recommendationsGrid" class="recommendations-grid">
+        <!-- Les recommandations seront injectées par JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION BOTTOM -->
+  <section class="programme-nav-bottom">
+    <div class="wrap">
+      <div class="nav-actions">
+        <a href="../index.html" class="btn btn-primary">Accueil</a>
+        <div id="exploreCategoryButton"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL YOUTUBE -->
+  <div id="youtubeModal" class="youtube-modal">
+    <div class="youtube-modal-overlay"></div>
+    <div class="youtube-modal-content">
+      <button class="youtube-modal-close" aria-label="Fermer">&times;</button>
+      <div class="youtube-modal-player">
+        <iframe id="youtubeIframe" 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bottombar">
+    <div class="wrap bottombar-inner">
+      <div>Pour nous contacter, écrivez-nous à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9bab6b7adb8baad99b2a0b6b6b5f7bcac">[email&#160;protected]</a></div>
+      <div>© Kyool — Indépendance Prod — 2026 • Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="programme.js?v=6"></script>
+  
+  <!-- ✅ SCRIPT MENU HAMBURGER -->
+  <script>
+  // Menu hamburger toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const mainNav = document.getElementById('mainNav');
+
+  if (mobileMenuToggle && mainNav) {
+    mobileMenuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      mainNav.classList.toggle('active');
+      
+      // Empêcher le scroll quand le menu est ouvert
+      if (mainNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        mobileMenuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+  </script>
+
+<!-- ========================================
+     ✅ SCHEMA.ORG (DONNÉES STRUCTURÉES)
+     Sera complété dynamiquement par JS
+     ======================================== -->
+<script type="application/ld+json" id="programmeSchema">
+{
+  "@context": "https://schema.org",
+  "@type": "TVSeries",
+  "name": "Programme KYOOL",
+  "description": "Programme coréen disponible sur KYOOL"
+}
+</script>
+
+<!-- ========================================
+     ✅ EVENT TRACKING POUR GOOGLE ADS
+     Track les clics sur les boutons stores
+     ======================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Track les clics sur App Store
+  document.querySelectorAll('.store-button.ios').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          'event': 'app_download_click',
+          'store_type': 'ios',
+          'page_location': window.location.pathname,
+          'programme_id': new URLSearchParams(window.location.search).get('id')
+        });
+      }
+    });
+  });
+  
+  // Track les clics sur Google Play
+  document.querySelectorAll('.store-button.android').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof dataLayer !== 'undefined') {
+        dataLayer.push({
+          'event': 'app_download_click',
+          'store_type': 'android',
+          'page_location': window.location.pathname,
+          'programme_id': new URLSearchParams(window.location.search).get('id')
+        });
+      }
+    });
+  });
+});
+</script>
+
+<!-- ========================================
+     ✅ SCRIPTS DE SÉCURITÉ (OBLIGATOIRES)
+     =======
